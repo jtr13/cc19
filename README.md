@@ -25,11 +25,11 @@ If you are planning to have your bookdown page featured on the class bookdown. P
       
       \# \<Your project name\>
 
-Note that is a whitespace between ‘#’ and your project name. Otherwise, your page will not be captured by the class index page.
+Note that there is a whitespace between ‘#’ and a project name. Otherwise, the file will not be captured by the class index file.
 
-2. The second line of the text you add will be the only line with a single ‘#’. If there are parts in the document that use ‘#’s to bold the text, the number of ‘#’s must be greater than 1. 
+2. The second line of the text you add **must** be the only line with a single ‘#’. If there are parts in the document that use ‘#’s to bold the text, the number of ‘#’s must be greater than 1. 
 
-3. When the git repo is initiated, there will be a README file outside in the same directory as the folder you have created. DO NOT ADD THIS README FILE when you commit. It will create a conflict and we will not be able to merge your work into the class repo. 
+3. When the git repo is initiated, there will be a README file that lives outside the project folder you have created. **DO NOT ADD THIS README FILE when you commit.** It will create a conflict and we will not be able to merge your work into the class repo. 
 
 4. Make sure your work only exists in your folder and the folder is the only thing you add and commit.
 
