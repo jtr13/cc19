@@ -22,7 +22,7 @@ If you are planning to have your bookdown page featured on the class bookdown. P
 1. Replace the YAML header with the following:
 
       \<blank line\>
-      # \<Your project name\>
+      \# \<Your project name\>
 
 Note that is a whitespace between ‘#’ and your project name. Otherwise, your page will not be captured by the class index page.
 
