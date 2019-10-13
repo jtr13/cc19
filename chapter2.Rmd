@@ -1,8 +1,0 @@
-
-# Chapter 2
-
-This is the second chapter of the book.
-
-## Subsection
-
-Don't you see this is a subsection. Nothing is interesting.
