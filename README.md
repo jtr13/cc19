@@ -1,7 +1,8 @@
 # cc19
 Community contributions for STAT GR 5702 Fall 2019
 
-This is an amazing class.
+The class projects will be collected as a bookdown page. Similar to edav.info (https://edav.info/), the chapters on the left panel link to each of the student projects.
+
 
 ## Setup:
 
@@ -9,32 +10,24 @@ This is an amazing class.
 
 2. Clone/download the repo to your local computers.
 
-3. Create and name a folder using your uni. If you are working as a team, the name is a concatenation of your and your partner's uni’s. 
-
-      For example, if your uni is xx1234 and your partner’s is yy4321, name the folder xx1234yy4321. This is the folder where ALL OF YOUR WORK will be in. Only one folder is needed for a team.
+3. Create a folder (one is needed for a project) and give it a concise, descriptive name. For instance, name it `base_r_ggplot_graph` or sonething similar if your work is about constrasting/working with base R graphics and GGplot graphics. **No whitespace in the name.** 
 
 
 
 ## Important:
 
-If you are planning to have your bookdown page featured on the class bookdown. Please make the following modification on your rmd file before submission:
+1. Please also create your project page in .rmd file with the following modification before submission:
 
-1. Replace the YAML header with the following:
+* Remove the YAML header
+* Add a blank line as the first line [not sure why but it does not work otherwise]
+* Put your project name in the second line. This does not have to be exact same as the project folder name. Using one \# to indicate that it is a header. One \# must not be used else where in the document. If you need to bold the text, use more than one \#s. For example,
 
-      \<blank line\>
-      
-      \# \<Your project name\>
+      # Base R graphics vs. GGplot graphics
 
-Note that there is a whitespace between ‘#’ and a project name. Otherwise, the file will not be captured by the class index file.
-
-2. The second line of the text that part 1. asks you to add **must** be the only line with a single ‘#’. If there are parts in the document that need ‘#’s to bold the text, use more than 1 ‘#’s. 
-
-3. When the git repo is initiated, there will be a README file that lives outside the project folder you have created. **DO NOT ADD THIS README FILE when you commit.** It will create a conflict and we will not be able to merge your work into the class repo. 
-
-4. Make sure your work only exists in your folder and the folder is the only thing you add and commit.
+2. Do not make any changes to the README file outside your folder. If you do accidentally, do not commit those changes.
 
 
 
 ## Submission:
 
-When you are ready to submit your project, push your finalized work to your remote repo. And follow creating a pull request from a fork (https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If there is no conflict, we will approve the merge and you are all set.
+When you are ready to submit your project, push your project folder to your remote repo. And follow *creating a pull request from a fork* (https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If there is no conflict, it will be merge to the class repo.
