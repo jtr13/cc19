@@ -69,9 +69,7 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intructions</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#setup"><i class="fa fa-check"></i><b>1.1</b> Setup</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#important"><i class="fa fa-check"></i><b>1.2</b> Important</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#submission"><i class="fa fa-check"></i><b>1.3</b> Submission</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.1</b> Submission Steps</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample Project</a></li>
 <li class="divider"></li>
@@ -101,32 +99,24 @@
 <div id="intructions" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Intructions</h1>
 <p>This chapter gives you all the information you need to upload your community contribution.</p>
-<div id="setup" class="section level2">
-<h2><span class="header-section-number">1.1</span> Setup</h2>
+<div id="submission-steps" class="section level2">
+<h2><span class="header-section-number">1.1</span> Submission Steps</h2>
 <ol style="list-style-type: decimal">
-<li><p>Fork <a href="https://github.com/jtr13/cc19">cc19 repo</a>. More information about how to achieve this on <a href="https://edav.info/github.html#branching-someone-elses-repo" class="uri">https://edav.info/github.html#branching-someone-elses-repo</a>.</p></li>
-<li><p>Clone/download the repo to your local computers.</p></li>
-<li><p>Create a folder (one is needed for a project) and give it a concise, descriptive name. For instance, name it <code>base_r_ggplot_graph</code> or sonething similar if your work is about constrasting/working with base R graphics and GGplot graphics. <strong>No whitespace in the name.</strong></p></li>
-</ol>
-</div>
-<div id="important" class="section level2">
-<h2><span class="header-section-number">1.2</span> Important</h2>
+<li>Fork <a href="https://github.com/jtr13/cc19">cc19 repo (this repo)</a>. More information about how to achieve this, please refer to <a href="https://edav.info/github.html#branching-someone-elses-repo">this tutorial</a>.</li>
+<li>Clone/download the repo to your local computer.</li>
+<li>Give your project a concise, descriptive name. For instance, name it <code>base_r_ggplot_graph</code> or sonething similar if your work is about constrasting/working with base R graphics and GGplot graphics. Your project name should be joined with underscores, i.e. <strong>No whitespace in the name.</strong> We will use <code>sample_project</code> as the name in this tutorial.</li>
+<li>Create a <code>Rmd</code> file, named after your project name. In our example, it should be <code>sample_project.Rmd</code>. Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on how you should organize this file:
 <ol style="list-style-type: decimal">
-<li>Please also create your project page in .rmd file with the following modification before submission:</li>
+<li>No YAML header</li>
+<li>The first line should be your project name (this does not have to be exact same as the project folder name). Use one # to indicate that it is a header. One # header must not be used anywhere else in the document. For example:</li>
+<li>The second line should be blank.</li>
 </ol>
-<ul>
-<li>Remove the YAML header</li>
-<li><p>Put your project name in the first line. This does not have to be exact same as the project folder name. Using one # to indicate that it is a header. One # must not be used else where in the document. If you need to bold the text, use more than one #s. For example,</p>
-<pre><code># Base R graphics vs. GGplot graphics</code></pre></li>
-<li><p>Leave the second line empty</p></li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Do not make any changes outside your folder. If you do accidentally, do not commit those changes.</li>
+<pre><code> # Base R graphics vs. GGplot graphics
+
+ Your content starts here. </code></pre></li>
+<li>[OPTIONAL] If you have other resources (such as images) included in your project, create a folder under <code>resources/</code>. In our example, it should be <code>resources/sample_project/</code>. Put the resources files here.</li>
+<li>When you are ready to submit your project, push your project folder to your remote repo. Follow <a href="https://help.github.com/en/articles/creating-a-pull-request-from-a-fork">this tutorial</a> to create a pull request. If you follow the steps, we will merge it to the master branch.</li>
 </ol>
-</div>
-<div id="submission" class="section level2">
-<h2><span class="header-section-number">1.3</span> Submission</h2>
-<p>When you are ready to submit your project, push your project folder to your remote repo. And follow <em>creating a pull request from a fork</em> (<a href="https://help.github.com/en/articles/creating-a-pull-request-from-a-fork" class="uri">https://help.github.com/en/articles/creating-a-pull-request-from-a-fork</a>) to create a pull request. If there is no conflict, it will be merge to the class repo.</p>
 
 </div>
 </div>

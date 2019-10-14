@@ -1,33 +1,21 @@
 # cc19 [IT'S NOT DONE YET. DO NOT FORK NOW]
 Community contributions for STAT GR 5702 Fall 2019
 
-The class projects will be collected as a bookdown page. Similar to edav.info (https://edav.info/), the chapters on the left panel link to each of the student projects.
+The class projects will be collected as a bookdown page. You can visit [this link](https://skyetim.github.io/edav_community_contribution_dev) to see how it will look like. 
 
+## Submission Steps
 
-## Setup:
+1. Fork [cc19 repo (this repo)](https://github.com/jtr13/cc19). More information about how to achieve this, please refer to [this tutorial](https://edav.info/github.html#branching-someone-elses-repo).
+2. Clone/download the repo to your local computer.
+3. Give your project a concise, descriptive name. For instance, name it `base_r_ggplot_graph` or sonething similar if your work is about constrasting/working with base R graphics and GGplot graphics. Your project name should be joined with underscores, i.e. **No whitespace in the name.** We will use `sample_project` as the name in this tutorial. 
+4. Create a `Rmd` file, named after your project name. In our example, it should be `sample_project.Rmd`. Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on how you should organize this file: 
+    1. No YAML header
+    2. The first line should be your project name (this does not have to be exact same as the project folder name). Use one \# to indicate that it is a header. One \# header must not be used anywhere else in the document. For example:
+    3. The second line should be blank. 
+   ```
+    # Base R graphics vs. GGplot graphics
 
-1. Fork the cc19 repo (at https://github.com/jtr13/cc19). More information about how to achieve this on https://edav.info/github.html#branching-someone-elses-repo.
-
-2. Clone/download the repo to your local computers.
-
-3. Create a folder (one is needed for a project) and give it a concise, descriptive name. For instance, name it `base_r_ggplot_graph` or sonething similar if your work is about constrasting/working with base R graphics and GGplot graphics. **No whitespace in the name.** 
-
-
-
-## Important:
-
-1. Please also create your project page in .rmd file with the following modification before submission:
-
-* Remove the YAML header
-* Add a blank line as the first line [not sure why but it does not work otherwise]
-* Put your project name in the second line. This does not have to be exact same as the project folder name. Using one \# to indicate that it is a header. One \# must not be used else where in the document. If you need to bold the text, use more than one \#s. For example,
-
-      # Base R graphics vs. GGplot graphics
-
-2. Do not make any changes to the README file outside your folder. If you do accidentally, do not commit those changes.
-
-
-
-## Submission:
-
-When you are ready to submit your project, push your project folder to your remote repo. And follow *creating a pull request from a fork* (https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If there is no conflict, it will be merge to the class repo.
+    Your content starts here. 
+   ```
+5. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it should be `resources/sample_project/`. Put the resources files here. 
+6. When you are ready to submit your project, push your project folder to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If you follow the steps, we will merge it to the master branch. 
