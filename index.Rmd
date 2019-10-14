@@ -1,7 +1,16 @@
-# cc19 [IT'S NOT DONE YET. DO NOT FORK NOW]
-Community contributions for STAT GR 5702 Fall 2019
+---
+title: "Community contributions for EDAV Fall 2019" 
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+github-repo: skyetim/edav_community_contribution_dev
+description: "This book will hold all community contributions for STAT GR 5702 Fall 2019 at Columbia University"
+---
 
-The class projects will be collected as a bookdown page. You can visit [this link](https://skyetim.github.io/edav_community_contribution_dev) to see how it will look like. 
+# Intructions
+This chapter gives you all the information you need to upload your community contribution. 
+
 
 ## Submission Steps
 
