@@ -1,7 +1,7 @@
 # cc19 [IT'S NOT DONE YET. DO NOT FORK NOW]
 Community contributions for STAT GR 5702 Fall 2019
 
-The class projects will be collected as a bookdown page. You can visit [this link](https://skyetim.github.io/edav_community_contribution_dev) to see how it will look like. 
+The class projects will be collected as a bookdown page. You can visit [this link](https://jtr13.github.io/cc19/) to see how it will look like. 
 
 ## Submission Steps
 
