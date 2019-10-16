@@ -5,7 +5,7 @@ The class projects will be collected as a bookdown page. You can visit [this lin
 
 ## Submission Steps
 
-1. Fork [cc19 repo (this repo)](https://github.com/jtr13/cc19). More information about how to achieve this, please refer to [this tutorial](https://edav.info/github.html#branching-someone-elses-repo).
+1. Fork [cc19 repo (this repo)](https://github.com/jtr13/cc19). For more information on how to achieve this, please refer to [this tutorial](https://edav.info/github.html#branching-someone-elses-repo).
 2. Clone/download the repo to your local computer.
 3. Give your project a concise, descriptive name. For instance, name it `base_r_ggplot_graph` or sonething similar if your work is about constrasting/working with base R graphics and GGplot graphics. Your project name should be joined with underscores, i.e. **No whitespace in the name.** We will use `sample_project` as the name in this tutorial. 
 4. Create a `Rmd` file, named after your project name. In our example, it should be `sample_project.Rmd`. Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on how you should organize this file: 
