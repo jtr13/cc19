@@ -9,8 +9,8 @@ The class projects will be collected as a bookdown page. You can visit [this lin
 3. Clone/download the fork repo to your local computer.
 4. Create a `Rmd` file, named after your project name. In our example, it should be `sample_project.Rmd`. Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on this file: 
     1. No YAML header
-    2. The first line should be your project name (this does not have to be exact same as the project folder name). Use one \# to indicate that it is a header. One \# header must not be used anywhere else in the document. For example:
-    3. The second line should be blank. 
+    2. The first line should be your project name (this does not have to be exact same as the project folder name). Use one \# to indicate that it is a header. One \# header must not be used anywhere else in the document.
+    3. The second line should be blank. For example:
    ```
     # Base R graphics vs. GGplot graphics
 
