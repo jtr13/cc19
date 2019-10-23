@@ -3,8 +3,6 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">CC for EDAV 2019</a></li>
+        <li><a href="index.html"><b>edav.info/</b></a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">STAT GR 5702 Fall 2019</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
-    download: ["pdf", "epub"]
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
