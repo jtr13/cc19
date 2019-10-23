@@ -70,6 +70,10 @@
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intructions</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.1</b> Submission Steps</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.2</b> FAQ</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.2.1</b> What should I expect after creating a pull request?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.2.2</b> Other questions</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample Project</a></li>
 <li class="divider"></li>
@@ -105,7 +109,7 @@
 <li>Give your project a concise, descriptive name. For instance, name it <code>base_r_ggplot_graph</code> or something similar if your work is about constrasting/working with base R graphics and GGplot graphics. Your project name should be words only and joined with underscores, i.e. <strong>No whitespace in the name.</strong> We will use <code>sample_project</code> as the project name in this tutorial.</li>
 <li>Fork <a href="https://github.com/jtr13/cc19">cc19 repo (this repo)</a> and create your own branch named as the project name given in step 1, which in our case, is <code>sample_project</code>. For more information on Github workflow, please refer to <a href="https://edav.info/github.html#branching-someone-elses-repo">this tutorial</a>.</li>
 <li>Clone/download the fork repo to your local computer.</li>
-<li>Create a <code>Rmd</code> file, named after your project name. In our example, it should be <code>sample_project.Rmd</code>. Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on how you should organize this file:
+<li>Create a <code>Rmd</code> file, named after your project name. In our example, it should be <code>sample_project.Rmd</code>. Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on this file:
 <ol style="list-style-type: decimal">
 <li>No YAML header</li>
 <li>The first line should be your project name (this does not have to be exact same as the project folder name). Use one # to indicate that it is a header. One # header must not be used anywhere else in the document. For example:</li>
@@ -114,10 +118,26 @@
 <pre><code> # Base R graphics vs. GGplot graphics
 
  Your content starts here. </code></pre></li>
+<li>Knit your <code>Rmd</code> file into a <code>html</code> file, and put it under directory <code>html/</code>. In our example, it should be <code>html/sample_project.html</code>.</li>
 <li>[OPTIONAL] If you have other resources (such as images) included in your project, create a folder under <code>resources/</code>. In our example, it should be <code>resources/sample_project/</code>. Put the resources files here.</li>
-<li>When you are ready to submit your project, push your project folder to your remote repo. Follow <a href="https://help.github.com/en/articles/creating-a-pull-request-from-a-fork">this tutorial</a> to create a pull request. If you follow the steps, we will merge it to the master branch.</li>
+<li>When you are ready to submit your project, push your branch to your remote repo. Follow <a href="https://help.github.com/en/articles/creating-a-pull-request-from-a-fork">this tutorial</a> to create a pull request. If you follow the steps, we will merge it to the master branch.</li>
 </ol>
+</div>
+<div id="faq" class="section level2">
+<h2><span class="header-section-number">1.2</span> FAQ</h2>
+<div id="what-should-i-expect-after-creating-a-pull-request" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> What should I expect after creating a pull request?</h3>
+<ol style="list-style-type: decimal">
+<li>Within a week after you create a pull request, we will apply a label to it and assign an administrater who will review all the files you submit to see if they meet the requirements.</li>
+<li>It will take some time before we can process all the pull requests, so as long as you see your pull request has been labeled and assigned to an administrater, don’t worry.</li>
+<li>However, if the admin contacts you under the pull request, that usually means your files fail to meet some requirements. The admin will clearly state what goes wrong, so please fix them as soon as possible.</li>
+</ol>
+</div>
+<div id="other-questions" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Other questions</h3>
+<p>If you encounter other problems, please send us an issue and we will look into it.</p>
 
+</div>
 </div>
 </div>
             </section>
