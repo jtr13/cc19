@@ -11,6 +11,6 @@ deploy:
   provider: pages
 local_dir: _book
 skip_cleanup: true
-github-token: $GITHUB_PAT    # Set in the settings page
+github-token: $GITHUB_TOKEN    # Set in the Travis cc19 settings page
 on:
   branch: master
