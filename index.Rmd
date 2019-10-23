@@ -4,7 +4,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-github-repo: skyetim/edav_community_contribution_dev
+github-repo: jtr13/cc19
 description: "This book will hold all community contributions for STAT GR 5702 Fall 2019 at Columbia University"
 ---
 
