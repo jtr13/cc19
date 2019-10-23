@@ -4,3 +4,4 @@ language:
     chapter_name: "Chapter "
 delete_merged_file: true
 rmd_files: ["index.Rmd", 'sample_project.Rmd']
+edit: https://github.com/jtr13/cc19/edit/master/%s
