@@ -8,33 +8,35 @@ github-repo: jtr13/cc19
 description: "This book will hold all community contributions for STAT GR 5702 Fall 2019 at Columbia University"
 ---
 
-# Intructions
+# Instructions
 This chapter gives you all the information you need to upload your community contribution. 
 
 ## Submission Steps
 
 ### Submitting .Rmd files
 
-To submit your work, we will be following the instructions in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching), which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.
+To submit your work, we will be following the instructions in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}, which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.
 
-Before you begin, create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about constrasting/working with base R graphics and **ggplot2** graphics. Your project name should be words only and joined with underscores, i.e. **Do not include whitespace in the name.**  We will use `sample_project` as the project name in this tutorial. The project name will be used both for naming the branch on which we will work, and also for the .Rmd file name.
+Before you begin, create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Your project name should be words only and joined with underscores, i.e. **Do not include whitespace in the name.**  We will use `sample_project` as the project name in this tutorial. The project name will be used both for naming the branch on which we will work, and also for the .Rmd file name.
 
-1. Fork [cc19 repo (this repo)](https://github.com/jtr13/cc19) to your GitHub account. 
+1. Fork [cc19 repo (this repo)](https://github.com/jtr13/cc19){target="_blank"} to your GitHub account. 
 
 2. Clone/download the forked repo to your local computer.
 
 3. Create a new branch and name it with your project name, in our case `sample_project`. 
 
-4. Create an `.Rmd` file with the same name. In our example, it is [`sample_project.Rmd`](sample_project.Rmd). Put it in the root directory of the repo. With regard to content of this file, you should refer to the instructions of this homework on coursework. Two more details on this file: 
+4. Create an `.Rmd` file with the same name. In our example, it is [`sample_project.Rmd`](sample_project.Rmd){target="_blank"}. Put it in the root directory of the repo. With regard to the content of this file, you should refer to the instructions of this homework assignment on CourseWorks. Two more details on this file: 
 
-    a. No YAML header
+    a. Delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.)
     
-    b. The first line should be your project name (this does not have to be exact same as the project folder name and may include white space). Use one \# to indicate that it is a header. One \# header must not be used anywhere else in the document.
+    b. The first line should be your project name (this does not have to be exact same as the project folder name and may include white space). Use one \# to indicate that it is a header. Do not use a single \# header anywhere else in the document.
     
-    c. The second line should be blank. For example:
+    c. The second line should be blank, followed by your name(s):
     
    ```
     # Base R graphics vs. ggplot2 graphics
+    
+    Joyce Robbins
 
     Your content starts here. 
    ```
@@ -55,8 +57,12 @@ Before you begin, create a concise, descriptive name for your project. For insta
 
 3. However, if the admin contacts you regarding the pull request, that usually means your files fail to meet some requirements. The admin will clearly state what is wrong, so please fix them as soon as possible. 
 
+### What if I catch mistakes after my pull request is merged?
+
+1. You may submit additional pull requests to fix material on the site. If the edits are small, such as fixing typos, it is easiest to make the edits directly on GitHub, following [these instructions](https://edav.info/contribute.html#github-only-walkthrough){target="_blank"}. We will merge first pull requests before edits, so please be patient.
+
 ### Other questions
 
-If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc19/issues) and we will look into it. 
+If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc19/issues){target="_blank"} and we will look into it. 
 
 Thank you for your contributions!
