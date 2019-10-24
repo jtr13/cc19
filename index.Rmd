@@ -15,6 +15,8 @@ This chapter gives you all the information you need to upload your community con
 
 This web site makes use of the **bookdown** package to render a collection of `.Rmd` files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution `.Rmd` file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them. We use [Travis CI](https://travis-ci.com){target="_blank"} to render the book and push the rendered `.html` files to our `gh-pages` branch--you can view [our builds here](https://travis-ci.com/jtr13/cc19){target="_blank"}--and GitHub Pages to host the site. 
 
+If your community contribution is in a different format, then create a short `.Rmd` file that explains what you did, and includes links to any relevant files, such as slides, etc. which you can post on your GitHub repo (or another online site.)
+
 ## Preparing your `.Rmd` file
 
 After completing these modifications, your `.Rmd` should look like this [sample bookdown `.Rmd`.](sample_project.Rmd){target="_blank"}
