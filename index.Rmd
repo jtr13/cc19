@@ -8,7 +8,7 @@ github-repo: jtr13/cc19
 description: "This book will hold all community contributions for STAT GR 5702 Fall 2019 at Columbia University"
 ---
 
-# Intructions
+# Instructions
 This chapter gives you all the information you need to upload your community contribution. 
 
 ## Submission Steps
