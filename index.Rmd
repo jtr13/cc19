@@ -19,13 +19,15 @@ If your community contribution is in a different format, then create a short `.R
 
 ## Preparing your `.Rmd` file
 
+You should only submit **ONE** `Rmd` file. 
+
 After completing these modifications, your `.Rmd` should look like this [sample bookdown `.Rmd`.](sample_project.Rmd){target="_blank"}
 
 1. Create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Check the `.Rmd` filenames in [the project repo](https://github.com/jtr13/cc19){target="_blank"} to make sure your name isn't already taken. Your project name should be words only and joined with underscores, i.e. **Do not include whitespace in the name.** Create a copy of your `.Rmd` file with the new name. 
 
 2.  Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
     
-3. The first line should be a single hashtag (\#) followed by your project name (this does not have to be exact same as the project folder name and may include white space). Do not use single \# headers anywhere else in the document.
+3. The first line should be a single hashtag (\#) followed by your project name (this does not have to be exact same as the project folder name and may include white space), and it should be followed with one whitespace, otherwise bookdown will not render it as a header. Do not use single \# headers anywhere else in the document.
     
 4. The second line should be blank, followed by your name(s):
     
@@ -51,7 +53,7 @@ To submit your work, we will be following the instructions in [this tutorial](ht
 
 2. Clone/download the forked repo to your local computer.
 
-3. Create a new branch and name it with your project name, in our case `sample_project`. 
+3. Create a new branch and name it with your project name, in our case `sample_project`. If you forget to do so, check [this tutorial](https://edav.info/github.html#fixing-mistakes) to fix.  
 
 4. Copy your modified `.Rmd` file with the same name into the root directory on the branch. In our example, it is [`sample_project.Rmd`](sample_project.Rmd){target="_blank"}. 
    
