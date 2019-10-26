@@ -9,6 +9,9 @@ rmd_files: [
   'sample_project.Rmd',
   
   # edav.info
-  'ridgeline_plot.Rmd'
+  'ridgeline_plot.Rmd',
+  
+  # workshop
+  'bookdown.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
