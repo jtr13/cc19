@@ -11,6 +11,7 @@ repos:
 
 r_github_packages:
  - coatless/ucidata
+ - test
 
 
 script:
