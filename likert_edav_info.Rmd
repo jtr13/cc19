@@ -6,7 +6,7 @@ Shijie He and Chutian Chen
 
 This section covers how to make stacked bar chart on likert data.
 
-Likert data is the data involved in likert scale. Likert scale is a several point scale which is used to allow people to express how much they agree or disagree with a particular statement. And It's commonly used in survey and research.
+Likert data is the data with likert scale. Likert scale is a several point scale which is used to allow people to express how much they agree or disagree with a particular statement. And It's commonly used in survey and research.
 
 ## tl;dr
 
@@ -90,7 +90,7 @@ It is easy to visualize the overall shape of likes and dislikes, and the percent
 
 ## Stacked bar chart using ggplot
 
-In fact, we can make likert plot using ggplot. There is a easy way through dividing the data into two parts which represents agreement and disagreement respectively. Then we can generate the two plots on same place with one of the value of plot is negative. However, if there are neutrals in data, we have to divide neutral into two parts, which will be a little more complicated.
+In fact, we can make likert plot using ggplot. There is a easy way through dividing the data into two parts which represent agreement and disagreement respectively. Then we can generate the two plots on same place with one of the value of plot is negative. If there is neutral option in data, we have to divide it into two parts, which will be a little more complicated.
 
 ```{r}
 library(ggplot2)
@@ -155,7 +155,7 @@ ggplot() + geom_bar(data=highs, aes(x = Sex, y=value, fill=col), position="stack
 
 ## Theory
 
-Likert data is a type of rating scale commonly used in surveys. It's a bipolar data, representing the attitude to a statement. We can add neutral options to help candidate make choice when they are uncertain.
+Likert data is a type of rating scale commonly used in surveys. It's a bipolar data, representing the attitude to a statement. We can add neutral options to help candidate make choices when they are uncertain.
 
 A typical Likert scale may look like
 
@@ -163,7 +163,9 @@ A typical Likert scale may look like
 - 2. Disagree
 - 3. Agree
 - 4. Strongly agree
-  or
+
+or
+
 - 1. Strongly disagree
 - 2. Disagree
 - 3. Neither agree or disagree
