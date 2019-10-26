@@ -12,6 +12,7 @@ rmd_files: [
   'ridgeline_plot.Rmd',
   
   # workshop
+  'workshop_master.Rmd',
   'bookdown.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
