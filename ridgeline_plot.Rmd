@@ -1,4 +1,4 @@
-#Intro to Ridgeline Plot
+# Intro to Ridgeline Plot
 
 Hojin Lee and Hyuk Joon Kwon
 
