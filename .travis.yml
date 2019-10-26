@@ -4,6 +4,15 @@ cache:                          # optional
 directories: _bookdown_files  # optional
 pandoc_version: 2.3.1
 
+repos:
+  cran: http://cran.rstudio.com
+  rforge: http://R-Forge.R-project.org
+
+
+r_github_packages:
+ - coatless/ucidata
+
+
 script:
   - Rscript -e 'bookdown::render_book("index.Rmd")'
 
