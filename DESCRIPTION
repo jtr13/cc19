@@ -12,4 +12,6 @@ Imports:
   plyr,
   nycflights13,
   ISwR,
-  vcd
+  vcd,
+  choroplethr,
+  dplyr
