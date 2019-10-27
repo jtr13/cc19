@@ -15,4 +15,6 @@ Imports:
   vcd,
   choroplethr,
   dplyr,
-  shiny
+  shiny,
+  choroplethrMaps,
+  tidyverse
