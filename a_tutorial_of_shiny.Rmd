@@ -14,7 +14,7 @@ cars_info <- read.csv("cars.csv")
 
 ![](resources/shiny_tutorial/carsdata.png)
 
-# Part 1 How to Build a Shiny App
+## Part 1 How to Build a Shiny App
 
 ## 1. Install the shiny package
 
@@ -149,7 +149,7 @@ You should save your app to one directory with every file the app needs:
 
 ![](resources/shiny_tutorial/newuserinstructions.png) 
   
-# Part 2 How to Customize Reactions
+## Part 2 How to Customize Reactions
 
 ## 1. Reactivity 
 
