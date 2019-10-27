@@ -5,10 +5,13 @@ Version: 0.0.1
 URL: https://github.com/jtr13/cc19
 Imports: 
   bookdown,
+  ggmap,
   ggplot2,
   ggridges,
   viridis,
   plyr,
   nycflights13,
   ISwR,
-  vcd
+  vcd,
+  choroplethr,
+  dplyr
