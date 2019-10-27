@@ -61,7 +61,7 @@ To submit your work, we will be following the instructions in [this tutorial](ht
 
 6. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it is [`resources/sample_project/`](resources/sample_project){target="_blank"}. Put the resources files there. 
 
-7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If you follow the steps, we will merge it to the master branch. 
+7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If you follow the steps, we will merge it to the master branch. After submitting your pull request, do not be concerned if you see an "All builds have failed" message from Travis CI. There are things that need to be done on the backend, such as adding the libraries you use to the project for the Travis CI build to pass.
 
 ## Optional tweaks
 

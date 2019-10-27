@@ -14,7 +14,7 @@ Imports:
   ISwR,
   vcd,
   choroplethr,
-  dplyr,
-  shiny,
   choroplethrMaps,
-  tidyverse
+  tidyverse,
+  dplyr,
+  shiny
