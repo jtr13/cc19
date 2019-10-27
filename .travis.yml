@@ -11,7 +11,7 @@ repos:
 
 r_github_packages:
  - coatless/ucidata
-
+ - hrbrmstr/statebins
 
 script:
   - Rscript -e 'bookdown::render_book("index.Rmd")'
