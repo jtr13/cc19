@@ -14,4 +14,4 @@ Imports:
   ISwR,
   vcd,
   choroplethr,
-  dplyr
+  tidyverse
