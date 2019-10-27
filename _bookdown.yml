@@ -19,6 +19,6 @@ rmd_files: [
   'carto_tutorial.Rmd',
   
   # cheatsheet
-  'master_cheatsheet.Rmd'
+  'master_cheat_sheet.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
