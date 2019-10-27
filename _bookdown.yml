@@ -10,7 +10,7 @@ rmd_files: [
   
   # edav.info
   'ridgeline_plot.Rmd',
-  'maps.Rmd'
+  'maps.Rmd',
   
   # workshop
   'workshop_master.Rmd', 
