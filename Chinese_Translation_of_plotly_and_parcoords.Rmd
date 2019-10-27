@@ -1,0 +1,939 @@
+
+
+# Chinese Translation of R Packages for Interactie Plots 交互式数据可视化包: plotly & parcoords
+
+Han Xu and Lin Jiang
+
+
+#### 原文件链接: 
+
+plotly: https://cran.r-project.org/web/packages/plotly/plotly.pdf
+
+parcoords: https://cran.r-project.org/web/packages/parcoords/parcoords.pdf
+
+
+
+------
+
+## R 交互式数据可视化包 'plotly'
+
+------
+
+名称：通过‘plotly.js' 来制作交互式网络图表  
+版本：4.9.0  
+版权：MIT + 文件 LICENSE  
+介绍：从ggplot2制作交互式图标和/或者运用图标语言标准（grammer of graphics)   新定制一个连接界面接口的（MIT版权所有的）Javascript包'plotly.js'  
+网站：https://plotly-r.com, https://github.com/ropensci/plotly#readme, https://plot.ly/r  
+修复历史文件：https://github.com/ropensci/plotly/issues   
+所需运行环境：R（版本>= 3.2.0），ggplot2（>= 3.0.0）  
+嵌入包：tools, scales, httr, jsonlite (>= 1.6), magrittr, digest,
+viridisLite, base64enc, htmltools (>= 0.3.6), htmlwidgets (>=
+1.3), tidyr, hexbin, RColorBrewer, dplyr, tibble, lazyeval (>=
+0.2.0), rlang, crosstalk, purrr, data.table, promises  
+建议搭配包：MASS, maps, ggthemes, GGally, testthat, knitr, devtools,
+shiny (>= 1.1.0), shinytest (>= 1.3.0), curl, rmarkdown,
+vdiffr, Cairo, broom, webshot, listviewer, dendextend, sf,
+maptools, rgeos, png, IRdisplay, processx, plotlyGeoAssets,
+forcats  
+惰性存储数据功能：开启  
+Roxygen版本：6.1.1  
+解码标准：UTF-8  
+是否需要编制：不需要  
+作者：Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>),
+Chris Parmer [aut],
+Toby Hocking [aut],
+Scott Chamberlain [aut],
+Karthik Ram [aut],
+Marianne Corvellec [aut] (<https://orcid.org/0000-0002-1994-3581>),
+Pedro Despouy [aut],
+Plotly Technologies Inc. [cph]  
+维护者：Carson Sievert <cpsievert1@gmail.com>  
+文件版本库：CRAN  
+发布时间：2019-04-10 19:33:05 UTC  
+
+## R 主题/函数目录：
+
+------
+
+## add_annotations
+
+------
+
+#### 描述：
+给图表加备注 
+
+#### 用法：
+      add_annotations(p, text = NULL, ..., data = NULL, inherit = TRUE)  
+
+#### 参数：  
+
+p：一个交互式图表  
+
+text：需要加上的备注（必须加上的）  
+
+...：这些参数被记录在此网站https://github.com/plotly/plotly.js/
+
+blob/master/src/components/annotations/attributes.js  
+
+data: 一个数据表格（DataFrame格式）  
+
+inherit：是否要沿袭plot_ly()里面设置的属性？  
+
+#### 作者：
+Carson Sievert  
+
+------
+
+## add_data
+
+------
+
+#### 描述：
+
+给图表加数据  
+
+#### 用法：
+        add_data(p, data = NULL)  
+
+#### 参数：  
+p：一个交互式图表  
+
+data：一个Dataframe格式的数据表格  
+
+#### 例子：  
+```{r}
+library(plotly)
+plot_ly() %>% add_data(economics) %>% add_trace(x = ~date, y = ~pce)
+```
+
+-------
+
+## add_fun
+
+-------
+
+#### 描述：
+当需要加多层数据信息总结的时候可以用此函数  
+
+#### 用法：
+      add_fun(p, fun, ...)  
+
+#### 参数：  
+p：一个交互式图表  
+
+fun：一个函数，可以用来根据输入的图表为基础并且输出一个新的图表  
+
+...：给以上函数fun的参数  
+
+-------
+
+## add_trace
+
+--------
+
+#### 描述：
+给图表加各种图表标记  
+
+#### 用法：  
+        add_trace(p, ..., data = NULL, inherit = TRUE)
+        add_markers(p, x = NULL, y = NULL, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_text(p, x = NULL, y = NULL, z = NULL, text = NULL, ...,
+        data = NULL, inherit = TRUE)
+        add_paths(p, x = NULL, y = NULL, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_lines(p, x = NULL, y = NULL, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_segments(p, x = NULL, y = NULL, xend = NULL, yend = NULL, ...,
+        data = NULL, inherit = TRUE)
+        add_polygons(p, x = NULL, y = NULL, ..., data = NULL,
+        inherit = TRUE)
+        add_sf(p, ..., x = ~x, y = ~y, data = NULL, inherit = TRUE)
+        add_table(p, ..., rownames = TRUE, data = NULL, inherit = TRUE)
+        add_ribbons(p, x = NULL, ymin = NULL, ymax = NULL, ..., data = NULL, inherit = TRUE)
+        add_area(p, r = NULL, t = NULL, ..., data = NULL, inherit = TRUE)
+        add_pie(p, values = NULL, labels = NULL, ..., data = NULL,
+        inherit = TRUE)
+        add_bars(p, x = NULL, y = NULL, ..., data = NULL, inherit = TRUE)
+        add_histogram(p, x = NULL, y = NULL, ..., data = NULL,
+        inherit = TRUE)
+        add_histogram2d(p, x = NULL, y = NULL, z = NULL, ..., data = NULL,
+        inherit = TRUE)
+        add_histogram2dcontour(p, x = NULL, y = NULL, z = NULL, ...,
+        data = NULL, inherit = TRUE)
+        add_heatmap(p, x = NULL, y = NULL, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_contour(p, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_boxplot(p, x = NULL, y = NULL, ..., data = NULL, inherit = TRUE)
+        add_surface(p, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_mesh(p, x = NULL, y = NULL, z = NULL, ..., data = NULL, inherit = TRUE)
+        add_scattergeo(p, ...)
+        add_choropleth(p, z = NULL, ..., data = NULL, inherit = TRUE)  
+
+#### 参数：
+p：一个交互式图表  
+
+...：这些属性是赋予trace type的。想要知道所有的属性可以看schema()，在trace -> type -> attributes 里面可以找到  
+
+data：一个DataFrame格式的表格或者crosstalk包里的sharedData表格  
+
+inherit：是否要沿袭plot_ly()里设置的属性？  
+
+x：x坐标的取值（开始x的值）  
+
+y：y坐标的取值（开始y的值）  
+
+z：一个数字的矩阵  
+
+text：文字标签  
+
+xend：最终x的位置  
+
+yend：最终y的位置  
+
+rownames：是否要展示每行的名字  
+
+ymin：一个变量用来规定多边形的底部取值  
+
+ymax：一个标量用来规定多边形的顶部取值  
+
+r：只有极坐标需要此参数  
+
+t：只有极坐标需要此参数  
+
+values：每个圆形分格表的分格大小  
+
+labels：每个圆形分格表的分格标注  
+
+---------
+
+## animation_opts
+
+--------
+
+#### 描述：
+可用plot_ly()里面的frame参数实现动画化，或者（非正式）的ggplot2里面的美学设置来实现动画化。默认情况下，动画会配有一个播放按钮，以及一个进度条来控制播放进度。播放按钮和进度条都是根据animation_opts()里设置的参数来运作的  
+
+#### 用法：
+        animation_opts(p, frame = 500, transition = frame, easing = "linear",
+        redraw = TRUE, mode = "immediate")
+        animation_slider(p, hide = FALSE, ...)
+        animation_button(p, ..., label)  
+
+#### 参数：  
+p：一个互动式图表  
+
+frame：两帧之间停留的时间（包括过度时间）  
+
+transition：两帧之间过度时间  
+
+easing：过度类别，可以在https://github.com/
+
+plotly/plotly.js/blob/master/src/plots/animation_attributes.js中选择  
+
+redraw：是否在过度之后需要重新绘图？重新绘图可能会很大程度上影响速度，但有时候是必要的  
+
+made：描述想要新的动画模式怎么和已有的动画兼容  
+
+hide：是否要移除进度条？  
+
+label：给动画播放按钮的标注  
+
+#### 作者：
+Carson Sievert  
+
+#### 例子：
+
+```{r}
+
+df <- data.frame(
+x = c(1, 2, 2, 1, 1, 2),
+y = c(1, 2, 2, 1, 1, 2),
+z = c(1, 1, 2, 2, 3, 3)
+)
+plot_ly(df) %>%
+add_markers(x = 1.5, y = 1.5) %>%
+add_markers(x = ~x, y = ~y, frame = ~z)
+# it's a good idea to remove smooth transitions when there is
+# no relationship between objects in each view
+# 在目标相互没有联系的时候取消平滑过渡效果是个好主意
+plot_ly(mtcars, x = ~wt, y = ~mpg, frame = ~cyl) %>%
+animation_opts(transition = 0)
+# works the same way with ggplotly
+# 这个和ggplotly是同样的用法
+if (interactive()) {
+p <- ggplot(txhousing, aes(month, median)) +
+geom_line(aes(group = year), alpha = 0.3) +
+geom_smooth() +
+geom_line(aes(frame = year, ids = month), color = "red") +
+facet_wrap(~ city)
+ggplotly(p, width = 1200, height = 900) %>%
+animation_opts(1000)
+}
+```
+
+-------
+
+## colorbar
+
+-------
+
+#### 描述：
+改变图表的颜色条  
+
+#### 用法：
+        colorbar(p, ..., limits = NULL, which = 1)  
+
+#### 参数：  
+p：一个交互式图表  
+
+...：这些参数可以在这里找到https://plot.ly/r/reference/#scatter-marker-colorbar.  
+
+limits：一个长度为2的数字向量  
+
+which：表明哪一个是想要更改的颜色条  
+
+#### 作者：
+Carson Sievert  
+
+
+#### 例子：
+```{r}
+p <- plot_ly(mtcars, x = ~wt, y = ~mpg, color = ~cyl)
+# pass any colorbar attribute --
+# https://plot.ly/r/reference/#scatter-marker-colorbar
+# 可以从以上的网站找到想要的colorbar属性
+colorbar(p, len = 0.5)
+# Expand the limits of the colorbar
+# 增大colorbar的取值范围
+colorbar(p, limits = c(0, 20))
+# values outside the colorbar limits are considered "missing"
+# 在colorbar取值范围之外的值都被看成是极端值
+colorbar(p, limits = c(5, 6))
+# also works on colorbars generated via a z value
+# 这个函数也可以用在z生成的数值上
+corr <- cor(diamonds[vapply(diamonds, is.numeric, logical(1))])
+plot_ly(x = rownames(corr), y = colnames(corr), z = corr) %>%
+add_heatmap() %>%
+colorbar(limits = c(-1, 1))
+```
+
+-------
+
+## embed_notebook
+
+---------
+
+#### 描述：
+把图表嵌入python语言的编辑器里  
+
+#### 用法：
+        embed_notebook(x, width = NULL, height = NULL, file = NULL)  
+        
+#### 参数：  
+x：一个交互式图表  
+
+width：嵌入图表的宽度。如果是NULL，则沿袭x的宽度；如果不是NULL，则采用系统默认为100%  
+
+height：嵌入图标的高度。如果是NULL，则沿袭x的高度；如果不是NULL，则采用系统默认为400px  
+
+file：已被移除  
+
+#### 作者： 
+Carson Sievert  
+
+-------
+
+## ggplotly
+
+------
+
+#### 描述：
+把ggplot2做的ggplot()图表转换成交互式图表  
+
+#### 用法：
+      ggplotly(p = ggplot2::last_plot(), width = NULL, height = NULL,
+      tooltip = "all", dynamicTicks = FALSE, layerData = 1,
+      originalData = TRUE, source = "A", ...)  
+
+#### 参数：  
+
+p：一个交互式图表 
+
+width：图表的宽度  
+
+height：图表的高度  
+
+tooltip：一个用来表明用哪种美学函数的向量。向量里的顺序会决定图标里变量的顺序  
+
+dynamicTicks：决定是否要动态的输出坐标轴标注  
+
+layerData：决定要返回输出哪一层的图像  
+
+originalData：决定应该输出原始数据还是标准化过的数据  
+
+source：一个长度为1字符。可以用event_data()里的参数来提取里面特定的事件信息  
+
+#### 详细信息：
+
+转换的大小会根据正在运行的图表设备来决定（如果没有正在运行的设备，系统默认值是640/480）。
+换句话来说，高度和宽度一定要在运行程序的时候设定来保证大小的正确性  
+
+#### 作者：
+Carson Sievert  
+
+#### 借鉴网站：
+https://plot.ly/ggplot2  
+以及：plot_ly()  
+
+#### 例子：
+```{r}
+# simple example
+# 简单的例子
+ggiris <- qplot(Petal.Width, Sepal.Length, data = iris, color = Species)
+ggplotly(ggiris)
+
+# linked scatterplot brushing
+# 连着抛光几个散点图
+d <- highlight_key(mtcars)
+qplot(data = d, x = mpg, y = wt) %>%
+subplot(qplot(data = d, x = mpg, y = vs)) %>%
+layout(title = "Click and drag to select points") %>%
+highlight("plotly_selected")
+# more brushing (i.e. highlighting) examples
+# 再有几个抛光（重点强调）的例子
+demo("crosstalk-highlight-ggplotly", package = "plotly")
+# client-side linked brushing in a scatterplot matrix
+# 客户端的抛光散点图矩阵的例子
+highlight_key(iris) %>%
+GGally::ggpairs(aes(colour = Species), columns = 1:4) %>%
+ggplotly(tooltip = c("x", "y", "colour")) %>%
+highlight("plotly_selected")
+```
+
+-------
+
+## group2NA
+
+-------
+
+#### 描述：
+
+这个函数主要是plotly内部调试用的，但也对熟练的用户有帮助  
+
+#### 用法：
+        group2NA(data, groupNames = "group", nested = NULL, ordered = NULL,
+        retrace.first = inherits(data, "GeomPolygon"))  
+        
+#### 参数：  
+data：一个DataFrame格式的数据表格  
+
+groupName：一个用来分组的向量  
+
+nested：其他的分组函数  
+
+ordered：一个用来排序的向量  
+
+retrace.first：是否将每组的最后一行和组的第一行贴在一起？  
+
+#### 详细信息：
+
+如果一个组的分布趋势有共同的非位置特性（例如颜色等等），把他们用同一个特性整合在一起，然后用每组缺失的数据来区分效率会更高（要注意connectgaps是设定成False的）  
+价值：一个表格首先按照行来排序，然后每组的名字，最后再排序。只要每组名字有正确的变量的名字，新的行会被正确输入来区分各个组  
+
+#### 例子：  
+```{r}
+# note the insertion of new rows with missing values
+# 注意看新插入的行里有缺失数据
+group2NA(mtcars, "vs", "cyl")
+# need to group lines by city somehow!
+# 需要把依据city的线分组！
+plot_ly(txhousing, x = ~date, y = ~median) %>% add_lines()
+# instead of using group_by(), you could use group2NA()
+# 你可以用group2NA()来代替group_by()
+tx <- group2NA(txhousing, "city")
+plot_ly(tx, x = ~date, y = ~median) %>% add_lines()
+
+# add_lines() will ensure paths are sorted by x, but this is equivalent
+# add_lines()会保证出来的图样轨迹是按照x来排序的，但这和之前是一样的
+tx <- group2NA(txhousing, "city", ordered = "date")
+plot_ly(tx, x = ~date, y = ~median) %>% add_paths()
+```
+
+
+
+
+
+------
+
+## R 交互式数据可视化包 'parcoords'
+
+------
+
+标题：'Htmlwidget' 框架下交互式平行坐标图（适用于d3.js数据可视化库)
+版本： 1.0.0
+日期：2019-05-13
+维护者： Kenton Russell <kent.russell@timelyportfolio.com>
+简介：使用‘htmlwidget’生成适用于‘d3.js’的交互式平行坐标图 <https://github.com/BigFatDog/parcoords-es> {'parallel-coordinates'}.
+
+URL链接： https://github.com/timelyportfolio/parcoords
+
+乱码汇报：https://github.com/timelyportfolio/parcoords/issues
+
+适用版本： R (>= 3.2.0)
+
+许可：MIT + file LICENSE
+
+是否为LazyData: 是（意为此包在未使用情况下不会占据内存）
+
+此包使用时需同步使用但不需加载的其他包：crosstalk, htmlwidgets (>= 0.6.0), utils
+
+在实例中使用的其他包： d3r, ggplot2, htmltools, knitr, shiny, testthat, rmarkdown
+RoxygenNote 6.1.1
+
+VignetteBuilder：knitr
+
+是否需要Compilation：否（意为下载时不需要其他工具）
+
+作者：
+
+Mike Bostock [aut, cph] (d3.js library in htmlwidgets/lib,
+http://d3js.org),
+
+Kai Chang [aut, cph] (parallel coordinates reusable chart,
+https://github.com/syntagmatic/parallel-coordinates),
+
+Xing Yun [aut, cph] ('es6' parallel coordinates,
+https://github.com/BigFatDog/parcoords-es),
+
+Kenton Russell [aut, cre] (R interface),
+
+Anobel Odisho [aut] (R interface guidance, suggestions, testing,
+review, and feedback),
+
+Mark Albrecht [ctb] (Shiny output and example)
+
+版本库： CRAN
+
+发行日期： 2019-05-24 13:10:03 UTC
+
+## R 主题/函数目录：
+
+------
+
+## parcoords 
+
+------
+
+#### 描述：
+使用‘htmlwidget’生成适用于‘d3.js’的交互式平行坐标图
+
+#### 用法：
+    parcoords(data = NULL, rownames = TRUE, color = NULL,
+      brushMode = NULL, brushPredicate = "and", alphaOnBrushed = NULL,
+      reorderable = FALSE, axisDots = NULL, margin = NULL,
+      composite = NULL, alpha = NULL, queue = FALSE, mode = FALSE,
+      rate = NULL, dimensions = NULL, bundleDimension = NULL,
+      bundlingStrength = 0.5, smoothness = 0, tasks = NULL,
+      autoresize = FALSE, withD3 = FALSE, width = NULL, height = NULL,
+      elementId = NULL)
+      
+#### 参数：
+data: 一个data.frame形式的数据，将会用在表格中
+
+rownames：逻辑使用表中data.frame的行名。如果不管此参数，我们会把我们发给JavaScript
+的信息赋予到数据的行名上。如果rownames设置为等于FALSE, 我们会使用平行坐标图去隐藏它。
+
+color：颜色可以设置为rgb或者hex的单色。对于一个颜色公式，提供一个以下列表：
+list( colorScale = , colorBy = , colorScheme =, colorInterpolator = , colorDomain =)。
+其中，colorScale是d3-scale的名字，比如scaleOrdinal或scaleSequential。colorBy指出用来决定
+颜色的列。如果将颜色赋予离散的或是顺序的变量，那请务必使用colorScheme, 比如schemCategory10。
+如果将颜色赋予连续的变量，那请务必使用colorInterpolator以及colorInterpolator作为
+d3 interpolator， 比如interpolateViridis. 如果使用d3的设定颜色， 请记得设定 withD3 = TRUE.
+
+brushmode：字符串，可设定为 “1D-axes"，或者 "1D-axes-multi", 或者 "2D-strums"。此
+参数给出想要的给表格的brush设定
+
+brushPredicate：字符串，可设定为“and”或者“or”。此参数给出逻辑判断是否结合多种brush。
+
+alphaOnBrushed：不透明度设定，可以设定为0到1（默认设定为0）。
+
+reorderable：逻辑判定可以改变坐标轴的排序
+
+axisDots：逻辑判定可以标亮出多线与坐标走交汇的点
+
+margin：关于像素所需的页边差距的列表。现在brushMode = "2D-strums"需要左边margin = 0，
+所以这个会自动改变且有可能得出不期望的结果
+
+composite：前景内容的混合了 icing
+
+alpha：多线的不透明度设定，可以设定为0到1
+
+queue：逻辑判断（默认设定为FALSE)，用来改变队列逐步的实现模式。一般当数据集非常大时，
+设置queue = T。
+
+mode: 字符串，与以上queue参数的设定有关。当queue = T时，会设定mode = “queue”。
+
+rate: 排序所依据的整数比率
+
+dimension: 用来自定义坐标轴维度的列表
+
+bundleDimension: 列或者变量的字符串，用来定义哪些列或者变量捆绑在一起。
+
+bundlingStrength: 0到1之间的数值， 用来设定捆绑的强度。这个数值不会影响平行坐标图，
+如果bundleDimension没有设定，此时本变量会被忽略。
+ 
+smoothness: 0到1之间的数值，用来设定使线条变曲线的强度。这个数值不会影响平行坐标图，
+如果bundleDimension没有设定，此时本变量会被忽略。
+
+tasks: 一个字符串，或者JS, 或者一个字符串列表，或者一个表现JavaScript公式的JS。这个参数
+会在parcoords展示后执行。这个参数提供了一个更高级自定义的机会。注意，function（公式）会使用 
+JavaScript call的机制，所以在公式中，this会成为一个含有this.el的对象，this.el会展示
+parcoords含有的元素 并且this.parcoords展示parcoords实例。
+
+autoresize: 逻辑判断（默认设定为FALSE)，用来自用调整parcoords的大小当容器的大小改变。
+这个在r markdown 演讲（presentation）以及flexdashboard中非常有用。然而此参数对于
+更大的数据集或是典型的html环境下不太有用。
+
+withD3: 逻辑判断是否包含d3 dependency (来自于当到d3r)。‘parcoords’ 建立在独立的JavaScript
+上，将不会包含全部的d3。如果想包含d3.js, 设定 withD3 = TRUE。
+
+width: 数值，用来设定widget的宽度。 如果设定width = NULL, 会自动设定widget容器为100。
+
+height: 数值，用来设定widget的高度。 如果设定height = NULL, 会自动设定widget容器为400px。
+
+elementId: 独有的给widget的CSS selector id。
+
+#### 产出：
+此公式将会生成一个htmlwidget格式的对象，此对象对自动以html格式产出。此对象可以使用在
+多种背景中，包括R console, 或是在R Markdown 文件中, 以及在 Shiny 的产出语法设定中。
+
+
+#### 例子：
+
+```{r}
+library(parcoords)
+
+    if(interactive()) {
+      # simple example using the mtcars dataset
+      # 一个用mtcars数据集的简单例子
+      data( mtcars )
+      parcoords( mtcars )
+      # various ways to change color
+      # 有多种方法去改变颜色
+      # in these all lines are the specified color
+      # 此方法下每条线都有一个特殊的颜色
+      parcoords( mtcars, color = "green" )
+      parcoords( mtcars, color = "#f0c" )
+      # in these we supply a function for our color
+      # 此方法下我们通过公式来赋予颜色
+      parcoords( mtcars, color = list(colorBy = "cyl", 
+                             colorScale = "scaleOrdinal", 
+                             colorScheme = "schemeCategory10"), 
+        withD3 = TRUE)
+      
+      if(require('ggplot2', quietly = TRUE)) {
+      parcoords(diamonds,rownames = FALSE,brushMode = "1d-axes",
+                reorderable = TRUE,queue = TRUE,
+                color= list(colorBy="cut", 
+                            colorScale = "scaleOrdinal", 
+                            colorScheme = "schemeCategory10"),
+                withD3 = TRUE)
+      } }
+
+```
+
+```{r}
+    parcoords(
+      mtcars,
+      dimensions = list(
+        cyl = list(
+          title = "cylinder",
+          tickValues = unique(mtcars$cyl)
+        )
+))
+```
+
+```{r}
+    parcoords(
+      mtcars
+      ,rownames = FALSE
+      ,brushMode = "1d-multi"
+      ,brushPredicate = "OR"
+      ,dimensions = list(
+        cyl = list(
+          title = "cylinder",
+          tickValues = unique(mtcars$cyl)
+) )
+)
+    ```
+    
+------
+
+## parcoords-shiny
+
+------
+
+#### 描述：
+像在Rmd文件中，产出并使用Shiny中的交互式旭日形图（sunburst）。
+
+#### 用法：
+    parcoordsOutput(outputId, width = "100%", height = "400px")
+    renderParcoords(expr, env = parent.frame(), quoted = FALSE)  
+    
+#### 参数：
+outputId: 读入的产出变量
+
+width, height: 必须是有效的CSS单位（如“100%”， “400px”， “auto）或是数值，此数值
+将会生成一个含有‘px’的字符串
+
+expr: 一个用来生成旭日形图的表达式
+
+env: 用来评估expr的环境
+
+quoted: 是否expr是一个引用的表达式（含有quote（））。当你想要保存表达式为一个变量时，
+此变量十分有用。
+
+#### 例子：
+
+```{r eval = FALSE }
+if (interactive()) {
+  #### filter proxy example ----
+  #### 筛选proxy的例子
+  library(parcoords)
+  library(shiny)
+  ui <- tagList(
+    textOutput("filteredstate", container=h3),
+    parcoordsOutput("pc")
+  )
+  
+  server <- function(input, output, session) {
+    rv <- reactiveValues(filtered = FALSE)
+    output$pc <- renderParcoords({
+      parcoords(mtcars)
+    })
+    observe({
+      # toggle between filtered and unfiltered every 2.5 seconds
+      # 每2.5秒在筛选与为筛选中切换
+      invalidateLater(2500)
+      rv$filtered <- !isolate(rv$filtered)
+    })
+    observeEvent(rv$filtered, {
+      # create a proxy with which we will communicate between
+      # Shiny and the parallel coordinates without a re-render
+      # 生成一个代理人用于在Shiny和平行坐标图之间交流
+      
+      pcp <- parcoordsProxy("pc")
+      if(rv$filtered) {
+        pcFilter(
+          pcp, list(
+            cyl = c(6,8),
+            hp = list(gt = 200)
+          )
+        )
+      } else {
+        pcFilter(pcp, list())
+      }
+    })
+    output$filteredstate <- renderText({
+      paste0("Filtered: ", rv$filtered)
+    }) }
+  
+  ```
+```{r, eval = FALSE, message = FALSE, warning = FALSE}
+shinyApp(ui = ui, server = server)
+### center proxy example ----
+### 中心化proxy的例子
+
+library(shiny)
+library(parcoords)
+ui <- tags$div(
+  parcoordsOutput("pc", width = 2500),
+  style="width: 2500px;"
+)
+server <- function(input, output, session) {
+  # create a proxy with which we will communicate between
+  # Shiny and the parallel coordinates without a re-render
+  # 生成一个代理人用于在Shiny和平行坐标图之间交流
+        pcp <- parcoordsProxy("pc")
+        output$pc <- renderParcoords({
+          parcoords(mtcars)
+})
+        pcCenter(pcp, 'drat')
+}
+
+
+```
+
+```{r eval = FALSE}
+ shinyApp(ui = ui, server = server)
+    ### snapshot example ----
+    ### snapshot的例子
+    library(shiny)
+    library(parcoords)
+    ui <- tags$div(
+      actionButton(inputId = "snapBtn", label = "snapshot"),
+      parcoordsOutput("pc", height=400)
+)
+    server <- function(input, output, session) {
+      # create a proxy with which we will communicate between
+      # Shiny and the parallel coordinates without a re-render
+      # 生成一个代理人用于在Shiny和平行坐标图之间交流
+      pcp <- parcoordsProxy("pc")
+      output$pc <- renderParcoords({
+        parcoords(mtcars)
+})
+      observeEvent(input$snapBtn, {
+        # create a proxy with which we will communicate between
+        # Shiny and the parallel coordinates without a re-render
+        # 生成一个代理人用于在Shiny和平行坐标图之间交流
+        pcp <- parcoordsProxy("pc")
+        pcSnapshot(pcp)
+}) }
+    shinyApp(ui=ui, server=server)
+  }
+
+
+```
+
+------
+
+## parcoordsProxy
+
+------
+
+#### 描述：
+生成一个类似parcoords的对象，此对象可用来自定义并且控制一个已经生成的parcoords。
+只能用于Shiny apps和Shiny docs。
+
+#### 用法：
+      parcoordsProxy(parcoordsId, session = shiny::getDefaultReactiveDomain(),
+      deferUntilFlush = TRUE)
+    
+    
+#### 参数：
+parcoordsId：一个单个特征矢量，此矢量指出修改的parcoords的产出id（output id）。如果
+在一个Shiny模块中唤起，命名空间会自动加入。
+
+session：反对地图所归属的Shiny session。一般情况下，默认设定可以满足要求。
+
+deferUntilFlush：指出反对实例的行动是否需要马上执行，或者他们应该在下一次所有产出更新是
+执行。默认设定为TRUE。
+
+#### 详细描述：
+
+通常，你生成一个parcoords表会使用parcoords公式。这个公式会生成一个内存（in-memory）
+的你自定义的parcoords表现。这样的parcoords可以在R console 打印出，包阔在R Markdown 文件中, 
+或是作为一个Shiny的产出。
+对于在Shiny中，你想要更多的自定义一个parcoords，即使它已经生成一个产出。在这个时候，
+内存呈现下的parcoords已经过去很久，用户的页面已经实现了parcoords的实例。 
+在这个时候，就应该使用parcoordsProxy。 它将会得到一个代替寻常parcoords的对象。寻常的
+parcoords公式会被唤起，并且要求会在实况的parcoords实例上执行，而不是自定义那个内存呈现。
+
+------
+
+## pcCenter
+
+------
+
+#### 描述：
+基于列/变量，通过parcoordsProxy， 使得parcoords位于水平面的中心。
+
+#### 用法：  
+      pcCenter(pc = NULL, dim = NULL)
+    
+    
+#### 参数：
+
+pc： 给出parcoordsProxy
+
+dim：字符串，给出中心化的列/变量
+
+
+#### 产出：
+parcoords_proxy
+------
+
+## pcFilter
+
+------
+
+#### 描述：
+
+通过parcoordsProxy筛选parcoords。
+
+
+#### 用法：
+      pcFilter(pc = NULL, filters = NULL)
+    
+    
+#### 参数：
+pc：给出parcoordsProxy
+
+filters: 一个用于parcoords proxy的筛选的标准列表。请看search.js（https://github.com/deitch/searchjs）
+得到一些作为筛选标准
+的例子。
+
+
+#### 产出：
+parcoords_proxy
+
+------
+
+## pcHide
+
+------
+
+#### 描述：
+通过parcoordsProxy隐藏 parcoords 的列。
+
+
+#### 用法
+      pcHide(pc = NULL, dim = NULL)
+
+
+#### 参数：
+pc: 给出parcoordsProxy
+
+dim: 字符串，给出想要隐藏的列的名字。
+
+
+#### 产出：
+parcoords_proxy
+
+------
+
+## pcSnapshot
+
+------
+
+#### 描述：
+通过parcoordsProxy下载parcoords的图像
+
+
+#### 用法：
+      pcSnapshot(pc = NULL)
+    
+#### 参数：
+pc: 给出parcoordsProxy
+
+#### 产出：
+parcoords_proxy
+
+------
+
+## pcUnhide
+
+------
+
+#### 描述：
+通过parcoordsProxy取消隐藏parcoords的列
+
+#### 用法：
+     pcUnhide(pc = NULL, dim = NULL)
+    
+    
+#### 参数：
+pc: 给出parcoordsProxy
+
+dim: 字符串，给出想要隐藏的列的名字。
+
+
+#### 产出：
+parcoords_proxy
