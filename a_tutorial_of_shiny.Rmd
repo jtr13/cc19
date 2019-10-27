@@ -1,4 +1,4 @@
-# Creating Interactive Data Vis Using Shiny
+# Creating Interactive Data Visualization Using Shiny
 
 Duanyue Yun, Boyu Liu
 
