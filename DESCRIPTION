@@ -5,6 +5,7 @@ Version: 0.0.1
 URL: https://github.com/jtr13/cc19
 Imports: 
   bookdown,
+  ggmap,
   ggplot2,
   ggridges,
   viridis,
