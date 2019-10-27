@@ -12,7 +12,7 @@ In this tutorial, we will use the cars dataset as an example to wall through the
 cars_info <- read.csv("cars.csv")
 ```
 
-![](carsdata.png)
+![](resources/shiny_tutorial/carsdata.png)
 
 # Part 1 How to Build a Shiny App
 
@@ -50,19 +50,19 @@ The arguments of the `fluidPage()` function could be `Input()` functions or `Out
 
 ### Input functions
 
-  Inputs define the possible ways a user can interact with our shiny App. For a numerical variable, the input could be a slider that a user can move along to select a certain value. For a categorical variable, the input could be a box where the user can select a particular category from a drop down list.
+Inputs define the possible ways a user can interact with our shiny App. For a numerical variable, the input could be a slider that a user can move along to select a certain value. For a categorical variable, the input could be a box where the user can select a particular category from a drop down list.
 
-  All `Input()` functions contain 2 required arguments: `inputId =` and `label =`. `inputId` is for us to identify a particular input. Later we can use the same input ID in server instructions to decide the corresponding output. Therefore, to avoid errors, it is better to give a unique name to each input. `label` is what the user sees on the shiny App, so it should be informative.
+All `Input()` functions contain 2 required arguments: `inputId =` and `label =`. `inputId` is for us to identify a particular input. Later we can use the same input ID in server instructions to decide the corresponding output. Therefore, to avoid errors, it is better to give a unique name to each input. `label` is what the user sees on the shiny App, so it should be informative.
 
-  The common `Input()` functions supported are:
+The common `Input()` functions supported are:
 
-  `actionButton()`, `submitButton()`, `checkboxInput()`, `checkboxGroupInput()`, `dateInput()`, 
+`actionButton()`, `submitButton()`, `checkboxInput()`, `checkboxGroupInput()`, `dateInput()`, 
 `dateRangeInput()`, `fileInput()`, `numericInput()`, `passwordInput()`, `radioButtons()`, `selectInput()`,
 `sliderInput()`, `textInput()`.
 
-  Each `Input()` function has some specific arguments. For example, the `sliderInput()` function requires min, max arguments to set the range of the slider and also a value argument which is the default value the user sees when the shiny app is launched. You can find more about the function using `?sliderInput()`.
+Each `Input()` function has some specific arguments. For example, the `sliderInput()` function requires min, max arguments to set the range of the slider and also a value argument which is the default value the user sees when the shiny app is launched. You can find more about the function using `?sliderInput()`.
 
-  For example, we can add a select box by running the code below.
+For example, we can add a select box by running the code below.
   
 ```{r, eval=FALSE}
 ui <- fluidPage(
@@ -72,20 +72,19 @@ ui <- fluidPage(
               choices = colnames(cars_info)[c(2, 6, 7)]))
 ```
 
-![](selectbox.png)
+![](resources/shiny_tutorial/selectbox.png)
 
 ### Output functions
 
-  We can display an output, for example a plot, by adding `Output()` functions to `fluidPage()`. Each `Output()` function requires one argument, which is `outputId =`. We will talk about how to build output in server instructions.
+We can display an output, for example a plot, by adding `Output()` functions to `fluidPage()`. Each `Output()` function requires one argument, which is `outputId =`. We will talk about how to build output in server instructions.
 
 ```{r, eval=FALSE}
 ui <- fluidPage(plotOutput("histogram"))
 ```
 
-  The common `Output()` functions supported are:
+The common `Output()` functions supported are:
   
-  `dataTableOutput()`, `htmlOutput()`, `imageOutput()`, `plotOutput()`, `tableOutput()`, `textOutput()`,
-  `uiOutput()`, `verbatimTextOutput()`.
+`dataTableOutput()`, `htmlOutput()`, `imageOutput()`, `plotOutput()`, `tableOutput()`, `textOutput()`, `uiOutput()`, `verbatimTextOutput()`.
 
 
 ## 4. Build output in server instructions
@@ -98,13 +97,13 @@ server <- function(input, output) {
 }
 ```
 
-  We can use the same name in the form of a string in fluidPage() to display the output.
+We can use the same name in the form of a string in fluidPage() to display the output.
 
 ### (2): Build objects with `render()`
 
-  The `render()` functions that are supported include `renderDataTable()`, `renderImage()`, `renderPlot()`, `renderPrint()`, `renderTable()`, `renderText()`, `renderUI()`.
+The `render()` functions that are supported include `renderDataTable()`, `renderImage()`, `renderPlot()`, `renderPrint()`, `renderTable()`, `renderText()`, `renderUI()`.
 
-  Within `render()` functions, we could use `{}` to wrap the code so that we can write multiple lines of code to create more sophisticated output.
+Within `render()` functions, we could use `{}` to wrap the code so that we can write multiple lines of code to create more sophisticated output.
 
 As an example, the following code builds a histrogram of the variable `mpg` to our shiny app. Remember to add it to `ui()` to display it in the shiny app.
 
@@ -116,7 +115,7 @@ server <- function(input, output) {
 }
 ```
 
-![](hist.png)
+![](resources/shiny_tutorial/hist.png)
 
 ### (3): Use input values with `input$`
 
@@ -134,7 +133,7 @@ server <- function(input, output) {
 
 ### Save your app
 
-  You should save your app to one directory with every file the app needs:
+You should save your app to one directory with every file the app needs:
 
   * app.R (must be the exact file name)
 
@@ -142,13 +141,13 @@ server <- function(input, output) {
 
 ### Publish your app on Shinyapps.io
 
-  1. Go to https://www.shinyapps.io to sign up for an account. 
+1. Go to https://www.shinyapps.io to sign up for an account. 
 
-![](shinyapps.io.png)
+![](resources/shiny_tutorial/shinyapps.io.png)
 
-  2. When you signed up for a new account on https://www.shinyapps.io, there will be instructions on how to associate your account with your RStudio IDE and how to deploy your app.
+2. When you signed up for a new account on https://www.shinyapps.io, there will be instructions on how to associate your account with your RStudio IDE and how to deploy your app.
 
-![](newuserinstructions.png) 
+![](resources/shiny_tutorial/newuserinstructions.png) 
   
 # Part 2 How to Customize Reactions
 
@@ -156,26 +155,27 @@ server <- function(input, output) {
 
 ### What is reactivity? 
 
-  Let's think about Microsoft Excel. In Excel, we can type some value into a cell x and type a formula that uses x into a new cell y. Then whenever we change the value in x, y's value will change correspondingly. This is reactivity, which is also what Shiny does.
+Let's think about Microsoft Excel. In Excel, we can type some value into a cell x and type a formula that uses x into a new cell y. Then whenever we change the value in x, y's value will change correspondingly. This is reactivity, which is also what Shiny does.
   
-  Shiny has an input object `input$x` and an output object `output$y`. Any changes in `input$x` will cause changes in `output$y`.
+Shiny has an input object `input$x` and an output object `output$y`. Any changes in `input$x` will cause changes in `output$y`.
   
-  So now let's start with reactive values, which is where reactivity starts in Shiny. 
+So now let's start with reactive values, which is where reactivity starts in Shiny. 
   
 ### Reactive values
 
-  Reactive values are what the user selects and depend on `Input()` functions. In the previous example where we create a select box, the reactive values are the variable that the user selects.
+Reactive values are what the user selects and depend on `Input()` functions. In the previous example where we create a select box, the reactive values are the variable that the user selects.
   
-  Note that reactive values don't work on their own. They actually work together with reactive functions.
+Note that reactive values don't work on their own. They actually work together with reactive functions.
  
 ### Reactive functions (reactive toolkit) 
+
   * They are a kind of functions that are expected to take reactive values and know what to do with them.
   
   * They are notified that they need to re-execute whenever the reactive value changes. 
   
   * They are included in the server instructions section to build (and rebuild) an object.
   
-  We can think of reactivity in R as two-step process. Consider the following example. We use input function `selectInput()` to get user's choice. `input$varname` is the reactive value. When we choose different variables, firstly reactive values will notify the functions which use them that they become outdated. After that its job is over and it's time for reactive functions to do their jobs, which is rebuild the corresponding object using new values. The process is automatic in shiny.
+We can think of reactivity in R as two-step process. Consider the following example. We use input function `selectInput()` to get user's choice. `input$varname` is the reactive value. When we choose different variables, firstly reactive values will notify the functions which use them that they become outdated. After that its job is over and it's time for reactive functions to do their jobs, which is rebuild the corresponding object using new values. The process is automatic in shiny.
   
 
 Suppose we want to output the corresponding histogram whenever the user chooses a variable.
@@ -200,11 +200,11 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ``` 
 
-![](reactive.png)
+![](resources/shiny_tutorial/reactive.png)
 
 ### Modularize code with `reactive()`
 
-  See the example below. When the user selects a number, the shiny app plots a histogram for that number of N(0,1) variables and also computes the summary statistics. This app has only one reactive value (number the user chooses) but has two objects, a histogram and a block of text which includes the statistics of the data. When the reactive value changes, it will notify these two objects and they will rerun the code to update themself. But the probelm is that because they rerun their code successively, so `rnorm(input$num)` is called twice. Since `rnorm` is random, each object generates a different set of values, which means the histogram describes a dataset and the summary of the statistics describes another dataset. 
+See the example below. When the user selects a number, the shiny app plots a histogram for that number of N(0,1) variables and also computes the summary statistics. This app has only one reactive value (number the user chooses) but has two objects, a histogram and a block of text which includes the statistics of the data. When the reactive value changes, it will notify these two objects and they will rerun the code to update themself. But the probelm is that because they rerun their code successively, so `rnorm(input$num)` is called twice. Since `rnorm` is random, each object generates a different set of values, which means the histogram describes a dataset and the summary of the statistics describes another dataset. 
   
 ```{r, eval=FALSE}
 # Before
@@ -233,18 +233,18 @@ shinyApp(ui = ui, server = server)
 
 For example, when we only select one normal variable. It is clear that the histogram and the summary statistics do not correpond to the same data.
 
-![](slider.png)
-![](hist1.png)
-![](sumstats.png)
+![](resources/shiny_tutorial/slider.png)
+![](resources/shiny_tutorial/hist1.png)
+![](resources/shiny_tutorial/sumstats.png)
 
 
-  Can the two objects describe the same data? The answer is yes! The strategy is calling `rnorm(input$num)` only once and saving the dataset it creates. Then use this dataset downstream when we need it. Shiny provides a function called `reactive()`, which can wrap a normal expression to create a reactive expression and realize what we hope to achieve. 
+Can the two objects describe the same data? The answer is yes! The strategy is calling `rnorm(input$num)` only once and saving the dataset it creates. Then use this dataset downstream when we need it. Shiny provides a function called `reactive()`, which can wrap a normal expression to create a reactive expression and realize what we hope to achieve. 
 
 ```{r, eval=FALSE}
 reactive(rnorm(input$num))
 ```
   
-  In this specific example, we add a code `data <- reactive(rnorm(input$num))` to the server and replace `rnorm(input$num)` in the reactive functions with `data()`. Note that you should call a reactive expression like a function. So here we use `data()` instead of `data`.
+In this specific example, we add a code `data <- reactive(rnorm(input$num))` to the server and replace `rnorm(input$num)` in the reactive functions with `data()`. Note that you should call a reactive expression like a function. So here we use `data()` instead of `data`.
   
 ```{r, eval=FALSE}
 # After
@@ -266,14 +266,14 @@ shinyApp(ui = ui, server = server)
   
 Now when will select 1 variable, the two objects will describe the same data.
 
-![](slider.png)
-![](hist2.png)
-![](sumstats2.png)
+![](resources/shiny_tutorial/slider.png)
+![](resources/shiny_tutorial/hist2.png)
+![](resources/shiny_tutorial/sumstats2.png)
 
 
 ### Prevent reactions with `isolate()`
 
-  Sometimes we might want to delay a reactive function. For example, the following shiny app plots a scatterplot between 2 variables of the user's choose and also allows the user to give the plot a customized title. So there are 3 inputs: the title of the scatterplot, an x variable and a y variable. With our regular code, the title will change instantaneously as the user types.
+Sometimes we might want to delay a reactive function. For example, the following shiny app plots a scatterplot between 2 variables of the user's choose and also allows the user to give the plot a customized title. So there are 3 inputs: the title of the scatterplot, an x variable and a y variable. With our regular code, the title will change instantaneously as the user types.
   
 ```{r, eval=FALSE}
 # Before
@@ -293,11 +293,10 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-![](box2.png)
-![](sp1.png)
+![](resources/shiny_tutorial/box2.png)
+![](resources/shiny_tutorial/sp1.png)
 
-
-  Say we do not want the title to change until the user has chosen two variables. In this case, we can use `isolate()` to isolate the input title. It returns the result as a non-reactive value. That means the observed object will only react to its changes when other inputs also change.
+Say we do not want the title to change until the user has chosen two variables. In this case, we can use `isolate()` to isolate the input title. It returns the result as a non-reactive value. That means the observed object will only react to its changes when other inputs also change.
 
 ```{r, eval=FALSE}
 server <- function(input, output) {
@@ -326,6 +325,7 @@ observeEvent(input$download, {print(input$download)})
 ```
 
 Here is how we can use it in our app. Every time we click the Go! button, the observer will update, which is running the block of code `print(as.numeric(input$goButton)`. The result won't appear in the user panel, but to appear back of our app.
+
 ```{r, eval=FALSE}
 ui <- fluidPage(
   actionButton(inputId = "download", label = "Download")
@@ -340,9 +340,9 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server) 
 ```
    
-![](button.png)
+![](resources/shiny_tutorial/button.png)
     
-![](out.png)
+![](resources/shiny_tutorial/out.png)
 
 Along with `observeEvent()` which triggers code, there's another function called `observe()`, which does the same thing and it's a parallel of `observeEvent()`. But its syntax is more like `render*()` functions. We just give a block of code to it and it will respond to every reactive value in the code.
   
@@ -352,9 +352,9 @@ observe({print(input$download)})
 
 ### Delay reactions with `eventReactive()`
 
-  Sometimes we don't want the outputs to change as soon as the user changes some input in the user interface. Instead, we would like to change them when the user clicks an 'update' button. In others words, we hope to prevent the output from updating until the user hits the button.
+Sometimes we don't want the outputs to change as soon as the user changes some input in the user interface. Instead, we would like to change them when the user clicks an 'update' button. In others words, we hope to prevent the output from updating until the user hits the button.
 
-  The way to do this in Shiny is with the function `eventReactive()`. It creates a reactive expression that only responds to specific values, similar to `reactive()` but having different syntax. First we give a reactive value to it. The second argument is the code the function uses to build or rebuild the object when it's clicked. In addition, similar to `observeEvent()`, the expression treats this block of code as if it has been isolated with `isolate()`. 
+The way to do this in Shiny is with the function `eventReactive()`. It creates a reactive expression that only responds to specific values, similar to `reactive()` but having different syntax. First we give a reactive value to it. The second argument is the code the function uses to build or rebuild the object when it's clicked. In addition, similar to `observeEvent()`, the expression treats this block of code as if it has been isolated with `isolate()`. 
   
 ```{r, eval=FALSE}
 data <- eventReactive(input$update, {rnorm(input$num)})
@@ -383,7 +383,7 @@ shinyApp(ui = ui, server = server)
  
 If we choose different variable without clicking `Update` button, the histogram would not be updated.
 
-![](eventreactive.png)
+![](resources/shiny_tutorial/eventreactive.png)
 
 ### Manage state with `reactiveValues()`
 
@@ -426,10 +426,10 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ``` 
 
-![](value.png)
+![](resources/shiny_tutorial/value.png)
 
 ## 3. Summary 
-![](summary.png)
+![](resources/shiny_tutorial/summary.png)
 
 Till now, We have learnt both syntax and usage of the basic reactive functions in Shiny. Now there are still some important tips we need to provide.
 
