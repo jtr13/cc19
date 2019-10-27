@@ -105,7 +105,7 @@ We can build wordcloud with the shape of a word using function `letterCloud`.
 ```{r,eval = FALSE}
 letterCloud(demoFreq, word = "R", color = "random-light", backgroundColor = "black")
 ```
-![R](R.png)
+![R](resources/wordcloud_tutorial/R.png)
 <br>
 <br>
 Also, we can create user-defined shape for the wordcloud by simply adding the image we choose to figPath.
@@ -113,4 +113,4 @@ Also, we can create user-defined shape for the wordcloud by simply adding the im
 wordcloud2(demoFreq, figPath ="~/Desktop/batman.png", size = 1,
            color = "random-light",backgroundColor = "black") 
 ```
-![batman](bat.png)
+![batman](resources/wordcloud_tutorial/bat.png)
