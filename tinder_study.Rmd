@@ -4,7 +4,7 @@
 
 Benjamin Livingston
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 library(gridExtra)
 library(GGally)
