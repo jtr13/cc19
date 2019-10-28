@@ -15,6 +15,7 @@ rmd_files: [
   'workshop_master.Rmd', 
   
   # tutorial
-  'carto_tutorial.Rmd'
+  'carto_tutorial.Rmd',
+  'tinder_study.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
