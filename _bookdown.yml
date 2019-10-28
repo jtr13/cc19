@@ -3,5 +3,23 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
-rmd_files: ["index.Rmd", 'sample_project.Rmd']
+rmd_files: [
+  # instructions
+  "index.Rmd", 
+  'sample_project.Rmd',
+  
+  # edav.info
+  'ridgeline_plot.Rmd',
+  'maps.Rmd',
+  
+  # workshop
+  'master_workshop.Rmd', 
+  
+  # tutorial
+  'carto_tutorial.Rmd',
+  'a_tutorial_of_shiny.Rmd',
+  
+  # cheatsheet
+  'master_cheat_sheet.Rmd'
+]
 edit: https://github.com/jtr13/cc19/edit/master/%s
