@@ -5,3 +5,9 @@ Some groups of students have contributed to the community by writing the followi
 ```{r, child = "Notes_html_js_d3.Rmd"}
 
 ```
+
+```{r, child = "Leaflet_CheatSheet.Rmd"}
+
+```
+
+
