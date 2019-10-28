@@ -1,6 +1,6 @@
 # Plotrix for complex visualizations
 
-Alex Wan
+Alex Wan and Junyang Jiang
 
 ```{r echo = FALSE, message=FALSE}
   library(plotrix)
@@ -120,3 +120,5 @@ par(mar=pyramid.plot(x,y,labels=agelabels,lxcol=mcol,rxcol=fcol,show.values=TRUE
 title(sub="Tunisian age pyramid in 1994",cex.sub=1.7)
 ```
 
+## Sources
+https://cran.r-project.org/web/packages/plotrix/plotrix.pdf
