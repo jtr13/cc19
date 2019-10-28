@@ -1,19 +1,10 @@
----
-title: "工具包 ‘likert’"
-date: "12/31/2016"
-subtitle: "中文翻译版本 Chinese Version"
-author: "Translators: Lingrui Luo; Zijing Wang"
-geometry: margin=0.5in
-fontsize: 12pt
-output: 
-  pdf_document:
-    latex_engin: xelatex
-header-includes: 
-  - \usepackage{ctex}
-  - \usepackage{setspace}
-  - \onehalfspacing
-documentclass: article
----
+# 'Likert' Package Chinese Translation 
+
+Lingrui Luo and Zijing Wang
+
+**工具包 'likert'**   
+**中文翻译版本 Chinese Version**
+
 **类型**	&nbsp;		工具包    
 **标题**	&nbsp;		分析与可视化李克特(likert)选项    
 **版本**	&nbsp;		1.3.5    
@@ -38,7 +29,7 @@ documentclass: article
 **索引**
 
 ------    
-`likert-package`	&nbsp;	&nbsp;	&nbsp;	&nbsp; _李克特分析与可视化_     
+**`likert-package`**	&nbsp;	&nbsp;	&nbsp;	&nbsp; _李克特分析与可视化_     
 ------    
 
 - **描述**		&nbsp;	&nbsp;		李克特分析与可视化    
@@ -48,7 +39,7 @@ documentclass: article
 \bigskip    
 
 ------
-`abs_formatter` &nbsp;	&nbsp; &nbsp;	&nbsp; _连续性数值的绝对值格式_   
+**`abs_formatter`** &nbsp;	&nbsp; &nbsp;	&nbsp; _连续性数值的绝对值格式_   
 ------   
 
 - **描述**    &nbsp;	&nbsp;   打印出坐标标签的绝对值。对于堆栈条形图中以负数表示负分组的非负百分比十分有用。   
@@ -61,7 +52,7 @@ documentclass: article
 \bigskip   
 
 -----
-`align.plots`        
+**`align.plots`**       
 \newline
 _改编于ggExtra工具包(该工具包已不可以用)。_      
 _与实验性mlpsa图有关，mlpsa图将两个单独分布结合在环形图(circular plot)中_    
@@ -78,7 +69,7 @@ _与实验性mlpsa图有关，mlpsa图将两个单独分布结合在环形图(ci
 \bigskip   
 
 -----
-`gap`  &nbsp;	&nbsp; _虚构数据集，数据机包括五个不同的办公室的重要程度与满意度结果。_   
+**`gap`**  &nbsp;	&nbsp; _虚构数据集，数据机包括五个不同的办公室的重要程度与满意度结果。_   
 -----  
 
 - **描述**  &nbsp;	&nbsp; 此数据集用于`GapAnalysis`样本中，用于展示`likert`工具包如何处理差距分析   
@@ -88,7 +79,7 @@ _与实验性mlpsa图有关，mlpsa图将两个单独分布结合在环形图(ci
 \bigskip    
 
 -----
-`label_wrap_mod` &nbsp;	&nbsp; &nbsp;	&nbsp;  _包装标签文本_   
+**`label_wrap_mod`** &nbsp;	&nbsp; &nbsp;	&nbsp;  _包装标签文本_   
 -----   
 
 - **描述**   &nbsp;	&nbsp;  包装标签文本   
@@ -101,7 +92,7 @@ _与实验性mlpsa图有关，mlpsa图将两个单独分布结合在环形图(ci
 \bigskip   
 
 -----
-`likert` &nbsp;	&nbsp; &nbsp;	&nbsp;   _分析李克特类型选项_    
+**`likert`** &nbsp;	&nbsp; &nbsp;	&nbsp;   _分析李克特类型选项_    
 -----   
 
 - **描述** &nbsp;	&nbsp;  此函数提供多种关于李克特类的统计数据。    
@@ -141,7 +132,7 @@ plot(l29)
 \bigskip   
 
 ------
-`liker.bar.plot`  &nbsp;	&nbsp;   &nbsp;	&nbsp;  _李克特选项的条形图_   
+**`liker.bar.plot`**  &nbsp;	&nbsp;   &nbsp;	&nbsp;  _李克特选项的条形图_   
 ------
 
 - **描述** &nbsp;	&nbsp; 李克特结果的条形图        
@@ -162,7 +153,7 @@ plot(l29)
 \bigskip    
 
 ------   
-`likert.density.plot` &nbsp; &nbsp; &nbsp; &nbsp;  _创建一个李克特选项密度图_    
+**`likert.density.plot`** &nbsp; &nbsp; &nbsp; &nbsp;  _创建一个李克特选项密度图_    
 ------   
 
 - **描述**  &nbsp;	&nbsp; 此函数创建一个将李克特选项当作连续性变量处理的可视化       
@@ -183,7 +174,7 @@ likert.density.plot(likert, facet = TRUE, bw = 0.5, legend, ...)
 \bigskip   
 
 ------   
-`likert.heat.plot`   &nbsp;	&nbsp;    &nbsp;	&nbsp;  _内部方法_   
+**`likert.heat.plot`**   &nbsp;	&nbsp;    &nbsp;	&nbsp;  _内部方法_   
 ------  
 
 - **描述**  &nbsp;	&nbsp; 内部方法    
@@ -209,7 +200,7 @@ likert.heat.plot(likert, low.color = "white", high.color = "blue",
 \bigskip   
 
 ------  
-`likert.histogram.plot`   &nbsp;	&nbsp;    &nbsp;	&nbsp;  _李克特回答数量的直方图_     
+**`likert.histogram.plot`**   &nbsp;	&nbsp;    &nbsp;	&nbsp;  _李克特回答数量的直方图_     
 ------
 
 - **描述**   &nbsp;	&nbsp; 绘画一个包括每一个选项和分组(如果存在指定分组)对应的回答数量的直方图。 负数值(默认用红棕色)表明选项和分组的缺失值数量。     
@@ -244,7 +235,7 @@ likert.histogram.plot(l, xlab = "n", plot.missing = TRUE,
 \bigskip   
 
 ------
-`likert.matrix.plot`  &nbsp;	&nbsp;   &nbsp;	&nbsp;  _矩阵图(实验的)_   
+**`likert.matrix.plot`**  &nbsp;	&nbsp;   &nbsp;	&nbsp;  _矩阵图(实验的)_   
 ------
 
 - **描述**   &nbsp;	&nbsp; 矩阵图(实验的)     
@@ -262,7 +253,7 @@ likert.matrix.plot(likert, nSample = nrow(likert$items), ...)
 \bigskip  
 
 ------
-`likert.options`   &nbsp;	&nbsp;   &nbsp;	&nbsp; _建立一个用于绘画李克特结果的有可选项的对象_  
+**`likert.options`**   &nbsp;	&nbsp;   &nbsp;	&nbsp; _建立一个用于绘画李克特结果的有可选项的对象_  
 ------ 
 
 - **描述**   &nbsp;	&nbsp;建立一个用于绘画李克特结果的有可选项的对象       
@@ -305,7 +296,7 @@ likert.options(low.color = "#D8B365", high.color = "#5AB4AC",
 \bigskip 
 
 ------
-`mass`  &nbsp;	&nbsp;   &nbsp;	&nbsp; _来自一个管理部门的Math Anxiety比例问卷调查的结果_    
+**`mass`**  &nbsp;	&nbsp;   &nbsp;	&nbsp; _来自一个管理部门的Math Anxiety比例问卷调查的结果_    
 ------
 
 - **描述**  &nbsp;	&nbsp; 在一门统计学课程中对20名学生进行`Math Anxiety`比例问卷调查结果的数据框。 此数据框包括了原始数据，可以用于核实预先总结的步骤。     
@@ -317,7 +308,7 @@ likert.options(low.color = "#D8B365", high.color = "#5AB4AC",
 \bigskip
 
 ------    
-`MathAnxiety` &nbsp; &nbsp; &nbsp; &nbsp;   
+**`MathAnxiety`** &nbsp; &nbsp; &nbsp; &nbsp;   
 _管理部门提供的 Math Anxiety比例问卷调查的预先总结的结果_     
 ------    
 
@@ -331,7 +322,7 @@ analysis of a bidimensional affective scale. Journal of Instructional Psychology
 \bigskip  
 
 ------    
-`MathAnxietyGender` &nbsp; &nbsp; &nbsp; &nbsp;    
+**`MathAnxietyGender`** &nbsp; &nbsp; &nbsp; &nbsp;    
 _按照性别区分的, 管理部门提供的 Math Anxiety比例问卷调查的预先总结结果_     
 ------
 
@@ -346,7 +337,7 @@ analysis of a bidimensional affective scale. Journal of Instructional Psychology
 \bigskip  
 
 ------    
-`pisaitems` &nbsp; &nbsp; &nbsp; &nbsp; _国际学生评估计划_     
+**`pisaitems`** &nbsp; &nbsp; &nbsp; &nbsp; _国际学生评估计划_     
 ------
 
 - **描述**  &nbsp; &nbsp;    
@@ -358,7 +349,7 @@ analysis of a bidimensional affective scale. Journal of Instructional Psychology
 \bigskip  
 
 ------    
-`plot.likert` &nbsp; &nbsp; &nbsp; &nbsp; _绘制一组李克特项_     
+**`plot.likert`** &nbsp; &nbsp; &nbsp; &nbsp; _绘制一组李克特项_     
 ------    
 
 - **描述**  &nbsp; &nbsp;     
@@ -396,12 +387,10 @@ panel.background = element_rect(size = 1, color = "grey70", fill = NA), ...)
 \bigskip  
 
 ------    
-`plot.likert.gap` &nbsp; &nbsp; &nbsp; &nbsp; _绘制一组李克特项_     
+**`plot.likert.gap`** &nbsp; &nbsp; &nbsp; &nbsp; _绘制一组李克特项_     
 ------
 
-- **描述**  &nbsp; &nbsp; 
-
-这是S3 plot通用函数的一个实现。这个函数将根据类型参数调用`likert.bar.plot`, `likert.heat.plot` 或者 `likert.density.plot`。有关这些函数的自定义图形外观的所有可用参数，请参阅帮助页面。虽然这些函数可以直接绘制，但我们建议调用通用plot函数。      
+- **描述**  &nbsp; &nbsp;    这是S3 plot通用函数的一个实现。这个函数将根据类型参数调用`likert.bar.plot`, `likert.heat.plot` 或者 `likert.density.plot`。有关这些函数的自定义图形外观的所有可用参数，请参阅帮助页面。虽然这些函数可以直接绘制，但我们建议调用通用plot函数。      
 - **使用方式**  &nbsp; &nbsp;
 
 ```{r eval=FALSE}
@@ -439,7 +428,7 @@ legend, ...)
 \bigskip  
 
 ------    
-`print.likert` &nbsp; &nbsp; &nbsp; &nbsp; _输出结果表_     
+**`print.likert`** &nbsp; &nbsp; &nbsp; &nbsp; _输出结果表_     
 ------
 
 - **描述**  &nbsp; &nbsp; 输出结果表    
@@ -457,7 +446,7 @@ print(x, ...)
 \bigskip  
 
 -----
-`print.likert.bar.plot`        
+**`print.likert.bar.plot`**        
 \newline
 _likert.bar.plot的输出方法。_      
 _主要目的是抑制ggplot2打印的“当 ymin != 0时堆叠没有很好定义”警告_  
@@ -465,7 +454,6 @@ _该警告针对的是具有负条形(即居中图)的条形图。_
 -----
 
 - **描述**  &nbsp; &nbsp; 
-
 `likert.bar.plot`的输出方法。主要目的是抑制ggplot2对具有负条形(即中间的条形图)的条形图打印的“ymin != 0时堆叠没有很好定义”警告。     
 - **使用方式**  &nbsp; &nbsp;
 
@@ -481,7 +469,7 @@ print(x, ...)
 \bigskip  
 
 ------    
-`print.likert.gap` &nbsp; &nbsp; &nbsp; &nbsp; _打印结果表_     
+**`print.likert.gap`** &nbsp; &nbsp; &nbsp; &nbsp; _打印结果表_     
 ------
 
 - **描述**  &nbsp; &nbsp; 打印结果表     
@@ -499,7 +487,7 @@ print(x, ...)
 \bigskip  
 
 ------    
-`print.likert.heat.plot` &nbsp; &nbsp; &nbsp; &nbsp; _likert.heat.plot的打印方法_     
+**`print.likert.heat.plot`** &nbsp; &nbsp; &nbsp; &nbsp; _likert.heat.plot的打印方法_     
 ------
 
 - **描述**  &nbsp; &nbsp; `likert.heat.plot`的打印方法      
@@ -517,7 +505,7 @@ print(p, ...)
 \bigskip  
 
 ------    
-`print.xlikert` &nbsp; &nbsp; &nbsp; &nbsp; _打印xtable.likert的结果_     
+**`print.xlikert`** &nbsp; &nbsp; &nbsp; &nbsp; _打印xtable.likert的结果_     
 ------
 
 - **描述**  &nbsp; &nbsp;  打印`xtable.likert`的结果     
@@ -537,7 +525,7 @@ print(x, tabular.environment = "longtable", floating = FALSE, ...)
 \bigskip  
 
 ------    
-`recode` &nbsp; &nbsp; &nbsp; &nbsp; _重新编码向量_     
+**`recode`** &nbsp; &nbsp; &nbsp; &nbsp; _重新编码向量_     
 ------
 
 - **描述**  &nbsp; &nbsp;  这个实用函数将重新编码带着新值的原始字符或因子向量的值。    
@@ -563,7 +551,7 @@ recode(test, from=letters[1:5], to=paste('Letter', letters[1:5]))
 \bigskip  
 
 ------    
-`reverse.levels` &nbsp; &nbsp; &nbsp; &nbsp; _反转一个因子的级别分类_     
+**`reverse.levels`** &nbsp; &nbsp; &nbsp; &nbsp; _反转一个因子的级别分类_     
 ------
 
 - **描述**  &nbsp; &nbsp; 反转一个因子的级别分类。      
@@ -586,7 +574,7 @@ cbind(test, as.integer(test), as.integer(reverse.levels(test)))
 \bigskip  
 
 ------    
-`sasr` &nbsp; &nbsp; &nbsp; &nbsp; _学术自律调查(SASR)的结果。_     
+**`sasr`** &nbsp; &nbsp; &nbsp; &nbsp; _学术自律调查(SASR)的结果。_     
 ------
 
 - **描述**  &nbsp; &nbsp;   
@@ -600,11 +588,11 @@ using a new self-report questionnaire. The International Journal of Educational 
 \bigskip  
 
 ------    
-`shinyLikert` &nbsp; &nbsp; &nbsp; &nbsp; _李克特包的Shiny应用。_     
+**`shinyLikert`** &nbsp; &nbsp; &nbsp; &nbsp; _李克特包的Shiny应用。_     
 ------
 
 - **描述**  &nbsp; &nbsp;  这将启动一个包含显示的许多功能李克特包的`Shiny`应用程序包。   
-- **使用**
+- **使用方式**
 
 ```{r eval=FALSE}
 shinyLikert()
@@ -616,13 +604,13 @@ shinyLikert()
 \bigskip  
 
 ------    
-`summary.likert` &nbsp; &nbsp; &nbsp; &nbsp; _打印李克特分析的汇总表。_     
+**`summary.likert`** &nbsp; &nbsp; &nbsp; &nbsp; _打印李克特分析的汇总表。_     
 ------
 
 - **描述**  &nbsp; &nbsp; 
 
 summary函数返回一个提供附加信息的数据框架。它包含类似结果数据框的“Item”和“Group”列,以及一列“low”对应总和水平低于中性的分类,一列“high”对应的总和高于中性的分类,和列“mean”和“sd”对应的平均值和标准偏差分别的结果。数值化结果取决于as.numeric后的因数的值。       
-- **使用**
+- **使用方式**
 
 ```{r eval=FALSE}
 ## S3 method for class 'likert'
@@ -638,14 +626,11 @@ summary(object, center = (object$nlevels - 1)/2 + 1,ordered = TRUE, ...)
 \bigskip  
 
 ------    
-`summary.likert.gap` &nbsp; &nbsp; &nbsp; &nbsp; _打印李克特分析的汇总表。_     
+**`summary.likert.gap`** &nbsp; &nbsp; &nbsp; &nbsp; _打印李克特分析的汇总表。_     
 ------
 
-- **描述**  &nbsp; &nbsp; 
-
-summary函数返回一个提供附加信息的数据框架。它包含类似结果数据框的“Item”和“Group”列,以及一列“low”对应总和水平低于中性的分类,一列“high”对应的总和高于中性的分类,和列“mean”和“sd”对应的平均值和标准偏差分别的结果。数值化结果取决于as.numeric后的因数的值。       
-- **使用**
-
+- **描述**  &nbsp; &nbsp;   summary函数返回一个提供附加信息的数据框架。它包含类似结果数据框的“Item”和“Group”列,以及一列“low”对应总和水平低于中性的分类,一列“high”对应的总和高于中性的分类,和列“mean”和“sd”对应的平均值和标准偏差分别的结果。数值化结果取决于as.numeric后的因数的值。           
+- **使用方式**  &nbsp; &nbsp; 
 ```{r eval=FALSE}
 ## S3 method for class 'likert.gap'
 summary(object, ...)
@@ -661,11 +646,11 @@ summary(object, ...)
 \bigskip  
 
 ------    
-`xtable.likert` &nbsp; &nbsp; &nbsp; &nbsp; _打印一个LaTex表的李克特项目。_     
+**`xtable.likert`** &nbsp; &nbsp; &nbsp; &nbsp; _打印一个LaTex表的李克特项目。_     
 ------
 
-- **描述**  &nbsp; &nbsp; 建立LaTeX或HTML表的likert结果。    
-- **使用**
+- **描述**  &nbsp; &nbsp; 建立LaTeX或HTML表的likert结果。      
+- **使用方式**
 
 ```{r eval=FALSE}
 ## S3 method for class 'likert'
@@ -695,6 +680,6 @@ include.levels = TRUE, include.missing = TRUE, center = (x$nlevels - 1)/2 + 1, o
         指定应该将哪个级别作为中心。例如，center = 3将使用第三个级别作为中心，而center = 3.5将表示没有特定的级别为中心，但<= 3是低级别，>= 4是高级别(即用于强制选择项或没有中立选项的项)。这也影响哪些层被总结在低和高组。      
         - `ordered`    &nbsp; &nbsp; 是否应该对结果排序。见`summary.likert`。    
         - `...`    &nbsp; &nbsp; 参数传递给`xtable`。        
-- **可查阅** 
-
-`xtable`, `print.xtable`
+- **可查阅**    
+        - `xtable`    
+        - `print.xtable`   
