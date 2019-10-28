@@ -1,4 +1,4 @@
-# Leaflet Cheatsheet
+## Leaflet Cheatsheet
 
 Di Ye and Qiaoge Zhu
 
