@@ -9,7 +9,7 @@ description: "This book will hold all community contributions for STAT GR 5702 F
 ---
 
 # Instructions
-This chapter gives you all the information you need to upload your community contribution. 
+This chapter gives you all the information you need to upload your community contribution. **Please read this entire document carefully before making your submission.** Of particular note is the fact that **bookdown** requires a different .Rmd format than you're used to, so you must make changes to the beginning of the file as described below before submitting.
 
 ## Background
 
