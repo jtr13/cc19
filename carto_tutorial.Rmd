@@ -1,4 +1,4 @@
-# CartoDB Tutorial
+## CartoDB Tutorial
 
 Luis Lu and Timothy Huang  
 
