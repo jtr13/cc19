@@ -1,6 +1,6 @@
 # (PART) Static Graphs {-}
 
-# Intro to Ridgeline Plot
+# Ridgeline plots
 
 Hojin Lee and Hyuk Joon Kwon
 
