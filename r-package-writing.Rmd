@@ -1,13 +1,6 @@
----
-title: "R Package Writing Workshop"
-author: "Mohit Chander Gulla, Siddhant Shandilya"
-date: "10/25/2019"
-output: html_document
----
+#R Package Writing Workshop
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+Siddhant Shandilya and Mohit Chander Gulla
 
 R packages are an ideal way to package and distribute R code and data for re-use by others.
 
