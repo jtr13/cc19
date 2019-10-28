@@ -23,4 +23,5 @@ Imports:
   choroplethr,
   choroplethrMaps,
   dplyr,
-  shiny
+  shiny,
+  devtools
