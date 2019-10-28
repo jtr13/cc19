@@ -12,10 +12,16 @@ rmd_files: [
   'ridgeline_plot.Rmd',
   'maps.Rmd',
 
+  # Part: Interactive Graphs
+  'a_tutorial_of_shiny.Rmd',
+
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd'
+
+  # cheatsheet
+  'master_cheat_sheet.Rmd'
 
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
