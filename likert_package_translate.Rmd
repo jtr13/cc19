@@ -1,0 +1,700 @@
+---
+title: "工具包 ‘likert’"
+date: "12/31/2016"
+subtitle: "中文翻译版本 Chinese Version"
+author: "Translators: Lingrui Luo; Zijing Wang"
+geometry: margin=0.5in
+fontsize: 12pt
+output: 
+  pdf_document:
+    latex_engin: xelatex
+header-includes: 
+  - \usepackage{ctex}
+  - \usepackage{setspace}
+  - \onehalfspacing
+documentclass: article
+---
+**类型**	&nbsp;		工具包    
+**标题**	&nbsp;		分析与可视化李克特(likert)选项    
+**版本**	&nbsp;		1.3.5    
+**日期**	&nbsp;		2016-12-26     
+**作者**	&nbsp;	  Jason Bryer \<jason@bryer.org\>,Kimberly Speerschneider \<kimspeer@gmail.com\>     
+**维护者**	&nbsp;	Jason Bryer \<jason@bryer.org\>    
+**网址**		&nbsp;	http://jason.bryer.org/likert, http://github.com/jbryer/likert    
+**错误报告**	&nbsp;https://github.com/jbryer/likert/issues    
+**描述说明**&nbsp;  一种着重与可视化的分析李克特(likert)选项的方法。堆栈条形图(stacked bar plot)是展现李克特数据结果的优先选择。表格数据结果也可以与密度图相结合，帮助研究者决定李克特选项的回答是否可以进行定量使用而不是定性使用。以下函数可以作为一个好的开篇：likert(), summary.likert(), plot.likert().    
+**许可证**	&nbsp;	GPL       
+**延迟加载**	&nbsp;是    
+**插图生成器**	&nbsp;utils    
+**工具**		&nbsp;	R (>=3.0), ggplot2, xtable    
+**导入工具包**&nbsp;		psych, reshape2, gridExtra, grid, plyr   
+**建议工具包**	&nbsp;	devtools, shiny   
+**RoxygenNote** &nbsp;	5.0.1   
+**需要汇编**	&nbsp;	不需要   
+**知识库**	&nbsp;	CRAN   
+**日期/发布日期**&nbsp;	2016-12-31 01:37:00    
+
+\newpage
+**索引**
+
+------    
+`likert-package`	&nbsp;	&nbsp;	&nbsp;	&nbsp; _李克特分析与可视化_     
+------    
+
+- **描述**		&nbsp;	&nbsp;		李克特分析与可视化    
+- **作者**    &nbsp;	&nbsp;    \<jason@bryer.org\>     
+
+\bigskip    
+\bigskip    
+
+------
+`abs_formatter` &nbsp;	&nbsp; &nbsp;	&nbsp; _连续性数值的绝对值格式_   
+------   
+
+- **描述**    &nbsp;	&nbsp;   打印出坐标标签的绝对值。对于堆栈条形图中以负数表示负分组的非负百分比十分有用。   
+- **使用方式**    &nbsp;	&nbsp;  `abs_formatter(x)`    
+- **参数**           
+      - `x`    &nbsp;	&nbsp;  需要被改变格式的值     
+- **数值**    &nbsp;	&nbsp;  `x`的绝对值   
+
+\bigskip   
+\bigskip   
+
+-----
+`align.plots`        
+\newline
+_改编于ggExtra工具包(该工具包已不可以用)。_      
+_与实验性mlpsa图有关，mlpsa图将两个单独分布结合在环形图(circular plot)中_    
+-----  
+
+- **描述**    &nbsp;	&nbsp;   改编于ggExtra工具包(该工具包已不可以用)。与实验性mlpsa图有关，mlpsa图将两个单独分布结合在环形图(circular plot)中  
+- **使用方式**    &nbsp;	&nbsp;  `align(g1,...)`    
+- **参数**     
+      - `g1`     &nbsp;	&nbsp;  `grid.layout`    
+      - `...`    &nbsp;	&nbsp;  需要添加的其他画图元素   
+- **参考**    &nbsp;	&nbsp; http://groups.google.com/group/ggplot2/browse_thread/thread/1b859d6b4b441c90   
+
+\bigskip    
+\bigskip   
+
+-----
+`gap`  &nbsp;	&nbsp; _虚构数据集，数据机包括五个不同的办公室的重要程度与满意度结果。_   
+-----  
+
+- **描述**  &nbsp;	&nbsp; 此数据集用于`GapAnalysis`样本中，用于展示`likert`工具包如何处理差距分析   
+- **格式**  &nbsp;	&nbsp;   68行观察结果、11个变量的数据框结构    
+
+\bigskip   
+\bigskip    
+
+-----
+`label_wrap_mod` &nbsp;	&nbsp; &nbsp;	&nbsp;  _包装标签文本_   
+-----   
+
+- **描述**   &nbsp;	&nbsp;  包装标签文本   
+- **使用方式**  &nbsp;	&nbsp;  `label_wrap_mod(value,width=25)`    
+- **参数**  &nbsp;	&nbsp;    
+      - `value`    &nbsp;	&nbsp; 需要被包装的向量(用`as.character`转换成`char`类型)   
+      - `width`  &nbsp;	&nbsp;   每一行字母的最大宽度，改编于https://github.com/hadley/ggplot2/wiki/labeller     
+
+\bigskip   
+\bigskip   
+
+-----
+`likert` &nbsp;	&nbsp; &nbsp;	&nbsp;   _分析李克特类型选项_    
+-----   
+
+- **描述** &nbsp;	&nbsp;  此函数提供多种关于李克特类的统计数据。    
+- **使用方式** &nbsp;	&nbsp;  
+```{r eval=FALSE}
+likert(items, summary, grouping = NULL, factors = NULL, importance,
+       nlevels = length(levels(item[,1])))
+```
+- **参数**    
+      - `items`  &nbsp;	&nbsp;  存储李克特类选项的数据框。数据框中的变量类型应为“因子”数据类型    
+      - `summary` &nbsp;	&nbsp;  预总结的数据框。第一列必须是李克特选项，剩下的列是李克特选项的量表(例如：强烈反对，反对等等)    
+      - `grouping`  &nbsp;	&nbsp;  (可选的)结果应总结为所给的分组变量。      
+      - `factors`  &nbsp;	&nbsp;  定义每一列所属因子`length(factors)==ncol(items)`的向量。值对应因子标签   
+      - `importance` &nbsp;	&nbsp;  与李克特选项有相同维度的数据框，包含对应选项的重要程度。    
+      - `nlevels`  &nbsp;	&nbsp;  可能的量表量化选项的数量。只在存在缺失值的时候有必要标明。    
+- **细节**    
+      - `results` &nbsp;	&nbsp; 此数据框会包含一列`Item`,`Group`(如果明确了一个分组变量，并且每列对应每一个量化选项(例如:同意，不同意等。)。每一个单元格的值对应每一个李克特回答的百分比)       
+      - `items` &nbsp;	&nbsp; 原李克特选项的复制数据框         
+      - `grouping` &nbsp;	&nbsp; 原分组向量的复制    
+      - `nlevels` &nbsp;	&nbsp; 用于计算的量化选项的数量    
+- **值**  &nbsp;	&nbsp;  包括以下元素的李克特类别：结果，选项，分组，量化选项数量，总结。   
+- **可查阅** &nbsp;	&nbsp;     
+      - `plot.likert`      
+      - `summary.likert`        
+- **例子**  &nbsp;	&nbsp;    
+```{r eval=FALSE}
+data(pisaitems)
+items29 <- pisaitems[, substr(names(pisaitems), 1, 5) == 'ST25Q']
+names(items29) <- c("Magazines", "Comic books", "Fiction",
+                   "Non-fiction books", "Newspapers")
+l29 <- likert(items29)
+summary(l29)
+plot(l29)
+```
+
+\bigskip  
+\bigskip   
+
+------
+`liker.bar.plot`  &nbsp;	&nbsp;   &nbsp;	&nbsp;  _李克特选项的条形图_   
+------
+
+- **描述** &nbsp;	&nbsp; 李克特结果的条形图        
+- **使用方式**  &nbsp;	&nbsp; `likert.bar.plot(l, group.order, center = (l$nlevels-1)/2 + 1, ...)`     
+- **参数**  &nbsp;	&nbsp;     
+        - `l`  &nbsp;	&nbsp; 李克特选项的结果     
+        - `group.order`  &nbsp;	&nbsp; 组别(分组选项)或者选项(非分组选项)的顺序         
+        - `center`  &nbsp;	&nbsp; 指定作为中心的量化等级。例如，`center=3`表示用第三等级作为中心，`center=3.5`表示明确中心点，但是小于等于3为低等级，大于等于4为高等级(i.e. 用于强制选择的选项或者没有中立选择的选项)。这也会影响从低到高等级的颜色分割位置。       
+        - `...`  &nbsp;	&nbsp; 传到`likert.options`的参数        
+        - `likert` &nbsp;	&nbsp; 李克特类型对象           
+- **可查阅**  &nbsp;	&nbsp;  
+        - `plot.likert`    
+        - `likert.heat.plot`     
+        - `likert.bar.plot`     
+        - `likert.density.plot`     
+
+\bigskip   
+\bigskip    
+
+------   
+`likert.density.plot` &nbsp; &nbsp; &nbsp; &nbsp;  _创建一个李克特选项密度图_    
+------   
+
+- **描述**  &nbsp;	&nbsp; 此函数创建一个将李克特选项当作连续性变量处理的可视化       
+- **使用方式**  &nbsp;	&nbsp; 
+```{r eval=FALSE}
+likert.density.plot(likert, facet = TRUE, bw = 0.5, legend, ...)     
+```
+- **参数**  &nbsp;	&nbsp;      
+        - `likert`   &nbsp;	&nbsp; 李克特类型对象       
+        - `facet`   &nbsp;	&nbsp; 对于非分组的选项，每一个密度分布应该画在不同的平面内     
+        - `bw`   &nbsp;	&nbsp; 平滑宽度。经常设置成标准偏差，但对于李克特类型选项来说经常是不足够的。由于两个相邻等级是不同的，所以使用0.5作为`bw`的值。        
+        - `legend`   &nbsp;	&nbsp; 图标的标题    
+        - `...`   &nbsp;	&nbsp; 传给`density`的参数    
+- **可查阅**  &nbsp;	&nbsp;    
+        - `plot.likert`      
+
+\bigskip   
+\bigskip   
+
+------   
+`likert.heat.plot`   &nbsp;	&nbsp;    &nbsp;	&nbsp;  _内部方法_   
+------  
+
+- **描述**  &nbsp;	&nbsp; 内部方法    
+- **使用方式**    &nbsp;	&nbsp; 
+```{r eval=FALSE}
+likert.heat.plot(likert, low.color = "white", high.color = "blue",
+                 text.color = "black", text.size = 4, wrap = 50, ...)
+```
+
+- **参数**    &nbsp;	&nbsp;     
+        - `likert`   &nbsp;	&nbsp; 李克特类型对象    
+        - `low.color`   &nbsp;	&nbsp; 用于表示低数值的颜色     
+        - `high.color`   &nbsp;	&nbsp; 用于表示高数值的颜色    
+        - `text.color`   &nbsp;	&nbsp; 文本属性的字体颜色   
+        - `text.size`   &nbsp;	&nbsp; 文本属性的字体大小    
+        - `wrap`   &nbsp;	&nbsp; 用于非分组李克特对象的包装标签文本的宽度     
+        - `...`   &nbsp;	&nbsp; 目前尚未使用       
+- **可查阅**   &nbsp;	&nbsp;     
+        - `plot.likert`    
+        - `likert.bar.plot`    
+
+\bigskip  
+\bigskip   
+
+------  
+`likert.histogram.plot`   &nbsp;	&nbsp;    &nbsp;	&nbsp;  _李克特回答数量的直方图_     
+------
+
+- **描述**   &nbsp;	&nbsp; 绘画一个包括每一个选项和分组(如果存在指定分组)对应的回答数量的直方图。 负数值(默认用红棕色)表明选项和分组的缺失值数量。     
+- **使用方式**   &nbsp;	&nbsp; 
+```{r eval=FALSE}
+likert.histogram.plot(l, xlab = "n", plot.missing = TRUE,
+                      bar.color = "grey70", missing.bar.color = "maroon",
+                      label.completed = "Completed", label.missing = "Missing",
+                      legend.position = "bottom", wrap = ifelse(is.null(l$grouping), 50, 100),
+                      order, group.order, panel.arrange = "v", panel.strip.color = "#F0F0F0",
+                      text.size = 2.5, ...)
+```
+
+- **参数**     &nbsp;	&nbsp;    
+        - `l`   &nbsp;	&nbsp; 李克特的结果       
+        - `xlab`   &nbsp;	&nbsp; 用于x轴的标签      
+        - `plot.missing`   &nbsp;	&nbsp; 如果是TRUE，缺失值会被画在x轴的左边     
+        - `bar.color`   &nbsp;	&nbsp; 柱形条的颜色         
+        - `missing.bar.color`   &nbsp;	&nbsp; 缺失值的柱形条的颜色     
+        - `label.completed`   &nbsp;	&nbsp; 在图标中表示完整值总量的标签     
+        - `label.missing`   &nbsp;	&nbsp; 在图标中表示缺失值总量的标签    
+        - `legend.position`   &nbsp;	&nbsp; 图标位置     
+        - `wrap`   &nbsp;	&nbsp; 包装文本到面板条之前的字母数量 
+        - `order`   &nbsp;	&nbsp; 李克特选项的顺序  
+        - `group.order`   &nbsp;	&nbsp; 组别(分组选项)或者选项(非分组选项)的顺序      
+        - `panel.arrange`   &nbsp;	&nbsp; `v`表示垂直位置，`h`表示水平位置    
+        - `panel.strip.color`   &nbsp;	&nbsp; 面板颜色    
+        - `text.size`   &nbsp;	&nbsp; 文本字体大小    
+        - `...`   &nbsp;	&nbsp; 其他`ggplot2`参数     
+        
+\bigskip   
+\bigskip   
+
+------
+`likert.matrix.plot`  &nbsp;	&nbsp;   &nbsp;	&nbsp;  _矩阵图(实验的)_   
+------
+
+- **描述**   &nbsp;	&nbsp; 矩阵图(实验的)     
+- **使用方法**  &nbsp;	&nbsp;  
+```{r eval=FALSE}
+likert.matrix.plot(likert, nSample = nrow(likert$items), ...)
+```
+
+- **参数**  &nbsp;	&nbsp;   
+        - `likert`   &nbsp;	&nbsp; 李克特选项的结果       
+        - `nSample`   &nbsp;	&nbsp; 全部行的随机样本。此函数对于大数据集的运行时间会长一些(包括`pisaitems`数据)。可以绘画一个随机副样本以便于快速开发。     
+        - `...`   &nbsp;	&nbsp;  传给`pairs.ordered.categorical`的参数    
+
+\bigskip  
+\bigskip  
+
+------
+`likert.options`   &nbsp;	&nbsp;   &nbsp;	&nbsp; _建立一个用于绘画李克特结果的有可选项的对象_  
+------ 
+
+- **描述**   &nbsp;	&nbsp;建立一个用于绘画李克特结果的有可选项的对象       
+- **使用方法**   &nbsp;	&nbsp;  
+```{r eval=FALSE}
+likert.options(low.color = "#D8B365", high.color = "#5AB4AC",
+               neutral.color = "grey90", neutral.color.ramp = "white", colors = NULL,
+               plot.percent.low = TRUE, plot.percent.high = TRUE,
+               plot.percent.neutral = TRUE, plot.percents = FALSE, text.size = 3,
+               text.color = "black", centered = TRUE, include.center = TRUE,
+               ordered = TRUE, wrap = 50, wrap.grouping = 50, legend = "Response",
+               legend.position = "bottom", panel.arrange = "v",
+               panel.strip.color = "#F0F0F0", ...)
+```
+
+- **参数**  &nbsp;	&nbsp;   
+        - `low.color`  &nbsp;	&nbsp; 用于表示低数值的颜色     
+        - `high.color`   &nbsp;	&nbsp; 用于表示高数值的颜色      
+        - `neutral.color`  &nbsp;	&nbsp; 用于表示中间数值的颜色(如果等级数为奇数)   
+        - `neutral.color.ramp`  &nbsp;	&nbsp; 当访问`colorRamp`用于`low.color`和`high.color`定义调色板时使用的第二种颜色        
+        - `colors`  &nbsp;	&nbsp; 指定使用颜色的向量。向量长度或元素数量一定等于李克特等级的数量       
+        - `plot.percent.low`  &nbsp;	&nbsp; 是否绘画低百分比      
+        - `plot.percent.high`  &nbsp;	&nbsp; 是否绘画高百分比      
+        - `plot.percent.neutral`  &nbsp;	&nbsp; 是否绘画中立百分比       
+        - `plot.percents`  &nbsp;	&nbsp; 是否标记每一个种类/柱形条       
+        - `text.size`  &nbsp;	&nbsp; 文本属性的文字大小      
+        - `text.color`  &nbsp;	&nbsp; 文本属性的文字颜色      
+        - `centered`  &nbsp;	&nbsp; 如果值为TRUE，条形图将被放在0的中心位置以便于低等级被放置与负值区域。          
+        - `include.center`  &nbsp;	&nbsp; 如果值为TRUE，将中心等级包括在图中(不然中心等级会被忽视/排除)            
+        - `ordered`   &nbsp;	&nbsp; 将选项从高到低重新排序      
+        - `wrap`   &nbsp;	&nbsp; 用于李克特选项标签的包装标签文本的宽度      
+        - `wrap.grouping`   &nbsp;	&nbsp; 用于分组李克特选项标签的包装标签文本的宽度      
+        - `legend`  &nbsp;	&nbsp; 图标的标题       
+        - `legend.position`  &nbsp;	&nbsp; 图标的位置("left", "right", "bottom", "top", 或者两个元素的数字向量)    
+        - `panel.arrange`   &nbsp;	&nbsp; 用于分组李克特选项的面板安排。可能的值为`v`(垂直位置,默认值), `h`(水平位置), 和NULL(自动选择水平和垂直)      
+        - `panel.strip.color`  &nbsp;	&nbsp; 面板标签的背景颜色       
+        - `...`  &nbsp;	&nbsp; 用于未来的扩展       
+
+\bigskip
+\bigskip 
+
+------
+`mass`  &nbsp;	&nbsp;   &nbsp;	&nbsp; _来自一个管理部门的Math Anxiety比例问卷调查的结果_    
+------
+
+- **描述**  &nbsp;	&nbsp; 在一门统计学课程中对20名学生进行`Math Anxiety`比例问卷调查结果的数据框。 此数据框包括了原始数据，可以用于核实预先总结的步骤。     
+- **格式**  &nbsp;	&nbsp; 14行和6列的数据框       
+- **参考文献**  &nbsp;	&nbsp;    
+    Bai, H., Wang, L., Pan, W., & Frey, M. (2009). Measuring mathematics anxiety: Psychometric analysis of a bidimensional affective scale. Journal of Instructional Psychology, 36 (3), 185- 193.
+
+\bigskip
+\bigskip
+
+------    
+`MathAnxiety` &nbsp; &nbsp; &nbsp; &nbsp;   
+_管理部门提供的 Math Anxiety比例问卷调查的预先总结的结果_     
+------    
+
+- **描述**  &nbsp; &nbsp;  在一门统计学课程中，对20名学生进行了`MathAnxiety`比例问卷调查的预先总结结果的数据框。   
+- **格式**  &nbsp; &nbsp; 14行6列的数据框架。    
+- **参考文献** &nbsp; &nbsp;       
+Bai, H., Wang, L., Pan, W., & Frey, M. (2009). Measuring mathematics anxiety: Psychometric
+analysis of a bidimensional affective scale. Journal of Instructional Psychology, 36 (3), 185- 193.
+
+\bigskip   
+\bigskip  
+
+------    
+`MathAnxietyGender` &nbsp; &nbsp; &nbsp; &nbsp;    
+_按照性别区分的, 管理部门提供的 Math Anxiety比例问卷调查的预先总结结果_     
+------
+
+- **描述**  &nbsp; &nbsp;     
+在一门统计学课程中，按照性别对20名学生进行了`MathAnxiety`比例问卷调查的预先总结结果的数据框。     
+- **格式**  &nbsp; &nbsp; 28行7列的数据框架。      
+- **参考文献** &nbsp; &nbsp;      
+Bai, H., Wang, L., Pan, W., & Frey, M. (2009). Measuring mathematics anxiety: Psychometric
+analysis of a bidimensional affective scale. Journal of Instructional Psychology, 36 (3), 185- 193.
+
+\bigskip   
+\bigskip  
+
+------    
+`pisaitems` &nbsp; &nbsp; &nbsp; &nbsp; _国际学生评估计划_     
+------
+
+- **描述**  &nbsp; &nbsp;    
+北美(即加拿大、墨西哥和美国)根据经济合作与发展组织(OECD)提供的2009年国际学生评估项目(PISA)的结果。更多信息请参见http://www.pisa.oecd.org/，包括代码手册。     
+- **格式**  &nbsp; &nbsp; 包含来自北美的81个变量的66690个观测值的数据框。    
+- **来源**  &nbsp; &nbsp; 经济合作与发展组织。   
+
+\bigskip   
+\bigskip  
+
+------    
+`plot.likert` &nbsp; &nbsp; &nbsp; &nbsp; _绘制一组李克特项_     
+------    
+
+- **描述**  &nbsp; &nbsp;     
+这是S3 plot通用函数的一个实现。这个函数将根据类型参数调用`likert.bar.plot`, `likert.heat.plot` 或者 `likert.density.plot`。有关这些函数的自定义图形外观的所有可用参数，请参阅帮助页面。虽然这些函数可以直接绘制，但我们建议调用通用plot函数。      
+- **使用方式**
+
+```{r eval=FALSE}
+#S3 method for class 'likert'
+plot(x, type = c("bar", "heat", "density"),
+include.histogram = FALSE, panel.widths = c(3, 1), panel.arrange = "v",
+panel.strip.color = "#F0F0F0", legend.position = "bottom", group.order,
+panel.background = element_rect(size = 1, color = "grey70", fill = NA), ...)
+
+```
+- **参数**        
+        - `x`    &nbsp; &nbsp;  要绘制的李克特项。    
+        - `type` &nbsp; &nbsp;   要创建的图形类型，当前值为bar和heat。    
+        - `include.histogram`    &nbsp; &nbsp;  如果为TRUE，回答数量的直方图也会被绘制。   
+        - `panel.widths`    &nbsp; &nbsp;  
+        如果include.histogram为 TRUE, 这个长度为2的向量指定了左右面板的比例。     
+        - `panel.arrange`    &nbsp; &nbsp;  
+        如何为按组分的李克特项安排面板。可能的值是v(垂直，默认值)、h(水平)和NULL(自动填充水平和垂直)。    
+        - `panel.strip.color`    &nbsp; &nbsp;  面板标签的背景色。      
+        - `legend.position`    &nbsp; &nbsp;  图例的位置(“左”、“右”、“下”、“上”或两元数字向量)。    
+        - `group.order`    &nbsp; &nbsp;  分组(分组项)或项(非分组项)的绘制顺序。    
+        - `panel.background`    &nbsp; &nbsp;  定义图的背景。见`theme`。   
+        -  其他参数传递给 `likert.bar.plot` or `likert.heat.plot`。        
+- **可查阅**        
+        - `likert.bar.plot`   
+        - `likert.heat.plot`    
+        - `likert.density.plot`   
+        - `likert.histogram.plot`    
+
+\bigskip   
+\bigskip  
+
+------    
+`plot.likert.gap` &nbsp; &nbsp; &nbsp; &nbsp; _绘制一组李克特项_     
+------
+
+- **描述**  &nbsp; &nbsp; 
+
+这是S3 plot通用函数的一个实现。这个函数将根据类型参数调用`likert.bar.plot`, `likert.heat.plot` 或者 `likert.density.plot`。有关这些函数的自定义图形外观的所有可用参数，请参阅帮助页面。虽然这些函数可以直接绘制，但我们建议调用通用plot函数。      
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+## S3 method for class 'likert.gap'
+plot(x, type = c("bar", "density"),
+include.histogram = FALSE, panel.widths = c(3, 1), panel.arrange = "v",
+panel.strip.color = "#F0F0F0", legend.position = "bottom",
+panel.background = element_rect(size = 1, color = "grey70", fill = NA),
+satisfaction.label = "Satisfaction", importance.label = "Importance",
+legend, ...)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  要绘制的李克特项 。     
+        - `type` &nbsp; &nbsp;   要创建的图形类型，当前值为bar和heat。    
+        - `include.histogram`    &nbsp; &nbsp;  如果为TRUE，回答数量的直方图也会被绘制。
+        - `panel.widths`    &nbsp; &nbsp;  
+        如果include.histogram为 TRUE, 这个长度为2的向量指定了左右面板的比例。    
+        - `panel.arrange`    &nbsp; &nbsp;    
+        如何为按组分的李克特项安排面板。可能的值是v(垂直，默认值)、h(水平)和NULL(自动填充水平和垂直)。   
+        - `panel.strip.color`    &nbsp; &nbsp;  面板标签的背景色。    
+        - `legend.position`    &nbsp; &nbsp;    图例的位置(“左”、“右”、“下”、“上”或两元数字向量)。   
+        - `group.order`    &nbsp; &nbsp;  分组(分组项)或项(非分组项)的绘制顺序。   
+        - `panel.background`    &nbsp; &nbsp;  定义图的背景。见`theme`。   
+        - `satisfaction.label`  &nbsp; &nbsp; 满意度项的标签。   
+        - `importance.label`  &nbsp; &nbsp; 重要性项的标签。   
+        - `legend`  &nbsp; &nbsp; 说明框的标题。   
+        -  其他参数传递给 `likert.bar.plot` or `likert.heat.plot`。        
+- **可查阅**   
+        - `likert.bar.plot`    
+        - `likert.heat.plot`    
+        - `likert.density.plot`     
+        - `likert.histogram.plot`   
+
+\bigskip   
+\bigskip  
+
+------    
+`print.likert` &nbsp; &nbsp; &nbsp; &nbsp; _输出结果表_     
+------
+
+- **描述**  &nbsp; &nbsp; 输出结果表    
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+## S3 method for class 'likert'
+print(x, ...)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  要打印的李克特类。    
+        - 传递给`print.data.frame`的参数。    
+
+\bigskip   
+\bigskip  
+
+-----
+`print.likert.bar.plot`        
+\newline
+_likert.bar.plot的输出方法。_      
+_主要目的是抑制ggplot2打印的“当 ymin != 0时堆叠没有很好定义”警告_  
+_该警告针对的是具有负条形(即居中图)的条形图。_
+-----
+
+- **描述**  &nbsp; &nbsp; 
+
+`likert.bar.plot`的输出方法。主要目的是抑制ggplot2对具有负条形(即中间的条形图)的条形图打印的“ymin != 0时堆叠没有很好定义”警告。     
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+## S3 method for class 'likert.bar.plot'
+print(x, ...)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  `likert.bar.plot`生成的图。   
+        - 传递给`ggplot2`的参数。    
+        
+\bigskip   
+\bigskip  
+
+------    
+`print.likert.gap` &nbsp; &nbsp; &nbsp; &nbsp; _打印结果表_     
+------
+
+- **描述**  &nbsp; &nbsp; 打印结果表     
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+## S3 method for class 'likert.gap'
+print(x, ...)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  要打印的李克特类。  
+        - 传递给`print.data.frame`的参数。    
+
+\bigskip   
+\bigskip  
+
+------    
+`print.likert.heat.plot` &nbsp; &nbsp; &nbsp; &nbsp; _likert.heat.plot的打印方法_     
+------
+
+- **描述**  &nbsp; &nbsp; `likert.heat.plot`的打印方法      
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+## S3 method for class 'likert.heat.plot'
+print(p, ...)
+```
+- **参数**       
+        - `p`    &nbsp; &nbsp;  `likert.heat.plot`的图。    
+        - 传递给`ggplot2`的参数。   
+
+\bigskip   
+\bigskip  
+
+------    
+`print.xlikert` &nbsp; &nbsp; &nbsp; &nbsp; _打印xtable.likert的结果_     
+------
+
+- **描述**  &nbsp; &nbsp;  打印`xtable.likert`的结果     
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+## S3 method for class 'xlikert'
+print(x, tabular.environment = "longtable", floating = FALSE, ...)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  `xlikert`的结果。   
+        - `tabular.environment`   &nbsp; &nbsp; 见 `print.xtable`。   
+        - `floating`   &nbsp; &nbsp; 见 `print.xtable`。   
+        -  传递给`print.xtable`的参数。   
+
+\bigskip   
+\bigskip  
+
+------    
+`recode` &nbsp; &nbsp; &nbsp; &nbsp; _重新编码向量_     
+------
+
+- **描述**  &nbsp; &nbsp;  这个实用函数将重新编码带着新值的原始字符或因子向量的值。    
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+recode(x, from, to, to.class = NULL)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  将被重新编码的向量。   
+        - `from`   &nbsp; &nbsp; x中将被重新编码的旧值。   
+        - `to`   &nbsp; &nbsp; 新的值。    
+        - `to.class`   &nbsp; &nbsp; 一个"as."函数代表所需的向量类型(例如as.character, as.numeric,as.logical, as.numeric)           
+- **值**   &nbsp; &nbsp;  一个长度与x一样的包含重新编码值的向量。     
+- **例子**
+
+```{r eval=FALSE}
+test <- letters[sample(5, 10, replace=TRUE)]
+recode(test, from=letters[1:5], to=paste('Letter', letters[1:5]))
+```
+
+\bigskip   
+\bigskip  
+
+------    
+`reverse.levels` &nbsp; &nbsp; &nbsp; &nbsp; _反转一个因子的级别分类_     
+------
+
+- **描述**  &nbsp; &nbsp; 反转一个因子的级别分类。      
+- **使用方式**  &nbsp; &nbsp;
+
+```{r eval=FALSE}
+reverse.levels(x)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  一个级别分类将被反转的一个因子或者数据框。     
+- **例子**
+
+```{r eval=FALSE}
+mylevels <- c('Strongly Disagree', 'Disagree', 'Neither', 'Agree', 'Strongly Agree')
+test <- factor(sample(mylevels[1:5], 10, replace=TRUE))
+cbind(test, as.integer(test), as.integer(reverse.levels(test)))
+```
+
+\bigskip   
+\bigskip  
+
+------    
+`sasr` &nbsp; &nbsp; &nbsp; &nbsp; _学术自律调查(SASR)的结果。_     
+------
+
+- **描述**  &nbsp; &nbsp;   
+学术自我调节(SASR)调查由六个因素组成:自我调节、内在动机、外在动机、自我效能感、元认知和个人关联与控制。          
+- **格式**  &nbsp; &nbsp; 包含63个变量，860个观察值的数据框架。          
+- **参考文献** &nbsp; &nbsp;    
+Dugan, R., & Andrade, H. (2011). Exploring the construct validity of academic self-regulation
+using a new self-report questionnaire. The International Journal of Educational and Psychological Assessment, 7(1).
+
+\bigskip   
+\bigskip  
+
+------    
+`shinyLikert` &nbsp; &nbsp; &nbsp; &nbsp; _李克特包的Shiny应用。_     
+------
+
+- **描述**  &nbsp; &nbsp;  这将启动一个包含显示的许多功能李克特包的`Shiny`应用程序包。   
+- **使用**
+
+```{r eval=FALSE}
+shinyLikert()
+```
+
+- **参考文献** &nbsp; &nbsp; http://rstudio.com/shiny   
+
+\bigskip   
+\bigskip  
+
+------    
+`summary.likert` &nbsp; &nbsp; &nbsp; &nbsp; _打印李克特分析的汇总表。_     
+------
+
+- **描述**  &nbsp; &nbsp; 
+
+summary函数返回一个提供附加信息的数据框架。它包含类似结果数据框的“Item”和“Group”列,以及一列“low”对应总和水平低于中性的分类,一列“high”对应的总和高于中性的分类,和列“mean”和“sd”对应的平均值和标准偏差分别的结果。数值化结果取决于as.numeric后的因数的值。       
+- **使用**
+
+```{r eval=FALSE}
+## S3 method for class 'likert'
+summary(object, center = (object$nlevels - 1)/2 + 1,ordered = TRUE, ...)
+```
+- **参数**       
+        - `object`    &nbsp; &nbsp;  要总结的李克特类。   
+        - `center`    &nbsp; &nbsp;  
+        指定应该将哪个级别作为中心。例如，center = 3将使用第三个级别作为中心，而center = 3.5将表示没有特定的级别为中心，但<= 3是低级别，>= 4是高级别(即用于强制选择项或没有中立选项的项)。    
+        - `ordered`    &nbsp; &nbsp;  是否应该对结果排序。目前不支持分组分析。     
+
+\bigskip   
+\bigskip  
+
+------    
+`summary.likert.gap` &nbsp; &nbsp; &nbsp; &nbsp; _打印李克特分析的汇总表。_     
+------
+
+- **描述**  &nbsp; &nbsp; 
+
+summary函数返回一个提供附加信息的数据框架。它包含类似结果数据框的“Item”和“Group”列,以及一列“low”对应总和水平低于中性的分类,一列“high”对应的总和高于中性的分类,和列“mean”和“sd”对应的平均值和标准偏差分别的结果。数值化结果取决于as.numeric后的因数的值。       
+- **使用**
+
+```{r eval=FALSE}
+## S3 method for class 'likert.gap'
+summary(object, ...)
+```
+- **参数**       
+        - `object`    &nbsp; &nbsp;  要总结的李克特类。   
+        - 参数传递给`summary.likert`。          
+- **值**
+
+包含两个数据框架的列表，其中分别汇总了满意度和重要性数据的结果。
+
+\bigskip   
+\bigskip  
+
+------    
+`xtable.likert` &nbsp; &nbsp; &nbsp; &nbsp; _打印一个LaTex表的李克特项目。_     
+------
+
+- **描述**  &nbsp; &nbsp; 建立LaTeX或HTML表的likert结果。    
+- **使用**
+
+```{r eval=FALSE}
+## S3 method for class 'likert'
+xtable(x, caption = NULL, label = NULL, align = NULL,
+digits = NULL, display = NULL, auto = FALSE, include.n = TRUE,
+include.mean = TRUE, include.sd = TRUE, include.low = TRUE,
+include.neutral = (x$nlevels%%2 != 0), include.high = TRUE,
+include.levels = TRUE, include.missing = TRUE, center = (x$nlevels - 1)/2 + 1, ordered = TRUE, ...)
+```
+- **参数**       
+        - `x`    &nbsp; &nbsp;  李克特类的对象。    
+        - `caption`    &nbsp; &nbsp;  表格的标题。       
+        - `label`    &nbsp; &nbsp;  表格的标签。    
+        - `align`    &nbsp; &nbsp;  列的序列方向。    
+        - `digits`    &nbsp; &nbsp;  数字类列的小数位的数量。   
+        - `display`    &nbsp; &nbsp;  列的格式。  
+        - `auto`    &nbsp; &nbsp;  逻辑，指示在没有向align、digit或display传递值时是否应用自动格式(有关更多信息，请参阅xtable)。    
+        - `include.n`    &nbsp; &nbsp;  包含n的选项。   
+        - `include.mean o`    &nbsp; &nbsp;  包含平均数的选项。  
+        - `include.sd`    &nbsp; &nbsp;  包含sd的选项。   
+        - `include.low`    &nbsp; &nbsp;  包含low的选项。   
+        - `include.neutral`    &nbsp; &nbsp;  包含neutral的选项。   
+        - `include.high`    &nbsp; &nbsp;  包含high的选项。    
+        - `include.levels`    &nbsp; &nbsp;  包含级别的选项。   
+        - `include.missing`    &nbsp; &nbsp;  包含缺失值的选项。       
+        - `center`    &nbsp; &nbsp;     
+        指定应该将哪个级别作为中心。例如，center = 3将使用第三个级别作为中心，而center = 3.5将表示没有特定的级别为中心，但<= 3是低级别，>= 4是高级别(即用于强制选择项或没有中立选项的项)。这也影响哪些层被总结在低和高组。      
+        - `ordered`    &nbsp; &nbsp; 是否应该对结果排序。见`summary.likert`。    
+        - `...`    &nbsp; &nbsp; 参数传递给`xtable`。        
+- **可查阅** 
+
+`xtable`, `print.xtable`
