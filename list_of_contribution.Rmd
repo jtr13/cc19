@@ -21,7 +21,7 @@ We have tried many different things from the list, including:
   1. Publish and share your R plots, hosted free in github [website](https://columbia-dsi.github.io) (Quick, Simple and Free)
   2. Release R Package, through cran or github
   3. Deploy R model to Azure ML Studio (The Simplest Way)
-  4. Deploy R model as Web Service (The Structed Way)
+  4. Deploy R model as Web Service (The Structured Way)
 
 ### * A workshop - "ShareYouRWork"
 
