@@ -29,7 +29,7 @@ tinder_theme = function() {
   )
 }
 
-bentinder = load.csv('bentinder.csv')
+bentinder = read.csv('bentinder.csv')
 bentinder = bentinder[,2:8]
 bentinder[,1] = ymd(bentinder[,1])
 ```
