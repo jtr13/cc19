@@ -15,4 +15,5 @@ Imports:
   vcd,
   choroplethr,
   choroplethrMaps,
-  tidyverse
+  tidyverse, 
+  wordcloud2
