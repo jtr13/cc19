@@ -10,6 +10,7 @@ rmd_files: [
   
   # edav.info
   'ridgeline_plot.Rmd',
+  'likert_edav_info.Rmd',
   
   # workshop
   'workshop_master.Rmd'
