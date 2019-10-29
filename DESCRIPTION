@@ -13,6 +13,11 @@ Imports:
   nycflights13,
   ISwR,
   vcd,
+  HH,
+  reshape2,
+  RColorBrewer,
+  stringr,
+  forcats,
   gridExtra,
   GGally,
   ggthemes,
@@ -26,4 +31,6 @@ Imports:
   wordcloud2,
   dplyr,
   shiny,
-  devtools
+  devtools,
+  Rmpfr
+
