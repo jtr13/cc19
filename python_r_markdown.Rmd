@@ -2,7 +2,7 @@
 
 Karan Rao
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.width=3.5, fig.height=2)
 ```
 
