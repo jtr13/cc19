@@ -12,7 +12,6 @@ In this file, we will provide a tutorial on how to draw Wordcloud graphs using t
 
 The dataset in this project are from the **demoFreq** package.
 
-This is the GitHub repo for our project: https://github.com/ju-chengyou/5702_Community_Contribution_15.
 
 ## 1. Introduction
 
@@ -26,6 +25,8 @@ There are two packages in R that can help us draw a wordcloud. `wordcloud` is th
 
 For our demo, we will use a built-in dataset `demoFreq`, which has 1011 observations of 2 variables, words and frequancy.
 ```{r}
+library(devtools)
+devtools::install_github("lchiffon/wordcloud2")
 library(wordcloud2)
 head(demoFreq)
 ```
