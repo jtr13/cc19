@@ -28,7 +28,7 @@ df <- df %>% filter(state_name != 'Alaska')
 ```
 
 ```{r points, message=FALSE, warning=FALSE}
-# Sprad of counties across US using points
+# Spread of counties across US using points
 ggmap(usmap) + 
   geom_point(data = df, 
              mapping = aes(x = lng, y = lat, color = population)) +
