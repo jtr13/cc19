@@ -16,6 +16,7 @@ rmd_files: [
   'workshop_master.Rmd', 
   
   # tutorial
-  'carto_tutorial.Rmd'
+  'carto_tutorial.Rmd',
+  'wordcloud_tutorial.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
