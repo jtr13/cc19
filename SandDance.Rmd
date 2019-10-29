@@ -1,0 +1,6 @@
+# SandDance visualization tool
+
+Mughilan Muthupari and Anjani Prasad Atluri
+
+We have made a video tutorial on SandDance (a visualization tool by Microsoft), posted on YouTube [here](https://www.youtube.com/watch?v=sI4WIQEz07w){target="_blank"}.
+
