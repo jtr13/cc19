@@ -5,6 +5,7 @@ Version: 0.0.1
 URL: https://github.com/jtr13/cc19
 Imports: 
   bookdown,
+  ggmap,
   ggplot2,
   ggridges,
   viridis,
@@ -13,9 +14,22 @@ Imports:
   ISwR,
   vcd,
   HH,
-  dplyr,
   reshape2,
   RColorBrewer,
-  ggthemes,
   stringr,
-  forcats
+  forcats,
+  gridExtra,
+  GGally,
+  ggthemes,
+  tidyverse,
+  parcoords,
+  lubridate,
+  readr,
+  choroplethr,
+  choroplethrMaps,
+  tidyverse, 
+  wordcloud2,
+  dplyr,
+  shiny,
+  devtools
+
