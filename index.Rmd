@@ -7,15 +7,16 @@ documentclass: book
 github-repo: jtr13/cc19
 description: "This book will hold all community contributions for STAT GR 5702 Fall 2019 at Columbia University"
 ---
+# (PART) Introduction {-}
 
 # Instructions
-This chapter gives you all the information you need to upload your community contribution. 
+This chapter gives you all the information you need to upload your community contribution. **Please read this entire document carefully before making your submission.** Of particular note is the fact that **bookdown** requires a different .Rmd format than you're used to, so you must make changes to the beginning of the file as described below before submitting.
 
 ## Background
 
 This web site makes use of the **bookdown** package to render a collection of `.Rmd` files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution `.Rmd` file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them. We use [Travis CI](https://travis-ci.com){target="_blank"} to render the book and push the rendered `.html` files to our `gh-pages` branch--you can view [our builds here](https://travis-ci.com/jtr13/cc19){target="_blank"}--and GitHub Pages to host the site. 
 
-If your community contribution is in a different format, then create a short `.Rmd` file that explains what you did, and includes links to any relevant files, such as slides, etc. which you can post on your GitHub repo (or another online site.)
+If your community contribution is in a different format, then create a short `.Rmd` file that explains what you did, and includes links to any relevant files, such as slides, etc. which you can post on your GitHub repo (or another online site.)
 
 ## Preparing your `.Rmd` file
 
@@ -27,12 +28,12 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 
 2.  Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
     
-3. The first line should be a single hashtag (\#) followed by your project name (this does not have to be exact same as the project folder name and may include white space), and it should be followed with one whitespace, otherwise bookdown will not render it as a header. Do not use single \# headers anywhere else in the document.
+3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the [rendered book](https://jtr13.github.io/cc19/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single # headers anywhere else in the document.
     
 4. The second line should be blank, followed by your name(s):
     
    ```
-    # Base R graphics vs. ggplot2 graphics
+    # Base R vs. ggplot2
     
     Aaron Burr and Alexander Hamilton
 
@@ -61,7 +62,7 @@ To submit your work, we will be following the instructions in [this tutorial](ht
 
 6. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it is [`resources/sample_project/`](resources/sample_project){target="_blank"}. Put the resources files there. 
 
-7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If you follow the steps, we will merge it to the master branch. 
+7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. If you follow the steps, we will merge it to the master branch. After submitting your pull request, do not be concerned if you see an "All builds have failed" message from Travis CI. There are things that need to be done on the backend, such as adding the libraries you use to the project for the Travis CI build to pass.
 
 ## Optional tweaks
 
