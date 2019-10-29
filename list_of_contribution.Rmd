@@ -8,7 +8,7 @@ We have tried many different things from the list, including:
 
   Title: Experiments Tool and Visualization
   
-  Discription: The "Virtual Lab" refers to using software controlled experiments with internet participants to overcome many of the limitations of traditional lab experiments. To help researchers study more complex tasks and set up interactions that happen over longer periods of time or among larger numbers of people. This allows us to design behavioral experiments and visualize data that would have been very hard to do in the past. I would like to share some of the work and how we visualize things to make a difference.
+  Description: The "Virtual Lab" refers to using software controlled experiments with internet participants to overcome many of the limitations of traditional lab experiments. To help researchers study more complex tasks and set up interactions that happen over longer periods of time or among larger numbers of people. This allows us to design behavioral experiments and visualize data that would have been very hard to do in the past. I would like to share some of the work and how we visualize things to make a difference.
 
 ### * A cheatsheet 
 
