@@ -1,4 +1,4 @@
-# Chart: Likert {#likert}
+# Likert {#likert}
 
 Shijie He and Chutian Chen
 
