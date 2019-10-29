@@ -17,10 +17,12 @@ rmd_files: [
 
   # Part: Other
   'tinder_study.Rmd',
-  
+  'wordcloud_tutorial.Rmd',
+
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd'
+
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s

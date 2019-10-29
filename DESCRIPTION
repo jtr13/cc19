@@ -22,6 +22,8 @@ Imports:
   readr,
   choroplethr,
   choroplethrMaps,
+  tidyverse, 
+  wordcloud2,
   dplyr,
   shiny,
   devtools
