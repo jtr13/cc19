@@ -4,3 +4,4 @@ Mughilan Muthupari and Anjani Prasad Atluri
 
 We have made a video tutorial on SandDance (a visualization tool by Microsoft), posted on YouTube [here](https://www.youtube.com/watch?v=sI4WIQEz07w){target="_blank"}.
 
+**Note:** The presentation used can be found in the description of the video.
