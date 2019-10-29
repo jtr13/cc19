@@ -12,7 +12,7 @@ We have tried many different things from the list, including:
 
 ### * A cheatsheet 
 
-  Mapping grammar for ggplot2,pyplot,d3 
+  About mapping grammar for ggplot2,pyplot,d3 
 
 ### * A series of tutorials
 
