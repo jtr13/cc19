@@ -15,10 +15,12 @@ rmd_files: [
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
 
+  # Part: Other
+  'tinder_study.Rmd',
+  
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd'
-
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
