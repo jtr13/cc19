@@ -6,11 +6,11 @@ Pritam Biswas and Amogh Mishra
 We are performing a comparison between R and tableau for different types of data visualization. We are showing a few plots of R Studio and Tableau
 We will show Choropleth map in R, one for USA and one for World map. We will show the same plots in Tableau software. During the demo we will observe how easy it is use Tableau due to its drag and drop interface and dashboard facility.
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA)
 ```
 ## We shall now show our plots using R studio
 This is the Choropleth map for populations of state in USA
-```{r comment=NA}
+```{r message=FALSE}
 library(choroplethr)
 data(df_pop_state)
 data(df_state_demographics)
@@ -18,7 +18,7 @@ state_choropleth(df_pop_state, title="2012 Population by State", legend="Populat
 ```
 
 This is the Choropleth map for GDP of countries in the world
-```{r comment=NA}
+```{r message=FALSE}
 Sys.setenv("plotly_username"="biswaspritam1993")
 Sys.setenv("plotly_api_key"="p3A0ZAbHFdOt9AM3XGb0")
 library(plotly)
