@@ -31,5 +31,6 @@ Imports:
   wordcloud2,
   dplyr,
   shiny,
-  devtools
+  devtools,
+  Rmpfr
 
