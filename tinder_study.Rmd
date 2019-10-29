@@ -34,7 +34,7 @@ bentinder = bentinder[,2:8]
 bentinder[,1] = ymd(bentinder[,1])
 ```
 
-![](tinder.png)
+![](resources/tinder_study/tinder.png)
 
 
 ## Introduction
@@ -57,7 +57,7 @@ You're probably going to look at every statistic and graph here and wonder, "wha
 
 Every time a user's profile pops up, you can either "swipe left" and pass on them, or "swipe right" and like them. If (and only if) you and the other user both swipe right on each other, you are deemed a "match", and you gain ability to talk to one another. 
 
-![*(via Innovation Is Everywhere)*](tinder_example.jpg)
+![*(via Innovation Is Everywhere)*](resources/tinder_study/tinder_example.jpg)
 
 User habits vary: some users swipe right on everyone they see, while some users are very picky. There is very little explicit feedback from the app, so the user is forced to form their own conclusions from their personal data, which Tinder allows you to download.
 
@@ -190,9 +190,9 @@ I had expected that my record usage would come with travel, but it seems that it
 
 A quick look back at the photos I took on those days confirms the sheer mundanity of my record-setting Tinder marathons.
 
-![April 10, 2016](20160410_185359.jpg)
-![April 13, 2016](20160413_201214.jpg)
-![February 4, 2017](20170204_090225.jpg)
+![April 10, 2016](resources/tinder_study/20160410_185359.jpg)
+![April 13, 2016](resources/tinder_study/20160413_201214.jpg)
+![February 4, 2017](resources/tinder_study/20170204_090225.jpg)
 
 I swiped 12,250 times on the days I took those photos.
 
