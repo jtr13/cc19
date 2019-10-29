@@ -4,19 +4,25 @@ language:
     chapter_name: "Chapter "
 delete_merged_file: true
 rmd_files: [
-  # instructions
-  "index.Rmd", 
+  # Part: Introduction
+  "index.Rmd", # instructions
   'sample_project.Rmd',
-  
-  # edav.info
+
+  # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'maps.Rmd',
-  
-  # workshop
-  'workshop_master.Rmd', 
-  
-  # tutorial
-  'carto_tutorial.Rmd',
-  'wordcloud_tutorial.Rmd'
+
+  # Part: Interactive Graphs
+  'a_tutorial_of_shiny.Rmd',
+
+  # Part: Other
+  'tinder_study.Rmd',
+  'wordcloud_tutorial.Rmd',
+
+  # Part: Links
+  'master_workshop.Rmd',
+  'master_cheat_sheet.Rmd',
+  'master_video.Rmd'
+
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s

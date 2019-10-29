@@ -13,7 +13,17 @@ Imports:
   nycflights13,
   ISwR,
   vcd,
+  gridExtra,
+  GGally,
+  ggthemes,
+  tidyverse,
+  parcoords,
+  lubridate,
+  readr,
   choroplethr,
   choroplethrMaps,
   tidyverse, 
-  wordcloud2
+  wordcloud2,
+  dplyr,
+  shiny,
+  devtools
