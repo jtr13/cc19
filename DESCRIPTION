@@ -11,4 +11,11 @@ Imports:
   plyr,
   nycflights13,
   ISwR,
-  vcd
+  vcd,
+  HH,
+  dplyr,
+  reshape2,
+  RColorBrewer,
+  ggthemes,
+  stringr,
+  forcats
