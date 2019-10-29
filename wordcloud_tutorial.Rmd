@@ -1,4 +1,4 @@
-# Wordcloud Tutorial
+# Wordcloud
 
 Chengyou Ju and Yujie Wang
 
