@@ -1,0 +1,89 @@
+---
+title : Visualizing Movie Reviews in Word Cloud
+output: html_document
+author: Samrat Halder and Hariz Johnson
+---
+
+```{r , include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# 
+## IMDB Reviews
+We first scrape all the movie reviews from IMDB 
+```{r}
+library(rvest)
+library(xml2)
+library(plyr)
+result <- c()
+ID <- 4154796
+movie_IMDb <- read_html(paste0("https://www.imdb.com/title/tt",ID,"/reviews?ref_=tt_urv"))
+reviews <- movie_IMDb %>% html_nodes("#pagecontent") %>% html_nodes("div.content") %>% html_text()
+#perfrom data cleaning on user reviews
+reviews <- gsub("\r?\n|\r", " ", reviews) 
+reviews <- tolower(gsub("[^[:alnum:] ]", " ", reviews))
+write.csv(reviews, "reviews.csv")
+head(reviews)
+```
+## Cleaning the data!
+In this part first we clean the data using standard text mining techniques eg. removing redundant characters, stop words, stemming etc
+
+```{r}
+library(tm)
+library(plyr)
+library(stringr)
+library(wordcloud)
+library(RColorBrewer)
+
+removeURL <- function(x) {
+  gsub("http[[:alnum:]]*", "", x)
+}
+removelongWORDS <- function(x) {
+  gsub("\\b[[:alpha:]]{15,}\\b", "", x, perl=FALSE)
+}
+removeCharacters <-function (x, characters)  {
+  gsub(sprintf("(*UCP)(%s)", paste(characters, collapse = "|")), "", x, perl = FALSE)
+}
+reviews <- read.csv("reviews.csv", row.names = NULL)
+dataset <- reviews$x
+dataset <- str_replace_all(dataset, "[^[:alnum:]]", " ")
+CorpusObj<- VectorSource(dataset)
+CorpusObj<- Corpus(CorpusObj)
+CorpusObj <- tm_map(CorpusObj, removelongWORDS)
+CorpusObj <- tm_map(CorpusObj, removeURL)
+CorpusObj <- tm_map(CorpusObj, removePunctuation)
+CorpusObj <- tm_map(CorpusObj, removeNumbers) 
+CorpusObj <- tm_map(CorpusObj, removeCharacters, c("\uf0b7","\uf0a0"))
+CorpusObj <- tm_map(CorpusObj, tolower)
+CorpusObj <- tm_map(CorpusObj, stemDocument, language = "english") 
+CorpusObj <- tm_map(CorpusObj, removeWords, 
+                    c(stopwords("english"), "text show-more__control", "movi",
+                      "like","vote", "also","review", "permalink", "help", "stori","charact")) 
+CorpusObj<-tm_map(CorpusObj,stripWhitespace)
+CorpusObj.tdm <- TermDocumentMatrix(CorpusObj, control = list(minWordLength = 3)) 
+freqr <- rowSums(as.matrix(CorpusObj.tdm))
+CorpusObj.tdm.sp <- removeSparseTerms(CorpusObj.tdm, sparse=0.90) 
+```
+
+We make a term document matrix
+
+```{r}
+mTDM <- as.matrix(CorpusObj.tdm)
+v <- sort(rowSums(mTDM),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, 10)
+```
+
+## Word Cloud
+
+Finally we create the word cloud from the corpus object that we created in the last part.
+
+```{r}
+pal <- brewer.pal(9, "BuGn")
+pal <- pal[-(1:2)]
+png("wordcloud.png", width=1280,height=900)
+wordcloud(d$word,d$freq, min.freq=300, scale=c(7,0.5),
+          colors=brewer.pal(8, "Dark2"),  random.color= TRUE, random.order = FALSE)
+dev.off()
+```
+
+Please note to see the word cloud check the png file. It is not the best practice to plot word cloud from a huge corpus on R console because of the limited resolution
