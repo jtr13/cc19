@@ -1,19 +1,22 @@
+# "Ask A Manager" salary survey dataset
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(ggplot2)
-```
+Kliment Mamykin
 
-## Ask A Manager Salary Survey 2019 dataset
+A survey posted in a popular blog "Ask A Manager"<https://www.askamanager.org> asked the readers to anonymously fill out how much money they were making. After the [blog post](https://www.askamanager.org/2019/04/how-much-money-do-you-make-3.html) was published, it went viral, and 31407 people took time and responded to the survey. A [Google sheet](https://docs.google.com/spreadsheets/d/1rGCKXIKt-7l5gX06NAwO3pjqEHh-oPXtB8ihkp0vGWo) was used to aggregate the responses. The data is interesting, since the self-reported compensation data is hard to come by, and useful for anyone on the job market. However the analysis of this dataset is made difficult by the lack of normalization in the responses. The survey uses freeform entered responses, with little standartization on the values allowed (probably to minimize the time/friciton of filling out the form). 
 
-A survey posted in a popular blog "Ask A Manager"<https://www.askamanager.org> asked the readers to anonymously fill out how much money they were making. Since the [blog post](https://www.askamanager.org/2019/04/how-much-money-do-you-make-3.html) was published, it went viral, and 31407 people filled out the survey. A Google sheet was used to aggregate the responses, located [here](https://docs.google.com/spreadsheets/d/1rGCKXIKt-7l5gX06NAwO3pjqEHh-oPXtB8ihkp0vGWo). The data is interesting but the analysis of this dataset is made difficult by the freeform entered data, with little standartization on the values allowed (to minimize the friciton of filling out the form). 
+*The goal for this project is to clean up the data and make it available for community for further analysis.* Most of the work was done using [OpenRefine](http://openrefine.org/), with the Industries list normalized with a machine learning model.
 
-The goal for this project is to clean up the data and make it available for community for further analysis. The project started as a Community Contribution assignment for [Exploratory Data Analysis & Visualization](https://edav.info/) course at Columbia University Data Science program.
+The repository is https://github.com/kmamykin/askamanager_salary_survey
 
 ## Obtaining the dataset
 
 Version 1 of the cleaned up dataset is located at (https://github.com/kmamykin/askamanager_salary_survey/raw/master/data/v1/Ask-A-Manager-Salary-Survey-2019.csv)
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+```
 
 ```{r warning=FALSE}
 salary_survey <- readr::read_csv("https://github.com/kmamykin/askamanager_salary_survey/raw/master/data/v1/Ask-A-Manager-Salary-Survey-2019.csv")
@@ -30,7 +33,7 @@ salary_survey %>%
   coord_flip() +
   ylim(0, 3500) +
   xlab("Industry") +
-  ylab("Counts") +
+  ylab("Responses") +
   ggtitle("Responses by Industry") +
   theme_bw()
 
@@ -39,15 +42,15 @@ salary_survey %>%
 ## Description of fields
 
 * `Timestamp` - timestamp of the submittd response
-* `Age` - age bracket: "35-44" "25-34" "18-24" "25-34"..., one of the few fields that was a choice and did not need a cleanup
-* `Industry` - one of the values mentioned in https://www.webspidermount.com/features/generic-job-taxonomy/ . While there are many different industry classification taxonomies, this particular taxonomy looked simple and targeted for a job search domain. The values were normalized based on `Industry (Original)` using a ML model (see below)
+* `Age` - age bracket: "18-24", "25-34", "35-44", ... One of the few fields that was a choice and did not need a cleanup
+* `Industry` - This is the field that took the most time to normalize. While there are many different industry classification taxonomies, the industry list in https://www.webspidermount.com/features/generic-job-taxonomy/ looked short, simple and targeted for a job search domain. The values were normalized based on `Industry (Original)` using KNN classifier (see below for details).
 * `JobTitle` - user entered field, clustered to remove small variations (e.g. "sr.engineer" vs "Sr Engineer"). There is still too much variation and this field need more normalization work.
-* `Currency` - currency of the Base pay
-* `City`, `State`, `Country` - this vas normalized from `Location (Original)` field by calling Google Locations API and further manual tweaking with OpenRefine
-* `Location` - normalized location in format "Nashville, TN, USA". Only USA, AUstralia, Canada have states in this dataset, for the other countries it looks like "Manchester, UK"
-* `Experience` - e.g. "11 - 20 years","8 - 10 years" etc. Also did not need normalization
-* `Base` - base salary. This is the main metric. A lot of parsing and regex transforms went to this field to extract the numbers from freeform `AnnualSalary (Original)`. Extra perks got separated into `Extras` field, where it was detected that the compensation was at hourly rate, the rate was extracted to `HourlyRate` and the `Base` was calculated with `HourlyRate` * 1650 hours/year (this is a big assumption here)
-* `HourlyRate` - extracted hourly rate from `AnnualSalary (Original)`
+* `City`, `State`, `Country` - these fields were normalized from `Location (Original)` field by calling Google Locations API and further manually tweaking the data inside OpenRefine.
+* `Location` - normalized location in format "Nashville, TN, USA". Only USA, Australia, Canada locations contain states in this dataset, for the other countries the field contains <City>, <Country>, e.g. "Manchester, UK"
+* `Experience` - experience in the responder, e.g. "8 - 10 years", "11 - 20 years" etc. Also did not need normalization.
+* `Currency` - currency of the Base pay, normalized from a freeform entry.
+* `Base` - base salary (in specified `Currency`). This is the main metric. A lot of parsing and regex transforms went to this field to extract the numbers from freeform `AnnualSalary (Original)`. Extra perks got separated into `Extras` field. For the records where it was detected that the compensation was at an hourly rate, the rate was extracted to `HourlyRate` and the `Base` was calculated with `HourlyRate` * 1650 hours/year (this is a big assumption here). You can filter those records out where `HourlyRate` is not NA.
+* `HourlyRate` - extracted hourly rate from `AnnualSalary (Original)`. Only some records contain values (hourly rate workers), otherwise the value is empty.
 * `Extras` - extracted extra perks/comments from `AnnualSalary (Original)`
 * `Notes` - user provided notes
 * `AnnualSalary (Original)` - original field
@@ -61,30 +64,30 @@ str(salary_survey)
 ```
 ## Data cleanup process
 
-[OpenRefine](http://openrefine.org/) was used for most of the heavy lifting of data massaging.
+[OpenRefine](http://openrefine.org/) was used for most of the heavy lifting of data transformations.
 
 > OpenRefine (previously Google Refine) is a powerful tool for working with messy data: cleaning it; transforming it from one format into another; and extending it with web services and external data.
 
 
 ### Industry classification
 
-The initial attempt to manually cleanup the original `Industry (Original)` field was taking to long, and in the middle I decided to change the taxonomy. To automate this process a simple machine learning model was used to classify user entered industry into a target set of industry taxonomy values. 
+The initial attempt to manually cleanup the original `Industry (Original)` field proved to be taking to long, and in the middle I decided to change the taxonomy. To automate this process a simple machine learning model was used to classify the *input* user entered industry into a *target* normalized set of industry taxonomy values. 
 
-For both sets of the target industries and the input industries I scraped Google search result and the resulting organic web sites, creating a rich text document describing each target industry as well as each user input industry. Using a simple bag of words document representation and KNN classifier (k=1), each input industry was classified into the target industry.
+For both sets (the target industries and the input industries) I scraped Google search result and the resulting organic web sites, creating a rich text document describing each input or target industry. Using bag of words document representation and KNN classifier (k=1), each input industry was classified into a target industry based on their document vector similarity (using eucledian metric)
 
-See [](Processing.ipynb) and [](Classification.ipynb) for further details.
+See [Processing.ipynb](https://github.com/kmamykin/askamanager_salary_survey/Processing.ipynb) and [Classification.ipynb](https://github.com/kmamykin/askamanager_salary_survey/Classification.ipynb) for further details.
 
 ### Job Title classification
 
-TODO - transform the freeform entered job titles into `Seniority` field and `Job Area` field, e.g. "Senior Data Scientist" would be transformed to "Senior" seniority and "Data Science" job area.
+TODO - transform the freeform entered job titles into `Job Seniority` field and `Job Area` field, e.g. "Senior Data Scientist" would be transformed to "Senior" seniority and "Data Science" job area.
 
 ### Contributing
 
-Contributions are welcome! If you notice a error in the dataset, or would like to add further cleanup - please follow this process:
+Contributions are welcome! If you notice an error in the dataset, or would like to add further cleanup - please follow this process:
 
 1. Download the dataset and create a project in OpenRefine.
 2. Perform desired data operations.
 3. Switch to "Undo/Redo" tab and "Extract..." transformation file in JSON.
 4. Submit your changes in a Pull Request with transformation file attached.
 
-![](images/Contribute-transforms.png)
+![](resources/askamanager_salary_survey/Contribute-transforms.png)
