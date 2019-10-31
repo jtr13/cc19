@@ -1,4 +1,4 @@
-# first_step_of_data_analysis
+# The first step to analyse a dataset
 
 Weitao Chen and Jianing Li
 
@@ -8,15 +8,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Often time we will get a large dataset to do data analysis or to prepare the data to be further used in our model. A common question data analysts hear is “where do I even start in my analysis?”. We will introduce serveral functions to help you take a glance at your giant dataset so you can have a fundemental undetstanding of your data.
+Oftentimes we get a large dataset to conduct data analysis or to prepare the data to be further used in our model. A common question data analysts hear is “where do I even start in my analysis?”. We will introduce serveral functions to help you take a glance at your giant dataset so you can have a fundemental undetstanding of your data.
 
-```{r cars}
+```{r, include=FALSE}
+# > install.packages("mi")
+
+# Transform some values to NA
 library(tidyverse)
-library(datasets)
-data(iris)
-```
-```{r}
-iris=as.data.frame(lapply(iris, function(cc) cc[ sample(c(TRUE, NA), prob = c(0.95, 0.05), size = length(cc), replace = TRUE) ]))
+library(dplyr)
+clean.iris <- iris
+iris <- as.data.frame(lapply(iris, function(cc) cc[
+  sample(c(TRUE, NA), prob = c(0.95, 0.05), size = length(cc), replace = TRUE) ]))
 ```
 
 ## A glimpse at the dataset
@@ -110,7 +112,6 @@ iris %>%
     summarize(mean.1 = mean(Petal.Length, na.rm=TRUE), sd.1 = sd(Petal.Length, na.rm=TRUE),
               mean.2 = mean(Sepal.Length, na.rm=TRUE), sd.2 = sd(Sepal.Length, na.rm=TRUE))
 ```
-```outliers```
 
 ### Understand a categorical variable
 
@@ -146,19 +147,23 @@ Sometime there are missing values or NA in our dataset. It can be caused by a nu
 
 In this block we will introduce several functions to find the missing values
 
+- Check missing values by columns
+
 ```{r}
-#Missing values by columns
 colSums(is.na(iris))  %>%
   sort(decreasing=TRUE)
 ```
+
+- Check missing values by row
+
 ```{r}
-#Missing values by row
 rowSums(is.na(iris))  %>%
   sort(decreasing=TRUE)
 ```
 
+- Use a heatmap to check missing values
+
 ```{r}
-#use heatmap
 library(ggplot2)
 
 tidyiris <- iris %>%
@@ -172,11 +177,17 @@ ggplot(tidyiris, aes(x = key, y = fct_rev(id), fill = missing)) +
   scale_fill_viridis_d() + # discrete scale
   theme_bw()
 ```
-```{r}
-#install.packages("mi")
+
+```{r, include=FALSE}
 library(mi)
-x <- missing_data.frame(iris)
-image(x)
+```
+
+```{r}
+if("mi" %in% rownames(installed.packages()) == TRUE) {
+  library(mi)
+  x <- missing_data.frame(iris)
+  image(x)
+}
 ```
 
 ### Find the outlier for numeric values
@@ -184,24 +195,21 @@ image(x)
 An outlier may be due to variability in the measurement or it may indicate experimental error; the latter are sometimes excluded from the data set.[3] An outlier can cause serious problems in statistical analyses.
 Here we find the outliers in each columns.
 
-
 ```{r}
-tidyiris <- iris[1:4] %>%
+tidyiris <- clean.iris[1:4] %>%
   rownames_to_column("id") %>%
   gather(key, value, -id) 
 
 ggplot(data=tidyiris)+
   geom_boxplot(mapping=aes(x=key,y=value))
-
 ```
 Thus we can see that there are 4 outliers in Sepal.Width variable.
-
 
 ### Find out the correlations among variables
 
 For our numeric data, it is important to find the correlations between variables, since it provides us extra information about the dataset.
+
 ```{r}
 library(GGally)
-ggpairs(iris[1:4])
+ggpairs(clean.iris[1:4])
 ```
-
