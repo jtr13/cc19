@@ -28,7 +28,7 @@ A relational database is a type of database that stores and provides access to d
 
 * Foreign Key a.. Foreign keys are the columns of a table that points to the primary key of another table. They act as a cross-reference between tables.
 
-![](Relational Data Base.png){width=70%}
+![](resources/group38/Relational Data Base.png){width=70%}
 
 
 
@@ -124,7 +124,7 @@ glimpse(Property_prices)
 
   * The key to joining our two tables are going to be the code of the country and the date.
   
-![](Key BIS.png){width=65%}  
+![](resources/group38/Key BIS.png){width=65%}  
 
 
 
@@ -132,7 +132,7 @@ glimpse(Property_prices)
 
 ### 5.1 Left_join
 
-![](left_join.png){width=25%}
+![](resources/group38/left_join.png){width=25%}
 
 Select all records from Table A, along with records from Table B for which the join condition is met (if at all).
 
@@ -165,7 +165,7 @@ glimpse(leftjoin_sqldf)
 
 ### 5.2. Right_join
 
-![](right_join.png){width=25%}
+![](resources/group38/right_join.png){width=25%}
 
 Select all records from Table B, along with records from Table A for which the join condition is met (if at all).
 In our case Table, A corresponds to Debt_service_filter and Table B to Property_prices. Notice that in our example the resulting table after the right join will keep all the records of Property_prices.
@@ -189,7 +189,7 @@ glimpse(rightjoin_base)
 
 ### 5.3. Inner_join
 
-![](inner_join.png){width=25%}
+![](resources/group38/inner_join.png){width=25%}
 
 Select all records from Table A and Table B, where the join condition is met. In our case Table, A corresponds to Debt_service_filter and Table B to Property_prices. Notice that in our example the resulting table will keep only the rows in the intersection.
 
@@ -221,7 +221,7 @@ glimpse(innerjoin_sqldf)
 ### 5.4. Full_join
 
 
-![](full_join.png){width=25%}
+![](resources/group38/full_join.png){width=25%}
 
 Select all records from Table A and Table B, where the join condition is met. In our case Table, A corresponds to Debt_service_filter and Table B to Property_prices. Notice that in our example the resulting table will keep all the rows in both tables.
 
