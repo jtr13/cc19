@@ -1,0 +1,20 @@
+# Video Interviews
+
+Hima Bindu Bhardwaj and Priyanka Lahoti
+
+Conversations help one to learn from the experience of the speaker. In a paper titled 'The Power of Literary Peer-Group Discussions', the author says that discussions are especially thought provoking when narratives and expositions come from varied thought processes and different people. This is especially true and noteworthy when students get to hold conversations with experts in particular fields and hence have access to knowledge pertaining to that of an expert who was once a student as well. Experts can give invaluable insights to students in hindsight and hence contribute to effective growth and technical/non technical understanding of the student. It shapes the perspective of students in the best manner possible. We believe in the power of spreading ideas and holding conversations and hence as part of this assignment we  created online content that would help students and those interested in this field to get an insight into the views of experts of the field.
+
+
+The first interview was with Dr Gary Miner(From an industrial point of view).
+Dr. Gary Miner has been in the data mining business for more than 3 decades and is a pioneer in healthcare studies pertaining to Alzheimer's disease(he founded the Familial Alzheimer's Disease Research Foundation).He is the co-author of multiple books including "The Handbook of Statistical Analysis and  Data Mining Applications" which won the 2009 PROSE award for scholarly excellence." He served as the VP & Scientific Director of "Healthcare Predictive Analytics Corp". He is a current professor at UC Irvine and UCDS, teaching and creating new and interesting courses for 'Data Mining and Visualization', 'Predictive Data Analytics' and 'Artificial Intelligence'.
+He did his BS with Biology ,Chemistry, and education majorsHamline University, St. Paul, MN;M.S. in zoology and population genetics from the University of Wyoming; and a Ph.D. in biochemical genetics from the University of Kansas as the recipient of a NASA pre-doctoral fellowship.
+
+The video interview with Dr.Gary Miner can be found here: https://www.youtube.com/watch?v=qAJSiUauVUw
+
+
+The second video was with Mehul Smriti Raje(From an academic point of view).
+Mehul Smriti Raje is currently working as a Software Engineer at Google, Mountain View, California. She was a graduate research assistant at MIT Media Lab. She did her master's in Computational Science and Engineering from Harvard University. She was also the Student of Vision Awardee,Grace Hopper Celebration 2017.
+
+The video interview with Mehul Smriti Raje can be found here: https://youtu.be/aJqVAWPeY28
+
+
