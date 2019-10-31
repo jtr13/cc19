@@ -1,0 +1,8 @@
+---
+title: "Data_Visualization_Workshop"
+author: "Yuheng Shi & Banruo Xie"
+---
+
+We will introduce two very interesting data visualization graphic. The first goal of this workshop is to expand our foundamential data visualization knowledge and try to build more sophisticated graphics that contain more important data information. The second goal would be how we could use different factors to build multiple dimensions in one graphics and help readers interpret data better and draw more meaningful conclusions.
+
+If the attendees want to know more about bookdown, they can always go back to our slides for reference. We have uplodaed our complete slide to the repo (url: https://github.com/HansShi/EDAV_Community_Contribution; file name: data visualization workshop.pdf).
