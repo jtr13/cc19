@@ -52,13 +52,13 @@ Path %>% html_nodes( ) %>% html_text( ) is a common syntax to scrape html text a
 
 Move your cursor to the element whose source code you want to check and right click. Select "Inspect"
 ```{r, out.width = "300px",echo=FALSE}
-knitr::include_graphics("Inspect.jpg")
+knitr::include_graphics("resources/rvest_tutorial/Inspect.jpg")
 ```
 
 The source code will be displayed on the top right corner of the screen.
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("resources/Rvest_tutorial/Sourcecode.jpg")
+knitr::include_graphics("resources/rvest_tutorial/Sourcecode.jpg")
 ```
 <br><br/>
 
@@ -94,7 +94,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 The basic structure of a webpage looks like this:
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("html structure.jpg")
+knitr::include_graphics("resources/rvest_tutorial/html structure.jpg")
 ```
 
 More details can be refered to https://www.w3schools.com/html/html_intro.asp
@@ -208,7 +208,7 @@ res2
 **A Simple Way the get XPath**  
 right click-->Copy-->Copy XPath  
 ```{r,echo=FALSE,out.width = "500px"}
-knitr::include_graphics("xpath.png")  
+knitr::include_graphics("resources/rvest_tutorial/xpath.png")  
 ```
 <br><br/>
 
@@ -244,7 +244,7 @@ head(info)
 HTML links are defined with the tag \<a\>. The link address is specified in the "href" attribute. Suppose we want to get the link of each trend ticker, we can right click the stock symbol and check the source code:
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("example read link.jpg")
+knitr::include_graphics("resources/rvest_tutorial/example read link.jpg")
 ```
 
 So we use ".data-col0 a"" as the node and "href" as the attribute:
@@ -269,7 +269,7 @@ head(dt,5)
 The first step is to locate the table.  
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("example locate table.jpg")
+knitr::include_graphics("resources/rvest_tutorial/example locate table.jpg")
 ```
 
 Then copy the Xpath. When we paste the path, it should be like: //*[@id="quote-summary"]/div[1]/table  
