@@ -1,0 +1,13 @@
+#R Package Writing
+
+Siddhant Shandilya and Mohit Chander Gulla
+
+R packages are an ideal way to package and distribute R code and data for re-use by others.
+
+This workshop will provide you with an overview of how to create your own pacakge in R. 
+
+The walkthrough gives step by step instructions on how to define your functions, create a project for your package, embed your functions and its documentation within it and finally how to compile and build it into an R package that is ready to be shared or published.
+
+All the materials used in the workshop can be found at: https://github.com/siddhantshandilya/EDAV---Community-Contribution-19
+
+You may refer to the reference links provided at the end of the pdf which goes into further details on how to publish your package on CRAN repository, if you are interested.
