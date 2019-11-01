@@ -19,6 +19,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'EDAV_Community_Contribution_Group_55.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
