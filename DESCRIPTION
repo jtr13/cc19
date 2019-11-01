@@ -34,5 +34,6 @@ Imports:
   devtools,
   Rmpfr,
   robotstxt,
-  rvest
+  rvest,
+  extracat
 
