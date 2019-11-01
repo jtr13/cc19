@@ -19,6 +19,9 @@ rmd_files: [
   'carto_tutorial.Rmd',
   'a_tutorial_of_shiny.Rmd',
   
+  # Data analysis
+  'ice_cream_survey.Rmd',
+  
   # cheatsheet
   'master_cheat_sheet.Rmd'
 ]
