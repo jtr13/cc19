@@ -20,6 +20,9 @@ rmd_files: [
   'a_tutorial_of_shiny.Rmd',
   
   # cheatsheet
-  'master_cheat_sheet.Rmd'
+  'master_cheat_sheet.Rmd',
+  
+  # comparative study
+  'Comparative_Study_of_Mosaic.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
