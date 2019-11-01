@@ -33,5 +33,6 @@ Imports:
   shiny,
   devtools,
   Rmpfr,
+  robotstxt,
+  rvest,
   extracat
-
