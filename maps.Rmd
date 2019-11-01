@@ -1,3 +1,5 @@
+# (PART) Spatial Analysis {-}
+
 # Stamen maps with ggmap
 
 Here is an example to get started with `ggmap` using `get_stamenmap()` to plot the longitude/latitude maps. The data for the following plots is available at https://simplemaps.com/data/us-cities. The get_stamenmap() function reqiures a bounding box, i.e the top, bottom, left and right latitude/longitude of the map you want to plot. For example, the latitude/longitude for US map are as follows:

@@ -33,5 +33,7 @@ Imports:
   shiny,
   devtools,
   Rmpfr,
+  robotstxt,
+  rvest,
   BIS
 

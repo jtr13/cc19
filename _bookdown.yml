@@ -8,10 +8,12 @@ rmd_files: [
   "index.Rmd", # instructions
   'sample_project.Rmd',
 
+  # Part: Spatial Analysis
+  'maps.Rmd',
+
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'likert_edav_info.Rmd',
-  'maps.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
@@ -19,6 +21,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'rstudio_vs_jupyterlab.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
