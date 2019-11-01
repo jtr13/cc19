@@ -2,7 +2,7 @@
 
 Jake Stamell
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo=T, warning=F, message=F)
 ```
 
