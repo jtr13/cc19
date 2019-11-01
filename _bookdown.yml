@@ -22,7 +22,10 @@ rmd_files: [
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
-  'master_video.Rmd'
+  'master_video.Rmd',
+  
+  # Part: Data Wrangling
+  'first_step_of_data_analysis.Rmd'
 
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
