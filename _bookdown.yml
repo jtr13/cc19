@@ -23,7 +23,8 @@ rmd_files: [
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
-  'master_translation.Rmd'
+  'master_translation.Rmd',
+  'list_of_contribution.Rmd'
 
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
