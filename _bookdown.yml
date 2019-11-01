@@ -4,25 +4,29 @@ language:
     chapter_name: "Chapter "
 delete_merged_file: true
 rmd_files: [
-  # instructions
-  "index.Rmd", 
+  # Part: Introduction
+  "index.Rmd", # instructions
   'sample_project.Rmd',
-  
-  # edav.info
-  'ridgeline_plot.Rmd',
+
+  # Part: Spatial Analysis
   'maps.Rmd',
-  
-  # workshop
-  'master_workshop.Rmd', 
-  
-  # tutorial
-  'carto_tutorial.Rmd',
+
+  # Part: Static Graphs
+  'ridgeline_plot.Rmd',
+  'likert_edav_info.Rmd',
+
+  # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
-  
-  # cheatsheet
+
+  # Part: Other
+  'tinder_study.Rmd',
+  'wordcloud_tutorial.Rmd',
+  'Comparative_Study_of_Mosaic.Rmd',
+
+  # Part: Links
+  'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
-  
-  # comparative study
-  'Comparative_Study_of_Mosaic.Rmd'
+  'master_video.Rmd',
+  'master_translation.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
