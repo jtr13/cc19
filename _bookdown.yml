@@ -11,6 +11,7 @@ rmd_files: [
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'maps.Rmd',
+  'gantt_chart.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
