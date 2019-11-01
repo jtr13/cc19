@@ -17,4 +17,8 @@ Imports:
   choroplethrMaps,
   tidyverse,
   dplyr,
+  rgdal,
+  RColorBrewer,
+  leaflet,
+  tmap,
   shiny
