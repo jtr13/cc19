@@ -14,6 +14,7 @@ rmd_files: [
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'likert_edav_info.Rmd',
+  'FluctuationPlots.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
@@ -27,7 +28,8 @@ rmd_files: [
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
-  'master_translation.Rmd'
+  'master_translation.Rmd',
+  'hex_sticker.Rmd'
 
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
