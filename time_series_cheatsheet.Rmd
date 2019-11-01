@@ -1,8 +1,8 @@
-#Time Series Cheatsheet 
+# Time Series Cheatsheet 
 
 Yunjun Xia and Shuyu Huang
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
   
