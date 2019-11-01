@@ -1,10 +1,3 @@
-# Time Series Modeling with ARIMA in R
-
-William Yu
-```{r setup, include=FALSE}
- knitr::opts_chunk$set(warning = FALSE, message = FALSE)
-```
-
 This document will give a brief introduction to time series modeling with ARIMA in R. A time series is a set of data points that are indexed by time order. Time series modeling is an especially important topic in data analytics and data science because of its important applications towards various topics. This includes predicting the next day price of a stock, or patterns in the weather. 
 
 An important concept in time series modeling is ARIMA, or Auto-Regressive Integrated Moving Average. ARIMA is the combination of two models, the auto-regressive and the moving average models. 
