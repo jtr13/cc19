@@ -19,6 +19,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  "rvest_tutorial.Rmd",
 
   # Part: Links
   'master_workshop.Rmd',
