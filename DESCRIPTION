@@ -17,4 +17,8 @@ Imports:
   choroplethrMaps,
   tidyverse,
   dplyr,
-  shiny
+  shiny,
+  googlesheets,
+  data.table,
+  countrycode,
+  gridExtra
