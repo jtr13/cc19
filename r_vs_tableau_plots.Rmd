@@ -5,7 +5,7 @@ Pritam Biswas and Amogh Mishra
 
 We are performing a comparison between R and tableau for different types of data visualization. We are showing a few plots of R Studio and Tableau
 We will show Choropleth map in R, one for USA and one for World map. We will show the same plots in Tableau software. During the demo we will observe how easy it is use Tableau due to its drag and drop interface and dashboard facility.
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(comment = NA)
 ```
 ## We shall now show our plots using R studio
