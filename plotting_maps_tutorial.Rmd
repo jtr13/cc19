@@ -2,7 +2,7 @@
 
 Jonathan Santoso and Kevin Wibisono
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
  # keep this chunk in your .Rmd file
  knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
