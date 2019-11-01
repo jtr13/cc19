@@ -2,7 +2,7 @@
 
 Alberto Munguia and Chengyi Chen
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,message = FALSE,
                       warning = FALSE)
 ```
