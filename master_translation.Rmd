@@ -1,0 +1,7 @@
+# Translation
+
+Some groups of students have contributed to the community by translating useful resources into another language.
+
+```{r, child='Translation_for_R_and_ggplot2_visualization.Rmd'}
+
+```

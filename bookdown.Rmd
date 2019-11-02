@@ -1,0 +1,9 @@
+## bookdown
+
+Weixi Yao and Wangzhi Li
+
+This introductory workshop on bookdown is designed to give a complete guide to the bookdown package. The workshop is split into two parts. The first part covers the basic information, including what is bookdown, why use bookdown and what are the other options avaiable. The second part serves as a practice session, and each attendee will try to build their own books using the instruction we provide. 
+
+If the attendees want to know more about bookdown, they can always go back to our slides for reference. We have uplodaed our complete slide to the repo (url: https://github.com/yweixi/EDAV-community-contribution.git; file name: EDAV Community Contribution.pdf).
+
+Also, all the materials we use during the workshop can be found in a seperate repo (url: https://github.com/SafeguardLi/SafeguardLi.github.io.git).
