@@ -36,5 +36,6 @@ Imports:
   robotstxt,
   rvest,
   BIS,
-  knitr
+  knitr,
+  sqldf
 
