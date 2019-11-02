@@ -14,6 +14,7 @@ repos:
 r_github_packages:
  - coatless/ucidata
  - hrbrmstr/statebins
+ - m-dev-/likert
 
 addons:
   apt:
