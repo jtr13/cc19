@@ -8,10 +8,12 @@ rmd_files: [
   "index.Rmd", # instructions
   'sample_project.Rmd',
 
+  # Part: Spatial Analysis
+  'maps.Rmd',
+
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'likert_edav_info.Rmd',
-  'maps.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
@@ -20,12 +22,14 @@ rmd_files: [
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
   "rvest_tutorial.Rmd",
+  'rstudio_vs_jupyterlab.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
-  'master_translation.Rmd'
+  'master_translation.Rmd',
+  'hex_sticker.Rmd'
 
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
