@@ -35,4 +35,6 @@ Imports:
   Rmpfr,
   robotstxt,
   rvest,
-  plan
+  plan,
+  rvest, 
+  knitr
