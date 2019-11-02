@@ -34,6 +34,8 @@ Imports:
   devtools,
   Rmpfr,
   robotstxt,
+  rvest,
+  plan,
   rvest, 
   knitr,
   stats,
@@ -44,4 +46,3 @@ Imports:
   expsmooth,
   BIS,
   sqldf
-
