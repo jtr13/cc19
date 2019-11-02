@@ -35,5 +35,4 @@ Imports:
   Rmpfr,
   robotstxt,
   rvest,
-  extracat,
   plan
