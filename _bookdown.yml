@@ -3,6 +3,8 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+new_session: yes
+edit: https://github.com/jtr13/cc19/edit/master/%s
 rmd_files: [
   # Part: Introduction
   "index.Rmd", # instructions
@@ -24,6 +26,7 @@ rmd_files: [
   'wordcloud_tutorial.Rmd',
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
+  'Dplyr_Relational_Databases.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -33,4 +36,5 @@ rmd_files: [
   'hex_sticker.Rmd'
 
 ]
-edit: https://github.com/jtr13/cc19/edit/master/%s
+
+before_chapter_script: "_common.R"
