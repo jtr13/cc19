@@ -1,5 +1,7 @@
 # Chart: Stacked Bar Chart (For Likert Data)
 
+Ying Du and Chenlu Jia
+
 ```{r, include=FALSE}
 knitr::opts_chunk$set(fig.align = 'center', out.width = '60%', warning = FALSE, message = FALSE)
 ```
