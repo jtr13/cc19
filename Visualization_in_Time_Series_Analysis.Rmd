@@ -195,7 +195,7 @@ where y is a univariate time series, ic is the criterion.
 Returns best ARIMA model with seasonsal ARIMA according to either AIC, AICc or BIC value.  
 
 ```{r}
-data = read.table("w-gs1yr.txt", header = TRUE)
+data = read.table("resources/Visualization_in_Time_Series_Analysis/w-gs1yr.txt", header = TRUE)
 ts_data = ts(data$rate, start = 1962, deltat = 1/52, freq = 52)
 autoplot(ts_data)+ ggtitle("US Weekly Interest Rates (%)")+ ylab("Interest Rate")
 tsdisplay(diff(ts_data))
