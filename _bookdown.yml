@@ -16,6 +16,7 @@ rmd_files: [
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'likert_edav_info.Rmd',
+  'Visualization_in_Time_Series_Analysis.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
