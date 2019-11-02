@@ -35,5 +35,12 @@ Imports:
   Rmpfr,
   robotstxt,
   rvest, 
-  knitr
+  knitr,
+  stats,
+  forecast,
+  dynlm,
+  strucchange,
+  sarima,
+  expsmooth
+  
 
