@@ -36,3 +36,4 @@ Imports:
   robotstxt,
   rvest,
   reticulate
+  knitr
