@@ -35,5 +35,6 @@ Imports:
   Rmpfr,
   robotstxt,
   rvest,
-  BIS
+  BIS,
+  knitr
 
