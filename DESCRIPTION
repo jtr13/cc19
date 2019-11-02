@@ -36,4 +36,5 @@ Imports:
   robotstxt,
   rvest,
   ggmosaic,
-  gridExtra
+  gridExtra,
+  knitr
