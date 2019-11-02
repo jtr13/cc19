@@ -17,6 +17,7 @@ rmd_files: [
 
   # Part: Other
   'tinder_study.Rmd',
+  r_vs_tableau_plots.Rmd,
   
   # Part: Links
   'master_workshop.Rmd',
