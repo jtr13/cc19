@@ -32,5 +32,8 @@ Imports:
   dplyr,
   shiny,
   devtools,
-  Rmpfr
+  Rmpfr,
+  robotstxt,
+  rvest,
+  extracat
 
