@@ -21,6 +21,9 @@ rmd_files: [
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
+  
+  # Data analysis
+  'ice_cream_survey.Rmd',
 
   # Part: Other
   'tinder_study.Rmd',
