@@ -35,6 +35,5 @@ Imports:
   Rmpfr,
   robotstxt,
   rvest,
-  BIS,
-  extracat
+  BIS
 
