@@ -17,4 +17,7 @@ Imports:
   choroplethrMaps,
   tidyverse,
   dplyr,
-  shiny
+  shiny,
+  tseries,
+  forecast,
+  tidyquant
