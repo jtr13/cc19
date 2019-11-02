@@ -23,7 +23,7 @@ rmd_files: [
   'wordcloud_tutorial.Rmd',
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
-  'Dplyr_Relational_Databases.Rmd ',
+  'Dplyr_Relational_Databases.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
