@@ -1,4 +1,4 @@
-## Likert vs. Bar Chart 
+# Likert vs. Bar Chart 
 
 Prasham Sheth and Manas Dresswala
 
