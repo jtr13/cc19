@@ -35,5 +35,5 @@ Imports:
   Rmpfr,
   robotstxt,
   rvest,
-  reticulate
+  reticulate,
   knitr
