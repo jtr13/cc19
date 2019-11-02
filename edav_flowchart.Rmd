@@ -8,25 +8,25 @@ This cheatsheet offers a general guideline of EDAV by purpose.
 
 How should we get started with EDAV? We generated a flowchart that helps with finding the right graphs for certain purposes and data types. We divided into 7 major purposes of data visualization.
 
-### Distribution 
+## Distribution 
 When we want to show the distribution.
 
-### Correlation
+## Correlation
 When we are looking for possible corraltion among variables 
 
-### Comparison
+## Comparison
 When we want to compare samples. 
 
-### Patterns
+## Patterns
 When we are looking for patterns among variables or samples, for example, missing patterns.
 
-### Statistical Values (ex. Median, Range)
+## Statistical Values (ex. Median, Range)
 When we want to display straightforwardly with statistical values or properties of the data, such as range and median. 
 
-### Time Related
+## Time Related
 When we need to visualize data over time.
 
-### Survey Data (Likert Scale)
+## Survey Data (Likert Scale)
 When we want to visualize a survey data that uses Likert scale.
 
 
