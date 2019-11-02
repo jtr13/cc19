@@ -37,4 +37,12 @@ Imports:
   rvest,
   plan,
   rvest, 
-  knitr
+  knitr,
+  stats,
+  forecast,
+  dynlm,
+  strucchange,
+  sarima,
+  expsmooth,
+  BIS,
+  sqldf
