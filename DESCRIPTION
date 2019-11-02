@@ -38,5 +38,15 @@ Imports:
   devtools,
   Rmpfr,
   robotstxt,
+  rvest,
+  plan,
   rvest, 
-  knitr
+  knitr,
+  stats,
+  forecast,
+  dynlm,
+  strucchange,
+  sarima,
+  expsmooth,
+  BIS,
+  sqldf
