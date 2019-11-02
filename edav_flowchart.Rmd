@@ -4,7 +4,7 @@ Yufeng Ma and Bing Xu
 
 This cheatsheet offers a general guideline of EDAV by purpose.
 
-![EDAV flowchart cheatsheet](resources/edav_flowchart/EDAV_CC_bx2147_ym2764.pdf)
+[EDAV flowchart cheatsheet](resources/edav_flowchart/EDAV_CC_bx2147_ym2764.pdf)
 
 How should we get started with EDAV? We generated a flowchart that helps with finding the right graphs for certain purposes and data types. We divided into 7 major purposes of data visualization.
 
