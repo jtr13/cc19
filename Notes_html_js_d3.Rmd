@@ -1,4 +1,4 @@
-# Notes of Basic HTML, JavaScript, and D3
+## HTML, JavaScript, and D3
 
 Yitao Liu (yl4343) and Yiyang Sun (ys3284)
 
