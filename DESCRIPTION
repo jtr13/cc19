@@ -41,9 +41,7 @@ Imports:
   devtools,
   Rmpfr,
   robotstxt,
-  rvest,
   reticulate,
-  knitr
   plan,
   rvest, 
   knitr,
