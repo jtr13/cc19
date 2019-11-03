@@ -30,7 +30,6 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
-  'Stringr_introduction_chinese_version.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
@@ -46,6 +45,7 @@ rmd_files: [
   'master_translation.Rmd',
   'translation_visualising_spatial_data.Rmd',
   'continuous_variables_with_r_in_chinese.Rmd',
+  'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'hex_sticker.Rmd',
   
