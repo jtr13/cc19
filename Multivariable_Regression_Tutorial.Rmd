@@ -2,7 +2,7 @@
 
 Yuge Shen, Shengqing Xia
 
-```{r}
+```{r, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
