@@ -32,5 +32,10 @@ Imports:
   dplyr,
   shiny,
   devtools,
-  Rmpfr
+  Rmpfr,
+  rvest,
+  xml2,
+  tm,
+  wordcloud,
+  RColorBrewer
 
