@@ -18,7 +18,7 @@ rmd_files: [
   # tutorial
   'carto_tutorial.Rmd',
   'a_tutorial_of_shiny.Rmd',
-  'data_structure_and_data_cleaning_tutorial.Rmd'
+  'data_structure_and_data_cleaning_tutorial.Rmd',
   
   # cheatsheet
   'master_cheat_sheet.Rmd'
