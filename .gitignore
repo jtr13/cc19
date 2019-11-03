@@ -5,3 +5,5 @@
 *.Rproj
 _book/
 _bookdown_files/
+cc19.Rmd
+cc19.rds
