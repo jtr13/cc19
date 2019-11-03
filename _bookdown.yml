@@ -18,8 +18,10 @@ rmd_files: [
   # tutorial
   'carto_tutorial.Rmd',
   'a_tutorial_of_shiny.Rmd',
+  'Multivariable_Regression_Tutorial.Rmd' 
   
   # cheatsheet
-  'master_cheat_sheet.Rmd'
+  'master_cheat_sheet.Rmd',
+  
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
