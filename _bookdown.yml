@@ -17,6 +17,8 @@ rmd_files: [
   'ridgeline_plot.Rmd',
   'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
+  'maps.Rmd',
+  'Stacked_Bar_Charts_and_Treemaps.Rmd',
   'FluctuationPlots.Rmd',
   'intro_to_ggparty.Rmd',
   'multiclass_hexbin.Rmd',
