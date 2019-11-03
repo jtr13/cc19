@@ -33,7 +33,9 @@ Imports:
   tidyverse, 
   wordcloud2,
   dplyr,
+  tidyr,
   shiny,
+  sf,
   googlesheets,
   data.table,
   countrycode,
@@ -54,4 +56,8 @@ Imports:
   expsmooth,
   BIS,
   sqldf,
-  mi
+  mi,
+  readxl,
+  httr,
+  likert
+  
