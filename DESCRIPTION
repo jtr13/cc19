@@ -64,5 +64,6 @@ Imports:
   readxl,
   httr,
   likert,
-  mlbench
+  mlbench,
+  AER
   
