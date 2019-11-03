@@ -2,7 +2,7 @@
 
 Zijian Wang and Shuo Yang
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
  knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 ## Overview
