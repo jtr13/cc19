@@ -40,7 +40,6 @@ rmd_files: [
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
-  'likert_package_translate.Rmd',
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
 
@@ -50,6 +49,7 @@ rmd_files: [
   'master_video.Rmd',
   'master_translation.Rmd',
   'translation_visualising_spatial_data.Rmd',
+  'likert_package_translate.Rmd',
   'continuous_variables_with_r_in_chinese.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
