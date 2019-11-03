@@ -12,6 +12,7 @@ rmd_files: [
   'ridgeline_plot.Rmd',
   'likert_edav_info.Rmd',
   'maps.Rmd',
+  'Stacked_Bar_Charts_and_Treemaps.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
