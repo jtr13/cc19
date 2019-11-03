@@ -1,4 +1,5 @@
 # Introduction to package 'ggparty'
+
 Tianyao Han (th2830) and Wancheng Chen (wc2687)
 
 ```{r, include=FALSE}
@@ -24,7 +25,7 @@ The relationship between features can be somewhat not easy to figure out, like t
 
 Under this circumstance, we can introduce package 'ggparty' to help us do this part. The ggparty package aims to extend ggplot2 functionality to the partykit package. It provides the necessary tools to create clearly structured and highly customizable visualizations for tree-objects of the class 'party'.
 
-### Introdunction of class 'party' 
+## Introdunction of class 'party' 
 ```{r}
 # Use WeatherPlay dataset from partykit package
 data("WeatherPlay", package = "partykit")
@@ -67,7 +68,7 @@ print(py)
 plot(py)
 ```
 
-### Use 'ggparty' to visualize the tree
+## Use 'ggparty' to visualize the tree
 Use ggparty function to visualize the object of class 'party' into a tree-based type.
 * geom_edge() draws the edges between the nodes \
 * geom_edge_label() labels the edges with the corresponding split breaks \
@@ -83,7 +84,7 @@ ggparty(py) +
                   ids = "terminal")
 ```
 
-### Customize the tree
+## Customize the tree
 Change color and size of the nodes.
 ```{r}
 ggparty(py) +
@@ -96,7 +97,7 @@ ggparty(py) +
                      size = nodesize))
 ```
 
-### Add plots to the tree
+## Add plots to the tree
 Generate a new 'party' object. Set 'fitted' and 'response' variables for the 'party' object. That is the two variables that we want to find the correlation.
 ```{r}
 n1 <- partynode(id = 1L, split = sp_o, kids = lapply(2L:4L, partynode))
@@ -127,11 +128,11 @@ ggparty(t2) +
                                xlab("play")))
 ```
 
-### Application
+## Application
 
 So how to dig this hiden information out, with the help of explortary data analysis? Our group will show you how to use recursive partition method and visualization techniques to find some interesting patterns that are difficult to find out without knowing this technique.
 
-#### 1. Categorical vs Numerical
+### Categorical vs Numerical
 
 We first will show you how to automatically visualize impact of other variables on the relation between categirical and numerical variables. The dataset we will use is Pima Indians Diabetes Database.
 
@@ -197,7 +198,7 @@ We can compute the odds ratio for each group. On average, the odds increase by 6
 exp(coef(fmPID)[,2])
 ```
 
-#### 2. Numerical vs Numerical
+### Numerical vs Numerical
 
 PimaIndianDiabetes dataset shows the case to explore relation between one numerical variable and one categorical variable. When we have two numerical variables, we can also use this method to show more detailed patterns. This time we will use ggparty to make our plot more pretty. 
 
