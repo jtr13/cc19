@@ -36,6 +36,7 @@ rmd_files: [
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
+  'data_ink.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
