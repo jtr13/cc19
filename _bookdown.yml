@@ -32,7 +32,6 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
-  'Viz_with_GeomMLBStadiums.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
@@ -51,6 +50,7 @@ rmd_files: [
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'hex_sticker.Rmd',
+  'Viz_with_GeomMLBStadiums.Rmd',
   
   # cheatsheet
   'master_cheat_sheet.Rmd',
