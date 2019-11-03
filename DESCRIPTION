@@ -43,6 +43,7 @@ Imports:
   xml2,
   tm,
   wordcloud,
+  SnowballC,
   RColorBrewer,
   hextri,
   Rmpfr,
