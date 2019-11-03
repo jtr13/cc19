@@ -52,6 +52,7 @@ rmd_files: [
   
   # cheatsheet
   'master_cheat_sheet.Rmd',
+  'Date_and_Time_Cheatsheet.Rmd',
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd'
 ]
