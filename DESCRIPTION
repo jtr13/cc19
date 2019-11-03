@@ -43,7 +43,7 @@ Imports:
   devtools,
   Rmpfr,
   sde,
-  ESGtoolkit
+  ESGtoolkit,
   treemap,
   alphavantager,
   plotly,
