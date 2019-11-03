@@ -19,6 +19,7 @@ rmd_files: [
   'likert_edav_info.Rmd',
   'multiclass_hexbin.Rmd',
   'Visualization_in_Time_Series_Analysis.Rmd',
+  'likert_data.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',

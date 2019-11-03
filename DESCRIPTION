@@ -55,4 +55,8 @@ Imports:
   expsmooth,
   BIS,
   sqldf,
-  mi
+  mi,
+  readxl,
+  httr,
+  likert
+  
