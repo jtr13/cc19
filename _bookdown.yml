@@ -17,6 +17,7 @@ rmd_files: [
   'ridgeline_plot.Rmd',
   'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
+  'intro_to_ggparty.Rmd',
   'multiclass_hexbin.Rmd',
   'Visualization_in_Time_Series_Analysis.Rmd',
   'likert_data.Rmd',
@@ -31,6 +32,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'Stocks_analysis_with_plotly.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
@@ -49,7 +51,7 @@ rmd_files: [
   'continuous_variables_with_r_in_chinese.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
-
+  'Viz_with_GeomMLBStadiums.Rmd',
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
