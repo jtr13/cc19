@@ -17,4 +17,7 @@ Imports:
   choroplethrMaps,
   tidyverse,
   dplyr,
-  shiny
+  shiny,
+  scatterplot3d,
+  lars,
+  olsrr
