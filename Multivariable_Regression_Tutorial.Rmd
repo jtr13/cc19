@@ -2,6 +2,10 @@
 
 Yuge Shen, Shengqing Xia
 
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 
 ### Motivation
 
