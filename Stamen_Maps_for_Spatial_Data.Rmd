@@ -8,12 +8,6 @@ We intend to highlight the usability of Stamen Maps for visualizing spatial data
 Approach:
 We conduct a comparative study between different types of graphs to understand the visualization tool which best demonstrates spatial data.We use the publicly available data on the number of vehicle collisions in New York for this demonstration.   
 
-
-```{r setup, include=FALSE}
- # keep this chunk in your .Rmd file
- knitr::opts_chunk$set(warning = FALSE, message = FALSE)
-```
-
 ```{r}
 library(caret)
 library(dplyr)
