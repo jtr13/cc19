@@ -2,7 +2,7 @@
 
 Tiffany Zhu tz2196 and Olivia Wang yw3324
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE)
 library(png)
 library(grid)
