@@ -39,6 +39,7 @@ rmd_files: [
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
+  'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
 
   # Part: Links
@@ -50,11 +51,10 @@ rmd_files: [
   'continuous_variables_with_r_in_chinese.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
-  'hex_sticker.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
   
   # cheatsheet
-  'master_cheat_sheet.Rmd',
+  'time_series_cheatsheet.Rmd',
   'Date_and_Time_Cheatsheet.Rmd',
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd',
