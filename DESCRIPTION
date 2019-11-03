@@ -42,6 +42,8 @@ Imports:
   gridExtra,
   devtools,
   Rmpfr,
+  alphavantager,
+  plotly,
   partykit,
   ggparty,
   party,

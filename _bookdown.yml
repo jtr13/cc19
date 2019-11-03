@@ -32,6 +32,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'Stocks_analysis_with_plotly.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
