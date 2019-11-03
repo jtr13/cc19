@@ -15,24 +15,39 @@ rmd_files: [
 
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
+  'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
+  'multiclass_hexbin.Rmd',
+  'Visualization_in_Time_Series_Analysis.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
+  
+  # Data analysis
+  'ice_cream_survey.Rmd',
 
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'Stringr_introduction_chinese_version.Rmd',
+  'latex_visualization.Rmd', 
+  'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
+  'Dplyr_Relational_Databases.Rmd',
+  'first_step_of_data_analysis.Rmd',
   'time_series_arima.Rmd',
-
+  
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
   'master_translation.Rmd',
-  'hex_sticker.Rmd'
+  'list_of_contribution.Rmd',
+  'hex_sticker.Rmd',
+  
+  # cheatsheet
+  'edav_flowchart.Rmd'
 
 ]
 
