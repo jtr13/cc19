@@ -33,6 +33,7 @@ rmd_files: [
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
+  'first_step_of_data_analysis.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -41,7 +42,6 @@ rmd_files: [
   'master_translation.Rmd',
   'list_of_contribution.Rmd',
   'hex_sticker.Rmd'
-
 ]
 
 before_chapter_script: "_common.R"
