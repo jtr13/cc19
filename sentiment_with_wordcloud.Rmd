@@ -1,13 +1,10 @@
----
-title : Visualizing Movie Reviews in Word Cloud
-output: html_document
-author: Samrat Halder and Hariz Johnson
----
+# Visualizing Movie Reviews in Word Cloud
+
+Samrat Halder and Hariz Johnson
 
 ```{r , include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-# 
 ## IMDB Reviews
 We first scrape all the movie reviews from IMDB 
 ```{r}
