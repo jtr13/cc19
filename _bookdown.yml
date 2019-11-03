@@ -19,7 +19,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
-  'Stringr_introduction_chinese_version.Rmd'
+  'Stringr_introduction_chinese_version.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
