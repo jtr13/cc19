@@ -6,10 +6,10 @@ Hanjun Li and Chengchao Jin
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Overview
+## Overview
 This section covers how to draw maps using R. The packages we will be using are `ggplot2` and `maps`. 
 
-### What is `maps`?
+## What is `maps`?
 The package `maps`, which contains a lot of outlines of continents, countries, states, and counties, is used to visualize geographical map. Some notable features and functions of `maps` are:
 
 
@@ -22,7 +22,7 @@ The package `maps`, which contains a lot of outlines of continents, countries, s
 * `usa`: this database produces a map of the United States
 
 
-### Installing `maps`
+## Installing `maps`
 
 You can install `maps` from CRAN:
 ```
@@ -34,7 +34,7 @@ library(maps)
 library(ggplot2)
 ```
 
-### Simple Demonstration (using `maps`)
+## Simple Demonstration (using `maps`)
 ```{r,fig.align='center'}
 map("usa", col = "#9FF781", fill = TRUE)
 map.axes(cex.axis=0.8) 
@@ -56,7 +56,7 @@ title(main = "New York State by Counties", xlab = "Longitude", ylab = "Latitude"
 
 * The graph above plots the state map of New York. The function `map.cities` points out the recorded cities in us.cities in New York State map (blue dots).
 
-### Simple Demonstration (using `ggplot2`)
+## Simple Demonstration (using `ggplot2`)
 
 We would first introduce the function `map_data` from `ggplot2`, which converts the map to a data frame. The most important variable we need to pass to `map_data` is the name of map provided by the `maps` package. These include: `maps::usa`, `maps::france`, `maps::italy` and etc.  
 ```{r}
@@ -94,7 +94,7 @@ ggplot() + geom_polygon(data = NewYork, aes(x=long, y = lat, fill = subregion)) 
 
 * To plot the map of New York State, we need to preprocess the data frame using `map_data` and `subset`. We first fill the map by subregions, and then we add the borderlines to the map.
 
-### Mapping with `geom_map`
+## Mapping with `geom_map`
 we will use the built-in `state.x77` dataset. This 50 by 8 dataset contains some US State facts and figures. For instance, the variable **Population** indicates the population estimate as of July 1, 1975 in each states. For our example, we choose to investigate **Income** and **Murder**
 ```{r}
 head(state.x77)
@@ -133,12 +133,12 @@ ggplot(df, aes(map_id = state)) + geom_map(aes(fill = Murder), map = states, col
 * This is another example of plotting with `geom_map`. The graph shows US murder rate in 1976.
 
 
-### Considerations
+## Considerations
 
 * When we visualize the map using `ggplot2` and `geom_ploygon`, it is necessary to add `coord_fixed()` to ggplot as it fixes the ratio between x and y direction. The value **1.3** we used in `coord_fixed()` is an arbitrary value that makes the plot look good
 
 
-### External Resources
+## External Resources
 
 * https://cran.r-project.org/web/packages/maps/maps.pdf is an R documentation on the package `maps`.
 
