@@ -50,8 +50,9 @@ rmd_files: [
   'hex_sticker.Rmd',
   
   # cheatsheet
+  'master_cheat_sheet.Rmd',
+  'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd'
-
 ]
 
 before_chapter_script: "_common.R"
