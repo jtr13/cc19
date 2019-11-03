@@ -19,6 +19,7 @@ rmd_files: [
   'likert_edav_info.Rmd',
   'maps.Rmd',
   'Likert_vs_Bar_Chart.Rmd',
+  'Stacked_Bar_Charts_and_Treemaps.Rmd',
   'FluctuationPlots.Rmd',
   'intro_to_ggparty.Rmd',
   'multiclass_hexbin.Rmd',
@@ -61,7 +62,8 @@ rmd_files: [
   'Date_and_Time_Cheatsheet.Rmd',
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd',
-  'dataframe_cheatsheet.Rmd'
+  'dataframe_cheatsheet.Rmd',
+  'wordcloud2_cheatsheet.Rmd'
 ]
 
 before_chapter_script: "_common.R"
