@@ -33,6 +33,7 @@ Imports:
   tidyverse, 
   wordcloud2,
   dplyr,
+  tidyr,
   shiny,
   sf,
   googlesheets,
