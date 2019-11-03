@@ -1,5 +1,3 @@
-
-
 # Chinese Translation of R Packages for Interactie Plots 交互式数据可视化包: plotly & parcoords
 
 Han Xu and Lin Jiang
