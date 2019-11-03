@@ -19,6 +19,9 @@ rmd_files: [
   'carto_tutorial.Rmd',
   'a_tutorial_of_shiny.Rmd',
   
+  # other
+  'rvest_data_transformation_translate.Rmd',
+  
   # cheatsheet
   'master_cheat_sheet.Rmd'
 ]
