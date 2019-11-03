@@ -18,7 +18,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
-  'latex_visualization.Rmd' 
+  'latex_visualization.Rmd', 
 
   # Part: Links
   'master_workshop.Rmd',
