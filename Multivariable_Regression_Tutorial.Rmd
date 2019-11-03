@@ -2,9 +2,6 @@
 
 Yuge Shen, Shengqing Xia
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ### Motivation
 
@@ -137,7 +134,7 @@ Oops, this might not seem to be a well-fit model to the data. The 1st and 3rd pl
 
 Below is a diagnostic plot for a better model on this dataset. 
 
-![Diagnostic Plot for a Potentially Good Model](diag.png){#id .class width=70% height=70%}
+![Diagnostic Plot for a Potentially Good Model](resources/Multivariable_Regression_Tutorial/diag.png){#id .class width=70% height=70%}
 
 
 #### Outliers and Leverage
