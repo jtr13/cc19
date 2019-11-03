@@ -2,10 +2,6 @@
 
 Matthew Mackenzie
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## What is OpenCPU?
 [OpenCPU](https://www.opencpu.org/) is a "API for Embedded Scientific Computing." OpenCPU consits of 3 main parts:
 
