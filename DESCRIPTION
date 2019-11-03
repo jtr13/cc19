@@ -41,6 +41,10 @@ Imports:
   countrycode,
   gridExtra,
   devtools,
+  Rmpfr,
+  partykit,
+  ggparty,
+  party,
   hextri,
   Rmpfr,
   robotstxt,
@@ -59,5 +63,7 @@ Imports:
   mi,
   readxl,
   httr,
-  likert
+  likert,
+  mlbench,
+  AER
   

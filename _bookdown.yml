@@ -17,6 +17,7 @@ rmd_files: [
   'ridgeline_plot.Rmd',
   'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
+  'intro_to_ggparty.Rmd',
   'multiclass_hexbin.Rmd',
   'Visualization_in_Time_Series_Analysis.Rmd',
   'likert_data.Rmd',
