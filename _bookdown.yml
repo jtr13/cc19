@@ -19,6 +19,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'Stocks_analysis_with_plotly.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
