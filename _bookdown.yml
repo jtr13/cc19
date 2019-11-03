@@ -29,6 +29,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'Stringr_introduction_chinese_version.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
