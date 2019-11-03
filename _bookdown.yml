@@ -12,6 +12,7 @@ rmd_files: [
 
   # Part: Spatial Analysis
   'maps.Rmd',
+  'Mapping_in_R.rmd',
   'plotting_maps_tutorial.Rmd',
 
   # Part: Static Graphs

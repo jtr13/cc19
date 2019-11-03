@@ -71,6 +71,7 @@ Imports:
   BIS,
   sqldf,
   mi,
+  maps,
   readxl,
   httr,
   likert,
