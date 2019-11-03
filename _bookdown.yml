@@ -19,9 +19,11 @@ rmd_files: [
   'likert_edav_info.Rmd',
   'multiclass_hexbin.Rmd',
   'Visualization_in_Time_Series_Analysis.Rmd',
+  'likert_data.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
+  'data_structure_and_data_cleaning_tutorial.Rmd',
   
   # Data analysis
   'ice_cream_survey.Rmd',
@@ -29,7 +31,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
-  'sentiment_with_wordcloud.Rmd'
+  'sentiment_with_wordcloud.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
@@ -37,6 +39,7 @@ rmd_files: [
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
+  'opencpu_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -45,12 +48,15 @@ rmd_files: [
   'master_translation.Rmd',
   'translation_visualising_spatial_data.Rmd',
   'continuous_variables_with_r_in_chinese.Rmd',
+  'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'hex_sticker.Rmd',
   
   # cheatsheet
+  'master_cheat_sheet.Rmd',
+  'Date_and_Time_Cheatsheet.Rmd',
+  'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd'
-
 ]
 
 before_chapter_script: "_common.R"
