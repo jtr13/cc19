@@ -50,6 +50,7 @@ rmd_files: [
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'hex_sticker.Rmd',
+  'Viz_with_GeomMLBStadiums.Rmd',
   
   # cheatsheet
   'master_cheat_sheet.Rmd',
