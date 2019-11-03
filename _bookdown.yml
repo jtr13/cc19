@@ -21,9 +21,6 @@ rmd_files: [
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
-
-  # other
-  'rvest_data_transformation_translate.Rmd',
   
   # cheatsheet
   'master_cheat_sheet.Rmd'
@@ -37,6 +34,7 @@ rmd_files: [
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
+  'rvest_data_transformation_translate.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
