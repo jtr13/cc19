@@ -3,29 +3,60 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+new_session: yes
+edit: https://github.com/jtr13/cc19/edit/master/%s
 rmd_files: [
   # Part: Introduction
   "index.Rmd", # instructions
   'sample_project.Rmd',
 
+  # Part: Spatial Analysis
+  'maps.Rmd',
+
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
+  'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
-  'maps.Rmd',
   'intro_to_ggparty.Rmd',
+  'multiclass_hexbin.Rmd',
+  'Visualization_in_Time_Series_Analysis.Rmd',
+  'likert_data.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
+  'data_structure_and_data_cleaning_tutorial.Rmd',
+  
+  # Data analysis
+  'ice_cream_survey.Rmd',
 
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
+  'latex_visualization.Rmd', 
+  'ggmosaic_cheatsheet_translation.Rmd',
+  "rvest_tutorial.Rmd",
+  'rstudio_vs_jupyterlab.Rmd',
+  'Dplyr_Relational_Databases.Rmd',
+  'first_step_of_data_analysis.Rmd',
+  'opencpu_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
-  'master_translation.Rmd'
-
+  'master_translation.Rmd',
+  'translation_visualising_spatial_data.Rmd',
+  'continuous_variables_with_r_in_chinese.Rmd',
+  'Stringr_introduction_chinese_version.Rmd',
+  'list_of_contribution.Rmd',
+  'hex_sticker.Rmd',
+  
+  # cheatsheet
+  'master_cheat_sheet.Rmd',
+  'Date_and_Time_Cheatsheet.Rmd',
+  'bokeh_cheatsheet.Rmd',
+  'edav_flowchart.Rmd',
+  'dataframe_cheatsheet.Rmd'
 ]
-edit: https://github.com/jtr13/cc19/edit/master/%s
+
+before_chapter_script: "_common.R"
