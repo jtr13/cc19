@@ -39,6 +39,7 @@ Imports:
   countrycode,
   gridExtra,
   devtools,
+  hextri,
   Rmpfr,
   robotstxt,
   rvest,
