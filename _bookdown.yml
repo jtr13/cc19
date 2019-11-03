@@ -19,7 +19,7 @@ rmd_files: [
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
-  'continuous_variables_with_r_in_chinese.Rmd'
+  'continuous_variables_with_r_in_chinese.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
