@@ -33,6 +33,10 @@ Imports:
   tidyverse, 
   wordcloud2,
   dplyr,
+  rgdal,
+  RColorBrewer,
+  leaflet,
+  tmap,
   tidyr,
   shiny,
   sf,
@@ -42,6 +46,7 @@ Imports:
   gridExtra,
   devtools,
   Rmpfr,
+  treemap,
   alphavantager,
   plotly,
   partykit,
@@ -68,4 +73,3 @@ Imports:
   likert,
   mlbench,
   AER
-  
