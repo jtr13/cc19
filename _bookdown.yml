@@ -59,7 +59,8 @@ rmd_files: [
   'Date_and_Time_Cheatsheet.Rmd',
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd',
-  'dataframe_cheatsheet.Rmd'
+  'dataframe_cheatsheet.Rmd',
+  'wordcloud2_cheatsheet.Rmd'
 ]
 
 before_chapter_script: "_common.R"
