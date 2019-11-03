@@ -48,7 +48,7 @@ rmd_files: [
   'hex_sticker.Rmd',
   
   # cheatsheet
-  'dataframe_cheatsheet',
+  'dataframe_cheatsheet.Rmd',
   'edav_flowchart.Rmd'
 
 ]
