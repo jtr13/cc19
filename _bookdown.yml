@@ -43,7 +43,11 @@ rmd_files: [
   'master_video.Rmd',
   'master_translation.Rmd',
   'list_of_contribution.Rmd',
-  'hex_sticker.Rmd'
+  'hex_sticker.Rmd',
+  
+  # cheatsheet
+  'edav_flowchart.Rmd'
+
 ]
 
 before_chapter_script: "_common.R"
