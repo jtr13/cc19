@@ -30,6 +30,7 @@ rmd_files: [
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
+  'nullabor_translation_Korean.Rmd',
   'data_structure_and_data_cleaning_tutorial.Rmd',
   
   # Data analysis
