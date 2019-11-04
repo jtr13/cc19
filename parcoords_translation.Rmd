@@ -6,11 +6,11 @@ This is a Chinese translation version of the introduction and examples to the R 
 这是R包“parcoords”的使用说明和示例教程的中文翻译。
 
 
-# 1. ‘parcoords’包使用说明 - 中文翻译
+## 1. ‘parcoords’包使用说明 - 中文翻译
 
 翻译自英文原版说明：https://cran.r-project.org/web/packages/parcoords/parcoords.pdf <br />
 
-## parcoords
+### parcoords
 基于“d3.js”的交互式平行坐标图。
 <br />
 
@@ -119,7 +119,7 @@ parcoords(
 <br />
 <br />
 
-## parcoords-shiny
+### parcoords-shiny
 在Shiny中使用parcoords。
 <br />
 
@@ -301,7 +301,7 @@ if(interactive()) {
 <br />
 <br />
 
-## ParcoordsProxy
+### ParcoordsProxy
 用于发送指令至Shiny 应用程序的代理实例中。
 <br />
 
@@ -327,7 +327,7 @@ if(interactive()) {
 <br />
 <br />
 
-## pcCenter
+### pcCenter
 通过parcoordsProxy，实现基于列或者某一变量，将平行坐标图水平居中。
 <br />
 
@@ -347,7 +347,7 @@ parcoordsProxy对象。
 <br />
 
 
-## pcFilter
+### pcFilter
 通过parcoordsProxy过滤不需要的平行坐标图。
 <br />
 
@@ -367,7 +367,7 @@ parcoordsProxy对象。
 <br />
 
 
-## pcHide
+### pcHide
 通过parcoordsProxy，隐藏平行坐标图的某些列。
 <br />
 
@@ -387,7 +387,7 @@ parcoordsProxy对象。
 <br />
 
 
-## pcSnapshot
+### pcSnapshot
 通过parcoordsProxy获取平行坐标图的图像。
 <br />
 
@@ -406,7 +406,7 @@ parcoordsProxy对象。
 <br />
 
 
-## pcUnhide
+### pcUnhide
 通过parcoordsProxy解除平行坐标图的某些列的隐藏状态。
 <br />
 
@@ -426,7 +426,7 @@ parcoordsProxy对象。
 <br />
 <br />
 
-# 2. ‘parcoords’使用教程 - 中文翻译
+## 2. ‘parcoords’使用教程 - 中文翻译
 
 翻译自英文原版教程： ftp://cran.r-project.org/pub/R/web/packages/parcoords/vignettes/introduction-to-parcoords-.html <br />
 
@@ -436,7 +436,7 @@ parcoordsProxy对象。
 
 `Parcoords` 提供`shiny`和`crosstalk`完全集成的多元数据集的交互性视图（parcoords-es）。
 
-## 范例
+### 范例
 绘制平行坐标图时，默认视图仅提供有限的交互性。`parcoords`的多种参数可提供一个更有身临其境感的自定义化过程。
 ```{r fig.height=5, fig.width=10}
 library(parcoords)
@@ -444,8 +444,8 @@ library(parcoords)
 parcoords(mtcars, height = 450)
 ```
 
-## 选项
-### 刷子模式
+### 选项
+#### 刷子模式
 通过`brushMode`参数，我们可以使用多种笔刷，通过该功能用户可以自由过滤/选择数据。
 
 ```{r fig.height=5, fig.width=10}
@@ -472,7 +472,7 @@ parcoords(
 )
 ```
 
-### 颜色
+#### 颜色
 可以用`rgb`或`hex`值给平行坐标图上单一颜色。
 
 ```{r fig.height=5, fig.width=10}
@@ -520,7 +520,7 @@ parcoords(
 )
 ```
 
-### 捆绑
+#### 捆绑
 当我们的数据集更大时，使用捆绑功能会很有帮助。为了数据集的大小起见，我们将继续使用`mtcars`数据。要查看效果，可以尝试使用`survival::colon`或`ggplot2::diamonds`。
 
 ```{r fig.height=5, fig.width=10}
@@ -535,7 +535,7 @@ parcoords(
 )
 ```
 
-### 队列和速率
+#### 队列和速率
 对于较大的数据集（> 1000行），除非设置`queue = TRUE`与`rate`，否则图的交互反应速度会大大降低。这里可能需要进行一些试验才能选择正确的参数达到好的效果。如上所述，我们使用`mtcars`来示范。而实际上，只有当数据集真的很大时才需要使用这些功能。
 
 ```{r fig.height=5, fig.width=10}
@@ -550,7 +550,7 @@ parcoords(
 )
 ```
 
-### 贴砖模式
+#### 贴砖模式
 我添加了参数`mode = 'tiled'`，以此来使用下述方法
 
 ```
@@ -573,10 +573,10 @@ parcoords(
 )
 ```
 
-## 方法
+### 方法
 该包提供了一些独立使用或在`Shiny`中使用的辅助方法。例如，我们可以使用快照功能来得到一个`png`格式的文件，作为对平行坐标图的当前状态的导出。
 
-### 截图快照
+#### 截图快照
 先前版本的平行坐标中，提供了一些可以将图表捕获为静态图像的基本支持。但是，功能尚不完善，并且实施存在问题。现在，可以通过JavaScript和R的快照功能来达到目的。生成的图像还将记录刷子的当前状态。
 
 ```{r fig.height=5, fig.width=10}
@@ -614,7 +614,7 @@ function snapshotPC() {
 )
 ```
 
-### 使用Shiny的代理方法
+#### 使用Shiny的代理方法
 与`leaflet`和`plotly`类似，`parcoords`中提供了代理方法，来与`Shiny`中的平行坐标进行交互，并且无需完全重新渲染。当前，下列功能（名称由`pc*`分隔）可以使用。
 
 - pcFilter
