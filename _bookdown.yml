@@ -14,6 +14,7 @@ rmd_files: [
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
+  'parcoords_translation.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
