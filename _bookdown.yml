@@ -29,6 +29,13 @@ rmd_files: [
   'likert_data.Rmd',
   
 
+  # workshop
+  'master_workshop.Rmd',
+  'regex_workshop.Rmd',
+  
+  # tutorial
+  'carto_tutorial.Rmd',
+
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
   'nullabor_translation_Korean.Rmd',
