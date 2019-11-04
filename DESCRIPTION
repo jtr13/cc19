@@ -7,7 +7,7 @@ Imports:
   bookdown,
   datasets,
   dplyr,
-  galley,
+  GGally,
   ggmap,
   ggplot2,
   ggridges,
