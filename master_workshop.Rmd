@@ -7,3 +7,9 @@ Some groups of students have contributed to the community by running the followi
 ```{r, child = "bookdown.Rmd"}
 
 ```
+
+```{r, child = "r-package-writing.Rmd"}
+
+```
+
+
