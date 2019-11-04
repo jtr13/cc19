@@ -6,11 +6,6 @@ Alex Wan and Junyang Jiang
   library(plotrix)
 ```
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
 ## Overview
  
   Our graphs have to be informative and attractive to the audience to get their attention. 
