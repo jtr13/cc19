@@ -66,6 +66,7 @@ rmd_files: [
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
+  'NLP_Basics_with_Python.Rmd',
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
@@ -74,6 +75,7 @@ rmd_files: [
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd'
+
 ]
 
 before_chapter_script: "_common.R"
