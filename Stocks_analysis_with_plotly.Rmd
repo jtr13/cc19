@@ -1,0 +1,269 @@
+# Technical Analysis for Stocks using Plotly
+
+Ivan Ugalde (du2160); Bernardo Lopez (bl2786)
+
+```{r, include=FALSE}
+ knitr::opts_chunk$set(fig.width=10, warning = FALSE, message = FALSE)
+```
+
+The goal of this R markdown file is to show how to use Apha Vantage API to download stocks data, organize it and make interactive plots using Plotly that will help to find trends in the market.
+
+## Import all libraries
+
+We will be ussing:
+
+
+* **plotly**: For interactive plots.
+* **alphavantager**: R package from Alpha Vantage for downloading stocks data.
+* **tidyverse**
+
+```{r}
+library('plotly')
+library('tidyverse')
+library('alphavantager')
+```
+
+## Download data from [Alpha Vantage](https://www.alphavantage.co){target="_blank"}
+
+Alpha Vantage provides free historical and real time information on stocks via an API.
+
+### Usefull links for more information:
+
+[Alpha Vantage API](https://cran.r-project.org/web/packages/alphavantager/alphavantager.pdf){target="_blank"}: alphavantager R package documentation.
+
+[RSI](https://www.investopedia.com/terms/r/rsi.asp){target="_blank"}: Relative strength index.
+
+[MACD](https://www.investopedia.com/terms/m/macd.asp){target="_blank"}: Moving Average Convergence Divergence.
+
+[PSAR](https://www.investopedia.com/terms/p/parabolicindicator.asp){target="_blank"}: Parabolic SAR (Stop and Reverse) indicator.
+
+We will store in _symbol_ the code for the stock we want to analyse. In this example we wil use Apple (AAPL), but you can change it to whatever you want. Manchester United (MANU), Starbucks (SBUX), Netflix (NFLX) and New York Times (NYT) are some examples. In *start_date* we store the date from which we want to start analyzing the stock.
+
+With the API we will download data for the selected stock from 2018-01-01 till today. We will download the daily value of the stock and the indicators SAR, MACD and RSI.
+
+In some cases the API returns the date also with the hour, so we will use the function mutate and as.Date() to have the same date format in all the API calls.
+
+The function *av_get* from the package *alphavantager*  is used to get financial data from the Alpha Vantage API. It requires two main parameters: *symbol* for the code of the stock and *av_fun*, the Alpha Vantage function that describes the type of data you want to get. For this example we will use "TIME_SERIES_DAILY" for the daily value of the stock, and "SAR", "MACD" and "RSI" to get those financial indicators.
+
+Tu use Alpha Vantage API you have to create your own key, it is free. To create the html file we used our key, but you will have to replace your new key in the chunk bellow. 
+
+```{r, include=FALSE}
+#Replace MY_KEY with your own API key
+api_key <- 'MY_KEY'
+```
+
+```{r}
+av_api_key(api_key)
+
+stock_symbol <- 'AAPL'
+start_date <- as.Date('2018-01-01')
+
+ohlc <- av_get(symbol = stock_symbol, av_fun = 'TIME_SERIES_DAILY', outputsize = 'full') %>%
+  filter(timestamp >= start_date)
+psar <- av_get(symbol = stock_symbol, av_fun = 'SAR', interval='daily') %>%
+  filter(time >= start_date) %>%
+  mutate(time=as.Date(time,format="%Y-%m-%d"))
+macd <- av_get(symbol = stock_symbol, av_fun = 'MACD', interval='daily', series_type = 'close') %>%
+  filter(time >= start_date)  %>%
+  mutate(time=as.Date(time,format="%Y-%m-%d"))
+rsi <- av_get(symbol = stock_symbol, av_fun = 'RSI', interval='daily', time_period=14, series_type='close') %>%
+  filter(time >= start_date)  %>%
+  mutate(time=as.Date(time,format="%Y-%m-%d"))
+```
+
+The following code merges all of the data using the date as binder.
+
+```{r}
+data <- ohlc %>%
+  merge(y = psar, by.x = 'timestamp', by.y = 'time') %>%
+  merge(y = macd, by.x = 'timestamp', by.y = 'time') %>%
+  merge(y = rsi, by.x = 'timestamp',  by.y = 'time')
+
+data %>% head()
+```
+    
+    
+## Simple plot: 2 traces in same axis 
+
+To add traces to the plot we use *add_trace*. In this example we will use as type "candlestick" and "scatter".
+
+```{r}
+plot1 <- plot_ly(data) %>%
+  add_trace(type = 'candlestick', 
+            name = 'OHLC',
+            x = ~timestamp,
+            open = ~open, high = ~high, low = ~low, close = ~close,
+            increasing = list(line = list(color='rgba(52,169,102,1)',
+                                          width=1),
+                              fillcolor = 'rgba(0,0,0,0)'), # Transparent
+            decreasing = list(line = list(color='rgba(220,68,59,1)',
+                                          width=1),
+                              fillcolor = 'rgba(0,0,0,0)'), # Transparent
+            legendgroup = 'one') %>%
+  add_trace(type = 'scatter', 
+            mode = 'markers',
+            x = ~timestamp,
+            y = ~sar,
+            name = 'PSAR',
+            marker = list(color = 'orange', size = 4),
+            legendgroup = 'one') 
+plot1
+```
+    
+## Many traces in independent axis but in same plot
+
+Plotly give us interactivity, that allows to zoom the data for the same dates for all graphs simultanously.
+
+By using the parameter *yaxis* we can plot traces in different Y axis but same X axis.
+
+```{r}
+plot2 <- plot1 %>%
+  add_trace(type = 'bar', 
+            x = ~timestamp,
+            y = ~macd_hist,
+            name = 'MACD Histogram',
+            marker = list(color = 'gray'),
+            yaxis = 'y2',
+            legendgroup = 'two') %>%
+  add_trace(type = 'scatter', 
+            mode = 'lines',
+            marker = NULL,
+            x = ~timestamp,
+            y = ~macd,
+            name = 'MACD',
+            line = list(color = 'red'),
+            yaxis = 'y2',
+            legendgroup = 'two') %>%
+  add_trace(type = 'scatter', 
+            mode = 'lines',
+            marker = NULL,
+            x = ~timestamp,
+            y = ~macd_signal,
+            name = 'Signal',
+            line = list(color = 'plum'),
+            yaxis = 'y2',
+            legendgroup = 'two') %>%
+  add_trace(type = 'scatter', 
+            mode = 'lines',
+            marker = NULL,
+            x = ~timestamp,
+            y = ~rsi,
+            name = 'RSI',
+            line = list(color = 'plum'),
+            yaxis = 'y3',
+            legendgroup = 'three') %>%
+  add_trace(type = 'scatter', 
+            mode = 'lines',
+            marker = NULL,
+            x = c(~min(timestamp), ~max(timestamp)),
+            y = c(70,70),
+            name = 'RSI',
+            line = list(color = 'red',
+                        width = 0.5,
+                        dash = 'dot'),
+            yaxis = 'y3',
+            legendgroup = 'three') %>%
+  add_trace(type = 'scatter', 
+            mode = 'lines',
+            marker = NULL,
+            x = c(~min(timestamp), ~max(timestamp)),
+            y = c(30,30),
+            name = 'RSI',
+            line = list(color = 'red',
+                        width = 0.5,
+                        dash = 'dot'),
+            yaxis = 'y3',
+            legendgroup = 'three') %>%
+  layout(yaxis = list(domain = c(0.62, 1),
+                      fixedrange = FALSE),
+         yaxis2 = list(domain = c(0.32, 0.58),
+                       fixedrange = FALSE),
+         yaxis3 = list(domain = c(0., 0.28),
+                       fixedrange = FALSE),
+         height = 500)
+  
+plot2
+```
+    
+## Aesthetics: background and margins
+
+We use parameter *paper_bgcolor* and *plot_bgcolor* of layout to change the color of the background of the paper and the plot, we decided to use black. Parameter *margin* is used to change the size of the plot margins.
+
+```{r}
+plot3 <- plot2 %>% layout(paper_bgcolor='rgba(37,37,37,1)',
+                          plot_bgcolor='rgba(37,37,37,1)',
+                          margin = list(l=60, r=20, t=30, b=5))
+plot3
+```
+    
+## More aesthetics: hide legends and hide X-axis slider
+
+To hide the legend we must set the parameter *showlegend* as false.
+
+For every Y-axis we used parameters *titlte* to set the title of the axis and *titlefont* and *tickfont* to change the colors of the title and the ticks.
+
+```{r}
+plot4 <- plot3 %>%
+  layout(xaxis = list(titlefont = list(color='rgb(200,115,115)'),
+                      tickfont = list(color='rgb(200,200,200)'),
+                      linewidth=1,
+                      linecolor = 'white'),
+         yaxis = list(domain = c(0.62, 1),
+                      title = 'PSAR & OHLC',
+                      titlefont = list(color='rgb(200,115,115)'),
+                      tickfont = list(color='rgb(200,200,200)'),
+                      linewidth=1,
+                      linecolor = 'white',
+                      mirror = "all"),
+         yaxis2 = list(domain = c(0.32, 0.58),
+                      title = 'MACD',
+                      titlefont = list(color='rgb(200,115,115)'),
+                      tickfont = list(color='rgb(200,200,200)'),
+                      linewidth=1,
+                      linecolor = 'white',
+                      mirror = "all"),
+         yaxis3 = list(domain = c(0., 0.28),
+                      title = 'RSI',
+                      titlefont = list(color='rgb(200,115,115)'),
+                      tickfont = list(color='rgb(200,200,200)'),
+                      linewidth=1,
+                      linecolor = 'white',
+                      mirror = "all"),
+         showlegend = FALSE,
+         height = 500)
+  
+plot4
+```
+     
+## Shortcuts to slice data by pre-fixed date ranges
+
+This last chunk of code will add a _rangeselector_ to the x axis. This buttons will allow us to focus only in the last 3, 6 or 12 months. We can also see all the data or see it year to date (from the begining of the year to the current day). For each button in the rangeselector we have to specify the count, label, step and stepmode.
+
+```{r}
+plot5 <- plot4 %>%
+  layout(xaxis = list( rangeselector = list( buttons = list( list(count = 3,
+                                                                  label = "3 mo",
+                                                                  step = "month",
+                                                                  stepmode = "backward"),
+                                                             list(
+                                                               count = 6,
+                                                               label = "6 mo",
+                                                               step = "month",
+                                                               stepmode = "backward"),
+                                                             list(
+                                                               count = 1,
+                                                               label = "1 yr",
+                                                               step = "year",
+                                                               stepmode = "backward"),
+                                                             list(
+                                                               count = 1,
+                                                               label = "YTD",
+                                                               step = "year",
+                                                               stepmode = "todate"),
+                                                             list(step = "all"))),
+                       rangeslider=list(visible=FALSE)))
+
+plot5
+```
+
+    

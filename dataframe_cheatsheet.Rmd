@@ -1,0 +1,316 @@
+# Dataframe Cheatsheet
+
+Thomas Causero
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The purpose of this cheatsheet is to present functions to deal with dataframes. To do so, I'll use 2 different ways: one that doesn't require any additional libraries and one using two libraries (dplyr and tidyr). Note that the tidyverse library contains those two libraries among others. So, one can decide to load dplyr and tidyr sperately or load all of them at the same time using tidyverse.
+
+```{r}
+#library(tidyverse)
+library(dplyr)
+library(tidyr)
+```
+
+
+## Create Data Frames
+
+There are several ways to create a dataframe using R.
+
+The first one is to create a dataframe with vectors as inputs for every column, to do so, you need to use the following syntax: 
+
+data.frame(x = vector_1, y = vector_2,... ,col_name = vector_n).
+
+To avoid writing too long vectors, you might also use random data or random sampling:
+
+- rnorm(k) will return a k random samples from a standard normal distribution
+
+- runif(k) will return a k random samples from a [0,1] uniform distribution
+
+- rpois(k, lambda) for a poison distribution
+
+- rbinom(k, n, p) for a binomial distribution
+
+Another way to create a dataframe is to use external data, either from a csv file, or using web scrapping techniques. To do so, there is a very useful package **rvest**, which is rather easy to use and which has a function html_table() which convert the html table into a dataframe. 
+
+In the same way, the "read_csv" function takes a csv file as input and ouput a dataframe. Note that for these functions, there are a lot of parameters such as header which enables to control which rows or columns we would like to keep.
+
+To have more information on an R function, you can just tap ?function_name.
+
+Another useful function is write_csv(), which is rather explicit.
+
+Here are a few other functions that can be useful to deal with data:
+
+- to create a vector: 1:10 or c(1:10)
+
+- to repeat 5 10 times: rep(5,10)
+
+- it also works with strings: rep('hey',10) repeat hey 10 times
+
+- rep(c(1,2,3),2) will repeat the vector 1:3 twice
+
+- rep(c(1,2,3), each = 2) will repeat each value of the vector twice
+
+```{r}
+#dataframe with random numbers
+df <- data.frame(x = rnorm(5), y = rnorm(5), z = rnorm(5))
+df
+```
+
+## Get information on the dataframe
+
+When dealing with dataframes, it is very useful to first look at its characteristic such as the shape or the type of data we are dealing with, here are the functions to do so.
+
+```{r}
+#No additional libraries required
+
+#To look at first rows (here only the first one)
+head(df,1)
+#get number of columns
+ncol(df)
+#get number of rows
+nrow(df)
+#get dimensions
+dim(df)
+#get information on each column
+str(df)
+#There are three main data types: numeric, string and factors (very similar to vectors 
+#but very useful with nominal data because it also provides the set of possible values)
+factor(c('Tomato','Tomato','Tomato','Tomato','Tomato','Apple','Apple','Apple','Apple'))
+#get column names
+colnames(df)
+#get row names
+rownames(df)
+#to change row names or column names with a vector
+colnames(df) <- c('a','y','z')
+#change only one column name without needing to write all the others
+colnames(df)[colnames(df)=="a"] <- 'x' #with the column name
+colnames(df)[1]<-"x" #with the column number
+```
+
+```{r}
+#Using dplyr and tidyr
+
+#you can rename variables with select but it will drop all the variables not explicitly mentioned
+select(df, new = x)
+#rename() is more useful
+rename(df, new = x)
+```
+
+
+## Concatenate dataframes
+
+When dealing with dataframes, it can also be very useful to concatenate them. To do so, there are several functions such as rbind or cbind. In this section, I will also present functions to merge dataframe (depending on a specific key)
+
+```{r}
+#columns by columns
+cbind(1:3,1:3)
+#rows by rows
+rbind(1:3,1:3)
+#apply multiple concatenations
+list <- list(1:3, 1:3, 1:3, 1:3, 1:3)
+do.call(rbind, list)
+
+df1 <- data.frame(ID = 1:5, value = 5:1)
+df2 <- data.frame(ID = 1:5, value = 6:10)
+#to merge with a single key
+merge(df1, df2, by = 'ID')
+#can also merge with multiple ids: by = c(col1, col2 ...)
+
+#merge with a key that has a different name in datasets
+df3 <- data.frame(ID3 = 1:5, value = 6:10)
+merge(df1, df3, by.x = 'ID', by.y = 'ID3')
+```
+
+## Order dataframes
+
+Ordering a dataframe means that you want to reorder the rows depending on the value of a specific colum. You can also change the order of the columns.
+
+```{r}
+#No additional libraries required
+
+#order rows by variable x then y 
+df[order(df$x, df$y),]
+df[order(df['x']),]
+df[order('x')] #doesn't return the whole dataframe (only the column x) and nothing is sorted
+df[order('x'),] #return the first row of the dataframe and not sorted neither
+#change columns order (use a vector)
+df[,c(1,3,2)]
+```
+
+```{r}
+#Using libraries dplyr and tidyr
+
+#arrange() to reorder the dataframe
+arrange(df, -x,y,z)
+arrange(df, x,y,z)
+```
+
+
+## Subset of data tables
+
+Getting subset of a dataframe is very important. Those functions are like filters in a way that they will only return specific rows (or columns) of a dataframe depending on its value.
+
+```{r}
+#For all those functions, no additional libraries are required
+
+#Only return specific row and column numbers
+#df[row_numbers, col_numbers]
+df[1:4,1:3]
+
+#trake 2 random rows from df
+df[sample(1:nrow(df), 2, replace = F),]
+
+#get 3 first rows
+df[1:3,]
+
+#remove rows 1 and 2
+df[-c(1,2),]
+
+#select columns
+df[,c('x','y')]
+
+#select rows under condition of a certain column
+df[df$x<0,] #df[df$col %in% c('var1','var2','var3')]
+subset(df, x>0 & y>0)
+```
+
+```{r}
+#Now, I'll show similar functions using additional libraries (dplyr and tidyr)
+
+#sample_n() (fixed number) and sample_frac() to take random samples (fixed fraction)
+sample_n(df, 1)
+sample_frac(df, 0.5)
+
+#filter() to select cases based on their values.
+filter(df, x >0 & y>0)
+df %>% filter(x>0, y>0)
+
+#select() to select variables based on their names.
+#select column x
+select(df, x)
+#select column x and y
+select(df, x, y)
+#select all columns from x to z
+select(df, x:z)
+#drop colum x
+select(df, -x)
+#drop columns x and y
+select(df, -x, -y)
+```
+
+## Change dataframe shape
+
+```{r}
+#Without additional libraries
+#to transpose a dataframe (rows become columns and inversely)
+t(df)
+```
+
+```{r}
+#Using tidyr library
+#gather and spread
+#gathering the column names and turning them into a pair of new variables. 
+#One variable represents the column names as values, and the other variable 
+#contains the values previously associated with the column names
+tmp <- data.frame(col1 = 1:3, col2 = 1:3, col3 = 1:3)
+df_gather <- gather(tmp, key = 'col', value = 'value', -col1)
+df_gather
+
+#spread to get initial dataset
+#spread is the inverse function of gather
+spread(df_gather, key = col, value = value)
+```
+
+
+
+## Transforming data
+
+Transforming data is also very important. Indeed, when one creates a new column depending on the value of others, or if one would like to change the values of a specific column, then it transforms the dataframe.
+
+```{r}
+#No additional libraries required
+#multiply by 100 the column x
+transform(df, x =100*x)
+#multiply x by 100 if z>0
+transform(df, x = ifelse(z>0, x*100, x))
+#create a new column with a value of 1 or -1 depending on the sign of x
+transform(df, new_col = ifelse(x>0, 1, -1))
+
+#create new colum (there are several ways to do so)
+df['w'] = 2*df['x'] #create a colum w whose values are twice the value of x
+df[,'r'] = ifelse(df[['x']]>0, 1, -1) #create a column r whose values are 1 or -1 
+#depending on the value of x 
+#note that there are [[]] and not []) - df[,'r'] = ifelse(df['x']>0, 1, -1) doesn't work
+df['t'] = ifelse(df[,'x']>0, 1, -1)
+df$o = ifelse(df[,'x']>0, 1, -1)
+df$i = ifelse(df$x>0, 1, -1)
+df
+
+#Note the following (there is a difference between [] and [[]])
+df['x'] #is a dataframe
+df[,'x'] #is a vector
+df$x #is a vector
+df[['x']] #is a vector
+```
+
+```{r}
+#Using dplyr and tidyr libraries
+
+#mutate() and transmute() to add new variables that are functions of existing variables.
+#dplyr::mutate() is similar to transform(), but allows you to refer to columns that you’ve just created
+mutate(df,a = 2*x,b = 2*y)
+mutate(df,a = 2*x,b = 2*a)
+#transform(df, a = 2*X, b = 2*a) #doesn't work
+
+#If you only want to keep the new variables, use transmute():
+transmute(df,a = 2*x,b = 2*a)
+```
+
+
+## Dealing with duplicates and missing values
+
+NA values or duplicate values can be very annoying in a dataframe. Hopefully, some functions exist to deal with them.
+
+```{r}
+#create NA values to show the different functions
+df['NA'] = NA
+df
+
+df[is.na(df)] = 0 #set NA values to 0
+df
+df[df==0] = NA #set 0 values to NA
+df
+
+na.omit(df) #delete rows with NA values
+df[!is.na(df$x),] #delete rows with missing values in column x
+
+unique(df) #remove duplicates rows
+df[duplicated(df),] #return duplicate rows
+df[!duplicated(df[,c('x')]),] #remove all rows with duplicates X values (first is kept)
+df[duplicated(df[,c('x')]),] #returns rows with duplicate X
+```
+
+## group_by function
+
+The group_by function is used to create groups of observations in order to apply functions to each group separately. It is equivalent to the GROUP BY function is SQL. You need the dplyr package for this section.
+
+```{r}
+library(nycflights13)
+
+#summarise() to condense multiple values to a single value
+#It collapses a data frame to a single row
+#very useful with group by
+#examples of functions: min(), max(), mean(), sum(), sd(), median()
+#n(): the number of observations in the current group or n_distinct(x):the number of unique values in x
+summarise(df,name_col = mean(x, na.rm = TRUE))
+
+#group_by() + summarize()
+flights %>%
+   group_by(tailnum) %>%
+   summarise(count = n(), dist = mean(distance, na.rm = TRUE), delay = mean(arr_delay, na.rm = TRUE)) %>%
+   filter(delay, count > 500, dist < 800)
+```
+
