@@ -4,7 +4,7 @@ Zhiyi Guo and Fan Wu
 
 ## Introduction
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
