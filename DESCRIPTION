@@ -17,4 +17,5 @@ Imports:
   choroplethrMaps,
   tidyverse,
   dplyr,
+  parcoords,
   shiny
