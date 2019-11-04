@@ -13,7 +13,8 @@ rmd_files: [
   'maps.Rmd',
   
   # workshop
-  'master_workshop.Rmd', 
+  'master_workshop.Rmd',
+  'regex_workshop.Rmd',
   
   # tutorial
   'carto_tutorial.Rmd',
