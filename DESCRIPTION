@@ -17,4 +17,6 @@ Imports:
   choroplethrMaps,
   tidyverse,
   dplyr,
-  shiny
+  shiny,
+  wbstats,
+  googleVis
