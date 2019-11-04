@@ -59,7 +59,7 @@ rmd_files: [
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
-  'midsemeter_review',
+  'midsemeter_review.Rmd',
   'master_translation.Rmd',
   'SandDance.Rmd',
   'translation_visualising_spatial_data.Rmd',
