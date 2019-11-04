@@ -36,6 +36,7 @@ rmd_files: [
   
   # Data analysis
   'ice_cream_survey.Rmd',
+  'translation_of_lattice_intro.Rmd',
 
   # Part: Other
   'tinder_study.Rmd',
@@ -68,7 +69,7 @@ rmd_files: [
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
-  'translation_of_lattice_intro.Rmd',
+  
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
