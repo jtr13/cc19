@@ -1,13 +1,10 @@
----
-title: "Basic R"
-author: "Xin Guo, Aiden Zhang"
-date: "2019/10/26"
-output: html_document
----
-
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,warning = FALSE, message = FALSE)
 ```
+# Basic R
+
+Xin Guo, Aiden Zhang
+
 R is a tool for data processing, it is important for us to understand the basic operations. In this cheatsheat/tutorial we will cover some basic operations of data. We will start with the building blocks of data types then go to the data structures. We try to cover the create, update(delete included), select operations for each data object following the logic of basic database operations.  
 
 ## data types
