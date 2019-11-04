@@ -53,7 +53,7 @@ This is the NO2 and NOx concentrations in air line plot
 ```{r comment=NA}
 library(ucidata)
 
-MyData <- read.csv(file="resources/air_quality.csv", header=TRUE, sep=",")
+MyData <- read.csv(file="resources/r_vs_tableau/air_quality_r.csv", header=TRUE, sep=",")
 MyData$Date <- as.Date(MyData$Date, format = "%d/%m/%Y")
 
 ggplot(MyData, aes(Date)) +
