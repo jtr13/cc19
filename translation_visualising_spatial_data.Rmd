@@ -1,0 +1,7 @@
+# Translation: visualising spatial data
+
+Mutian Wang and Siyuan Wang
+
+We translated a tutorial **Introduction to Visualising Spatial Data in R** written by Robin Lovelace, James Cheshire, Rachel Oldroyd. The source text can be found [here](https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf).
+
+Our translation can be found on [our GitHub repo](https://github.com/Tcrista/Translation-of-Visualising-Spatial-Data). In this repo, you can see our [translation](https://github.com/Tcrista/Translation-of-Visualising-Spatial-Data/blob/master/Translation_of_Introduction_to_Visualising_Spatial_Data_in_R.html) in the html file, and the [source code](https://github.com/Tcrista/Translation-of-Visualising-Spatial-Data/blob/master/Translation_of_Introduction_to_Visualising_Spatial_Data_in_R.Rmd) in the Rmd file.
