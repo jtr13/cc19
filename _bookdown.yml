@@ -45,6 +45,7 @@ rmd_files: [
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
+  'Comparative_Study_of_Mosaic.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
   'time_series_arima.Rmd',

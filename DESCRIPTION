@@ -61,7 +61,7 @@ Imports:
   hextri,
   Rmpfr,
   robotstxt,
-  rvest,
+  ggmosaic,
   plan,
   rvest, 
   knitr,
