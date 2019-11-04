@@ -7,6 +7,10 @@ documentclass: book
 github-repo: jtr13/cc19
 description: "This book will hold all community contributions for STAT GR 5702 Fall 2019 at Columbia University"
 ---
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
 # (PART) Introduction {-}
 
 # Instructions
@@ -43,6 +47,18 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 5. If your project requires data, please use a built-in dataset or read directly from a URL, such as:
 
     `df <- readr::read_csv("https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv")` <br> If you absolutely must include a data file, please use a small one, as for many reasons it is desirable to keep the repository size as small as possible.
+    
+6. If you have included a `setup` chunk in your `Rmd` file, please remember to remove the label `setup` in the chunk, ie., use :
+
+  ```
+  {r, include=False}
+  ```
+  
+  instead of
+  
+  ```
+  {r setup, include=False}
+  ```
 
 Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
