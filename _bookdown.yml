@@ -47,6 +47,7 @@ rmd_files: [
   'rstudio_vs_jupyterlab.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
+  'time_series_arima.Rmd',
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
 
