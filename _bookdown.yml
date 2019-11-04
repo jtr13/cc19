@@ -39,6 +39,7 @@ rmd_files: [
 
   # Part: Other
   'tinder_study.Rmd',
+  'r_vs_tableau_plots.Rmd',
   'wordcloud_tutorial.Rmd',
   'Stocks_analysis_with_plotly.Rmd',
   'latex_visualization.Rmd', 
