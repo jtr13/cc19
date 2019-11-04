@@ -18,6 +18,9 @@ rmd_files: [
   # tutorial
   'carto_tutorial.Rmd',
   
+  # filename
+  'Chinese_Translation_of_plotly_and_parcoords.Rmd',
+  
   # cheatsheet
   'master_cheat_sheet.Rmd'
 ]
