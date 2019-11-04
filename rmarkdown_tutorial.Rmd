@@ -118,12 +118,7 @@ plain text
 ##### Header 5
 ###### Header 6 
 ```
-# Header1 {#anchor}
-## Header 2 {#css_id}
-### Header 3 {.css_class}
-#### Header 4
-##### Header 5
-###### Header 6 
+![Caption](resources/rmarkdown_tutorial/headers.png) 
 
 * **hyperlink**
 ```{}
