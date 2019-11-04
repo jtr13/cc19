@@ -51,6 +51,7 @@ rmd_files: [
   'time_series_arima.Rmd',
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
+  'GoogleVis_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
