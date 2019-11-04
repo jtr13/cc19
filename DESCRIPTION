@@ -55,6 +55,8 @@ Imports:
   devtools,
   plotly,
   Rmpfr,
+  sde,
+  ESGtoolkit,
   treemap,
   alphavantager,
   plotly,

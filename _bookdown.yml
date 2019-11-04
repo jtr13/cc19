@@ -41,6 +41,7 @@ rmd_files: [
   'tinder_study.Rmd',
   'r_vs_tableau_plots.Rmd',
   'wordcloud_tutorial.Rmd',
+  'Exploring_Financial_Models.Rmd',
   'Stocks_analysis_with_plotly.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
