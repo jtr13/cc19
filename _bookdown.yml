@@ -51,6 +51,7 @@ rmd_files: [
   'time_series_arima.Rmd',
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
+  'GoogleVis_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -66,6 +67,7 @@ rmd_files: [
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
   'Tweepy.Rmd',
+  'NLP_Basics_with_Python.Rmd',
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
