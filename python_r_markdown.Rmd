@@ -28,6 +28,9 @@ def install(package):
     
 install("pandas")
 install("seaborn")
+
+import pandas as pd
+import seaborn as sns
 ```
 
 Objects can be passed easily between R and Python code chunks. To access a Python object in R, prefix it with `py$`. To access an R object in Python, prefix it with `r.` 
@@ -131,8 +134,6 @@ py_eval("r.mtcars.describe()")
 \
 We can also use Python graphing libraries.
 ```{python}
-import pandas as pd
-import seaborn as sns
 sns.set(rc={'figure.figsize':(3.5,2)})
 sns.distplot(r.mtcars.mpg).set_title("Fuel efficiency")
 ```
