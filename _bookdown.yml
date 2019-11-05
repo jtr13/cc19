@@ -22,5 +22,7 @@ rmd_files: [
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd'
+  
+  "rmarkdown_tutorial.Rmd"
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
