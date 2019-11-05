@@ -11,8 +11,23 @@ Running Python code in R Markdown can be useful when Python has certain packages
 Here, we need the `reticulate` package and a Python installation which we can specify by location. We can specify versions of Python with the names of their environments in `use_virtualenv()` and `use_condaenv()`. Instead of the usual `{r}`, we use `{python}` at the start of a Python chunk.
 
 ```{r}
+#R
 library(reticulate)
 use_python("/home/karan/anaconda3/bin/python3.5")
+```
+
+Installing some Python libraries before we begin:
+
+```{python}
+#Python
+import subprocess
+import sys
+
+def install(package):
+    subprocess.call([sys.executable, "-m", "pip", "install", package])
+    
+install("pandas")
+install("seaborn")
 ```
 
 Objects can be passed easily between R and Python code chunks. To access a Python object in R, prefix it with `py$`. To access an R object in Python, prefix it with `r.` 
