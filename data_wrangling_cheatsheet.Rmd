@@ -1,0 +1,15 @@
+# Data wrangling with R cheatsheet:
+
+Tabitha K. Sugumar
+
+Goal: Reference sheet for commonly used functions when doing basic data wrangling and cleaning tasks. Consolidate this information in an easy to find place in order to double check syntax, which version of a function to use, etc.
+
+Functions included: 
+
+Subsetting: filter, select
+Applying: apply, lapply, sapply, vapply
+Reshaping: cbind, rbind, merge, melt, cast, gather, spread, arrage
+Aggregation: groupby, summarize, aggregate
+Manipulation: mutate, transmute, mutate_if, mutate_at, mutate_all, trimws, substr, make_clean_names, na.omit, is.na, remove_empty
+
+Link: https://github.com/tks19/EDAV/blob/master/DataWranglingwithRCheatsheet.pdf

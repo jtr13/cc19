@@ -12,8 +12,10 @@ repos:
 
 
 r_github_packages:
+ - cran/extracat
  - coatless/ucidata
  - hrbrmstr/statebins
+ - m-dev-/likert
 
 addons:
   apt:

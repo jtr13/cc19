@@ -1,0 +1,11 @@
+# French version of edav.info
+
+Amaury Sudrie, Maxime Tchibozo, Romane Goldmuntz and Vy Tran 
+
+The four of us worked on the French translation of the website edav.info/, a useful resource of GR5702 course at Columbia University.
+
+The version is the one of October 21st 2019, any update is welcome!
+
+Link to the repo: https://github.com/Amelrich/EDAV
+
+
