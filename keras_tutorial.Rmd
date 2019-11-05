@@ -2,10 +2,6 @@
 
 Patrick Stanton
 
-```{r setup, include=FALSE}
- knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
-```
-
 Deep Learning has become a cornerstone of modern Machine Learning. The ability to develop and train neural networks is a necessity for any Data Scientist. One of the most prevalent packages that enables us to do so is called Keras. This tutorial will show you how to use this package in R.
 
 ## Installation
