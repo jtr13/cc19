@@ -1,0 +1,13 @@
+# Tweepy
+
+Kevin Womack
+
+On Friday, October 25, 2019, I co-hosted a two-part workshop for undergraduates from Morehouse College, Spelman College, and Clark Atlanta University on data mining social media platforms for applications in threat detection. For the sake of time and simplicity, I elected to solely concentrate on Twitter for the source of data in my tutorial and utilize Python to simplify the implementation process and limit code-writing confusion. \
+
+
+[Part One](https://docs.google.com/presentation/d/1mGZE6xk5paXZISmHPAvkKYFein-a-xzQ7wVQp3bsvaU/edit?usp=sharing) (<- clickable link to slides) of the workshop was a Python review to catch everyone up to speed on the syntax they would need to perform basic tasks in the language.
+
+[Part Two](https://docs.google.com/presentation/d/1STll7172DMys6xQaZvF4BJYNP8rBtBZIXb4c7NS6Cp8/edit?usp=sharing) (<- clickable link to slides) of the workshop was an overview of the Tweepy documentation with intermittent live demos. \
+
+
+A review of my experience hosting this workshop was submitted on Courseworks with this file.
