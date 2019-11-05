@@ -1,0 +1,7 @@
+# NLP Basics With Python
+
+Ashutosh Kanitkar
+
+For my coummunity contribution, I decided to teach a lecture on NLP(Natural Language Processing) for Master of Social Work (MSW) students.There were quite a few challenges that i faced, when i was deciding the content of my lecture.Some of which were how mathemathically deep should i go and teach them about NLP, how much deep should i teach them about coding, which language and library should i demonstrate my NLP code in, etc. After much deliberation i came to conclusion that these students do not need to learn the mathemathics of NLP rather they need to learn basic concepts of NLP and how to apply NLP for some tasks that they might encounter. I distinctly remember that at end of my lecture, there were quite a few people who wanted to see output of what it looks like when a syntax is run( which was shown to them).Additionally as a bonus i showed them how to visualize basic concepts taught during lecture using displacy.This experience was extremely satisfying for me and i enjoyed it thoroughly. 
+Notes that i used during the lecture are available at below url
+https://drive.google.com/file/d/1oJgCWFnEyYtT2j04DZhE2nRIgpG1spuA/view?usp=sharing
