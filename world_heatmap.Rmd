@@ -1,4 +1,4 @@
-# Creating a worldwide (country-wise) heatmap in R from scratch
+# World Heatmap in Plotly
 
 Harguna Sood and Siddhanth Vinay
 
