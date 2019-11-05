@@ -13,7 +13,7 @@ Here, we need the `reticulate` package and a Python installation which we can sp
 ```{r}
 #R
 library(reticulate)
-use_python("/home/karan/anaconda3/bin/python3.5")
+#use_python("/home/karan/anaconda3/bin/python3.5")
 ```
 
 Installing some Python libraries before we begin:
