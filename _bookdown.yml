@@ -68,7 +68,6 @@ rmd_files: [
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
   'master_translation.Rmd',
- 
   
    # Part: Translation
   'French_version_of_edav_info.Rmd',
@@ -89,7 +88,8 @@ rmd_files: [
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
-  'wordcloud2_cheatsheet.Rmd'
+  'wordcloud2_cheatsheet.Rmd',
+  'data_wrangling_cheatsheet.Rmd'
 
 ]
 
