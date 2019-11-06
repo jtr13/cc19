@@ -63,7 +63,7 @@ rmd_files: [
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
-  "rmarkdown_tutorial.Rmd,
+  'rmarkdown_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
