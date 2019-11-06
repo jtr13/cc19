@@ -1,0 +1,20 @@
+# Overview of the t-SNE algorithm
+
+Arjun Dhillon
+
+For my community contribution, I'll be delivering a 5-mintue lightning presentation on t-distributed stochastic neighbor embeddings (t-SNE).  The t-SNE algorithm is useful in representing high-dimensional data in 2 or 3 dimensions.  The process works by mapping higher dimensional data points to 2 or 3 dimesional datapoints in such a way that similar data points have higher probability of being near one another.  It is especially useful for visualizing latent reprsentations of data in neural networks.  
+
+The main idea of t-SNE is to minimize the Kullback-Leibler divergence of the distribution $Q$ of points in the remapped space from the distribution of points in $P$ the original space:
+
+$$KL(P||Q) = \sum_{i \ne j} p_{ij} \log \frac{p_{ij}}{q_{ij}}$$,
+
+where $p_{ij}$ represents the similarity of two points in the original space:
+
+$$p_{ij} = \frac{\exp( - \lVert x_i - x_j \rVert^2 / 2 \sigma_i^2)}{\sum_{k \ne i} \exp( - \lVert x_i - x_j \rVert^2 / 2 \sigma_i^2)}$$
+and $q_{ij}$ represents the similarity of the mappings $y_i$:
+
+$$q_{ij} = \frac{(1 + \lVert y_i - y_j \rVert^2)^{-1}}{\sum_{k \ne i} (1 + \lVert y_i - y_j \rVert^2)^{-1}}$$
+
+
+
+
