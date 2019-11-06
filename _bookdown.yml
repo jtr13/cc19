@@ -11,6 +11,7 @@ rmd_files: [
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
   'maps.Rmd',
+  'forcats_tutorial_translation.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
