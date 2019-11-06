@@ -8,6 +8,7 @@ Imports:
   ggmap,
   ggplot2,
   ggridges,
+  forcats,
   viridis,
   plyr,
   nycflights13,
