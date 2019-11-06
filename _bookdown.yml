@@ -29,6 +29,13 @@ rmd_files: [
   'likert_data.Rmd',
   
 
+  # workshop
+  'master_workshop.Rmd',
+  'regex_workshop.Rmd',
+  
+  # tutorial
+  'carto_tutorial.Rmd',
+
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
   'nullabor_translation_Korean.Rmd',
@@ -41,11 +48,14 @@ rmd_files: [
   'tinder_study.Rmd',
   'r_vs_tableau_plots.Rmd',
   'wordcloud_tutorial.Rmd',
+  't_SNE_overview.Rmd',
+  'Exploring_Financial_Models.Rmd',
   'Stocks_analysis_with_plotly.Rmd',
   'latex_visualization.Rmd', 
   'ggmosaic_cheatsheet_translation.Rmd',
   "rvest_tutorial.Rmd",
   'rstudio_vs_jupyterlab.Rmd',
+  'askamanager_salary_survey.Rmd',
   'Comparative_Study_of_Mosaic.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'first_step_of_data_analysis.Rmd',
@@ -54,12 +64,16 @@ rmd_files: [
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
+  'midsemester_review.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
   'master_translation.Rmd',
+  
+   # Part: Translation
+  'French_version_of_edav_info.Rmd',
   'SandDance.Rmd',
   'translation_visualising_spatial_data.Rmd',
   'rvest_data_transformation_translate.Rmd',
@@ -68,8 +82,11 @@ rmd_files: [
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
+  'visualization_python_vs_R.Rmd',
   'Tweepy.Rmd',
   'NLP_Basics_with_Python.Rmd',
+  'Chinese_Translation_of_plotly_and_parcoords.Rmd',
+  'translation_of_lattice_intro.Rmd',
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
@@ -78,7 +95,8 @@ rmd_files: [
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
-  'midsemester_review.Rmd'
+  'data_wrangling_cheatsheet.Rmd'
+
 
 ]
 

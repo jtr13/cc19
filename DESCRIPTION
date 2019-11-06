@@ -12,6 +12,9 @@ Imports:
   ggmap,
   ggplot2,
   ggridges,
+  parcoords,
+  shiny,
+  plotly,
   knitr,
   MASS,
   nullabor,
@@ -58,6 +61,8 @@ Imports:
   devtools,
   plotly,
   Rmpfr,
+  sde,
+  ESGtoolkit,
   treemap,
   alphavantager,
   plotly,
@@ -89,3 +94,5 @@ Imports:
   mlbench,
   AER,
   d3r
+  mlmRev,
+  lattice
