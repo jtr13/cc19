@@ -93,6 +93,6 @@ Imports:
   likert,
   mlbench,
   AER,
-  d3r
+  d3r,
   mlmRev,
   lattice
