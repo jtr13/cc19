@@ -84,8 +84,8 @@ rmd_files: [
   'visualization_python_vs_R.Rmd',
   'Tweepy.Rmd',
   'NLP_Basics_with_Python.Rmd',
+  'Chinese_Translation_of_plotly_and_parcoords.Rmd',
   'translation_of_lattice_intro.Rmd',
-  
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
