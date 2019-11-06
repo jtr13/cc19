@@ -1,0 +1,299 @@
+# Web scraping using rvest
+
+Huiyu Song and Xiao Ji
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE, message = FALSE,comment = NA)
+```
+
+```{r, echo=FALSE}
+library(tibble)
+library(ggplot2)
+library(tidyverse)
+library(stringr)
+library(knitr)
+```
+
+## 1 Overview
+This section covers how to conduct web scraping using "rvest" package
+<br><br/>
+
+## 2 An Easy Example
+I want an example now!
+
+Here is an example of scraping the price and percentage change of trending stocks from Yahoo Finance: https://finance.yahoo.com/trending-tickers. 
+
+The first thing we need to do is to check if scraping is permitted on this page using paths_allowed( ) function.
+```{r}
+library(robotstxt)
+paths_allowed(paths="https://finance.yahoo.com/trending-tickers")
+```
+The output is TRUE meaning that bots are allowed to access this path.
+
+Now we can scrape the data:
+```{r}
+library(rvest)
+TrendTicker <- read_html("https://finance.yahoo.com/trending-tickers")  #read the path
+#We need Name, Last Price, % Change
+Name <- TrendTicker%>%
+  html_nodes(".data-col1")%>%html_text()
+Price <- TrendTicker%>%
+  html_nodes(".data-col2")%>%html_text()
+Change <- TrendTicker%>%
+  html_nodes(".data-col5")%>%html_text()
+dt<-tibble(Name,Price,Change)  #combine the scrapped columns into a tibble
+head(dt,5)
+```
+Path %>% html_nodes( ) %>% html_text( ) is a common syntax to scrape html text and more details will be discussed in section 4. Before that, we need some basic knowledge of HTML structures.
+<br><br/>
+
+## 3 HTML Basics
+### 3.1 Access the source code
+
+Move your cursor to the element whose source code you want to check and right click. Select "Inspect"
+```{r, out.width = "300px",echo=FALSE}
+knitr::include_graphics("resources/rvest_tutorial/Inspect.jpg")
+```
+
+The source code will be displayed on the top right corner of the screen.
+
+```{r, out.width = "500px",echo=FALSE}
+knitr::include_graphics("resources/rvest_tutorial/Sourcecode.jpg")
+```
+<br><br/>
+
+### 3.2 HTML structures
+HTML is a markup language and it describes the structure of a Web page. 
+A simple element in HTML looks like this:
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+\<p\>This is a paragraph.\</p\>
+</div>
+
+An HTML element usually consistes of a start tag, a end tag and the content in between.
+Here \<p\> is the start tag, \</p\> is the end tag (the slash indicates that it is a closing tag), "This is a paragraph" is the content.
+
+The charater "p" represents it is a paragraph element, other kinds of elements include:
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+\<html\>: the root element of an HTML page  
+\<head\>: an element contains meta information about the document  
+\<title\>: an element specifies a title for the document  
+\<body\>: an element contains the visible page content  
+\<h1\>: an element defines a large heading  
+\<p\>: an element defines a paragraph  
+</div>
+
+<br><br/>
+The basic structure of a webpage looks like this:
+
+```{r, out.width = "500px",echo=FALSE}
+knitr::include_graphics("resources/rvest_tutorial/html structure.jpg")
+```
+
+More details can be refered to https://www.w3schools.com/html/html_intro.asp
+
+<br><br/>
+
+## 4 Rvest
+When we want to scrape certain information from a website, we need to concentrate on the part that we are interested in instead of the whole page. That is why we need **html_node** or **html_nodes** to locate the interested part.  
+
+### 4.1 html_nodes and html_node  
+**Usage**  
+html_nodes(x,css,xpath)  
+html_node(x,css,xpath)  
+**Arguments**  
+x: a node set or a single node  
+css, xpath: Node to select
+css:CSS selector; xpath:XPath 1.0 selector  
+**html_node VS html_nodes**  
+Html_nodes always return a nodeset of the same length, which contains information of a set of nodes.  
+While html_node return exactly one html_node.    
+Here is an example:
+```{r}
+paths_allowed("https://www.eyeconic.com/")
+page=read_html("https://www.eyeconic.com/contact-lenses?cid=ps:google:Eyeconic+-+US+-+SKWS+-+Contacts+-+General+-+Exact+-+Geo:NB+-+Contacts+-+Onlineutm_campaign=skws&ds_rl=1239071&gclid=EAIaIQobChMImpP2gqW95QIVipOzCh1XfwKbEAAYAiAAEgLWrfD_BwE&gclsrc=aw.ds")
+page2=read_html("https://www.eyeconic.com/contact-lenses/aot/AOT.html")
+node<- page%>%html_node(xpath='//*[@id="search-result-items"]/li[1]')
+nodes<-page%>%html_nodes(xpath='//*[@id="search-result-items"]/li[1]')
+node
+nodes
+```
+
+### 4.2 css and xpath  
+Although the usage of html_nodes and html_node seems easy and convinient, for those who cannot extract right css or xpath, the function will not work. Here is a summary of how to write css or xpath, and some examples are shown.  
+**css**  
+CSS Selector are how you pick which element to apply styles to.
+
+**Selector Syntax**   
+```{r,echo=FALSE}
+res=data.frame(Pattern=c('p','p m','p > m','p + m','p ~ m','p#id_name','p.class_name','p[attr]','p[attr="tp"]','p[attr~="tp"]','p[attr^="tp"]','p[attr*="tp"]','p[attr$="tp"]','p:root','p:nth-child(n)','p:nth-last-child(n)','p:first-child','p:last-child','p:nth-of-type','p:nth-last-type','p:first-of-type','p:last-of-type','p:empty','p:link','p:visited'),Meaning=c('Select all \\<p\\\\> elements','Select all \\<m\\\\> inside of \\<p\\>','Select an direct child \\<m\\> of \\<p\\>','Select an \\<m\\> that directly follows \\<p\\>','Select \\<m\\> that preceds by \\<p\\>','Select all \\<p\\> which id="id_name"','Select all \\<p\\> which class="class_name"','Select \\<p\\> that has "attr" attribute','Select \\<p\\> that attribute attr="tp"','Select \\<p\\> that attribute "attr" is a list of whitespace-seperated values, and one of which is "tp"','Select p whose sttribute "attr" begins exactly with string "tp"','Select p whose sttribute "attr" contains string "tp"','Select p whose sttribute "attr" ends exactly with string "tp"','Select root of \\<p\\>','Select nth child of p','Select nth child from the bottom of p','Select first child of p','Select last child of p','Select nth \\<p\\> in any element','Select nth \\<p\\> from the bottom in any element','Select first \\<p\\> in any element','Select first \\<p\\> from the bottom in any element','Select \\<p\\> that has no children','Select p which has not yet been visited','Select p already been visited'))
+res=knitr::kable(res)
+res
+```
+
+
+**Examples**
+
+1. p#id_character  item  
+Select any item inside p which has id="id_character"  
+Select name of all products.  
+```{r}
+info<-page%>% 
+  html_nodes('ul#search-result-items li span[itemprop="name"]')%>%
+  html_text()
+info[1:6]
+```
+
+2. p.class_name  
+Select \<p\> element which has class="class_character".   
+Except id, we can also use class to concentrate on certain information.  
+Select image path of all products.  
+```{r}
+acuvue<-page%>%
+  html_nodes('li.grid-tile.col-md-6.col-xl-4.pb-3.px-1.px-md-2 img[itemprop="image"]')
+acuvue[1:2]
+```
+**Tips**: when class name is long and has some **white-spaces** inside, such as "class="product-tile w-100 m-auto text-center pt-5 bg-white position-relative", in html class types, string between white spaces is one class, and if a class name has many whitespaces means it has many classes. Therefore to scrape those data, we need to add "." to substitute those whitespaces.  
+
+3. A,B,C  
+Select all \<A\>, \<B\>, \<C\> elements.  
+Example: Scrape all product names and detail names in the page.  
+```{r}
+name<-page%>%
+  html_nodes('ul#search-result-items li span[itemprop="name"], ul#search-result-items li div[itemprop="name"]')%>%
+  html_text()
+name[1:6]
+```
+
+4. p *   
+Select all elements in p.  
+Select all nodes for price.  
+```{r}
+img<-page2%>%
+  html_nodes("div.price-info *")
+img
+```
+
+5. p:nth-child(n)  
+Select nth child of \<p\>  
+```{r}
+air<-page%>%
+  html_nodes("ul#search-result-items:nth-child(1)")
+air
+```
+<br><br/>
+
+**Xpath**   
+XPath (XML Path Language) uses path expressions to select nodes or node-sets in an XML document. These path expressions look very much like the expressions you see when you work with a traditional computer file system.  
+
+**Xpath Syntax**  
+In XPath, there are seven kinds of nodes: element, attribute, text, namespace, processing-instruction, comment, and document nodes.  
+For example:  
+\<bookstore\> (root element node)  
+\<author\>J K. Rowling\</author\> (element node)  
+lang="en" (attribute node)  
+```{r,echo=FALSE}
+res2=data.frame(Pattern=c('nodename','A/B','A//B','.A','..A','@','\\*','@*','node()','ancestor','ancestor-of-self','attribute','child','descendant','following','namespace','|'),Meaning=c('Select all node with the name "nodename"','Select B from root node','Select B in the document from the current node that match the selection no matter where they are','Select the current node A','Select the root of current node A','Select attributes','Matches any element node','Matches any attribute node','Matches any node of any kind','Select all ancestors(parent, grandparent, stc.) of the current node','Select all ancestors(parent, grandparent, stc.) of the current node and current node itself','Select all attributes of the current node','Select all children of the current node','Select all descendant(children, grandchildren, etc.) of the current node','Select everything in the document after the closing tag of the current node','Select all namespace nodes of the current node','Select two nodes'))
+res2=knitr::kable(res2)
+res2
+```
+
+**A Simple Way the get XPath**  
+right click-->Copy-->Copy XPath  
+```{r,echo=FALSE,out.width = "500px"}
+knitr::include_graphics("resources/rvest_tutorial/xpath.png")  
+```
+<br><br/>
+
+**Examples**  
+Extract all product details in the contact links.  
+```{r}
+library(stringr)
+data<-data.frame()
+info<-page%>%
+  html_nodes('ul#search-result-items li div span[itemprop="url"]')%>%
+  html_text()
+info[1:6]
+
+info2=as.data.frame(info)
+info2<-mutate(info2,name="",detail="")
+i=1
+for (link in info)
+{
+  page_tp=read_html(link)
+  details<-page_tp%>%html_nodes(xpath='//*[@id="contactLensPDP"]/div/div[1]/div/div[2]/div[1]/p/span')%>%html_text()
+  name<-page_tp%>%html_nodes(xpath='//*[@id="contactLensPDP"]/div/div[2]/div/div[2]/div/h1')%>%html_text()
+  info2[i,2]=name
+  info2[i,3]=details
+  i=i+1
+}
+info2=info2[,-1]
+head(info)
+```
+<br><br/>
+
+## 5 More Examples
+### 5.1 Scrape links using attributes
+HTML links are defined with the tag \<a\>. The link address is specified in the "href" attribute. Suppose we want to get the link of each trend ticker, we can right click the stock symbol and check the source code:
+
+```{r, out.width = "500px",echo=FALSE}
+knitr::include_graphics("resources/rvest_tutorial/example read link.jpg")
+```
+
+So we use ".data-col0 a"" as the node and "href" as the attribute:
+```{r}
+local_links <- TrendTicker%>%
+  html_nodes(".data-col0 a")%>%html_attr("href")
+link_names <- TrendTicker%>%
+  html_nodes(".data-col0 a")%>%html_text("href")
+
+#complete the full link
+full_links=NULL
+for (i in 1 : length(local_links)){
+  full_links[i]=paste0("https://finance.yahoo.com",local_links[i])
+}
+
+dt=tibble(link_names,full_links)
+head(dt,5)
+```
+
+### 5.2 Scrape Table
+
+The first step is to locate the table.  
+
+```{r, out.width = "500px",echo=FALSE}
+knitr::include_graphics("resources/rvest_tutorial/example locate table.jpg")
+```
+
+Then copy the Xpath. When we paste the path, it should be like: //*[@id="quote-summary"]/div[1]/table  
+Also, we need the html_table( ) function to convert the html table into a data frame:
+
+```{r}
+testlink=read_html("https://finance.yahoo.com/quote/TIF?p=TIF")
+table<-testlink%>%
+  html_nodes(xpath='//*[@id="quote-summary"]/div[1]/table')%>%
+  html_table()
+table
+```
+<br><br/>
+
+## 6 External Resources
+**HTML Structure References**  
+https://www.w3schools.com/html/html_intro.asp  
+**XPath References**  
+https://en.wikipedia.org/wiki/XPath  
+https://www.w3schools.com/xml/xml_xpath.asp  
+**CSS Selector References**  
+https://www.rdocumentation.org/packages/rvest/versions/0.3.4/topics/html_nodes  
+http://flukeout.github.io/  
+https://www.w3schools.com/cssref/sel_firstchild.asp  
+
+
+
