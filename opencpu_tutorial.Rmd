@@ -1,0 +1,28 @@
+# Data Visualization with OpenCPU
+
+Matthew Mackenzie
+
+## What is OpenCPU?
+[OpenCPU](https://www.opencpu.org/) is a "API for Embedded Scientific Computing." OpenCPU consits of 3 main parts:
+
+- a server to host OpenCPU apps locally or on the cloud,
+- a HTTP API for data analysis using R, and
+- a JavaScript library to integrate everything together. 
+
+OpenCPU works as a platform to create web apps centered around using R for any needed data analysis and visualizations. 
+
+## What is this Tutorial? 
+There is not a whole lot of information out there having to do with actually creating an OpenCPU app, so this tutorial will attempt to piece what information is available together by working through an example project. There are 4 major steps involved:
+
+- **Creating a Disfunctional App**: creating an R package to acomplish the data processing we need and the HTML for the user to interact with, 
+- **OpenCPU.js**: connecting the HTML to the R package with the OpenCPU JavaScript library, 
+- **Local Development**: testing the app locally, and
+- **App Deployment**: deploying the app to the OpenCPU Cloud. 
+
+As mentioned, this tutorial will be centered around an example... enter Distogram. 
+
+## Distogram: A Working OpenCPU Example
+I wanted to keep things relatively simple, but I think this example gets the point across of the power of using R in the browser. Distogram is an app that prompts users to choose a sample size and probability distribution to sample from, uses R to create a histogram based on these and other parameters, and then presents that plot in the browser. The full tutorial, as well as the running example, can be found at the links below.
+
+- **Full Tutorial**: [mbmackenzie/distogram](https://github.com/mbmackenzie/distogram){target="_blank"}
+- **Example Application**: [mbmackenzie.ocpu.io/distogram](https://mbmackenzie.ocpu.io/distogram){target="_blank"}

@@ -1,0 +1,23 @@
+# RegEx Workshop Summary
+
+Author: Cheng Yan, Chao Huang
+
+This workshop may offer you a basic understanding of regular expression and how it can be used to solve various problems. The workshop is divided into four sections, from the definition of regular expression to the application of regular expression in EDAV. This page is just a roadmap of the workshop and you can find more details and examples in the slides of the workshop [here](resources/regex_workshop/RegEx_101.pdf).
+
+## Definition of Regular Expression
+
+In this section, we introduce the definition of regular expression and typical scenarios where we can apply this powerful tool.
+
+## Basic syntax of Regular Expression
+
+In this section, we introduce the basic syntax of regular expression, including wildcards, set, meta-characters, repeated matches, position matching and etc. These patterns can help solve most of the string manipulation problems we meet in our daily work.
+
+## Advanced syntax of Regular Expression
+
+Besides basic syntax, we also introduce some more advanced techniques, including group capturing and looking around. With these tools, you can construct more complex and also more powerful regular expressions. 
+
+## Appication in EDAV
+
+By using regular expression to solve a string wrapping problem given at PSet2 in one line of code, we show how to compile and use regular expression in R.
+
+For those who want to know more about regular expression, two books are highly recommended, namely __*"Sams Teach Yourself Regular Expressions in 10 Minutes"*__ and __*"Mastering Regular Expressions"*__.
