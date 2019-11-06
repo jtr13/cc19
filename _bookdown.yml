@@ -43,7 +43,6 @@ rmd_files: [
   
   # Data analysis
   'ice_cream_survey.Rmd',
-  'translation_of_lattice_intro.Rmd',
 
   # Part: Other
   'tinder_study.Rmd',
