@@ -82,6 +82,8 @@ rmd_files: [
   'Viz_with_GeomMLBStadiums.Rmd',
   'Tweepy.Rmd',
   'NLP_Basics_with_Python.Rmd',
+  'translation_of_lattice_intro.Rmd',
+  
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
@@ -91,6 +93,7 @@ rmd_files: [
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
   'data_wrangling_cheatsheet.Rmd'
+
 
 ]
 

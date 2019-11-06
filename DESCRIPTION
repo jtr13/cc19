@@ -86,4 +86,6 @@ Imports:
   httr,
   likert,
   mlbench,
-  AER
+  AER,
+  mlmRev,
+  lattice
