@@ -1,7 +1,0 @@
-# Workshop
-
-Some groups of students have contributed to the community by running the following workshops.
-
-```{r, child = "bookdown.Rmd"}
-
-```
