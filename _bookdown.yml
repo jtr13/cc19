@@ -25,7 +25,7 @@ rmd_files: [
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
   'master_translation.Rmd',
-  'tidyverse_cheatsheet.Rmd',
+  'tidyverse_contribution.Rmd',
 
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
