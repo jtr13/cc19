@@ -94,8 +94,8 @@ rmd_files: [
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
-  'data_wrangling_cheatsheet.Rmd'
-
+  'data_wrangling_cheatsheet.Rmd',
+  'categorical_data_cheatsheet.Rmd'
 
 ]
 
