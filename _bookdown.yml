@@ -21,6 +21,7 @@ rmd_files: [
   # Part: Links
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
-  'master_video.Rmd'
+  'master_video.Rmd',
+  'cc68.Rmd'
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
