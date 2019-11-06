@@ -4,8 +4,6 @@ Tiffany Zhu tz2196 and Olivia Wang yw3324
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE)
-library(png)
-library(grid)
 library(ggplot2)
 
 N=1000
@@ -16,12 +14,7 @@ N=1000
 * Exploratory Data Aanlysis (EDA)
   + detecting patterns, finding outliers, making comparisons, identifying clusters
 * Data science pipeline
-
-```{r}
-img <- readPNG("resources/midsemester_review/1_intro_image.png")
-grid.raster(img)
-```
-
+![](resources/midsemester_review/1_intro_image.png)
 * Exploration vs visualization
   + Exploratory vs explanatory
   + Not mutually exclusive
@@ -75,11 +68,9 @@ ggplot(df, aes(x)) +
   +theme (1)
 * Example mnemonic to remember order:
   + *G*eometry *C*lass *F*eels *S*o *L*ame *T*oday
-  
-```{r}
-grid.raster(readPNG("resources/midsemester_review/3_gg.png"))
-```
-  
+![](resources/midsemester_review/3_gg.png)
+
+
 ## Lecture 4: Common ggplot2 Problems
 * aes() not needed for constant values
 * correct example – color varies with z
@@ -90,12 +81,7 @@ grid.raster(readPNG("resources/midsemester_review/3_gg.png"))
 ## Lecture 5: Boxplots & Continuous Variables
 
 #### Boxplot Overview
-
-```{r}
-img <- readPNG("resources/midsemester_review/box1.png")
-grid.raster(img)
-```
-
+![](resources/midsemester_review/box1.png)
 * Boxplot components
   + minimum
   + quartile 1 (lower hinge)
@@ -137,12 +123,7 @@ boxplot(x, horizontal=T, main='Boxplot of Bimodal Data')
         + skinny quartile: lots of data
         + fat one: little data
 * `Ridgeline plots`: density curve plots shifted - good for multimodality
-
-```{r}
-img <- readPNG("resources/midsemester_review/ridge.png")
-grid.raster(img)
-```
-
+![](resources/midsemester_review/ridge.png)
 
 ## Lecture 6: Rounding Normal (Continuous Variables Wrap-up)
 * You can tell if the data is rounded or not by: 
@@ -306,11 +287,7 @@ parcoords(mtcars, brushMode = "1d-axes", rownames=F, reorderable = TRUE, withD3 
         + Cases
         + COUNTS (tidy data with Freq Column)
         + Contingency or pivot table
-        
-```{r}
-img <- readPNG("resources/midsemester_review/mosaic1.png")
-grid.raster(img)
-```
+![](resources/midsemester_review/mosaic1.png)
 
 * `Multivariate Categorical` 
     + FREQUENCY
@@ -321,16 +298,9 @@ grid.raster(img)
             + The closer things are, the easier to compare
         + Cleveland dot plot
             + Two dots on the same horizontal level: for simplicity of comparison
-            
-```{r}
-img <- readPNG("resources/midsemester_review/mosaic2.png")
-grid.raster(img)
-```
+![](resources/midsemester_review/mosaic2.png)
 
-```{r}
-img2 <- readPNG("resources/midsemester_review/mosaic3.png")
-grid.raster(img2)
-```
+![](resources/midsemester_review/mosaic3.png)
 
 * PROPORTION/ASSOCIATION
     + Mosaic Plots
@@ -488,12 +458,7 @@ mosaic(cp ~ exang,
             + Skewness
             + Gaps
         + Most effective if used interactively.
-        
-```{r}
-img <- readPNG("resources/midsemester_review/heatmaps.png")
-grid.raster(img)
-```
- 
+![](resources/midsemester_review/heatmaps.png) 
   
 ## Lecture 20: Time Series (Textbook: Chapter 11)
 * Definition: lines with time on the x axis
@@ -519,10 +484,7 @@ grid.raster(img)
             1. Set value of first time in series to 100. Each value is divided by the first value and multiplied by 100.
             2. standardize all series by their respective means and standard deviations
             
-```{r}
-img <- readPNG("resources/midsemester_review/timeseries.png")
-grid.raster(img)
-```
+![](resources/midsemester_review/timeseries.png)
 
 * `Loess smoother` (non-parametric - does not assume anything about the underlying distribution)
     + Uses geom_smooth()
@@ -541,12 +503,7 @@ grid.raster(img)
         + It’s very difficult to deal with NAs when using time series
     + Could just leave gaps by setting missing values to NA
         + If don’t want gaps, remove NAs
-        
-```{r}
-img2 <- readPNG("resources/midsemester_review/timeseries2.png")
-grid.raster(img2)
-```
-    
+![](resources/midsemester_review/timeseries2.png)    
 
 
 
