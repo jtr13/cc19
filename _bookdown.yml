@@ -82,8 +82,6 @@ rmd_files: [
   'Viz_with_GeomMLBStadiums.Rmd',
   'Tweepy.Rmd',
   'NLP_Basics_with_Python.Rmd',
-  
-  # filename
   'Chinese_Translation_of_plotly_and_parcoords.Rmd',
   
   # cheatsheet
