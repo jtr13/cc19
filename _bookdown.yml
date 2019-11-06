@@ -24,6 +24,6 @@ rmd_files: [
   'master_video.Rmd',
   
   # tutorial
-  'cc68.Rmd',
+  'basic_r_tutorial.Rmd',
 ]
 edit: https://github.com/jtr13/cc19/edit/master/%s
