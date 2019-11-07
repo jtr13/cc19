@@ -15,7 +15,8 @@ rmd_files: [
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
-
+  'world_heatmap.Rmd',
+  
   # Part: Other
   'tinder_study.Rmd',
   'wordcloud_tutorial.Rmd',
