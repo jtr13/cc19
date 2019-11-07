@@ -15,6 +15,9 @@ Imports:
   vcd,
   choroplethr,
   choroplethrMaps,
+  vcdExtra,
+  GDAdata,
+  pgmm,
   tidyverse,
   dplyr,
   shiny
