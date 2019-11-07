@@ -2,7 +2,7 @@
 
 Ji In Choi and Jung Ah Shin
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
