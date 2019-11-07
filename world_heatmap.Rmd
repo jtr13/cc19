@@ -1,0 +1,167 @@
+# World Heatmap in Plotly
+
+Harguna Sood and Siddhanth Vinay
+
+```{r, include=FALSE}
+ # keep this chunk in your .Rmd file
+library(knitr)
+ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+## INTRODUCTION  
+In an era of digitization, the datasets and it's size is increasing on a tremendous rate, however, the capabilities of humans to go through that data still remains the same. How does one perceive the huge amount of data? Here comes the role sof data visualisation. Through this article, we wish to explain a technique via which one can create an interactive heatmap all over the world. Sounds interesting, right! There are multiple perspectives or motivation behind the application of this technique, but today we will learn about it's motivation for a business/company.   
+
+## DEMONSTRATION  
+For the process of demonstration, we shall write a script to generate a geo_plot on a particular dataset which contains the business rankings across different metrics for all the countries in the world. Higher rankings (a low numerical value) indicate better, usually simpler, regulations for businesses and stronger protections of property rights. The following metrics are available in the dataset:
+
+1. Ease of doing business  
+2. Starting a business    
+3. Dealing with construction permits  
+4. Protecting minority investors  
+
+We can get an idea about how this information is important to the company. It can help the company with scalibility, profit optimization etc. So, we get the essence of the importance of visualising this information.  
+
+Now, let us proceed with the implementation part:  
+
+Installing and loading the required packages for the visualization:  
+We will be using the Plotly library in R, which is used to make interactive plots.  
+
+```{r}
+#install.packages("countrycode")
+#install.packages("plotly")
+library(countrycode)
+library(plotly)
+```
+
+Loading the business_rankings csv file onto a dataframe and taking a peak at the data:  
+
+```{r results='asis'}
+rankings.df <- read.csv(paste("resources/world_heatmap/business_rankings.csv", sep=""))
+kable(head(rankings.df))
+```
+
+
+The package countrycode generates the required country code for each country name.  
+This will be used by the plot_geo function to map each country’s ranking to its location on the map.  
+Thus, we use the package to create the country_code column for our dataframe.  
+
+```{r warning=FALSE}
+rankings.df$code <- countrycode(rankings.df$Economy,'country.name','iso3c')
+```
+
+We also create a column of the average ranking of all the different metrics to determine which countries are the best for business overall.  
+
+```{r}
+rankings.df$avg <- (rankings.df$Ease.of.Doing.Business.Rank+rankings.df$Starting.a.Business+rankings.df$Dealing.with.Construction.Permits+rankings.df$Protecting.Minority.Investors)/4
+```
+
+We now store different visualizaton options in variables.  
+
+l contains the colour and width of the border between 2 countries.  
+```{r}
+l <- list(color = toRGB("grey"), width = 0.5)
+```
+
+g is used to specify the map options such as whether to show the coast line or not.  
+
+```{r}
+g <- list(
+  showframe = TRUE,
+  showcoastlines = TRUE,
+  projection = list(type = 'Mercator'))
+```
+
+
+Scale1 contains the options for the colorbar and legend.  
+
+```{r}
+scale1 <- list(
+  visible=TRUE,
+  showlegend=FALSE,
+  title="Rank",
+  reversescale = TRUE
+)
+```
+
+
+We now create the code to plot the rankings for the different economies on a map with a dropdown to view the average rankings of the countries, along with their rankings for the different metrics.  
+
+For this, we use the plot_geo function of plotly to plot the data.  
+For each metric, we create a separate trace which to which we pass the country names along with their country codes, the map plot options (variable named l), and the column for corresponding to that metric is passed to the colorbar. We also specify whether the particular trace is shown by default or not.  
+
+
+These traces are then passed to a dropdown where we create the dropdown list - one button per metric, and for each button, we specify the corresponding trace that needs to be displayed.  
+
+```{r}
+p <- plot_geo(rankings.df) %>%
+#Code for plotting the maps for the different attributes.
+  add_trace(
+    z = ~avg, color = ~avg,name='Average of all Rankings',
+    text = ~Economy, locations = ~code, marker = list(line = l),colorbar=list(title='Rank'),visible=TRUE
+  ) %>%
+  add_trace(
+    z = ~Ease.of.Doing.Business.Rank, color = ~Ease.of.Doing.Business.Rank,name='Ease of doing Business',
+    text = ~Economy, locations = ~code, marker = list(line = l),colorbar=list(title='Rank'),visible=FALSE
+  ) %>%
+  add_trace(
+    z = ~Starting.a.Business, color = ~Starting.a.Business,name='Starting a  Business',
+    text = ~Economy, locations = ~code, marker = list(line = l),colorbar=list(title='Rank'),visible=FALSE
+  ) %>%
+  add_trace(
+    z = ~Dealing.with.Construction.Permits, color = ~Dealing.with.Construction.Permits,name='Dealing with Construction Permits',
+    text = ~Economy, locations = ~code, marker = list(line = l),colorbar=list(title='Rank'),visible=FALSE
+  ) %>%
+  add_trace(
+    z = ~Protecting.Minority.Investors, color = ~Protecting.Minority.Investors,name='Protecting Minority Investors',
+    text = ~Economy, locations = ~code, marker = list(line = l),colorbar=list(title='Rank'),visible=FALSE
+  ) %>% 
+  colorbar(title = 'Rank') %>%
+#Code for the dropdown.
+  layout(
+  title = "Various Business Rankings (Hover over a country for its Rank)",
+  geo=g,
+  updatemenus = list(
+    list(
+      buttons = list(
+        list(method = "restyle",
+             args = list("visible",list(TRUE, FALSE, FALSE, FALSE, FALSE)),
+             label = "Average of All Rankings"),
+        
+        list(method = "restyle",
+             args = list("visible", list(FALSE, TRUE, FALSE, FALSE, FALSE)),
+             showscale=scale1,
+             label = "Ease of Doing Business"),
+        
+        list(method = "restyle",
+             args = list("visible", list(FALSE, FALSE, TRUE, FALSE, FALSE)),
+             showscale=scale1,
+             label = "Starting a Business"),
+        
+        list(method = "restyle",
+             args = list("visible", list(FALSE, FALSE, FALSE, TRUE, FALSE)),
+             showscale=scale1,
+             label = "Dealing With Construction Permits"),
+        
+        list(method = "restyle",
+             args = list("visible", list(FALSE, FALSE, FALSE, FALSE, TRUE)),
+             showscale=scale1,
+             label = "Protecting Minority Investors")
+      ))
+  ))
+```
+
+We now view the plot. It's interactive, zoom in to view each country and hover the cursor over to get stats for that country!
+
+```{r out.width="100%", out.height="100%"}
+p
+```
+
+
+## CONCLUSION    
+There are various ways to tweek this code and use for different purposes. It can be even taken down to lower levels, for appropriate usage, like, it can be used by government to keep a track of poverty in different states, by municipality for number of complaints in different zones of the city. Apart from government, it can be used by researchers, especially geography researchers, to analyse trends in different parts of the region. The list goes on and on. Overall, visualisation can help with analysing of problems and provide a deeper perspective to it by highlighting the trends, which would have been harder to identify otherwise and using the right visualising technique is an important factor to it. Happy visualising!  
+
+## REFERENCES    
+To learn more about the libraries visit -   
+Plotly: https://plot.ly/r/  
+Plot_geo: https://www.rdocumentation.org/packages/plotly/versions/4.9.0/topics/plot_geo  
+Countrycode: https://cran.r-project.org/web/packages/countrycode/countrycode.pdf  
