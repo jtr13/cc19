@@ -100,7 +100,8 @@ rmd_files: [
   'wordcloud2_cheatsheet.Rmd',
   'data_wrangling_cheatsheet.Rmd',
   'Rvest_Cheatsheet.Rmd',
-  'categorical_data_cheatsheet.Rmd'
+  'categorical_data_cheatsheet.Rmd',
+  'tidyverse_contribution.Rmd',
 
 ]
 
