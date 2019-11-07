@@ -5,6 +5,8 @@ Version: 0.0.1
 URL: https://github.com/jtr13/cc19
 Imports: 
   bookdown,
+  datasets,
+  grid,
   rmarkdown,
   rticles,
   ggmap,
@@ -18,7 +20,9 @@ Imports:
   nullabor,
   ggmosaic,
   viridis,
+  parcoords,
   plyr,
+  png,
   nycflights13,
   ISwR,
   vcd,
@@ -27,7 +31,6 @@ Imports:
   RColorBrewer,
   stringr,
   forcats,
-  gridExtra,
   GGally,
   ggthemes,
   tidyverse,
@@ -93,5 +96,6 @@ Imports:
   likert,
   mlbench,
   AER,
+  d3r,
   mlmRev,
   lattice

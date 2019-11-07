@@ -65,6 +65,8 @@ rmd_files: [
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
+  'basic_r_tutorial.Rmd',
+  'midsemester_review.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -95,7 +97,10 @@ rmd_files: [
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
-  'data_wrangling_cheatsheet.Rmd'
+  'data_wrangling_cheatsheet.Rmd',
+  'Rvest_Cheatsheet.Rmd',
+  'categorical_data_cheatsheet.Rmd'
+
 ]
 
 before_chapter_script: "_common.R"
