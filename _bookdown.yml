@@ -20,6 +20,7 @@ rmd_files: [
   'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
   'maps.Rmd',
+  'forcats_tutorial_translation.Rmd',
   'Likert_vs_Bar_Chart.Rmd',
   'Stacked_Bar_Charts_and_Treemaps.Rmd',
   'FluctuationPlots.Rmd',
@@ -40,9 +41,12 @@ rmd_files: [
   'a_tutorial_of_shiny.Rmd',
   'nullabor_translation_Korean.Rmd',
   'data_structure_and_data_cleaning_tutorial.Rmd',
+  'world_heatmap.Rmd',
   
   # Data analysis
   'ice_cream_survey.Rmd',
+  'data_structure_and_data_cleaning_tutorial.Rmd',
+  
 
   # Part: Other
   'tinder_study.Rmd',
@@ -65,6 +69,8 @@ rmd_files: [
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
   'sentiment_with_wordcloud.Rmd'
+  'basic_r_tutorial.Rmd',
+  'midsemester_review.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -80,6 +86,7 @@ rmd_files: [
   'likert_package_translate.Rmd',
   'continuous_variables_with_r_in_chinese.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
+  'parcoords_translation.Rmd',
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
   'visualization_python_vs_R.Rmd',
@@ -87,6 +94,8 @@ rmd_files: [
   'NLP_Basics_with_Python.Rmd',
   'Chinese_Translation_of_plotly_and_parcoords.Rmd',
   'translation_of_lattice_intro.Rmd',
+  'nullabor_translation_Korean.Rmd',
+  'rvest_translation.Rmd',
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
@@ -95,8 +104,11 @@ rmd_files: [
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
-  'data_wrangling_cheatsheet.Rmd'
+  'data_wrangling_cheatsheet.Rmd',
 
+  'Rvest_Cheatsheet.Rmd',
+  'categorical_data_cheatsheet.Rmd',
+  'tidyverse_contribution.Rmd'
 
 ]
 
