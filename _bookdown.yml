@@ -38,16 +38,18 @@ rmd_files: [
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
-  'nullabor_translation_Korean.Rmd',
-  'data_structure_and_data_cleaning_tutorial.Rmd',
+  'world_heatmap.Rmd',
   
   # Data analysis
   'ice_cream_survey.Rmd',
+  'data_structure_and_data_cleaning_tutorial.Rmd',
+  
 
   # Part: Other
   'tinder_study.Rmd',
   'r_vs_tableau_plots.Rmd',
   'wordcloud_tutorial.Rmd',
+  't_SNE_overview.Rmd',
   'Exploring_Financial_Models.Rmd',
   'Stocks_analysis_with_plotly.Rmd',
   'latex_visualization.Rmd', 
@@ -64,6 +66,8 @@ rmd_files: [
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
   'rmarkdown_tutorial.Rmd',
+  'basic_r_tutorial.Rmd',
+  'midsemester_review.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
@@ -81,8 +85,13 @@ rmd_files: [
   'Stringr_introduction_chinese_version.Rmd',
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
+  'visualization_python_vs_R.Rmd',
   'Tweepy.Rmd',
   'NLP_Basics_with_Python.Rmd',
+  'Chinese_Translation_of_plotly_and_parcoords.Rmd',
+  'translation_of_lattice_intro.Rmd',
+  'nullabor_translation_Korean.Rmd',
+  'rvest_translation.Rmd',
   
   # cheatsheet
   'time_series_cheatsheet.Rmd',
@@ -91,7 +100,10 @@ rmd_files: [
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
-  'data_wrangling_cheatsheet.Rmd'
+  'data_wrangling_cheatsheet.Rmd',
+  'Rvest_Cheatsheet.Rmd',
+  'categorical_data_cheatsheet.Rmd',
+  'tidyverse_contribution.Rmd',
 
 ]
 

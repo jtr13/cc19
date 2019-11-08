@@ -1,0 +1,14 @@
+# Visualization: Python VS R
+
+Nima Chitsazan and Foad Khoshouei
+
+We created a video describing visualization in python and R. For python we specifically focused on matplotlib library and compared it to ggplot library of R. 
+
+The video is available on youtube:
+https://youtu.be/phVKWXaAStY
+
+The slides are available:
+https://github.com/fk2377/EDAVCC
+
+
+
