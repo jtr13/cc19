@@ -37,6 +37,7 @@ rmd_files: [
   
   # tutorial
   'carto_tutorial.Rmd',
+  'Multivariable_Regression_Tutorial.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
@@ -67,6 +68,7 @@ rmd_files: [
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
+  'rmarkdown_tutorial.Rmd',
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
 
