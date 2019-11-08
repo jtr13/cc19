@@ -17,7 +17,7 @@ library(forwards)
 #library(plyr)
 library(gridExtra)
 
-#Loading the collisions dataset available from "https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95/data"
+#Original Dataset avaialble at "https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95/data". We are using the 1st 900 rows as sample here.
 raw_df<-read.csv(file="https://github.com/SwarnaBharathiMantena/cc19/tree/Stamen_Maps_for_Spatial_Data/resources/newyork_sample_collisions_data.csv", header=TRUE, sep=",")
 ```
 
