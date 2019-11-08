@@ -89,7 +89,8 @@ rmd_files: [
   'Chinese_Translation_of_plotly_and_parcoords.Rmd',
   'translation_of_lattice_intro.Rmd',
   'nullabor_translation_Korean.Rmd',
-
+  'rvest_translation.Rmd',
+  
   # cheatsheet
   'time_series_cheatsheet.Rmd',
   'Date_and_Time_Cheatsheet.Rmd',
