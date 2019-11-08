@@ -140,7 +140,7 @@ In this graph, we can clearly compare people's positive attitude vs. negative at
 ### Alignings in Diverging Stacked Bar Charts:
 
 #### 100% Stacked Bar Chart
-  ![](resources/Likert/100%.png)
+  ![](resources/Likert/100.png)
 
 This particular design does work well for the following purposes:
 
