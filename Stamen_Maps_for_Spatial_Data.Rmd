@@ -18,7 +18,7 @@ library(forwards)
 library(gridExtra)
 
 #Loading the collisions dataset available from "https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95/data"
-raw_df<-read.csv(file="/Users/neelampatodia/Downloads/collisions_data.csv", header=TRUE, sep=",")
+raw_df<-read.csv(file="https://github.com/SwarnaBharathiMantena/cc19/tree/Stamen_Maps_for_Spatial_Data/resources/newyork_sample_collisions_data.csv", header=TRUE, sep=",")
 ```
 
 
@@ -123,7 +123,6 @@ qmplot(x = LONGITUDE, y = LATITUDE, data = gdf, maptype = "toner",darken = .2,
 -> In the next steps, we have thus grouped data on potential parameters such as Borough and Contributing Factor. Additionally, instead of plotting all data points for all latitudes and longitudes, we consider the mean latitude and longitude to give a better perspective of the number of accidents in a locality. 
 -> Stamen Maps have various map backgrounds such as toner, watermark, burning, terrain etc for varied requirements. For our analysis, toner seemed to be the best fit as it highlighted the cities and cross sections which are vital for understanding vehicle collisions on the road. 
 -> We use a variation of size and colour to highlight 2 parameters i.e the size of the bubble denotes the if more or less number of accidents occured in a region based on latitude and longitude. And colour denotes if there is a pattern across different time stamps. The colour gradient can be changed to accomodate for different parameter. 
--> Using maps have thus enabled us to seamlessly identify patterns in the data by accomodating for multiple parameters into one graph. For example, it clearly shows outliers due to incorrect data capture or similar parameters as vehicle road collisions cannot take place in water (denoted by green and purple dots on black background). This particular information could have been easily missed in the earlier graphs and could have adversaely affected our insights. We also see, that more number of accidents occur around 5pm in bottom right regions. 
--> Overall, it offers a better visualization of spatial data as opposed to normal graphs. 
+-> Using maps have thus enabled us to seamlessly identify patterns in the data by accomodating for multiple parameters into one graph. Overall, it offers a better visualization of spatial data as opposed to normal graphs. 
 
 
