@@ -86,4 +86,5 @@ Imports:
   httr,
   likert,
   mlbench,
-  AER
+  AER,
+  d3r
