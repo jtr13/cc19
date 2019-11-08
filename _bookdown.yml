@@ -36,6 +36,7 @@ rmd_files: [
   
   # tutorial
   'carto_tutorial.Rmd',
+  'Multivariable_Regression_Tutorial.Rmd',
 
   # Part: Interactive Graphs
   'a_tutorial_of_shiny.Rmd',
