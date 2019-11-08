@@ -46,7 +46,7 @@ You can create a new file or open existed from the directory that you choose.
 The Rmarkdown can render any Rmd file into a format that Rmarkdown supports. For example, the code below renders OutputExample.Rmd to a Microsoft Word document. 
 ```{r results='hide'}
 library(rmarkdown)
-render("OutputExample.Rmd", output_format = "word_document")
+render("resources/rmarkdown_tutorial/OutputExample.Rmd", output_format = "word_document")
 ```
 
 Following is a table of all the formats that you can choose:
