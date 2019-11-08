@@ -20,6 +20,7 @@ rmd_files: [
   'gantt_chart.Rmd',
   'likert_edav_info.Rmd',
   'maps.Rmd',
+  'forcats_tutorial_translation.Rmd',
   'Likert_vs_Bar_Chart.Rmd',
   'Stacked_Bar_Charts_and_Treemaps.Rmd',
   'FluctuationPlots.Rmd',

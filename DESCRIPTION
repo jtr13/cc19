@@ -12,6 +12,7 @@ Imports:
   ggmap,
   ggplot2,
   ggridges,
+  forcats,
   parcoords,
   shiny,
   plotly,
