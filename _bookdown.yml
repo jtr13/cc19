@@ -68,7 +68,8 @@ rmd_files: [
   'hex_sticker.Rmd', 
   'opencpu_tutorial.Rmd',
   'GoogleVis_tutorial.Rmd',
-  'sentiment_with_wordcloud.Rmd'
+  'sentiment_with_wordcloud.Rmd',
+  'rmarkdown_tutorial.Rmd',
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
 
