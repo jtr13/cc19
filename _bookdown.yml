@@ -3,23 +3,105 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+new_session: yes
+edit: https://github.com/jtr13/cc19/edit/master/%s
 rmd_files: [
-  # instructions
-  "index.Rmd", 
+  # Part: Introduction
+  "index.Rmd", # instructions
   'sample_project.Rmd',
-  
-  # edav.info
-  'ridgeline_plot.Rmd',
+
+  # Part: Spatial Analysis
   'maps.Rmd',
+  'Mapping_in_R.rmd',
+  'plotting_maps_tutorial.Rmd',
   'us_map.Rmd',
-  
+
+  # Part: Static Graphs
+  'ridgeline_plot.Rmd',
+  'gantt_chart.Rmd',
+  'likert_edav_info.Rmd',
+  'Likert_vs_Bar_Chart.Rmd',
+  'Stacked_Bar_Charts_and_Treemaps.Rmd',
+  'FluctuationPlots.Rmd',
+  'intro_to_ggparty.Rmd',
+  'multiclass_hexbin.Rmd',
+  'Visualization_in_Time_Series_Analysis.Rmd',
+  'likert_data.Rmd',
+
   # workshop
-  'master_workshop.Rmd', 
-  
+  'master_workshop.Rmd',
+  'regex_workshop.Rmd',
+
   # tutorial
   'carto_tutorial.Rmd',
-  
+
+  # Part: Interactive Graphs
+  'a_tutorial_of_shiny.Rmd',
+  'world_heatmap.Rmd',
+
+  # Data analysis
+  'ice_cream_survey.Rmd',
+  'data_structure_and_data_cleaning_tutorial.Rmd',
+
+
+  # Part: Other
+  'tinder_study.Rmd',
+  'r_vs_tableau_plots.Rmd',
+  'wordcloud_tutorial.Rmd',
+  't_SNE_overview.Rmd',
+  'Exploring_Financial_Models.Rmd',
+  'Stocks_analysis_with_plotly.Rmd',
+  'latex_visualization.Rmd',
+  'ggmosaic_cheatsheet_translation.Rmd',
+  "rvest_tutorial.Rmd",
+  'rstudio_vs_jupyterlab.Rmd',
+  'askamanager_salary_survey.Rmd',
+  'Comparative_Study_of_Mosaic.Rmd',
+  'Dplyr_Relational_Databases.Rmd',
+  'first_step_of_data_analysis.Rmd',
+  'data_ink.Rmd',
+  'time_series_arima.Rmd',
+  'hex_sticker.Rmd',
+  'opencpu_tutorial.Rmd',
+  'GoogleVis_tutorial.Rmd',
+  'basic_r_tutorial.Rmd',
+  'midsemester_review.Rmd',
+
+  # Part: Links
+  'master_workshop.Rmd',
+  'master_cheat_sheet.Rmd',
+  'master_video.Rmd',
+  'master_translation.Rmd',
+
+   # Part: Translation
+  'French_version_of_edav_info.Rmd',
+  'SandDance.Rmd',
+  'translation_visualising_spatial_data.Rmd',
+  'rvest_data_transformation_translate.Rmd',
+  'likert_package_translate.Rmd',
+  'continuous_variables_with_r_in_chinese.Rmd',
+  'Stringr_introduction_chinese_version.Rmd',
+  'list_of_contribution.Rmd',
+  'Viz_with_GeomMLBStadiums.Rmd',
+  'visualization_python_vs_R.Rmd',
+  'Tweepy.Rmd',
+  'NLP_Basics_with_Python.Rmd',
+  'Chinese_Translation_of_plotly_and_parcoords.Rmd',
+  'translation_of_lattice_intro.Rmd',
+  'nullabor_translation_Korean.Rmd',
+
   # cheatsheet
-  'master_cheat_sheet.Rmd'
+  'time_series_cheatsheet.Rmd',
+  'Date_and_Time_Cheatsheet.Rmd',
+  'bokeh_cheatsheet.Rmd',
+  'edav_flowchart.Rmd',
+  'dataframe_cheatsheet.Rmd',
+  'wordcloud2_cheatsheet.Rmd',
+  'data_wrangling_cheatsheet.Rmd',
+  'Rvest_Cheatsheet.Rmd',
+  'categorical_data_cheatsheet.Rmd',
+  'tidyverse_contribution.Rmd',
+
 ]
-edit: https://github.com/jtr13/cc19/edit/master/%s
+
+before_chapter_script: "_common.R"
