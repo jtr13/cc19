@@ -12,6 +12,7 @@ Imports:
   ggmap,
   ggplot2,
   ggridges,
+  forcats,
   parcoords,
   shiny,
   plotly,
@@ -45,6 +46,8 @@ Imports:
   scatterplot3d,
   lars,
   olsrr,
+  parcoords,
+  shiny,
   wbstats,
   googleVis,
   rgdal,
@@ -62,6 +65,7 @@ Imports:
   countrycode,
   gridExtra,
   devtools,
+  Rmpfr,
   plotly,
   Rmpfr,
   sde,
@@ -98,4 +102,5 @@ Imports:
   AER,
   d3r,
   mlmRev,
-  lattice
+  lattice,
+  countrycode
