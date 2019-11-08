@@ -1,0 +1,7 @@
+# Videos
+
+Some groups of students have contributed to the community by creating video tutorials
+
+```{r, child = "carto_tutorial.Rmd"}
+
+```

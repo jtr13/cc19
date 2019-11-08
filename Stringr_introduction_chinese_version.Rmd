@@ -1,0 +1,704 @@
+# Introduction to Stringr Stringr包入门详解
+
+Yichi Zhang and Mingfang Chang
+
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(stringr)
+```
+
+In this file, we will make an introduction of functions in stringr package with detailed examples in Chinese.
+
+
+## stringr 包的安装与调用
+### 安装
+```{r eval=FALSE}
+#从CRAN下载string 发行版本：
+install.packages("stringr")
+
+#从Github下载：
+devtools::install_github("tidyverse/stringr")
+```
+
+### 调用
+```{r eval=FALSE}
+library(stringr)
+```
+
+## 字符串匹配函数(Detect Matches)
+
+### str_detect(string, pattern)
+检测字符串中是否包含匹配字符，返回TRUE或FALSE。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_detect(fruit, "a")
+str_detect(fruit, "b")
+str_detect("this is an example", "an")
+
+```
+
+### str_which(string, pattern)
+查找字符串中匹配字符的索引，返回索引。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_which(fruit, "a")
+str_which(fruit, "p")
+str_which("example", "a")
+
+```
+
+### str_count(string, pattern)
+计数字符串匹配次数，返回计数。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_count(fruit, "a")
+str_count(fruit, "p")
+str_count("example", "am")
+```
+
+### str_locate(string, pattern)
+找到字符串中第一个匹配字符的位置，返回位置，如无匹配则返回NA。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+ str_locate(fruit, "a")
+str_locate(fruit, "p")
+str_locate("example", "x")
+```
+
+### str_locate_all(string, pattern)
+找到字符串中所有匹配字符的位置，返回位置。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_locate_all(fruit,"p")
+str_locate_all("example", "e")
+```
+
+
+
+
+
+
+## 字符串的截取函数(Subset Strings)
+
+### str_sub(string, start index, end index)
+
+用于直接通过索引来分割字符串，并返回起始索引到结束索引中的全部字符。<br />
+示例：<br />
+```{r}
+x <-'Hello World'
+str_sub(x,1,3)
+str_sub(x,-7,-2)
+
+```
+函数的输入也可以是一串字符串。<br />
+
+```{r}
+x <-c('Apple','Banana','Strawberry')
+str_sub(x,2,4)
+```
+
+### str_subset(string,pattern)
+
+
+输入一个字符串或者一系列字符串，并给定一种模式，返还拥有这种模式的字符串。<br />
+示例：
+```{r}
+x <-'Hello World'
+str_subset(x,'ell')
+
+y <-c('Apple','Banana','Strawberry')
+str_subset(y,'ana')
+
+z <-'Hello World'
+str_subset(x,'zzz')
+
+```
+
+
+
+
+### str_extract(string,pattern)
+
+输入一个字符串或者一串字符串，给定一种模式,返回在每个字符串中第一个符合模式的子字符串，如果某个字符串中并没有我们输入的模式，则返回空值NA，这个函数的输出类型是一个包含多个字符串的向量。<br />
+示例：<br />
+```{r}
+
+string1 <- c('fruit', 'Test Score:89', 'Test Score:170','tiger')
+pattern1 <-'ui'
+str_extract(string1,pattern1)
+
+```
+
+对于这个函数使用正则表达式来表达字符串的模式会更有意义，我们将会在最后具体讨论正则表达式的写法。<br />
+
+```{r}
+pattern2 <- "[A-Z][a-z]*[:]\\d*"
+str_extract(string1,pattern2)
+```
+我们也可以使用函数str_extract_all(string， pattern) 返回每个字符串当中所有符合的模式的子字符串（并不只是第一个）。<br />
+示例：<br />
+```{r}
+string2 <- c('fruit', 'Test Score:89 Ratescore:77', 'Test Score:170','tiger')
+pattern2 <- "([A-Z][a-z]*[:])(\\d*)"
+str_extract_all(string2,pattern2)
+```
+
+### str_match(string, pattern)
+输入一个字符串或者一串字符串，给定一种模式,返回在每个字符串中第一个符合模式的子字符串，如果某个字符串中并没有我们输入的模式，则返回空值NA,但是不同于str_extract()函数， 此函数返回一个包含多个字符串的矩阵。<br />
+示例：<br />
+```{r}
+str_match(string2,pattern2)
+```
+
+我们也可以用str_match_all()函数去返回所有符合模式的子字符串,在返回的矩阵中，第一列代表一个符合模式的完整的子字符串，后面的每一列代表了完整的子字符串中的每一个组，这个组是在正则表达式中用括号分割开来的（例如"([A-Z][a-z]*[:])(\\d*)" 中， 第一个组就是([A-Z][a-z]*[:])， 第二个组则是(\\d*)）。<br />
+
+```{r}
+str_match_all(string2,pattern2)
+```
+
+## 字符串长度编辑函数(Manage Lengths)
+
+### str_length(string)
+返回字符串长度，即所含字符个数。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_length(fruit)
+str_length("example")
+str_length(" ")
+str_length("")
+```
+
+### str_pad((string, width, side = c("left", "right","both"), pad = " ")
+用所给字符填充字符串至所给长度，可总左边或右边或两边填充，返回填充后字符串。默认值为从左边以空格填充至所给长度。如果所给长度比字符串长度短，则返回原字符串。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_pad(fruit, 17)
+str_pad(fruit, 17, "both", "*")
+str_pad(fruit, 17, "left", " ")
+str_pad(fruit, 17, "right", "-")
+str_pad("example", 11, "both")
+str_pad("another", 3, "both","*")
+```
+
+### str_trunc(string, width, side = c("right", "left","center"), ellipsis = "...")
+从所给方向截取字符串并替换为所给字符至所给长度，可以从左边或右边或中间截取，默认为从左边截取，默认替换字符为"..."，返回编辑后字符串。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_trunc(fruit, 3,"left", "-")
+str_trunc(fruit, 4,"center", "*")
+str_trunc(fruit, 5,"right", "%")
+str_trunc("example", 5)
+
+```
+
+### str_trim(string, side = c("both", "left", "right"))
+去掉字符串开头或/和结尾的空格，可以去掉左边或右边或两边的空格，默认为去掉两边空格，返回去掉空格后的字符串。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_trim(fruit)
+str_trim(" example1  ")
+str_trim(" example2 ", "left")
+str_trim(" example3 ", "right")
+str_trim(" example4 ", "both")
+```
+
+
+## 字符串变换与编辑函数(Mutate Strings)
+
+### str_sub(string,start index,end index)
+可用于返回所有输入的字符串中，从起始索引到结束索引的子字符串。<br />
+示例：<br />
+```{r}
+f <-c('Apple','Banana','Strawberry')
+str_sub(f,1,3)
+```
+
+也可用于替换1所有输入的字符串中，从起始索引到结束索引的子字符串，用于替换的字符串取决的使用者自己定义并指向这个函数的字符串。<br />
+示例：<br />
+
+```{r}
+f <-c('Apple','Banana','Strawberry')
+str_sub(f,1,3)<-'hello'
+print(f)
+```
+
+### str_replace(string,pattern,replacement)
+找个输入法的字符串中第一个符合我们定义的模式的子字符串并用我们输入的替换字符串替换。<br />
+示例：<br />
+```{r}
+string3 <- 'exploratary data annlysis'
+str_replace(string3,'exploratary','Visulization')
+
+
+string2 <- c('fruit', 'Test Score:89 Ratescore:77', 'Test Score:170','tiger')
+pattern2 <- "([A-Z][a-z]*[:])(\\d*)"
+str_replace(string2,pattern2,'Replacement')
+```
+
+### str_replace_all(string,pattern,replacement)
+找个输入法的字符串中所有符合我们定义的模式的子字符串并用我们输入替换字符串替换,如果这个字符串中不存在我们定义的模式，直接返还原本的字符串。<br />
+示例：<br />
+```{r}
+
+string3 <- 'exploratary data annlysis and data Visulization'
+str_replace_all(string3,'data','Visulization')
+
+
+string2 <- c('fruit', 'Test Score:89 Ratescore:77', 'Test Score:170','tiger')
+pattern2 <- "([A-Z][a-z]*[:])(\\d*)"
+str_replace_all(string2,pattern2,'Replacement')
+```
+
+### str_to_lower(string)
+将一个字符串或者一个字符串的向量全部变为小写格式。<br />
+示例：<br />
+```{r}
+upper <- c('FFF','Task','Community CONTRIBUTION')
+str_to_lower(upper)
+
+```
+由于不同的国家有不同的大小写规则，我们可以用参数locale去规定在这个小写转变格式中所使用的规则（每个国家的规则有国家的英文缩写表示，具体课查看维基百科https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8 语言ISO639表格）。<br />
+```{r}
+upper <- c('FFF','Task','Community CONTRIBUTION')
+str_to_lower(upper,locale = 'en')
+```
+
+
+### str_to_upper(string)
+将一个字符串或者一个字符串的向量全部变为大写格式。<br />
+示例：<br />
+```{r}
+lower1 <- c('FFF','Task','Community CONTRIBUTION')
+str_to_upper(lower1)
+
+str_to_upper(lower1,locale = 'en')
+```
+
+### str_to_title(string)
+将一个字符串或者一个字符串组成的向量变换称标题格式（每个单词的首字母大写）。<br />
+示例：<br />
+```{r}
+str_to_title(lower1)
+str_to_title(lower1,locale = 'en')
+```
+
+
+
+
+## 字符串分割与拼接函数(Join and Split)
+
+### str_c(..., sep = "", collapse = NULL)
+将多个字符串拼接成单个字符串，字符串间可添加分割字符，默认分割字符为空字符，返回拼接后字符串。 <br />
+示例：
+```{r}
+str_c("this", "is", "an", "example1", sep = "", collapse = NULL)
+str_c("this", "is", "an", "example2", sep = " ", collapse = NULL)
+str_c("this", "is", "an", "example3")
+
+```
+
+### str_c(..., sep = "", collapse = "")
+将一个字符串向量拼接为单个字符串，字符串间可添加分割字符，默认分割字符为空字符，返回拼接后字符串。<br />
+示例：
+```{r}
+str_c(c("this", "is", "an", "example1"), sep = "", collapse = "")
+str_c(c("this", "is", "an", "example2"), sep = "", collapse = "*")
+```
+
+### str_dup(string, times)
+多次复制字符串，返回复制后字符串。<br />
+示例：
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_dup(fruit, 3)
+str_dup("example", 7)
+```
+
+### str_split_fixed((string, pattern, n)
+以所给字符将字符串分割成所给数量的字符串，返回分割后的结果。<br />
+示例：
+```{r}
+fruit <- c("app le", "bana na", "p ear", "pinea pple")
+str_split_fixed(fruit, " ", 2)
+str_split_fixed("this is an example2", " ", 3)
+```
+
+### str_glue(…, .sep = "", .envir = parent.frame())
+在字符串内替换变量，变量可在函数内定义，可以连接多个字符串并以所给分隔字符分隔，返回替换后字符串。<br />
+示例：
+```{r}
+str_glue("This is {apple}", " and this is not {banana}.", .sep=",",apple = "apple", banana = "banana")
+pineapple<-"pineapple"
+str_glue("This is {pineapple}")
+```
+
+### str_glue_data(.x, ..., .sep = "", .envir = parent.frame(), .na = "NA")
+在字符串内替换变量，变量可在函数内以环境、列表、数据框等形式定义，可以连接多个字符串并以所给分隔字符分隔，返回替换后字符串。<br />
+示例：
+```{r}
+str_glue_data(list(a="apple", b="banana"), "This is {a}", "this is not {b}", .sep=",")
+fruit <- c("apple", "banana", "pear", "pineapple")
+```
+
+
+
+
+
+
+## 字符串排序(Order Strings)
+### str_sort(string)
+根据输入的参数，给输入的字符串向量排序。<br />
+示例：<br />
+```{r}
+order <- c('FFF','Task','Community CONTRIBUTION')
+#给名叫order的字符串向量按照字母顺序从前到后排序
+str_sort(order)
+
+#给名叫order的字符串向量按照字母顺序从后到前排序
+str_sort(order,decreasing = TRUE)
+
+
+orderNA <- c('FFF','Task','Community CONTRIBUTION',NA)
+#给名叫orderNA的字符串向量按照字母顺序从前到后的排序并且把空值排在最后面
+str_sort(orderNA,na_last = TRUE)
+
+```
+
+### str_order(string)
+
+此函数与str_sort()的排序方法和使用方法基本一致，两个函数的主要区别在于str_order()返回的是索引的顺序而不是一个排序过后的新字符串向量。<br />
+示例：<br />
+```{r}
+order2 <- c('FFF','Task','Community CONTRIBUTION')
+str_sort(order2)
+str_order(order2)
+
+
+order2 <- c('FFF','Task','Community CONTRIBUTION')
+#排序的顺序变为字母表的顺序从后到前
+str_sort(order2,decreasing = TRUE)
+str_order(order2, decreasing = TRUE)
+
+
+orderNA <- c('FFF','Task','Community CONTRIBUTION',NA)
+#将NA排在所有字符串的最后面
+str_sort(orderNA,na_last = TRUE)
+str_order(orderNA, na_last =TRUE)
+
+
+
+```
+
+
+## 字符串的编译格式与显示格式修改函数(Encode and Visualize Strings)
+
+### str_conv(string, encoding)
+更改当前字符串的编码格式。<br />
+示例：<br />
+```{r}
+x <- charToRaw('武汉欢迎你')
+#将武汉欢迎你变成字符节
+print(x)
+#将原始的字符节x用UTF-8的编码格式从新编码
+str_conv(x, "UTF-8")
+
+#使用stringi::stri_enc_list()能返回整个r中完整的编码格式表
+
+```
+
+### str_view(string, pattern)
+通过html的形式显示我们输入的模式在字符串中第一个出现的位置的位置。<br />
+示例：<br />
+
+```{r}
+
+str_view("hello world", "world")
+str_view("hello world world", "world")
+
+```
+我们同时也可以使用函数str_view_all(string, pattern)去显示我们输入的字符串中所有和我们所选择的模式匹配的子字符串的位置。<br />
+示例：<br />
+```{r}
+
+str_view_all("hello world world", "world")
+
+str_view_all('Test Score:89 Ratescore:77',"([A-Z][a-z]*[:])(\\d*)")
+
+```
+
+### str_wrap(string,width,indent,exdent)
+改变字符串的显示格式。<br />
+示例：<br />
+
+```{r}
+data <- 'Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusion and supporting decision-making. Data analysis has multiple facets and approaches, encompassing diverse techniques under a variety of names, and is used in different business, science, and social science domains. In today\'s business world, data analysis plays a role in making decisions more scientific and helping businesses operate more effectively.'
+# the text above come from wikipedia
+```
+```{r}
+#width规定了字符串每一行的长度，这里我们让字符串data每隔50个字符就换一次行
+cat(str_wrap(data, width = 50, indent = 0, exdent = 0),'\n')
+
+
+#indent决定了字符串第一行的缩进长度，这里我们选择缩进长度10，也就是第一行在一个空格之后开始
+cat(str_wrap(data, width = 50, indent = 10, exdent = 0),'\n')
+
+
+
+#exdent决定了字符串除了第一行所有其他行的缩进长度，这里我们选择缩进长度15，也就是除了第一行，每行前面都有15个空格
+cat(str_wrap(data, width = 50, indent = 0, exdent = 15),'\n')
+
+
+
+
+```
+
+
+## 正则表达式(Regular Expression)
+
+
+### 字符匹配
+
+在stringr 函数中，pattern参数可以正则表达式的形式表示。在R语言中，正则表达式以字符串形式表示。
+
+'a'\ 在正则表达式中单个字母代表的就是一个字母本身 <br />
+\\.  \      \\? \           \\( \  \\}\  等 当我们想表示一个符号的时候，以符号本身表示一个符号并在前面加一个斜杠<br />
+\\n\ 代表换行<br />
+\\t\ 代表一个缩进，即跳格<br />
+\\s\ 代表任意空格<br />
+\\S\ 代表非空格字符<br />
+\\d\ 代表任意数字字符<br />
+\\D\ 代表任意非数字字符<br />
+\\w\ 代表任意字字符<br />
+\\W\ 代表任意非字字符<br />
+\\b\ 代表词边界<br />
+\\B\ 代表非词边界<br />
+[:digit] \ 代表0-9之间的任意数字<br />
+[:alpha] \ 代表a-z,和A-Z之间的任意字母<br />
+[:lower:] \ 代表a-z之间的任意字母<br />
+[:upper:] \ 代表A-Z之间的任意字母<br />
+[:xdigit:] \ 代表16进制中任意的数字(0-9和A-F)<br />
+[:alumn:] \ 代表任意数字或字母<br />
+[:graph:] \ 代表任意数字,字母,或者符号<br />
+[:print:] \ 代表任意数字,字母,符号,或者空格<br />
+[:spcae:] \ 代表空格,用法与\\s相同<br />
+[:blank:] \ 代表空格或者跳格(缩进)但不包括换行<br />
+\. \ 代表任意字符除了换行<br />
+
+由于很多常规字符不能直接以字符串的形式来表达，所以我们需要在带有斜杠的正则表达式前面额外加上一个斜杠，使相对应的正则表达式能以字符串的形式储存<br />
+例如：<br />
+\\n\ 在字符串中的表达为'\\\\n'<br />
+\\s\ 在字符串中的表达为'\\\\s'<br />
+\\w\ 在字符串中的表达为'\\\\w'<br />
+等等<br />
+
+
+
+
+### 替换(Alternates)
+'\|'\ 表示或者(or)， 例如 'ab\|d'表示'ab' 或'd' 都能被匹配。 <br />
+```{r}
+#'wk|kkk'表示字符串中所有的'wk' 或'kkk' 都能被匹配。
+str_view_all('w.asdgwkad.dfkkk.qwwerthj','wk|kkk') 
+```
+
+
+'[ ]' 表示其中一个，例如'[abd]'表示任意'a'或'b'或'd'都能被匹配。<br />
+```{r}
+#'[wk]'表示字符串中所有的'w' 或'k' 都能被匹配。
+str_view_all('w.asdgwkad.dfkkk.qwwerthj','[wk]') 
+```
+
+'[^]' 表示除此之外，例如'[^abd]' 表示除'abd'之外的的子字符串都能被匹配。 <br />
+```{r}
+#'[^wk]'表示字符串中除了'w' 和'k' ，其他所有子字符串都能被匹配。
+str_view_all('w.asdgwkad.dfkkk.qwwerthj','[^wk]') 
+```
+
+'[-]' 表示范围，例如'[a-c]' 表示从a至c，即单个子字符串'a','b'或者'c'能被匹配。 <br />
+```{r}
+#'[a-f]'表示字符串中所有的从a到f的单个子字符串都能被匹配。
+str_view_all('w.asdgwkad.dfkkk.qwwerthj','[a-f]') 
+```
+
+
+### 锚点(Anchors)
+'\^' 表示字符串开头，例如'\^a'表示以a开头的字符串为有效匹配。 <br />
+```{r}
+#匹配字符串开头为j的首字母，如果字符串的首字母不是j，则为无有效匹配。
+str_view_all('jdjdjdjdj','^j') 
+str_view_all('djdjdjdj','^j') 
+```
+
+'\$' 表示字符串结尾，例如'a\$'表示以a结尾的字符串为有效匹配。<br />
+```{r}
+#匹配字符串尾字母j，如果字符串的最后一个字母不是j，则为无有效匹配。
+str_view_all('jdjdjdjdj','j$') 
+str_view_all('djdjdjdj','j$') 
+```
+
+### 查找(Look Arounds)
+'char1(?=char2)' 表示匹配char1后一个为char2的char1字符，例如‘a(?=c)’表示匹配a后一个为c的a。 <br />
+```{r}
+#匹配后一个字符为n的u
+
+str_view_all('Columbia university','u(?=n)') 
+```
+
+'char1(?!char2)' 表示匹配char1后一个不为char2的char1字符，例如‘a(?!c)’表示匹配a后一个不为c的a。<br /> 
+```{r}
+#匹配后一个字符为不为n的u
+
+str_view_all('Columbia university','u(?!n)') 
+```
+
+'(?<=char2)char1' 表示匹配char1前一个为char2的char1字符，例如'(?<=b)a'表示匹配a前一个为b的a。 <br />
+```{r}
+#匹配前一个字符为空格的u
+
+str_view_all('Columbia university','(?<= )u') 
+```
+
+'(?<!char2)char1' 表示匹配char1前一个不为char2的char1字符，例如'(?<!b)a'表示匹配a前一个不为b的a <br />
+```{r}
+
+#匹配前一个字符不为空格的u
+
+str_view_all('Columbia university','(?<! )u') 
+
+```
+
+
+
+
+### 数量词的使用(Quantifiers)
+
+\? 代表前一个正则表达式出现零次或者一次<br />
+```{r}
+#寻找字符串ab中有所有由一个a或者空字符组成的模式(pattern)
+str_view_all('ab','a?') 
+
+#寻找字符串.wkwkwkk中有所有由一个k或者空字符组成的模式(pattern)
+str_view_all('.wkwkwkk','k?') 
+
+```
+
+\* 代表前一个正则表达式出现零次或多次<br />
+```{r}
+#寻找字符串abaa中所有由一个a或者多个a或者空字符组成的模式(pattern)
+str_view_all('abaa','a*') 
+
+#寻找字符串.wkkkkwkwkk中所有由一个k或者多个k或者空字符组成的模式(pattern)
+str_view_all('.wkkkkwkwkk','k*')
+
+
+
+#可以看到k*和k？的主要区别在于k？会把‘kkkk’当作4个单个k组成的模式(pattern),而k*会把字符串'kkkk'视为一个由4个k组成的模式(pattern)
+```
+
+
+\+ 代表前一个正则表达式出现一次或多次<br />
+
+```{r}
+#寻找字符串abaa中有所有由一个a或者多个a组成的模式(pattern)
+str_view_all('abaa','a+') 
+
+#寻找字符串.wkkkkwkwkk中所有由一个k或者多个k组成的模式(pattern)
+str_view_all('.wkkkkwkwkk','k+')
+
+
+#数量词加号不再将空字符视为一个模式(pattern),加号匹配前一个字符串出现至少一次的模式(pattern)
+```
+
+\{n} 代表前一个正则表达式出现n次<br />
+
+```{r}
+#a{n} 将会匹配字符串中连续出现了n个a的模式(pattern)
+```
+
+```{r}
+#寻找字符串abaa中所有由2个a组成的模式(pattern)
+str_view_all('abaa','a{2}') 
+
+#寻找字符串.wkkkkwkwkk中所有由4个k组成的模式(pattern)
+str_view_all('.wkkkkwkwkk','k{4}')
+
+
+```
+
+
+\{n,} 代表前一个正则表达式出现n次或者更多<br />
+
+```{r}
+#a{n,} 将会匹配字符串中连续出现了n个a或者更多的模式(pattern)
+```
+
+```{r}
+
+#寻找字符串abaaab.bbaaaa.aaa中所有由2个或2个以上a组成的模式(pattern)
+str_view_all('abaab.bbaaaa.aaa','a{2,}') 
+
+#寻找字符串.wkkkkwkwkk.32.qwdsfkkkkkkkk.wd中所有由4个或者4个以上k组成的模式(pattern)
+str_view_all('.wkkkkwkwkk.32.qwdsfkkkkkkkk.wd','k{4,}')
+
+
+```
+
+\{n,m} 代表前一个正则表达式出现的次数在n到m之间(包括n和m)<br />
+
+```{r}
+#a{n,m} 将会匹配字符串中连续出现了n到m个a的模式(pattern)
+```
+
+```{r}
+#寻找字符串abaaab.bbaaaa.aaa中所有由2到4个a组成的模式(pattern)
+str_view_all('abaab.bbaaaa.aaa','a{3,4}') 
+
+#寻找字符串.wkkkkwkwkk.32.qwdsfkkkkkkkk.wd中所有由4到6个k组成的模式(pattern)
+str_view_all('.wkkkkwkwkk.32.qwdsfkkkkkkkk.wd','k{4,6}')
+
+
+```
+
+
+### 括号划分表达式并用转义号码替换
+
+(\ ) 将表达式中的一个部分用括号包含代表着括号中的子表达式自成一个组，系统在匹配表达式时,也会根据括号的顺序来匹配<br />
+
+例如: (a)(bb)(cab) 此正则表达式中，第一组子表达式是a,第二组子表达式是bb,第三组表达式是cab,系统在匹配的时候,匹配的循序也就是先匹配一个a,然后两个b,最后再是cab<br />
+
+我们可以通过在数字前加上双斜杠来直接表示对应数字的子表达式<br />
+例如:<br />
+\\\\1 在正则表达式中代表第一组子正则表达式<br />
+\\\\\3 在正则表达式中代表第三组子正则表达式<br />
+等等<br />
+
+表达式 '(a)(b)(c)(c)(b)(a)' 和 '(a)(b)(c)\\3\\2\\1'是相同的 <br />
+表达式 '(aab)(cde)(c)(aab)(c)(cde)' 和 '(aab)(cde)(c)\\1\\3\\2'是相同的 <br />
+
+```{r}
+
+
+str_view_all("abccbaab", '(a)(b)(c)\\3\\2\\1')
+str_view_all("abccbaab", '(a)(b)(c)(c)(b)(a)')
+
+```
+
+
+
+
+## 参考文献(Reference)
+http://edrub.in/CheatSheets/cheatSheetStringr.pdf
+
+
+

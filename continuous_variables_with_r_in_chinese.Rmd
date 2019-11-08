@@ -1,0 +1,9 @@
+# Continuous variables with R (Chinese)
+
+Bangwei Zhou and Zhihao Ai
+
+We created a tutorial in Chinese on the content of continuous variables with R. We combined (and translated) texts from chapter three of the textbook *Graphical Data Analysis with R* by Antony Unwin and the **Continuous Variables** section on [edav.info](https://edav.info/). Additionally, we also included an example to better illustrate how a user can fully utilize R to assess continuous variables from PSET1 problem 1. 
+
+We hope this document can effectively jumpstart any user (with limited language background to Chinese) with sufficient skills to assess continuous variables with R.
+
+Our document can be found [here](https://github.com/ZhihaoAi/EDAV-CC24).
