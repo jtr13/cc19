@@ -42,6 +42,8 @@ Imports:
   tidyverse, 
   wordcloud2,
   dplyr,
+  parcoords,
+  shiny,
   wbstats,
   googleVis,
   rgdal,
@@ -98,4 +100,3 @@ Imports:
   mlmRev,
   lattice,
   countrycode
-

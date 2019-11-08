@@ -82,6 +82,7 @@ rmd_files: [
   'likert_package_translate.Rmd',
   'continuous_variables_with_r_in_chinese.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
+  'parcoords_translation.Rmd',
   'list_of_contribution.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
   'visualization_python_vs_R.Rmd',
