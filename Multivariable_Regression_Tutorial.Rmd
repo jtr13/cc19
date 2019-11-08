@@ -7,7 +7,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-### Motivation
+## Motivation
 
 
 1. We use regression models to describe how one or more factors influence certain response variables.
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-### Connection with Single Variable Regression
+## Connection with Single Variable Regression
 
 We are familiar with Single Variable Regression $$y_i = \beta_0 + \beta x_i + \epsilon_i$$ where $y_i$ is the response variable. Similar with Single Variable case, model for multivariable case has quite the same structure only with more variables to consider. We can express the model concept in matrix form:
 
@@ -45,7 +45,7 @@ plot(data$sqft_living, data$price, pch = 16, col="steelblue")
 abline(fit2d, col = "orange")
 ```
 
-### Collinearity and Paradox
+## Collinearity and Paradox
 
 One important assumption for the multiple regression model is that we assume independence of all features. So the model would be inaccurate if some of the X values have strong correlation. If this happens, it is called collinearity. In the case of house pricing, it is very possible that the living area is strongly correlated with the area above so if we add both of these 2 factors into the model, the collinearity problem could occur.
 
@@ -75,7 +75,7 @@ pairs(data = data, price~sqft_living+sqft_above+sqft_basement+bathrooms)
 
 
 
-### Solution Path
+## Solution Path
 
 Below is an example of a solution path base on lasso.
 
@@ -101,17 +101,17 @@ legend("topleft",1, 2, legend = c("living", "above"), fill = c("black","red"))
 Based on the solution path plot, we can see that when lambda is small, the coefficient for sqft_living is extreme large and it appears first as lambda decreases, while for the sqft_above, it appears when lambda is small and its standardized coefficient is small and close to 0, which suggests that this variable should not be included. Moreover, we can see that when sqft_above appears(becomes larger than 0) in the solution path, the coefficient of sqft_living changes sharply and standardized coefficient of sqft_above decreases, which suggests that there is collinearity between the two variables. Based on the pair matrix we confirm our ideas.
 
 
-### Stepwise Model Selection
+## Stepwise Model Selection
 
 In order to choose which predictors to include in our model, we need to test their relative importance. There are 3 major ways to complete the test.
 
-##### Forward selection
+#### Forward selection
 We start with an empty model, which means no predictors in the model. Then we iteratively add the most affective predictor at each step. In the end, the process terminates when the improvement is no longer statistically significant.
 
-##### Backward selection (or backward elimination)
+#### Backward selection (or backward elimination)
 We start with a full model, which means, to include all predictors in the model. Then we repeatedly remove the least contributive predictors. The process terminates when all predictors are statistically significant
 
-##### Stepwise selection (or sequential replacement)
+#### Stepwise selection (or sequential replacement)
 A combination of forward and backward selections. You start with no predictors, then sequentially add the most contributive predictors (like forward selection). After adding each new variable, remove any variables that no longer provide an improvement in the model fit (like backward selection). 
 
 R has a function that perform this process for us. As for this example, we start from an empty model "fitNone" and cast out the stepwise selection 
@@ -123,7 +123,7 @@ step(fitNone, scope = ~sqft_living+sqft_above+sqft_basement+bathrooms+ sqft_lot+
 
 From the output we can easily see the variable selection process step by step and the result is yield at the end. We omit the sqft_above, sqft_basement and sqft_lot variable and keep the rest of them.
 
-### Model Verification
+## Model Verification
 
 Now if we would like to make sure our model is working well, we need to test if it has a good fit with the original data. Then a diagnostic plot becomes handy. 
 
@@ -141,7 +141,7 @@ Below is a diagnostic plot for a better model on this dataset.
 ![Diagnostic Plot for a Potentially Good Model](resources/Multivariable_Regression_Tutorial/diag.png){#id .class width=70% height=70%}
 
 
-#### Outliers and Leverage
+### Outliers and Leverage
 Plot for detecting outliers. Studentized deleted residuals (or externally studentized residuals) is the deleted residual divided by its estimated standard deviation. Now we firstly introduce $$di$$:
 delete ith observations at a time.
 refit the regression model on remaining observations, calculate the new fitted value $$\hat{yi_i}$$.
