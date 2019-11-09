@@ -18,7 +18,7 @@ reviews <- movie_IMDb %>% html_nodes("#pagecontent") %>% html_nodes("div.content
 #perfrom data cleaning on user reviews
 reviews <- gsub("\r?\n|\r", " ", reviews) 
 reviews <- tolower(gsub("[^[:alnum:] ]", " ", reviews))
-write.csv(reviews, "reviews.csv")
+write.csv(reviews, paste0(getwd(),"/resources/wordcloud_sentiment/reviews.csv"))
 head(reviews)
 ```
 ## Cleaning the data!
@@ -40,7 +40,7 @@ removelongWORDS <- function(x) {
 removeCharacters <-function (x, characters)  {
   gsub(sprintf("(*UCP)(%s)", paste(characters, collapse = "|")), "", x, perl = FALSE)
 }
-reviews <- read.csv("reviews.csv", row.names = NULL)
+reviews <- read.csv(paste0(getwd(),"/resources/wordcloud_sentiment/reviews.csv"), row.names = NULL)
 dataset <- reviews$x
 dataset <- str_replace_all(dataset, "[^[:alnum:]]", " ")
 CorpusObj<- VectorSource(dataset)
@@ -77,7 +77,7 @@ Finally we create the word cloud from the corpus object that we created in the l
 ```{r}
 pal <- brewer.pal(9, "BuGn")
 pal <- pal[-(1:2)]
-png("wordcloud.png", width=1280,height=900)
+png(paste0(getwd(),"/resources/wordcloud_sentiment/wordcloud.png"), width=1280,height=900)
 wordcloud(d$word,d$freq, min.freq=300, scale=c(7,0.5),
           colors=brewer.pal(8, "Dark2"),  random.color= TRUE, random.order = FALSE)
 dev.off()
