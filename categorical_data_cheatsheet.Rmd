@@ -1,0 +1,8 @@
+# Categorical data cheatsheet
+
+Zhi Qi
+
+This chapter provides a cheatsheet that helps you tackle categorical data. It breaks down what form of graph to use by the type and the number of variables. More information available on edav.info/
+
+Cheatsheet:
+https://github.com/michaelqizhi/Categorical-data-cheatsheet/blob/master/Categorical%20Variables%20Cheatsheet.pdf

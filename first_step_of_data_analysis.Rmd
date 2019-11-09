@@ -1,0 +1,215 @@
+# The first step to analyse a dataset
+
+Weitao Chen and Jianing Li
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Oftentimes we get a large dataset to conduct data analysis or to prepare the data to be further used in our model. A common question data analysts hear is “where do I even start in my analysis?”. We will introduce serveral functions to help you take a glance at your giant dataset so you can have a fundemental undetstanding of your data.
+
+```{r, include=FALSE}
+# > install.packages("mi")
+
+# Transform some values to NA
+library(tidyverse)
+library(dplyr)
+clean.iris <- iris
+iris <- as.data.frame(lapply(iris, function(cc) cc[
+  sample(c(TRUE, NA), prob = c(0.95, 0.05), size = length(cc), replace = TRUE) ]))
+```
+
+## A glimpse at the dataset
+
+### How does the data look like?
+
+When you come across a new dataset, you may ask: How does the dataset look like?
+
+"To see is to know. Not to see is to guess." To answer this question, you just need to view its content.
+
+`View` works not only in RStudio, but also in R terminal on Windows. However, its output can't be knitted into html or pdf.
+
+Though, when the dataset is huge, you would not really like to open and view the entire dataset. Then what? Just take a sample of it.
+
+The first function that comes to your mind? `head`!
+
+```{r pressure, echo=FALSE}
+head(iris)
+```
+
+`head` returns the first 5 rows of a data frame by default. You can also specify how many rows you want.
+
+```{r}
+head(iris,3)
+```
+
+`tail` is similar to it, but it retrives the rows from the bottom.
+
+```{r}
+tail(iris,2)
+```
+
+As you can see, we get only the flowers of species "setosa" with `head` and of "virginica" with `tail`. That's because the original dataset is ordered by the "Species", and its head and tail are homogeneous.
+
+What if we want to get a heterogeneous view? You may use `sample_n` instead. It selects random rosw from a table for you.
+
+```{r}
+library(dplyr)
+sample_n(iris, 5)
+```
+
+When you want to take a glimpse at a huge dataset, it's fairly better choice to use `sample_n`. However, unlike `head`, `tail` or `View`, it doesn't work on vector or types other than data frame. Also, you have to library `dplyr` to use `sample_n`, while other 3 functions come in `baser`.
+
+### Retrive the metadata
+
+For a data frame, one of the first property we want to learn about it would be its size.
+
+```{r}
+dim(iris)
+```
+
+The first value in the result is the number of observations and the second is of variables.
+
+Sometimes we don't really want to know the details of a dataset. We simply need a summary.
+
+```{r}
+summary(iris)
+```
+
+When used on a data frame, `summary` gives you the metadata of the dataset. That is, the summaries for each vairable in it. For numerical column, you will see the percentiles and mean. For categorical ones, you can get the frequency of each factors.
+
+A simpler alternative is `str`. Note that `str` here is not an abbreviation for "string", but for "structure". `str` "compactly displays the structure of an arbitrary R object", according to the document. As for data frame, it displays the data type and first few values of each columns.
+
+```{r}
+str(iris)
+```
+
+## Dive into one column
+
+### Summarise a numerical variable
+
+If you would like to examine some columns more thoroughly, you can use `summarise` to customize your summary. It takes the data frame as the first parameter. Name-value pairs of summary functions are followed, indicating the output titles and content.
+
+Available summary functions are as followed:
+
+- Center: mean(), median()
+
+- Spread: sd(), IQR(), mad()
+
+- Range: min(), max(), quantile()
+
+- Position: first(), last(), nth(),
+
+- Count: n(), n_distinct()
+
+- Logical: any(), all()
+
+```{r}
+library(dplyr)
+iris %>% 
+    summarize(mean.1 = mean(Petal.Length, na.rm=TRUE), sd.1 = sd(Petal.Length, na.rm=TRUE),
+              mean.2 = mean(Sepal.Length, na.rm=TRUE), sd.2 = sd(Sepal.Length, na.rm=TRUE))
+```
+
+### Understand a categorical variable
+
+You may learn about the frequency about a categorical column in a data frame using `summary`.
+
+```{r}
+summary(iris$Species)
+```
+
+Though, it doesn't work when the column is presented not as a factor, but as characters.
+
+```{r}
+iris$Characters <- as.character(iris$Species)
+summary(iris$Characters)
+```
+
+Under such circumstances, we may use `unique` and `table` instead. `unique` tells you about all the unique values in a vector, and `table` shows their frequency.
+
+```{r}
+unique(iris$Characters)
+```
+
+```{r}
+table(iris$Characters)
+```
+
+## Advanced patterns about a data set
+
+### Locate the missing values
+
+
+Sometime there are missing values or NA in our dataset. It can be caused by a number of reasons such as observations that were not recorded and data corruption. Or it can be left as NA on purpose to indicate something. The important thing is how to find the missing values in our dataset.
+
+In this block we will introduce several functions to find the missing values
+
+- Check missing values by columns
+
+```{r}
+colSums(is.na(iris))  %>%
+  sort(decreasing=TRUE)
+```
+
+- Check missing values by row
+
+```{r}
+rowSums(is.na(iris))  %>%
+  sort(decreasing=TRUE)
+```
+
+- Use a heatmap to check missing values
+
+```{r}
+library(ggplot2)
+
+tidyiris <- iris %>%
+  rownames_to_column("id") %>%
+  gather(key, value, -id) %>%
+  mutate(missing = ifelse(is.na(value), "yes", "no"))
+
+ggplot(tidyiris, aes(x = key, y = fct_rev(id), fill = missing)) +
+  geom_tile(color = "white") +
+  ggtitle("iris with NAs added") +
+  scale_fill_viridis_d() + # discrete scale
+  theme_bw()
+```
+
+```{r, include=FALSE}
+library(mi)
+```
+
+```{r}
+if("mi" %in% rownames(installed.packages()) == TRUE) {
+  library(mi)
+  x <- missing_data.frame(iris)
+  image(x)
+}
+```
+
+### Find the outlier for numeric values
+
+An outlier may be due to variability in the measurement or it may indicate experimental error; the latter are sometimes excluded from the data set.[3] An outlier can cause serious problems in statistical analyses.
+Here we find the outliers in each columns.
+
+```{r}
+tidyiris <- clean.iris[1:4] %>%
+  rownames_to_column("id") %>%
+  gather(key, value, -id) 
+
+ggplot(data=tidyiris)+
+  geom_boxplot(mapping=aes(x=key,y=value))
+```
+Thus we can see that there are 4 outliers in Sepal.Width variable.
+
+### Find out the correlations among variables
+
+For our numeric data, it is important to find the correlations between variables, since it provides us extra information about the dataset.
+
+```{r}
+library(GGally)
+ggpairs(clean.iris[1:4])
+```

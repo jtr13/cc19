@@ -1,4 +1,4 @@
-## EDAV Community Contribution-Bookdown workshop summary
+## bookdown
 
 Weixi Yao and Wangzhi Li
 
