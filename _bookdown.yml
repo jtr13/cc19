@@ -18,6 +18,7 @@ rmd_files: [
   # tutorial
   'carto_tutorial.Rmd',
   'a_tutorial_of_shiny.Rmd',
+  'keras_tutorial.Rmd',
   
   # cheatsheet
   'master_cheat_sheet.Rmd'
