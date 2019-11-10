@@ -43,6 +43,7 @@ Imports:
   tidyverse, 
   wordcloud2,
   dplyr,
+  keras,
   plotrix,
   scatterplot3d,
   lars,

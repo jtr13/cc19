@@ -74,6 +74,7 @@ rmd_files: [
   'rmarkdown_tutorial.Rmd',
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
+  'keras_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',
