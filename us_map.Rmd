@@ -165,68 +165,6 @@ map("state", boundary=FALSE, col="gray", add=TRUE)
 ```
 
 
-
-## Using `plotly` package
-
-We first need to import data from `US-State-Boundaries-Census-2014.shp`, and then use `plotly` package. Suppose we care about water level for each state in U.S.
-
-Package(s) we need:
-```{r,warning=FALSE,message=FALSE}
-library(tidyverse)
-library(sf)
-library(plotly)
-```
-
-```{r}
-states <- read_sf("resources/us_map/US-State-Boundaries-Census-2014.shp") %>%
-  st_zm() %>%
-  mutate(water_km2 = (AWATER / (1000*1000)) %>% round(2))
-```
-
-```{r}
-g <- ggplot(states) +
-  geom_sf(aes(fill=water_km2)) +
-  scale_fill_distiller("water level", palette="Spectral") +
-  ggtitle("Water by State")
-ggplotly(g)
-```
-
-
-
-## Using `mapview` package
-
-We use the same dataset from last method. It gives us an interactive map with all information.
-
-Package(s) we need:
-```{r}
-#install.packages("mapview")
-library(mapview)
-```
-
-```{r}
-mapview(states)
-```
-
-
-
-## Using `leaflet` package
-
-We use the same dataset from last method. We construct a interactive map with no specific information. If you are interested in a specific area, for example, water level, you can add specific choropleth to show more information.
-
-Package(s) we need:
-```{r}
-#install.packages("leaflet")
-library(leaflet)
-```
-
-```{r}
-leaflet(states) %>%
-  addTiles() %>%
-  addPolygons()
-```
-
-
-
 ## Using `tmap` package
 tmap is a very powerful map-drawing package that could create various types of maps. In our tutorial, we will focus on how to create an interactive U.S. map using tmap package.
 
