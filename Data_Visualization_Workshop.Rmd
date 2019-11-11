@@ -1,7 +1,6 @@
----
-title: "Data_Visualization_Workshop"
-author: "Yuheng Shi & Banruo Xie"
----
+# Data_Visualization_Workshop
+
+Yuheng Shi & Banruo Xie
 
 We will introduce two very interesting data visualization graphic. The first goal of this workshop is to expand our foundamential data visualization knowledge and try to build more sophisticated graphics that contain more important data information. The second goal would be how we could use different factors to build multiple dimensions in one graphics and help readers interpret data better and draw more meaningful conclusions.
 
