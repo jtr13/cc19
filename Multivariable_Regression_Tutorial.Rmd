@@ -1,0 +1,184 @@
+# Tutorial for Multivariable Linear Regression
+
+Yuge Shen, Shengqing Xia
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Motivation
+
+
+1. We use regression models to describe how one or more factors influence certain response variables.
+
+2. We already learnt how to construct a single variable regression model, but in practice, one often needs to predict or control future responses base on multiple variables or to gain understanding between them.
+
+3. We will make use of basic mathematical ideas and introduce the data visualization, model selection and construction processes in R. For the sake of this tutorial, we use the housing price data kc_house_data.csv from UCI Machine Learning Repository. Notice we will only use this dataset for illustration only, and not going to discuss the underlying mechanism.
+
+
+
+## Connection with Single Variable Regression
+
+We are familiar with Single Variable Regression $$y_i = \beta_0 + \beta x_i + \epsilon_i$$ where $y_i$ is the response variable. Similar with Single Variable case, model for multivariable case has quite the same structure only with more variables to consider. We can express the model concept in matrix form:
+
+$$\pmatrix{Y_1\\Y_2\\...\\Y_n} = \pmatrix{1&X_{11}&X_{12}&...&X_{1d}\\1&X_{21}&X_{22}&...&X_{2d}\\\vdots&\vdots&\vdots&&\vdots\\1&X_{n1}&X_{n2}&...&X_{nd}}\pmatrix{\beta_0\\\beta_1\\\vdots\\\beta_d} + \pmatrix{\epsilon_1\\\epsilon_2\\\vdots\\\epsilon_n}.$$
+
+Below is an example of model visualization for single and multiple resgressions. The data we are using consists of prices of houses in King County, Washington from sales between May 2014 to May 2015. We found the data on Kaggle website. There are 21,613 observations and 21 variables. There are 19 house features plus the price of the house and id as column fields.
+
+```{r echo = FALSE}
+data = read.csv("https://raw.githubusercontent.com/llSourcell/math_of_machine_learning/master/kc_house_data.csv")
+head(data)
+attach(data)
+```
+
+```{r}
+library(scatterplot3d)
+library(dplyr)
+data2 <- data %>% as.data.frame() %>% select(sqft_above,sqft_basement,price)
+p1 <- scatterplot3d(data2, pch = 16, color = "steelblue", main = "Price vs. above area and basement area", xlab = "above area", ylab = "basement area", zlab = "price")
+fit = lm(data2$price~data2$sqft_above+data2$sqft_basement)
+p1$plane3d(fit)
+
+fit2d = lm(data$price~data$sqft_living)
+plot(data$sqft_living, data$price, pch = 16, col="steelblue")
+abline(fit2d, col = "orange")
+```
+
+## Collinearity and Paradox
+
+One important assumption for the multiple regression model is that we assume independence of all features. So the model would be inaccurate if some of the X values have strong correlation. If this happens, it is called collinearity. In the case of house pricing, it is very possible that the living area is strongly correlated with the area above so if we add both of these 2 factors into the model, the collinearity problem could occur.
+
+In order to make accurate decision, we need to have some sort of visualization about the correlation among all x values. The most generally used method is pair matrix plot. By drawing the pairwise correlation of all variables, we can see underlying collinearity pattern and omit some variables that will cause this problem.
+
+To show the importance of detecting collinearity, we firstly introduce a paradox:
+```{r}
+library(ggplot2)
+type = 1:8
+type[1:4]="type1"
+type[5:8]="type2"
+x=c(1,2,3,4,8,9,10,11)
+y = c(6,7,8,9,1,2,3,4)
+model = lm(y~x)
+df <- data_frame(type,x,y)
+g <- ggplot(df,aes(x, y)) +
+  geom_line(aes(color = type)) + geom_point()+xlab("") + ylab("")
+g+geom_abline(intercept = coef(model)[1],slope = coef(model)[2])
+```
+We can see althought the two groups all seem to have positive slope, while because of the multicollinearity, the real regression line has a negative slope, and this is called a paradox. If your goal is to understand how the various X variables impact Y, then multicollinearity is a big problem to the model selection. To better detect the collinearity and select model, we introduce pair matrix firstly. 
+
+In the housing price dataset, we can choose some variables that we are interested in putting into the model and analyze their patterns.
+
+```{r}
+pairs(data = data, price~sqft_living+sqft_above+sqft_basement+bathrooms)
+```
+
+
+
+## Solution Path
+
+Below is an example of a solution path base on lasso.
+
+```{r}
+X = cbind(sqft_living,sqft_above,yr_renovated,  zipcode, sqft_living15)
+library(lars)
+lasso  <- lars(X,price)
+plot(lasso)
+```
+Initially all of the coefficients are zero, because when $$λ = \infty,log(-λ)=0$$ the penalty is too large, none of the variables can have influence on the regression model. When $$λ = 0,log(-λ)=1$$ means taht there is no penalty in lasso, so the coefficients are just least square estimators. When a coordinate path (in this case sqft_living) firstly leaves the boundary (drawn in black), the slope of it won't change until another paths leave the boundary, and repeat the progress, until all coordinates are above the boundary.
+
+
+More specifically, we only include 2 variables so the pattern is more clear and easy to interprete. 
+
+```{r}
+X = cbind(sqft_living,sqft_above)
+library(lars)
+lasso  <- lars(X,price)
+plot(lasso)
+legend("topleft",1, 2, legend = c("living", "above"), fill = c("black","red"))
+```
+
+Based on the solution path plot, we can see that when lambda is small, the coefficient for sqft_living is extreme large and it appears first as lambda decreases, while for the sqft_above, it appears when lambda is small and its standardized coefficient is small and close to 0, which suggests that this variable should not be included. Moreover, we can see that when sqft_above appears(becomes larger than 0) in the solution path, the coefficient of sqft_living changes sharply and standardized coefficient of sqft_above decreases, which suggests that there is collinearity between the two variables. Based on the pair matrix we confirm our ideas.
+
+
+## Stepwise Model Selection
+
+In order to choose which predictors to include in our model, we need to test their relative importance. There are 3 major ways to complete the test.
+
+#### Forward selection
+We start with an empty model, which means no predictors in the model. Then we iteratively add the most affective predictor at each step. In the end, the process terminates when the improvement is no longer statistically significant.
+
+#### Backward selection (or backward elimination)
+We start with a full model, which means, to include all predictors in the model. Then we repeatedly remove the least contributive predictors. The process terminates when all predictors are statistically significant
+
+#### Stepwise selection (or sequential replacement)
+A combination of forward and backward selections. You start with no predictors, then sequentially add the most contributive predictors (like forward selection). After adding each new variable, remove any variables that no longer provide an improvement in the model fit (like backward selection). 
+
+R has a function that perform this process for us. As for this example, we start from an empty model "fitNone" and cast out the stepwise selection 
+
+```{r}
+fitNone = lm(price~1)
+step(fitNone, scope = ~sqft_living+sqft_above+sqft_basement+bathrooms+ sqft_lot+ floors+ waterfront+ view+condition+ grade+ yr_built+ yr_renovated+ sqft_living15+ sqft_lot15, direction = "both")
+```
+
+From the output we can easily see the variable selection process step by step and the result is yield at the end. We omit the sqft_above, sqft_basement and sqft_lot variable and keep the rest of them.
+
+## Model Verification
+
+Now if we would like to make sure our model is working well, we need to test if it has a good fit with the original data. Then a diagnostic plot becomes handy. 
+
+```{r}
+fitTry = lm(formula = price ~ sqft_living + view + grade + yr_built + 
+    waterfront + bathrooms + sqft_lot15 + floors + sqft_living15 + 
+    condition + yr_renovated)
+plot(fitTry)
+```
+
+Oops, this might not seem to be a well-fit model to the data. The 1st and 3rd plot show that the residuals are not randomly distributed with obvious trends. The 2nd plot, the QQ plot shows non-normalily of the data points, which violates the assumption of the model. 
+
+Below is a diagnostic plot for a better model on this dataset. 
+
+![Diagnostic Plot for a Potentially Good Model](resources/Multivariable_Regression_Tutorial/diag.png){#id .class width=70% height=70%}
+
+
+### Outliers and Leverage
+Plot for detecting outliers. Studentized deleted residuals (or externally studentized residuals) is the deleted residual divided by its estimated standard deviation. Now we firstly introduce $$di$$:
+delete ith observations at a time.
+refit the regression model on remaining observations, calculate the new fitted value $$\hat{yi_i}$$.
+examine how much all of the fitted values change when the ith observation is deleted$$di = yi - \hat{yi_i}$$.
+Then we have $$StudRes_i = \frac{di}{SE(di)}$$
+
+Studentized residuals are going to be more effective for detecting outlying Y observations than standardized residuals. If an observation has an externally studentized residual that is larger than 3 (in absolute value) we can call it an outlier.
+```{r}
+library(olsrr)
+short_living = sqft_living[4000:4500]
+short_above = sqft_above[4000:4500]
+model = lm(short_living~short_above)
+ols_plot_resid_stud(model)
+ols_plot_resid_stand(model)
+```
+Based on the two plots, we can see studentized residuals find less outliers than the standardized residuls and only detect extreme cases.
+
+Next, we want to discuss leverage which only depends on X variables.
+For the simple linear regression case:
+$$H_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum(x_i - \bar{x})^2}$$
+For the multiple case:
+$$\sum_{i=1}^{n}H_{ii} = Trace(H) = Tr(X(X^TX)^{-1}X^T)$$
+$$H_{ii} = X_i(X^TX)^{-1}X_i$$
+if$$H_{ii} > \frac{2\sum_{i=1}^{n}H_{ii}}{n}$$, we say the ith observation is a huge leverage.
+
+Graph for detecting influential observations.
+```{r}
+ols_plot_resid_lev(model)
+```
+
+
+
+
+
+
+
+
+
+
+
