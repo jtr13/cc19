@@ -35,6 +35,7 @@ rmd_files: [
   # workshop
   'master_workshop.Rmd',
   'regex_workshop.Rmd',
+  'Data_Visualization_Workshop.Rmd',
   
   # tutorial
   'carto_tutorial.Rmd',
@@ -81,6 +82,7 @@ rmd_files: [
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
+  'master_translation.Rmd',
   'master_translation.Rmd',
   
    # Part: Translation
