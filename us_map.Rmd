@@ -166,7 +166,6 @@ map("state", boundary=FALSE, col="gray", add=TRUE)
 
 
 ## Using `plotly` package
-
 We first need to import data from `US-State-Boundaries-Census-2014.shp`, and then use `plotly` package. Suppose we care about water level for each state in U.S.
 
 Package(s) we need:
@@ -192,7 +191,6 @@ ggplotly(g)
 
 
 ## Using `mapview` package
-
 We use the same dataset from last method. It gives us an interactive map with all information.
 
 Package(s) we need:
@@ -200,15 +198,12 @@ Package(s) we need:
 #install.packages("mapview")
 library(mapview)
 ```
-
 ```{r}
 mapview(states)
 ```
 
 
-
 ## Using `leaflet` package
-
 We use the same dataset from last method. We construct a interactive map with no specific information. If you are interested in a specific area, for example, water level, you can add specific choropleth to show more information.
 
 Package(s) we need:
