@@ -29,6 +29,7 @@ rmd_files: [
   'multiclass_hexbin.Rmd',
   'Visualization_in_Time_Series_Analysis.Rmd',
   'likert_data.Rmd',
+  'Likert.Rmd',
   
 
   # workshop
