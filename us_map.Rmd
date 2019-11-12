@@ -176,7 +176,7 @@ library(plotly)
 ```
 
 ```{r}
-states <- read_sf("usa-boundary-layers/US-State-Boundaries-Census-2014.shp") %>%
+states <- read_sf("resources/us_map/US-State-Boundaries-Census-2014.shp") %>%
   st_zm() %>%
   mutate(water_km2 = (AWATER / (1000*1000)) %>% round(2))
 ```
@@ -198,6 +198,7 @@ Package(s) we need:
 #install.packages("mapview")
 library(mapview)
 ```
+
 ```{r}
 mapview(states)
 ```
