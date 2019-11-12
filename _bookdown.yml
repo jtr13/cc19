@@ -30,6 +30,7 @@ rmd_files: [
   'Visualization_in_Time_Series_Analysis.Rmd',
   'likert_data.Rmd',
   'Likert.Rmd',
+  'Radar_Charts.Rmd',
   
 
   # workshop
@@ -116,8 +117,6 @@ rmd_files: [
   'Rvest_Cheatsheet.Rmd',
   'categorical_data_cheatsheet.Rmd',
   'tidyverse_contribution.Rmd'
-
-  'Radar_Charts.Rmd',
 ]
 
 before_chapter_script: "_common.R"
