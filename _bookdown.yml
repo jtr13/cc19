@@ -107,7 +107,7 @@ rmd_files: [
 
   # cheatsheet
   'master_cheat_sheet.Rmd',
-  'Date_and_Time_Cheatsheet.Rmd'
+  'Date_and_Time_Cheatsheet.Rmd',
   'time_series_cheatsheet.Rmd',
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd',

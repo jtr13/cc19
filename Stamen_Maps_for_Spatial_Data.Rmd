@@ -17,43 +17,29 @@ We conduct a comparative study between different types of graphs to understand t
 library(dplyr)
 library(ggmap)
 
-#Original Dataset avaialble at "https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95/data". We are using the 1st 900 rows as sample here.
+# Dataset available at "https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95/data". 
+
 raw_df <-
-  read.csv(file = "resources/newyork_sample_collisions_data.csv", header =
-             TRUE, sep = ",")
+  read.csv(file ="https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.csv",
+           header = TRUE, sep = ",")
 ```
 
 
 ```{r}
-#Selecting specific columns and rows 
+# Selecting specific columns and rows 
 
-reasons <-
-  c(
-    "Driver Inattention/Distraction",
-    "Failure to Yield Right-of-Way",
-    "Traffic Control Disregarded",
-    "Following Too Closely",
-    "Fatigued/Drowsy",
-    "Backing Unsafely"
-  )
+reasons <- c("Driver Inattention/Distraction", "Failure to Yield Right-of-Way",
+    "Following Too Closely", "Fatigued/Drowsy", "Backing Unsafely")
 
 df <- raw_df %>%
-  select (
-    TIME,
-    BOROUGH,
-    LATITUDE,
-    LONGITUDE,
-    NUMBER.OF.PERSONS.INJURED,
-    CONTRIBUTING.FACTOR.VEHICLE.1
-  ) %>%
+  select(ACCIDENT.TIME, BOROUGH, LATITUDE, LONGITUDE, NUMBER.OF.PERSONS.INJURED, CONTRIBUTING.FACTOR.VEHICLE.1) %>%
   na_if("") %>%  # recode empty strings "" by NAs
   na.omit %>% # remove NAs
   filter(NUMBER.OF.PERSONS.INJURED != 0) %>%
   filter(CONTRIBUTING.FACTOR.VEHICLE.1 %in% reasons)
 
-df$TIME <- as.character(df$TIME)
-df$TIME <-
-  as.numeric(unlist(strsplit(df$TIME, ":"))[seq(1, 2 * nrow(df), 2)])
+df$TIME <- as.character(df$ACCIDENT.TIME)
+df$TIME <- as.numeric(unlist(strsplit(df$TIME, ":"))[seq(1, 2 * nrow(df), 2)])
 
 #creating label based on the hour of day
 breaks <- c(0, 6, 12, 18, 24)
@@ -65,24 +51,24 @@ For the purpose of our analysis, we would try to see patterns associated with nu
 
 
 ```{r}
-#..............#Summary of DataSet
-#accidents count by borough
-ggplot(data=df, aes((BOROUGH))) + 
+# Summary of dataset
+# accident count by borough
+ggplot(data=df, aes((forcats::fct_infreq(BOROUGH, .desc = FALSE)))) + 
   geom_bar( color="blue", fill="LIGHTBLUE") +
   ggtitle("Number of Accidents in different BOROUGH", ) + theme(plot.title = element_text(hjust = 0.5)) + 
   xlab("Borough") +ylab("Accidents Count") + 
   coord_flip() +
   theme(legend.position = "top")
 
-#accidents by contributing factors
-ggplot(data=df, aes((CONTRIBUTING.FACTOR.VEHICLE.1))) + 
+# accidents by contributing factors
+ggplot(data=df, aes((forcats::fct_infreq(CONTRIBUTING.FACTOR.VEHICLE.1, .desc = FALSE)))) + 
   geom_bar( color="black", fill="tomato") +
   ggtitle("Number of Accidents due to different Factors", ) + theme(plot.title = element_text(hjust = 0.5)) + 
   xlab("Contributing Factor") +ylab("Accidents Count") + 
   coord_flip() +
   theme(legend.position = "top")
 
-#Number of accidents across different Boroughs for different time slots and contributing factors
+# Number of accidents across different Boroughs for different time slots and contributing factors
 ggplot(df, aes(fill=CONTRIBUTING.FACTOR.VEHICLE.1, y=NUMBER.OF.PERSONS.INJURED, x=TIME_LABEL)) + 
     geom_bar(position="stack", stat="identity") +
     facet_wrap(~BOROUGH)+
@@ -133,14 +119,23 @@ qmplot(x = LONGITUDE, y = LATITUDE, data = gdf, maptype = "toner",darken=0.2,
 qmplot(x = LONGITUDE, y = LATITUDE, data = gdf, maptype = "toner",darken = .2,
        geom = "point", size = NUMBER.OF.PERSONS.INJURED, color = HOUR_OF_DAY) 
 ```
--> We have used Stamen maps as opposed to Google maps as the latter requires an API and costs money beyond a certain number of views per day. 
--> The qmplot function in Stamen maps is used to add the map background. 
--> We get the base map of New York based on the Latitudes and longitudes (Step 1). 
--> Similar to ggplot, we can add layers on the maps which enbales us with a better visualization of events occuring in a locality. 
--> Step 2 shows how the map would look if we plotted all the accidents in the raw format based solely on the latitudes and longitudes. 
--> In the next steps, we have thus grouped data on potential parameters such as Borough and Contributing Factor. Additionally, instead of plotting all data points for all latitudes and longitudes, we consider the mean latitude and longitude to give a better perspective of the number of accidents in a locality. 
--> Stamen Maps have various map backgrounds such as toner, watermark, burning, terrain etc for varied requirements. For our analysis, toner seemed to be the best fit as it highlighted the cities and cross sections which are vital for understanding vehicle collisions on the road. 
--> We use a variation of size and colour to highlight 2 parameters i.e the size of the bubble denotes the if more or less number of accidents occured in a region based on latitude and longitude. And colour denotes if there is a pattern across different time stamps. The colour gradient can be changed to accomodate for different parameter. 
--> Using maps have thus enabled us to seamlessly identify patterns in the data by accomodating for multiple parameters into one graph. Overall, it offers a better visualization of spatial data as opposed to normal graphs. 
+
+* We have used Stamen maps as opposed to Google maps as the latter requires an API and costs money beyond a certain number of views per day. 
+
+* The qmplot function in Stamen maps is used to add the map background. 
+
+* We get the base map of New York based on the Latitudes and longitudes (Step 1). 
+
+* Similar to ggplot, we can add layers on the maps which enbales us with a better visualization of events occuring in a locality. 
+
+* Step 2 shows how the map would look if we plotted all the accidents in the raw format based solely on the latitudes and longitudes. 
+
+* In the next steps, we have thus grouped data on potential parameters such as Borough and Contributing Factor. Additionally, instead of plotting all data points for all latitudes and longitudes, we consider the mean latitude and longitude to give a better perspective of the number of accidents in a locality. 
+
+* Stamen Maps have various map backgrounds such as toner, watermark, burning, terrain etc for varied requirements. For our analysis, toner seemed to be the best fit as it highlighted the cities and cross sections which are vital for understanding vehicle collisions on the road. 
+
+* We use a variation of size and colour to highlight 2 parameters i.e the size of the bubble denotes the if more or less number of accidents occured in a region based on latitude and longitude. And colour denotes if there is a pattern across different time stamps. The colour gradient can be changed to accomodate for different parameter. 
+
+* Using maps have thus enabled us to seamlessly identify patterns in the data by accomodating for multiple parameters into one graph. Overall, it offers a better visualization of spatial data as opposed to normal graphs. 
 
 
