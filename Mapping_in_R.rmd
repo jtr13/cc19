@@ -36,9 +36,9 @@ library(ggplot2)
 
 ## Simple Demonstration (using `maps`)
 ```{r,fig.align='center'}
-map("usa", col = "#9FF781", fill = TRUE)
+maps::map("usa", col = "#9FF781", fill = TRUE)
 map.axes(cex.axis=0.8) 
-map("state", lty = 2, add = TRUE, col = "#0B3B39") # map the state borderline to the US map
+maps::map("state", lty = 2, add = TRUE, col = "#0B3B39") # map the state borderline to the US map
 title(main = "United States Mainland by States", xlab = "Longitude", ylab = "Latitude",
       cex.lab = 0.8)
 ```
@@ -47,7 +47,7 @@ title(main = "United States Mainland by States", xlab = "Longitude", ylab = "Lat
 * The function `map("state",add=True)` adds the state borderline to the US map.
 
 ```{r}
-map('county', region = 'new york', col = "#5E610B")
+maps::map('county', region = 'new york', col = "#5E610B")
 map.cities(us.cities, country="NY", col = "#642EFE", cex = 0.6) # map cities recorded in us.cities to NY State
 map.axes(cex.axis=0.8) 
 title(main = "New York State by Counties", xlab = "Longitude", ylab = "Latitude",

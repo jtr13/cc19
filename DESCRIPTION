@@ -4,7 +4,6 @@ Title: Does not matter.
 Version: 0.0.1
 URL: https://github.com/jtr13/cc19
 Imports: 
-  bookdown,
   datasets,
   grid,
   rmarkdown,
@@ -40,7 +39,10 @@ Imports:
   readr,
   choroplethr,
   choroplethrMaps,
-  tidyverse, 
+  vcdExtra,
+  GDAdata,
+  pgmm,
+  tidyverse,
   wordcloud2,
   dplyr,
   keras,
@@ -110,5 +112,7 @@ Imports:
   d3r,
   mlmRev,
   lattice,
-  countrycode
-  
+  countrycode,
+  usmap,
+  mapdata,
+  mapview
