@@ -15,6 +15,8 @@ rmd_files: [
   'Mapping_in_R.rmd',
   'plotting_maps_tutorial.Rmd',
   'us_map.Rmd',
+  'Stamen_Maps_for_Spatial_Data.Rmd',
+
 
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
@@ -36,7 +38,7 @@ rmd_files: [
   'master_workshop.Rmd',
   'regex_workshop.Rmd',
   'Data_Visualization_Workshop.Rmd',
-  
+
   # tutorial
   'carto_tutorial.Rmd',
   'Multivariable_Regression_Tutorial.Rmd',
@@ -102,16 +104,16 @@ rmd_files: [
   'translation_of_lattice_intro.Rmd',
   'nullabor_translation_Korean.Rmd',
   'rvest_translation.Rmd',
-  
+
   # cheatsheet
-  'time_series_cheatsheet.Rmd',
+  'master_cheat_sheet.Rmd',
   'Date_and_Time_Cheatsheet.Rmd',
+  'time_series_cheatsheet.Rmd',
   'bokeh_cheatsheet.Rmd',
   'edav_flowchart.Rmd',
   'dataframe_cheatsheet.Rmd',
   'wordcloud2_cheatsheet.Rmd',
   'data_wrangling_cheatsheet.Rmd',
-
   'Rvest_Cheatsheet.Rmd',
   'categorical_data_cheatsheet.Rmd',
   'tidyverse_contribution.Rmd'
