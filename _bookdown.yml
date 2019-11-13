@@ -14,7 +14,9 @@ rmd_files: [
   'maps.Rmd',
   'Mapping_in_R.rmd',
   'plotting_maps_tutorial.Rmd',
+  'us_map.Rmd',
   'Stamen_Maps_for_Spatial_Data.Rmd',
+
 
   # Part: Static Graphs
   'ridgeline_plot.Rmd',
@@ -31,7 +33,6 @@ rmd_files: [
   'Visualization_in_Time_Series_Analysis.Rmd',
   'likert_data.Rmd',
   'Likert.Rmd',
-
 
   # workshop
   'master_workshop.Rmd',
@@ -83,7 +84,6 @@ rmd_files: [
   'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
-  'master_translation.Rmd',
   'master_translation.Rmd',
 
    # Part: Translation

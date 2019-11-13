@@ -108,4 +108,7 @@ Imports:
   d3r,
   mlmRev,
   lattice,
-  countrycode
+  countrycode,
+  usmap,
+  mapdata,
+  mapview
