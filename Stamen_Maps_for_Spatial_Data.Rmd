@@ -51,9 +51,10 @@ For the purpose of our analysis, we would try to see patterns associated with nu
 
 
 ```{r}
+library(forcats)
 # Summary of dataset
 # accident count by borough
-ggplot(data=df, aes((forcats::fct_infreq(BOROUGH, .desc = FALSE)))) + 
+ggplot(data=df, aes((fct_rev(fct_infreq(BOROUGH))))) + 
   geom_bar( color="blue", fill="LIGHTBLUE") +
   ggtitle("Number of Accidents in different BOROUGH", ) + theme(plot.title = element_text(hjust = 0.5)) + 
   xlab("Borough") +ylab("Accidents Count") + 
@@ -61,7 +62,7 @@ ggplot(data=df, aes((forcats::fct_infreq(BOROUGH, .desc = FALSE)))) +
   theme(legend.position = "top")
 
 # accidents by contributing factors
-ggplot(data=df, aes((forcats::fct_infreq(CONTRIBUTING.FACTOR.VEHICLE.1, .desc = FALSE)))) + 
+ggplot(data=df, aes((fct_rev(fct_infreq(CONTRIBUTING.FACTOR.VEHICLE.1, .desc = FALSE))))) + 
   geom_bar( color="black", fill="tomato") +
   ggtitle("Number of Accidents due to different Factors", ) + theme(plot.title = element_text(hjust = 0.5)) + 
   xlab("Contributing Factor") +ylab("Accidents Count") + 
