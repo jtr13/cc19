@@ -67,6 +67,8 @@ Imports:
   countrycode,
   gridExtra,
   devtools,
+  Rmpfr,
+  fmsb,
   xml2,
   tm,
   wordcloud,
