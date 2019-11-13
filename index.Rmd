@@ -51,13 +51,13 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 6. If you have included a `setup` chunk in your `Rmd` file, please remember to remove the label `setup` in the chunk, ie., use :
 
   ```
-  {r, include=False}
+  {r, include=FALSE}
   ```
   
   instead of
   
   ```
-  {r setup, include=False}
+  {r setup, include=FALSE}
   ```
 
 Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
