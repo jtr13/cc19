@@ -80,6 +80,7 @@ rmd_files: [
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
   'keras_tutorial.Rmd',
+  'short_topics.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',

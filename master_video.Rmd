@@ -5,3 +5,8 @@ Some groups of students have contributed to the community by creating video tuto
 ```{r, child = "carto_tutorial.Rmd"}
 
 ```
+
+```{r, child = "SandDance.Rmd"}
+
+```
+

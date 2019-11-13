@@ -1,0 +1,99 @@
+# Short topics
+
+## Overview of the t-SNE algorithm
+
+Arjun Dhillon
+
+For my community contribution, I'll be delivering a 5-mintue lightning presentation on t-distributed stochastic neighbor embeddings (t-SNE).  The t-SNE algorithm is useful in representing high-dimensional data in 2 or 3 dimensions.  The process works by mapping higher dimensional data points to 2 or 3 dimesional datapoints in such a way that similar data points have higher probability of being near one another.  It is especially useful for visualizing latent reprsentations of data in neural networks.  
+
+The main idea of t-SNE is to minimize the Kullback-Leibler divergence of the distribution $Q$ of points in the remapped space from the distribution of points in $P$ the original space:
+
+$$KL(P||Q) = \sum_{i \ne j} p_{ij} \log \frac{p_{ij}}{q_{ij}}$$,
+
+where $p_{ij}$ represents the similarity of two points in the original space:
+
+$$p_{ij} = \frac{\exp( - \lVert x_i - x_j \rVert^2 / 2 \sigma_i^2)}{\sum_{k \ne i} \exp( - \lVert x_i - x_j \rVert^2 / 2 \sigma_i^2)}$$
+and $q_{ij}$ represents the similarity of the mappings $y_i$:
+
+$$q_{ij} = \frac{(1 + \lVert y_i - y_j \rVert^2)^{-1}}{\sum_{k \ne i} (1 + \lVert y_i - y_j \rVert^2)^{-1}}$$
+
+## Latex Visualization
+
+Yuki Nishimura and Jay Zern Ng
+
+### Summary
+
+LaTeX Visualization is essential for writers that are hoping to publish academic papers with visualizations of concepts and findings. 
+
+For first time academic writers, it may be difficult to figure out the types of visualizations that could be done using LaTeX. 
+
+Therefore, we have written a tutorial for LaTeX Visualization to accommodate the needs of inexperienced academic writers in the following link: [Click Here](https://jayzern.github.io/latex-visualization/)
+
+Hope you enjoy the tutorial :D
+
+## RStudio vs JupyterLab for Data Science
+
+Dhananjay Deshpande
+
+This presentation introduces RStudio and JupyterLab as Data Science tools to the audience and compares the salient features of each tool. It later summarizes the findings and makes recommendations for Data Scientists based on current features available.
+
+[RStudio vs JupyterLab for Data Science](https://dcd2139.github.io/edav_contribution/#/)
+
+
+## SandDance visualization tool
+
+Mughilan Muthupari and Anjani Prasad Atluri
+
+We have made a video tutorial on SandDance (a visualization tool by Microsoft), posted on YouTube [here](https://www.youtube.com/watch?v=sI4WIQEz07w){target="_blank"}.
+
+**Note:** The presentation used can be found in the description of the video.
+
+## GeomMLBStadiums
+
+Luke Beasley and Chris Russo
+
+We wrote a tutorial for the GeomMLBStadiums package which contains tools for graphing baseball data. The tutorial is on GitHub: [Visualization_with_GeomMLBStadiums](https://github.com/cfrusso/Visualization_with_GeomMLBStadiums/blob/master/geommlbstadiums_tutorial.md)
+
+
+## Visualization: Python VS R
+
+Nima Chitsazan and Foad Khoshouei
+
+We created a video describing visualization in python and R. For python we specifically focused on matplotlib library and compared it to ggplot library of R. 
+
+The video is available on youtube:
+https://youtu.be/phVKWXaAStY
+
+The slides are available:
+https://github.com/fk2377/EDAVCC
+
+## Tweepy
+
+Kevin Womack
+
+On Friday, October 25, 2019, I co-hosted a two-part workshop for undergraduates from Morehouse College, Spelman College, and Clark Atlanta University on data mining social media platforms for applications in threat detection. For the sake of time and simplicity, I elected to solely concentrate on Twitter for the source of data in my tutorial and utilize Python to simplify the implementation process and limit code-writing confusion. \
+
+
+[Part One](https://docs.google.com/presentation/d/1mGZE6xk5paXZISmHPAvkKYFein-a-xzQ7wVQp3bsvaU/edit?usp=sharing) (<- clickable link to slides) of the workshop was a Python review to catch everyone up to speed on the syntax they would need to perform basic tasks in the language.
+
+[Part Two](https://docs.google.com/presentation/d/1STll7172DMys6xQaZvF4BJYNP8rBtBZIXb4c7NS6Cp8/edit?usp=sharing) (<- clickable link to slides) of the workshop was an overview of the Tweepy documentation with intermittent live demos. \
+
+
+A review of my experience hosting this workshop was submitted on Courseworks with this file.
+
+
+## NLP Basics With Python
+
+Ashutosh Kanitkar
+
+For my coummunity contribution, I decided to teach a lecture on NLP(Natural Language Processing) for Master of Social Work (MSW) students.There were quite a few challenges that i faced, when i was deciding the content of my lecture.Some of which were how mathemathically deep should i go and teach them about NLP, how much deep should i teach them about coding, which language and library should i demonstrate my NLP code in, etc. After much deliberation i came to conclusion that these students do not need to learn the mathemathics of NLP rather they need to learn basic concepts of NLP and how to apply NLP for some tasks that they might encounter. I distinctly remember that at end of my lecture, there were quite a few people who wanted to see output of what it looks like when a syntax is run( which was shown to them).Additionally as a bonus i showed them how to visualize basic concepts taught during lecture using displacy.This experience was extremely satisfying for me and i enjoyed it thoroughly. 
+Notes that i used during the lecture are available at below url
+https://drive.google.com/file/d/1oJgCWFnEyYtT2j04DZhE2nRIgpG1spuA/view?usp=sharing
+
+
+
+
+
+
+
+
