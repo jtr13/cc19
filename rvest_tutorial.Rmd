@@ -3,14 +3,11 @@
 Huiyu Song and Xiao Ji
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,warning = FALSE, message = FALSE,comment = NA)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, comment = NA)
 ```
 
 ```{r, echo=FALSE}
-library(tibble)
-library(ggplot2)
 library(tidyverse)
-library(stringr)
 library(knitr)
 ```
 
@@ -94,7 +91,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 The basic structure of a webpage looks like this:
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("resources/rvest_tutorial/html structure.jpg")
+knitr::include_graphics("resources/rvest_tutorial/html_structure.jpg")
 ```
 
 More details can be refered to https://www.w3schools.com/html/html_intro.asp
@@ -215,13 +212,15 @@ knitr::include_graphics("resources/rvest_tutorial/xpath.png")
 **Examples**  
 Extract all product details in the contact links.  
 ```{r}
-library(stringr)
-data<-data.frame()
-info<-page%>%
-  html_nodes('ul#search-result-items li div span[itemprop="url"]')%>%
+data <- data.frame()
+info <- page%>%
+  html_nodes('ul#search-result-items li div span[itemprop="url"]') %>%
   html_text()
 info[1:6]
+```
 
+```{r, echo=FALSE, eval=FALSE}
+# Set to eval=FALSE since it's causing errors and output is duplicate to previous chunk
 info2=as.data.frame(info)
 info2<-mutate(info2,name="",detail="")
 i=1
@@ -237,14 +236,14 @@ for (link in info)
 info2=info2[,-1]
 head(info)
 ```
-<br><br/>
+<br>
 
 ## 5 More Examples
 ### 5.1 Scrape links using attributes
 HTML links are defined with the tag \<a\>. The link address is specified in the "href" attribute. Suppose we want to get the link of each trend ticker, we can right click the stock symbol and check the source code:
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("resources/rvest_tutorial/example read link.jpg")
+knitr::include_graphics("resources/rvest_tutorial/example_read_link.jpg")
 ```
 
 So we use ".data-col0 a"" as the node and "href" as the attribute:
@@ -269,7 +268,7 @@ head(dt,5)
 The first step is to locate the table.  
 
 ```{r, out.width = "500px",echo=FALSE}
-knitr::include_graphics("resources/rvest_tutorial/example locate table.jpg")
+knitr::include_graphics("resources/rvest_tutorial/example_locate_table.jpg")
 ```
 
 Then copy the Xpath. When we paste the path, it should be like: //*[@id="quote-summary"]/div[1]/table  
