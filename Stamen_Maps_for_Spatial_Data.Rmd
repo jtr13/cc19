@@ -62,7 +62,7 @@ ggplot(data=df, aes((fct_rev(fct_infreq(BOROUGH))))) +
   theme(legend.position = "top")
 
 # accidents by contributing factors
-ggplot(data=df, aes((fct_rev(fct_infreq(CONTRIBUTING.FACTOR.VEHICLE.1, .desc = FALSE))))) + 
+ggplot(data=df, aes((fct_rev(fct_infreq(CONTRIBUTING.FACTOR.VEHICLE.1))))) + 
   geom_bar( color="black", fill="tomato") +
   ggtitle("Number of Accidents due to different Factors", ) + theme(plot.title = element_text(hjust = 0.5)) + 
   xlab("Contributing Factor") +ylab("Accidents Count") + 
