@@ -88,6 +88,7 @@ Imports:
   hextri,
   Rmpfr,
   robotstxt,
+  reticulate,
   ggmosaic,
   plan,
   rvest,
