@@ -1,5 +1,10 @@
 # Using Stamen Maps for Plotting Spatial Data
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
+                      message = FALSE)
+```
+
 Kumari Nishu and Neelam Patodia
 
 Objective: 
@@ -9,33 +14,46 @@ Approach:
 We conduct a comparative study between different types of graphs to understand the visualization tool which best demonstrates spatial data.We use the publicly available data on the number of vehicle collisions in New York for this demonstration.   
 
 ```{r}
-library(caret)
 library(dplyr)
 library(ggmap)
-library(ggplot2)
-library(forwards)
-#library(plyr)
-library(gridExtra)
 
 #Original Dataset avaialble at "https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95/data". We are using the 1st 900 rows as sample here.
-raw_df<-read.csv(file="../resources/newyork_sample_collisions_data.csv", header=TRUE, sep=",")
+raw_df <-
+  read.csv(file = "resources/newyork_sample_collisions_data.csv", header =
+             TRUE, sep = ",")
 ```
 
 
 ```{r}
 #Selecting specific columns and rows 
 
-reasons <- c("Driver Inattention/Distraction", "Failure to Yield Right-of-Way", "Traffic Control Disregarded","Following Too Closely", "Fatigued/Drowsy", "Backing Unsafely")
+reasons <-
+  c(
+    "Driver Inattention/Distraction",
+    "Failure to Yield Right-of-Way",
+    "Traffic Control Disregarded",
+    "Following Too Closely",
+    "Fatigued/Drowsy",
+    "Backing Unsafely"
+  )
 
-df<-raw_df %>% 
-  select (TIME,BOROUGH,LATITUDE,LONGITUDE,NUMBER.OF.PERSONS.INJURED, CONTRIBUTING.FACTOR.VEHICLE.1) %>%
+df <- raw_df %>%
+  select (
+    TIME,
+    BOROUGH,
+    LATITUDE,
+    LONGITUDE,
+    NUMBER.OF.PERSONS.INJURED,
+    CONTRIBUTING.FACTOR.VEHICLE.1
+  ) %>%
   na_if("") %>%  # recode empty strings "" by NAs
   na.omit %>% # remove NAs
   filter(NUMBER.OF.PERSONS.INJURED != 0) %>%
   filter(CONTRIBUTING.FACTOR.VEHICLE.1 %in% reasons)
 
 df$TIME <- as.character(df$TIME)
-df$TIME <- as.numeric(unlist(strsplit(df$TIME,":"))[seq(1,2*nrow(df), 2)])
+df$TIME <-
+  as.numeric(unlist(strsplit(df$TIME, ":"))[seq(1, 2 * nrow(df), 2)])
 
 #creating label based on the hour of day
 breaks <- c(0, 6, 12, 18, 24)
