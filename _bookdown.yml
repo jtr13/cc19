@@ -86,7 +86,6 @@ rmd_files: [
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
   'master_translation.Rmd',
-
    # Part: Translation
   'French_version_of_edav_info.Rmd',
   'SandDance.Rmd',
@@ -105,6 +104,8 @@ rmd_files: [
   'translation_of_lattice_intro.Rmd',
   'nullabor_translation_Korean.Rmd',
   'rvest_translation.Rmd',
+  'edav_info_heatmap_korean.Rmd',
+
 
   # cheatsheet
   'master_cheat_sheet.Rmd',
