@@ -17,7 +17,7 @@ This is probabily the most convinent package to plot a U.S. map along with some 
 
 Package(s) we need:
 ```{r}
-#installed.packages("usmap")
+#install.packages("usmap")
 library(usmap) #import the package
 library(ggplot2) #use ggplot2 to add layer for visualization
 ```
@@ -208,6 +208,7 @@ mapview(states)
 We use the same dataset from last method. We construct a interactive map with no specific information. If you are interested in a specific area, for example, water level, you can add specific choropleth to show more information.
 
 Package(s) we need:
+
 ```{r}
 #install.packages("leaflet")
 library(leaflet)
