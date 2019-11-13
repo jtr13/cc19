@@ -5,6 +5,7 @@ language:
 delete_merged_file: true
 new_session: yes
 edit: https://github.com/jtr13/cc19/edit/master/%s
+view: https://github.com/jtr13/cc19/blob/master/%s
 rmd_files: [
   # Part: Introduction
   "index.Rmd", # instructions
