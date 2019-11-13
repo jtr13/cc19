@@ -48,7 +48,8 @@ You could also select certain states using factors(state abbreviations).
 ```{r}
 plot_usmap(include = c("CT", "ME", "MA", "NH", "VT")) +
   labs(title = "New England Region") +
-  theme(panel.background = element_rect(color = "blue"))
+  theme(panel.background = element_r
+  ect(color = "blue"))
 ```
 
 The complete list of regions to choose is the following:
@@ -160,8 +161,8 @@ library(maps)
 ```
 
 ```{r}
-map("state", interior=FALSE)
-map("state", boundary=FALSE, col="gray", add=TRUE)
+maps::map("state", interior=FALSE)
+maps::map("state", boundary=FALSE, col="gray", add=TRUE)
 ```
 
 
