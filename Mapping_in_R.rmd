@@ -1,0 +1,149 @@
+# Mapping in R
+
+Hanjun Li and Chengchao Jin
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+This section covers how to draw maps using R. The packages we will be using are `ggplot2` and `maps`. 
+
+## What is `maps`?
+The package `maps`, which contains a lot of outlines of continents, countries, states, and counties, is used to visualize geographical map. Some notable features and functions of `maps` are:
+
+
+* `county`: counties of the United States mainland generated from US Department of the Census data. we can use `county.fips` to check the all counties listed.  
+
+* `map`: main function used to draw lines and polygons as specified by a map database.  
+
+* `state`: states of the United States mainland generated from US Department of the Census data  
+
+* `usa`: this database produces a map of the United States
+
+
+## Installing `maps`
+
+You can install `maps` from CRAN:
+```
+install.packages("maps")
+```
+Load the required packages
+```{r}
+library(maps)
+library(ggplot2)
+```
+
+## Simple Demonstration (using `maps`)
+```{r,fig.align='center'}
+maps::map("usa", col = "#9FF781", fill = TRUE)
+map.axes(cex.axis=0.8) 
+maps::map("state", lty = 2, add = TRUE, col = "#0B3B39") # map the state borderline to the US map
+title(main = "United States Mainland by States", xlab = "Longitude", ylab = "Latitude",
+      cex.lab = 0.8)
+```
+
+* The function `map("usa")` plots a map of the United States Mainland. The x-axis and y-axis represent longtitude and latitude respectively. Positive latitude is above the equator (N), and negative latitude is below the equator (S). Positive longitude is east of the prime meridian, while negative longitude is west of the prime meridian (a north-south line that runs through a point in England).
+* The function `map("state",add=True)` adds the state borderline to the US map.
+
+```{r}
+maps::map('county', region = 'new york', col = "#5E610B")
+map.cities(us.cities, country="NY", col = "#642EFE", cex = 0.6) # map cities recorded in us.cities to NY State
+map.axes(cex.axis=0.8) 
+title(main = "New York State by Counties", xlab = "Longitude", ylab = "Latitude",
+      cex.lab = 0.8)
+```
+
+* The graph above plots the state map of New York. The function `map.cities` points out the recorded cities in us.cities in New York State map (blue dots).
+
+## Simple Demonstration (using `ggplot2`)
+
+We would first introduce the function `map_data` from `ggplot2`, which converts the map to a data frame. The most important variable we need to pass to `map_data` is the name of map provided by the `maps` package. These include: `maps::usa`, `maps::france`, `maps::italy` and etc.  
+```{r}
+usa <- map_data("usa")
+class(usa)
+head(usa)
+```
+
+
+```{r}
+ggplot() + geom_polygon(data = usa, aes(x=long, y = lat), fill = "#9F81F7") + 
+  labs(title = "Map of the United States Mainland", x = "longitude", y = "latitude") +
+  coord_fixed(1.3) +
+  theme(panel.background = element_blank())
+```
+
+* We could plot the map of the United States Mainland using `ggplot2` as well. First, we require a data which contains information of longitude and latitude. The function `map_data` can easily turn data from the maps package into a data frame suitable for plotting with ggplot2. Then we pass the suitable data frame to `geom_polygon` function. Again, the two axis represent longitude and latitude.
+
+```{r}
+states <- map_data("state")
+counties <- map_data("county")
+NewYork <- subset(states, region == "new york")
+head(NewYork)
+ny_county <- subset(counties, region == "new york")
+head(ny_county)
+```
+
+```{r}
+ggplot() + geom_polygon(data = NewYork, aes(x=long, y = lat, fill = subregion)) +
+  geom_polygon(data = ny_county, aes(x=long, y = lat, group = group), color = "white", fill = NA) +
+  labs(title = "New York State by Counties", x = "longitude", y = "latitude") +
+  coord_fixed(1.3) +
+  theme(panel.background = element_blank())
+```
+
+* To plot the map of New York State, we need to preprocess the data frame using `map_data` and `subset`. We first fill the map by subregions, and then we add the borderlines to the map.
+
+## Mapping with `geom_map`
+we will use the built-in `state.x77` dataset. This 50 by 8 dataset contains some US State facts and figures. For instance, the variable **Population** indicates the population estimate as of July 1, 1975 in each states. For our example, we choose to investigate **Income** and **Murder**
+```{r}
+head(state.x77)
+```
+
+
+```{r}
+library(tidyverse)
+
+df <- state.x77 %>% as.data.frame() %>% rownames_to_column("state")
+df$state <- tolower(df$state)
+
+ggplot(df, aes(map_id = state)) + geom_map(aes(fill = Income), map = states) +
+  expand_limits(x = states$long, y = states$lat) +
+  scale_fill_gradient(low = "white", high = "#FE2EC8") +
+  labs(title = "US Per Capita Income by States, 1974", x = "longitude", y = "latitude",
+       caption = "source: https://www.rdocumentation.org/packages/
+       datasets/versions/3.6.1/topics/state") +
+  coord_fixed(1.3) +
+  theme(panel.background = element_blank())
+```
+
+* The graph above plots the heatmap of US per Capita income by state in 1974. To plot the state map, we need to preprocess data to make sure the state names are all in lowercase. Then, we use `map_id` to plot the states. We set the `fill` in `geom_map` function to the variable of interest to plot the heatmap. 
+
+```{r}
+ggplot(df, aes(map_id = state)) + geom_map(aes(fill = Murder), map = states, col = "white") +
+  expand_limits(x = states$long, y = states$lat) +
+  scale_fill_distiller(name = "murder rate", palette = "Spectral") +
+  labs(title = "US Murder Rate per 100,000 Population, 1976", x = "longitude", y = "latitude",
+       caption = "source: https://www.rdocumentation.org/packages/
+       datasets/versions/3.6.1/topics/state") +
+  coord_fixed(1.3) +
+  theme_minimal()
+```
+
+* This is another example of plotting with `geom_map`. The graph shows US murder rate in 1976.
+
+
+## Considerations
+
+* When we visualize the map using `ggplot2` and `geom_ploygon`, it is necessary to add `coord_fixed()` to ggplot as it fixes the ratio between x and y direction. The value **1.3** we used in `coord_fixed()` is an arbitrary value that makes the plot look good
+
+
+## External Resources
+
+* https://cran.r-project.org/web/packages/maps/maps.pdf is an R documentation on the package `maps`.
+
+* https://www.rdocumentation.org/packages/maps/versions/3.3.0/topics/map talks specifically about the function **map** in the package `maps`.
+
+* https://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html demonstrates some examples of mapping in R
+
+* The package `ggmap` is also used to draw maps. It uses the Google map platform and users need to register for an API key prior to accessing the database. More details on https://cran.r-project.org/web/packages/ggmap/ggmap.pdf and https://rdrr.io/cran/ggmap/man/register_google.html
