@@ -1,6 +1,4 @@
-# (PART) Links {-}
-
-# Workshops
+# (PART) Workshops {-}
 
 Some groups of students have contributed to the community by running the following workshops.
 

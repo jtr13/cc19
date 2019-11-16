@@ -4,7 +4,7 @@ remove_blank_lines <- function(filecontents) {
   filecontents[nchar(filecontents) > 0]
 }
 
-rmds <- list.files(pattern = ".Rmd")
+filename <- list.files(pattern = ".Rmd")
 
 contents <- lapply(rmds, readLines) %>%
   lapply(trimws) %>%
@@ -12,10 +12,15 @@ contents <- lapply(rmds, readLines) %>%
 
 len <- lapply(contents, length) %>% unlist()
 
-df <- data.frame(rmds, len)
+df <- data.frame(filename, len)
 
 library(ggplot2)
 
 df %>%
   filter(len < 50) %>%
   ggplot(aes(reorder(rmds, len), len)) + geom_point() + coord_flip()
+
+chapters <- df %>% filter(len > 25) %>%
+  select(filename)
+
+write_csv(chapters, "internal/chapters.csv")
