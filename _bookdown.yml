@@ -111,7 +111,7 @@ rmd_files: [
   'rmarkdown_tutorial.Rmd',
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
-#  'keras_tutorial.Rmd',
+  'keras_tutorial.Rmd',
   'carto_tutorial.Rmd',
   'Multivariable_Regression_Tutorial.Rmd'
 ]
