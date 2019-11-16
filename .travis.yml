@@ -17,6 +17,7 @@ r_github_packages:
  - hrbrmstr/statebins
  - m-dev-/likert
  - rstudio/bookdown
+ - rstudio/leaflet
 
 addons:
   apt:

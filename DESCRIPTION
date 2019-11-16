@@ -41,7 +41,6 @@ Imports:
   knitr,
   lars,
   lattice,
-  leaflet,
   likert,
   lubridate,
   mapdata,
