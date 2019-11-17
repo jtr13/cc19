@@ -14,8 +14,8 @@ rmd_files: [
   # Part: Spatial Analysis
   'maps.Rmd',
   'Mapping_in_R.rmd',
-  'plotting_maps_tutorial.Rmd',
-  'us_map.Rmd',
+#  'plotting_maps_tutorial.Rmd',
+#  'us_map.Rmd',
   'Stamen_Maps_for_Spatial_Data.Rmd',
 
 
