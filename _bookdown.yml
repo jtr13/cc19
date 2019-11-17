@@ -11,8 +11,17 @@ rmd_files: [
   'index.Rmd', # do not move
   'sample_project.Rmd',
 
+
   # Part II: Working with data
   'data_structure_and_data_cleaning_tutorial.Rmd', # do not move
+
+  # Part: Spatial Analysis
+  'maps.Rmd',
+  'Mapping_in_R.rmd',
+#  'plotting_maps_tutorial.Rmd',
+#  'us_map.Rmd',
+  'Stamen_Maps_for_Spatial_Data.Rmd',
+
 
   # Part III: Static Graphs
   'ridgeline_plot.Rmd', # do not move
@@ -90,6 +99,7 @@ rmd_files: [
   'master_video.Rmd',  # do not move
   'r_vs_tableau_plots.Rmd',
   'wordcloud_tutorial.Rmd',
+  'VideoInterviews.Rmd',
   'python_r_markdown.Rmd',
   't_SNE_overview.Rmd',
   'Exploring_Financial_Models.Rmd',
