@@ -12,4 +12,6 @@ Some groups of students have contributed to the community by running the followi
 
 ```
 
+```{r, child = "Github_helpsession.Rmd"}
 
+```
