@@ -42,6 +42,7 @@ Imports:
   lars,
   lattice,
   leaflet,
+  leaflet-providers,
   likert,
   lubridate,
   mapdata,
