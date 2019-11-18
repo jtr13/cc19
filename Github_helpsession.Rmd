@@ -1,0 +1,7 @@
+## GitHub Help Session 
+
+Karthik Rajaraman Iyer and Akshay Pakhle
+
+We held a walk in doubt session for peers , helping them resolve issues with the github workflow. While some had trouble setting up environment variables in GitBash, other common clarifications were about the brached workflow, creation/handing of pull requests and the appropriate use of issues.
+
+We also helped in designing a practice assignment to get a grasp over the github workflow.
