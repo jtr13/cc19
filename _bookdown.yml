@@ -11,17 +11,8 @@ rmd_files: [
   'index.Rmd', # do not move
   'sample_project.Rmd',
 
-
   # Part II: Working with data
   'data_structure_and_data_cleaning_tutorial.Rmd', # do not move
-
-  # Part: Spatial Analysis
-  'maps.Rmd',
-  'Mapping_in_R.rmd',
-#  'plotting_maps_tutorial.Rmd',
-#  'us_map.Rmd',
-  'Stamen_Maps_for_Spatial_Data.Rmd',
-
 
   # Part III: Static Graphs
   'ridgeline_plot.Rmd', # do not move
@@ -41,9 +32,6 @@ rmd_files: [
 
   # Part IV: Interactive Graphs
   'a_tutorial_of_shiny.Rmd', # do not move
-  'nullabor_translation_Korean.Rmd',
-  'data_structure_and_data_cleaning_tutorial.Rmd',
-  'world_heatmap.Rmd',
 
   # Part V: Spatial Analysis
   'maps.Rmd', # do not move
@@ -51,6 +39,7 @@ rmd_files: [
   'plotting_maps_tutorial.Rmd',
   'us_map.Rmd',
   'Stamen_Maps_for_Spatial_Data.Rmd',
+  'world_heatmap.Rmd',
 
   # Part VI: Workshops
   'master_workshop.Rmd', # do not move
@@ -99,7 +88,6 @@ rmd_files: [
   'master_video.Rmd',  # do not move
   'r_vs_tableau_plots.Rmd',
   'wordcloud_tutorial.Rmd',
-  'VideoInterviews.Rmd',
   'python_r_markdown.Rmd',
   't_SNE_overview.Rmd',
   'Exploring_Financial_Models.Rmd',
@@ -121,7 +109,7 @@ rmd_files: [
   'rmarkdown_tutorial.Rmd',
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
-  'keras_tutorial.Rmd',
+#  'keras_tutorial.Rmd',
   'carto_tutorial.Rmd',
   'Multivariable_Regression_Tutorial.Rmd'
 ]
