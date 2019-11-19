@@ -57,4 +57,14 @@ Imports:
   RColorBrewer,
   leaflet,
   tmap,
-  tidyr
+  tidyr,
+  tseries,
+  forecast,
+  tidyquant,
+  sf,
+  googlesheets,
+  data.table,
+  countrycode,
+  gridExtra,
+  devtools,
+  Rmpfr
