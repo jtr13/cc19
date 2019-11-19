@@ -91,4 +91,5 @@ Imports:
   reticulate,
   ggmosaic,
   plan,
-  rvest
+  rvest,
+  maps
