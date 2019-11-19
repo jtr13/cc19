@@ -85,7 +85,6 @@ rmd_files: [
   'keras_tutorial.Rmd',
 
   # Part: Links
-  'master_workshop.Rmd',
   'master_cheat_sheet.Rmd',
   'master_video.Rmd',
   'master_translation.Rmd',
