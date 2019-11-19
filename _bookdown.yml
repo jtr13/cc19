@@ -14,8 +14,8 @@ rmd_files: [
   # Part: Spatial Analysis
   'maps.Rmd',
   'Mapping_in_R.rmd',
-#  'plotting_maps_tutorial.Rmd',
-#  'us_map.Rmd',
+  'plotting_maps_tutorial.Rmd',
+  'us_map.Rmd',
   'Stamen_Maps_for_Spatial_Data.Rmd',
 
 
@@ -82,7 +82,7 @@ rmd_files: [
   'rmarkdown_tutorial.Rmd',
   'basic_r_tutorial.Rmd',
   'midsemester_review.Rmd',
-  'keras_tutorial.Rmd',
+#  'keras_tutorial.Rmd',
 
   # Part: Links
   'master_workshop.Rmd',

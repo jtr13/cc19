@@ -247,8 +247,11 @@ Using the 2015 state population data set from usmap package, we could then draw 
 pop <- usmap::statepop #read in the dataset
 popmap <- append_data(us_geo, pop, key.shp = "NAME", key.data = "full") #merge the data set and the spatial obect
 ```
+
 ```{r}
-map <- qtm(popmap, fill = "pop_2015") #draw a static map first
-interactive_map<-tmap_leaflet(map) #then add interactivity to the map
-interactive_map
+# not working at the moment due to 
+# leaflet-providers html_dependency issue
+# map <- qtm(popmap, fill = "pop_2015") #draw a static map first
+# interactive_map<-tmap_leaflet(map) #then add interactivity to the map
+# interactive_map
 ```
