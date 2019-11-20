@@ -1,4 +1,4 @@
-# SandDance visualization tool
+## SandDance visualization tool
 
 Mughilan Muthupari and Anjani Prasad Atluri
 

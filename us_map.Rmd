@@ -248,9 +248,9 @@ pop <- usmap::statepop #read in the dataset
 popmap <- append_data(us_geo, pop, key.shp = "NAME", key.data = "full") #merge the data set and the spatial obect
 ```
 
-```{r}
-# not working at the moment due to 
-# leaflet-providers html_dependency issue
+
+```{r} 
+# not working, issue with leaflet-providers html_dependency
 # map <- qtm(popmap, fill = "pop_2015") #draw a static map first
 # interactive_map<-tmap_leaflet(map) #then add interactivity to the map
 # interactive_map

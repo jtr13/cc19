@@ -1,4 +1,4 @@
-# Exploring Financial Models
+## Exploring Financial Models
 
 Shreyas Jadhav(sj3006), Andrei Sipos(ags2202), Gideon Teitel(gt2288)
 
@@ -36,11 +36,6 @@ Price=c(P0,miu*dt+sigma*sqrt(dt)*rnorm(n,mean=0,sd=1))
 Price=cumsum(Price)
 plot(t,Price,type='l',ylab="Price P(t)",xlab="Time t",main = "Brownian Motion")
 ```
-
-
-
-
-
 
 
 ```{r}

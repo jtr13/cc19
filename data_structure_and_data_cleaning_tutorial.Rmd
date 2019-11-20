@@ -1,4 +1,4 @@
-# Data Structure and Data Cleaning in R 101
+# Data Structure and Cleaning 101
 
 Zijian Wang and Shuo Yang
 

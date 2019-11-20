@@ -1,4 +1,6 @@
-# 'Likert' Package Chinese Translation 
+# (PART) Translations {-}
+
+# Likert Package Chinese Translation 
 
 Lingrui Luo and Zijing Wang
 

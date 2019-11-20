@@ -1,3 +1,5 @@
+# (PART) Cheatsheets {-}
+
 # EDAV Flowchart
 
 Yufeng Ma and Bing Xu

@@ -1,4 +1,4 @@
-# Overview of the t-SNE algorithm
+## Overview of the t-SNE algorithm
 
 Arjun Dhillon
 

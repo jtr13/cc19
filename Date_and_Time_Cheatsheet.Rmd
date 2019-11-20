@@ -1,4 +1,4 @@
-# Date and Time Cheatsheet in R programming Language 
+# Date and Time Cheatsheet in R
 
 Kanika Aggarwal and Swarna Bharathi Mantena
 
