@@ -1,0 +1,16 @@
+# Lightning Talks
+
+Some groups of students have contributed to the community by presenting short talks in class.
+
+```{r, child = "Exploring_Financial_Models.Rmd"}
+
+```
+
+```{r, child = "t_SNE_overview.Rmd"}
+
+```
+
+```{r, child =  "rstudio_vs_jupyterlab.Rmd"}
+
+```
+

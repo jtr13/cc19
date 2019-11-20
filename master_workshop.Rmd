@@ -1,4 +1,4 @@
-# (PART) Workshops {-}
+# Workshops
 
 Some groups of students have contributed to the community by running the following workshops.
 
@@ -10,4 +10,19 @@ Some groups of students have contributed to the community by running the followi
 
 ```
 
+```{r, child = "regex_workshop.Rmd"}
+
+```
+
+```{r, child = "Data_Visualization_Workshop.Rmd"}
+
+```
+
+```{r, child = "Tweepy.Rmd"}
+
+```
+
+```{r, child =  "NLP_Basics_with_Python.Rmd"}
+
+```
 

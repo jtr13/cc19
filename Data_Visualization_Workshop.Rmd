@@ -1,4 +1,4 @@
-# Data_Visualization_Workshop
+## Data_Visualization_Workshop
 
 Yuheng Shi & Banruo Xie
 
