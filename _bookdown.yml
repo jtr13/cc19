@@ -100,7 +100,7 @@ rmd_files: [
   'time_series_arima.Rmd',
   'hex_sticker.Rmd',
   'midsemester_review.Rmd',
-#  'keras_tutorial.Rmd',
+  'keras_tutorial.Rmd',
   'Multivariable_Regression_Tutorial.Rmd'
 ]
 
