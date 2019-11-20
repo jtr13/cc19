@@ -1,0 +1,11 @@
+## Volunteering through TEALS 
+
+(Technology and Education Literacy in Schools)
+
+Amanda Steigman
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This school year, I am a volunteer teaching assistant at a high school for a class of 23 11th graders taking their first computer science class. I got involved in this through a program called  [TEALS](https://www.microsoft.com/en-us/teals)(Technology Education and Literacy in Schools) and attend one of the two classes they have each week to help students work through labs and answer any questions they might have. For my community contribution, I created [data visualizations](https://github.com/asteigman/TEALS-viz/blob/master/TEALS_for_class.pdf) related to gender diversity in STEM inspired by this program.

@@ -10,6 +10,7 @@ Some groups of students have contributed to the community by running the followi
 
 ```
 
+
 ```{r, child = "regex_workshop.Rmd"}
 
 ```
@@ -23,6 +24,15 @@ Some groups of students have contributed to the community by running the followi
 ```
 
 ```{r, child =  "NLP_Basics_with_Python.Rmd"}
+
+```
+
+
+```{r, child = "Github_helpsession.Rmd"}
+
+```
+
+```{r, child = "volunteering_through_TEALS.Rmd"}
 
 ```
 

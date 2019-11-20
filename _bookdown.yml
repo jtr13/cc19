@@ -20,7 +20,6 @@ rmd_files: [
   'askamanager_salary_survey.Rmd',
   'rmarkdown_tutorial.Rmd',
 
-
   # Part III: Static Graphs
   'ridgeline_plot.Rmd', # do not move
   'gantt_chart.Rmd',
@@ -53,6 +52,7 @@ rmd_files: [
   'us_map.Rmd',
   'Stamen_Maps_for_Spatial_Data.Rmd',
   'world_heatmap.Rmd',
+
 
   # Part VI: Data analysis
   'tinder_study.Rmd', # do not move
@@ -105,3 +105,5 @@ rmd_files: [
 ]
 
 before_chapter_script: "_common.R"
+
+
