@@ -1,4 +1,4 @@
-# Exploring Financial Models
+## Exploring Financial Models
 
 Shreyas Jadhav(sj3006), Andrei Sipos(ags2202), Gideon Teitel(gt2288)
 
