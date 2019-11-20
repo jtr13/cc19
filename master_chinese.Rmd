@@ -1,0 +1,33 @@
+# (PART) Translations {-}
+
+# Chinese
+
+Some groups of students have contributed to the community by translating useful resources into another language.
+
+```{r, child='Translation_for_R_and_ggplot2_visualization.Rmd'}
+
+```
+
+```{r, child = "forcats_tutorial_translation.Rmd"}
+
+```
+
+
+
+```{r, child = "likert_package_translate.Rmd"}
+
+```
+
+```{r, child = 'rvest_translation.Rmd'}
+
+```
+
+
+```{r, child = 'translation_visualising_spatial_data.Rmd'}
+
+```
+
+```{r, child = 'rvest_data_transformation_translate.Rmd'}
+
+```
+

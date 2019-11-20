@@ -1,0 +1,10 @@
+# Korean
+
+```{r, child = 'nullabor_translation_Korean.Rmd'}
+
+```
+
+
+```{r, child =  'edav_info_heatmap_korean.Rmd'}
+
+```

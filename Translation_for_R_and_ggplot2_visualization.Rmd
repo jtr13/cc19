@@ -1,4 +1,4 @@
-## Translation for R & ggplot2 visualization tutorials
+## R and ggplot2
 
 Yuchen Pei and Jiaqi Tang
 

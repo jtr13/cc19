@@ -71,20 +71,15 @@ rmd_files: [
   'master_cheat_sheet.Rmd',
 
    # Part XIII: Translation
-  'likert_package_translate.Rmd', # do not move
-  'forcats_tutorial_translation.Rmd',
-  'French_version_of_edav_info.Rmd',
-  'translation_visualising_spatial_data.Rmd',
-  'rvest_data_transformation_translate.Rmd',
-  'master_translation.Rmd',
+  'master_chinese.Rmd', # do not move
+  'master_french.Rmd',
+  'master_korean.Rmd',
+  'nullabor_translation_Korean.Rmd',
   'continuous_variables_with_r_in_chinese.Rmd',
   'Stringr_introduction_chinese_version.Rmd',
   'parcoords_translation.Rmd',
   'Chinese_Translation_of_plotly_and_parcoords.Rmd',
   'translation_of_lattice_intro.Rmd',
-  'nullabor_translation_Korean.Rmd',
-  'rvest_translation.Rmd',
-  'edav_info_heatmap_korean.Rmd',
   'ggmosaic_cheatsheet_translation.Rmd',
 
   # Part IX: Other
@@ -100,7 +95,7 @@ rmd_files: [
   'time_series_arima.Rmd',
   'hex_sticker.Rmd',
   'midsemester_review.Rmd',
-  'keras_tutorial.Rmd',
+#  'keras_tutorial.Rmd',
   'Multivariable_Regression_Tutorial.Rmd'
 ]
 

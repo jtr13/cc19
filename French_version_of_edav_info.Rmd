@@ -1,4 +1,4 @@
-# French version of edav.info
+## edav.info
 
 Amaury Sudrie, Maxime Tchibozo, Romane Goldmuntz and Vy Tran 
 
