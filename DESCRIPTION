@@ -115,5 +115,9 @@ Imports:
   countrycode,
   usmap,
   mapdata,
-  mapview
+  mapview,
+  curl,
+  diagram,
+  yaml,
+  cowplot
 

@@ -57,6 +57,7 @@ rmd_files: [
   # Part VI: Data analysis
   'tinder_study.Rmd', # do not move
   'ice_cream_survey.Rmd',
+  'senate.Rmd',
 
   # Part VII: Cheatsheets
   'edav_flowchart.Rmd', # do not move
