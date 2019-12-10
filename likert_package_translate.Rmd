@@ -1,4 +1,4 @@
-## Likert package
+# Likert package
 
 Lingrui Luo and Zijing Wang
 

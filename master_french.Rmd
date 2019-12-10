@@ -1,6 +1,0 @@
-# French
-
-```{r, child='French_version_of_edav_info.Rmd'}
-
-```
-

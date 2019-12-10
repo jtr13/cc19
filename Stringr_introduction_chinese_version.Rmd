@@ -1,4 +1,6 @@
-# Introduction to Stringr Stringr包入门详解
+# (PART) Chinese translations {-}
+
+# Intro to stringr 包入门详解
 
 Yichi Zhang and Mingfang Chang
 

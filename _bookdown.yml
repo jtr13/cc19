@@ -17,7 +17,6 @@ rmd_files: [
   'dataframe_cheatsheet.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'rvest_tutorial.Rmd',
-  'askamanager_salary_survey.Rmd',
   'rmarkdown_tutorial.Rmd',
 
   # Part III: Static Graphs
@@ -36,6 +35,7 @@ rmd_files: [
   'Radar_Charts.Rmd',
   'r_vs_tableau_plots.Rmd',
   'Viz_with_GeomMLBStadiums.Rmd',
+  'ggmosaic_cheatsheet.Rmd',
   'Comparative_Study_of_Mosaic.Rmd',
   'latex_visualization.Rmd',
 
@@ -57,6 +57,7 @@ rmd_files: [
   # Part VI: Data analysis
   'tinder_study.Rmd', # do not move
   'ice_cream_survey.Rmd',
+  'askamanager_salary_survey.Rmd',
 
   # Part VII: Cheatsheets
   'edav_flowchart.Rmd', # do not move
@@ -71,18 +72,24 @@ rmd_files: [
   'master_cheat_sheet.Rmd',
 
    # Part XIII: Translation
-  'master_chinese.Rmd', # do not move
-  'master_french.Rmd',
-  'master_korean.Rmd',
-  'nullabor_translation_Korean.Rmd',
-  'continuous_variables_with_r_in_chinese.Rmd',
-  'Stringr_introduction_chinese_version.Rmd',
+  'Stringr_introduction_chinese_version.Rmd', # do not move
+  'likert_package_translate.Rmd',
+  'rvest_translation.Rmd',
+  'rvest_data_transformation_translate.Rmd',
   'parcoords_translation.Rmd',
   'Chinese_Translation_of_plotly_and_parcoords.Rmd',
   'translation_of_lattice_intro.Rmd',
   'ggmosaic_cheatsheet_translation.Rmd',
+  'master_chinese.Rmd',
 
-  # Part IX: Other
+  # Part: IX French translation
+  'French_version_of_edav_info.Rmd',  # do not move
+
+  # Part: X Korean translations
+  'edav_info_heatmap_korean.Rmd',
+  'nullabor_translation_Korean.Rmd',
+
+  # Part XI: Other
   'master_video.Rmd',  # do not move
   'master_workshop.Rmd',
   'master_lightning.Rmd',

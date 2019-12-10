@@ -1,6 +1,4 @@
-# (PART) Translations {-}
-
-# Chinese
+# Links 
 
 Some groups of students have contributed to the community by translating useful resources into another language.
 
@@ -12,13 +10,7 @@ Some groups of students have contributed to the community by translating useful 
 
 ```
 
-
-
-```{r, child = "likert_package_translate.Rmd"}
-
-```
-
-```{r, child = 'rvest_translation.Rmd'}
+```{r, child = "continuous_variables_with_r_in_chinese.Rmd"}
 
 ```
 
@@ -26,8 +18,3 @@ Some groups of students have contributed to the community by translating useful 
 ```{r, child = 'translation_visualising_spatial_data.Rmd'}
 
 ```
-
-```{r, child = 'rvest_data_transformation_translate.Rmd'}
-
-```
-

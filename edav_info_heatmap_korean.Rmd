@@ -1,4 +1,6 @@
-## heatmaps
+# (PART) Korean translations
+
+# Heatmaps
 
 Ji In Choi and Jung Ah Shin
 
