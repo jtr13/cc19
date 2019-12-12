@@ -1,17 +1,22 @@
-# edav.info Heatmap in Korean 
+# (PART) Korean translations {-}
+
+# Heatmaps
 
 Ji In Choi and Jung Ah Shin
+
+*Source: https://edav.info/heatmap.html*
+
 
 ```{r,include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-## 개요
+### R Markdown
+### 개요
 
 이번 단원은 히트맵을 만드는 과정을 다룬다.
 
-## tl;dr
+### tl;dr
 
 다음은 미국, 영국 및 일본에 있는 아버지와 아들의 직업에 대한 히트맵이다. 
 
@@ -23,7 +28,7 @@ library(dplyr) # manipulation
 library(ggplot2) # plotting
 library(viridis) # color palette
 
-# format data
+## format data
 orderedclasses <- c("Farm", "LoM", "UpM", "LoNM", "UpNM")
 mydata <- Yamaguchi87
 mydata$Son <- factor(mydata$Son, levels = orderedclasses)
@@ -33,21 +38,21 @@ japan <- mydata %>% filter(Country == "Japan")
 uk <- mydata %>% filter(Country == "UK")
 us <- mydata %>% filter(Country == "US")
 
-## convert to % of country and class total
+### convert to % of country and class total
 mydata_new <- mydata %>% group_by(Country, Father) %>% 
   mutate(Total = sum(Freq)) %>% ungroup()
 
-## make custom theme
+### make custom theme
 theme_heat <- theme_classic() +
   theme(axis.line = element_blank(),
         axis.ticks = element_blank())
 
-## basic plot
+### basic plot
 plot <- ggplot(mydata_new, aes(x = Father, y = Son)) +
   geom_tile(aes(fill = Freq/Total), color = "white") +
   coord_fixed() + facet_wrap(~Country) + theme_heat
 
-## plot with text overlay and viridis color palette
+### plot with text overlay and viridis color palette
 plot + geom_text(aes(label = round(Freq/Total, 1)), 
                  color = "white") +
       scale_fill_viridis() +
@@ -62,9 +67,9 @@ plot + geom_text(aes(label = round(Freq/Total, 1)),
 
 이 데이터에 대해 더 자세한 정보를 얻으려면 콘솔(console)에 ?vcdExtra::Yamaguchi87 을 입력하면 된다.
 
-## 간단한 예제들
+### 간단한 예제들
 
-## 2-차원 빈 카운트를 사용한 히트 맵
+### 2-차원 빈 카운트를 사용한 히트 맵
 
 이 히트 맵에는 SpeedSki 데이터 셋을 사용할 것이다.
 
@@ -80,7 +85,7 @@ ggplot(SpeedSki, aes(Year, Speed)) +
   geom_bin2d()
 ```
 
-## 데이터 프레임의 히트 맵
+### 데이터 프레임의 히트 맵
 
 데이터 프레임을 시각적으로 이해하려면 히트 맵을 사용할 수 있다. 열의 크기를 조정하여 공통적인 척도로 데이터를 파악할 수도 있다. 이 예시에서는 geom_tile을 사용하여 데이터 프레임의 모든 셀을 그래프로 표시하고 값으로 색상을 지정한다.
 
@@ -91,7 +96,7 @@ library(viridis) # color palette
 
 data(wine)
 
-## convert to column, value
+### convert to column, value
 wine_new <- wine %>%
   rownames_to_column() %>%
   gather(colname, value, -rowname)
@@ -105,7 +110,7 @@ ggplot(wine_new, aes(x = rowname, y = colname, fill = value)) +
 
 
 ```{r}
-## 다른 스케일링을 사용한 히트맵
+### 다른 스케일링을 사용한 히트맵
 wine_scaled <- data.frame(scale(wine)) %>%
   rownames_to_column() %>%
   gather(colname, value, -rowname)
@@ -116,7 +121,7 @@ ggplot(wine_scaled, aes(x = rowname, y = colname, fill = value)) +
 ```
 
 
-## 수정 
+### 수정 
 
 ggplot 함수 호출 체인에서 색상 팔레트를 지정하여 색상 팔레트를 변경할 수 있다. bin 너비는 geom_bin2d () 함수 내부에 추가 할 수 있다.
 library(viridis) # viridis color palette
@@ -124,41 +129,41 @@ library(viridis) # viridis color palette
 ```{r}
 library(viridis) # viridis color palette
 library(GDAdata) # data (SpeedSki)
-## create plot
+### create plot
 g1 <- ggplot(SpeedSki, aes(Year, Speed)) + 
   scale_fill_viridis() # 색상 변경
 
-## show plot
+### show plot
 g1 + geom_bin2d(binwidth = c(5, 5)) # bin 너비 변
 ```
 
 또 다른 예는 다음과 같다.
 ```{r}
-##  더 큰 빈 너비를 사용한 히트맵 
+###  더 큰 빈 너비를 사용한 히트맵 
 g1 + geom_bin2d(binwidth = c(10, 10)) 
 ```
 
 ```{r}
-##육각형 빈을 사용한 히트맵 
+###육각형 빈을 사용한 히트맵 
 g1 + geom_hex(binwidth = c(5, 5))
 ```
 
 
 ```{r}
-## 육각형 빈과 산포도를 사용한 히트맵
+### 육각형 빈과 산포도를 사용한 히트맵
 g1 + geom_hex(binwidth = c(5, 5), alpha = .4) + 
   geom_point(size = 2, alpha = 0.8)
 ```
 
 ```{r}
-## 사용자 정의를 사용한 커스텀 색상 그라디언트와 빈 카운트를 가진 육각형 빈
+### 사용자 정의를 사용한 커스텀 색상 그라디언트와 빈 카운트를 가진 육각형 빈
 
 ggplot(SpeedSki, aes(Year, Speed)) + 
   scale_fill_gradient(low = "#cccccc", high = "#09005F") + # color
   geom_hex(bins = 10) # number of bins horizontally/vertically
 ```
 
-## 이론
+### 이론
 
 히트맵은 산점도 (Scatterplot) 와 히스토그램의 조합과 유사하다.상대 분포를 보는 동시에 여러 모수를 비교할 수 있기 때문이다.
 - 히트맵이 시각적으로 눈에 띄지만 정보 전달에는 다른 종류의 그래프들이 훨씬 더 효과적일 수 있다.
@@ -167,7 +172,8 @@ https://campus.datacamp.com/courses/data-visualization-with-ggplot2-2/chapter-4-
 
 
 
-## 추가 자료
+### 추가 자료
 
 - https://www.r-graph-gallery.com/heatmap/ : heatmap() 함수를 사용해서 히트맵을 만든 예시들이 있다.
 - https://www.r-bloggers.com/how-to-make-a-simple-heatmap-in-ggplot2/ : Geom_title() 을 사용해서 히트맵을 만드는 방법.
+

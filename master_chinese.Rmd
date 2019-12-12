@@ -1,0 +1,20 @@
+# Links 
+
+Some groups of students have contributed to the community by translating useful resources into another language.
+
+```{r, child='Translation_for_R_and_ggplot2_visualization.Rmd'}
+
+```
+
+```{r, child = "forcats_tutorial_translation.Rmd"}
+
+```
+
+```{r, child = "continuous_variables_with_r_in_chinese.Rmd"}
+
+```
+
+
+```{r, child = 'translation_visualising_spatial_data.Rmd'}
+
+```

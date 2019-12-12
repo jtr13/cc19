@@ -1,4 +1,5 @@
 # analysis of contributions
+library(dplyr)
 
 library(tidyverse)
 
@@ -18,9 +19,10 @@ len <- lapply(contents, length) %>% unlist()
 
 df <- data.frame(rmds, len)
 
+
 df %>%
-  filter(len < 50) %>%
-  ggplot(aes(reorder(rmds, len), len)) + geom_point() + coord_flip()
+  filter(len < 25) %>%
+  ggplot(aes(reorder(filename, len), len)) + geom_point() + coord_flip()
 
 shortchapters <- df %>% filter(len <= 20) %>%
   select(rmds)

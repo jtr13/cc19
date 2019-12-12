@@ -1,4 +1,6 @@
-# French version of edav.info
+# (PART) French translation {-}
+
+# edav.info
 
 Amaury Sudrie, Maxime Tchibozo, Romane Goldmuntz and Vy Tran 
 
