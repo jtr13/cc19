@@ -1,16 +1,17 @@
-# 'rvest' Package and Data Transformation Cheat Sheet Translate
+# rvest package 2
 
 Tianyi Wang and Xue Xia
 
-## Description:
+### Description:
 
 Our group do a translation for some useful resource. We translated the package description of 'rvest' and the cheatsheet for data transformation. The 'rvest' package is especially useful in obtaining the information we need from websites quickly. Also, data transformation is an efficient way to do multiple things in single line of code. So we decided to translate these two into Chinese so that more people can benefit from it. 
 
-### Source: 
+### Source
 https://rstudio.com/resources/cheatsheets/               
 https://cran.r-project.org/web/packages/rvest/rvest.pdf
 
-# Cheatsheet
+### Cheatsheet
+
 ```{r echo=FALSE, out.width='100%'}
 
 knitr::include_graphics('./cheatsheet1.jpg')
@@ -20,8 +21,7 @@ knitr::include_graphics('./cheatsheet2.jpg')
 ```
 
 
-
-# ‘rvest’爬虫包
+#### ‘rvest’爬虫包
 
 
 ##### 简介
@@ -32,7 +32,6 @@ http://rvest.tidyverse.org/, https://github.com/tidyverse/rvest
 
 ##### 英文版
 https://cran.r-project.org/web/packages/rvest/rvest.pdf
-
 
 
 ### Encoding（乱码处理）

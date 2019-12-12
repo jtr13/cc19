@@ -1,4 +1,4 @@
-# Translation of 'nullabor' package: introduction, examples, and distance documentation
+# nullabor
 
 Jinwoo Jung and Tae Yoon Lim
 

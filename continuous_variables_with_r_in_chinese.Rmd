@@ -1,4 +1,4 @@
-# Continuous variables with R (Chinese)
+## Continuous variables with R (Chinese)
 
 Bangwei Zhou and Zhihao Ai
 
