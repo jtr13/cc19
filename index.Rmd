@@ -62,7 +62,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 
 Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
-## Submission Steps
+## Submission steps
 
 To submit your work, we will be following the instructions in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}, which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.
 

@@ -1,4 +1,4 @@
-# Data Structure and Cleaning 101
+# Data structure and cleaning 101
 
 Zijian Wang and Shuo Yang
 

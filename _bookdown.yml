@@ -58,6 +58,7 @@ rmd_files: [
   'tinder_study.Rmd', # do not move
   'ice_cream_survey.Rmd',
   'askamanager_salary_survey.Rmd',
+  'senate.Rmd',
 
   # Part VII: Cheatsheets
   'edav_flowchart.Rmd', # do not move
