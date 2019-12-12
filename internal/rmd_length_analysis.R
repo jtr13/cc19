@@ -1,10 +1,14 @@
 # analysis of contributions
 
+library(tidyverse)
+
+# find short chapters to make children
+
 remove_blank_lines <- function(filecontents) {
   filecontents[nchar(filecontents) > 0]
 }
 
-filename <- list.files(pattern = ".Rmd")
+rmds <- list.files(pattern = ".Rmd")
 
 contents <- lapply(rmds, readLines) %>%
   lapply(trimws) %>%
@@ -12,15 +16,19 @@ contents <- lapply(rmds, readLines) %>%
 
 len <- lapply(contents, length) %>% unlist()
 
-df <- data.frame(filename, len)
-
-library(ggplot2)
+df <- data.frame(rmds, len)
 
 df %>%
   filter(len < 50) %>%
   ggplot(aes(reorder(rmds, len), len)) + geom_point() + coord_flip()
 
-chapters <- df %>% filter(len > 25) %>%
-  select(filename)
+shortchapters <- df %>% filter(len <= 20) %>%
+  select(rmds)
 
-write_csv(chapters, "internal/chapters.csv")
+# short chapters still in _bookdown.yml:
+
+yaml <- readLines("_bookdown.yml")
+
+index <- lapply(shortchapters$rmds, function(x) grep(pattern = x, x = yaml)) %>% unlist
+
+yaml[index]

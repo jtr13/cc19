@@ -2,6 +2,15 @@
 
 Some groups of students have contributed to the community by writing the following cheat sheets.
 
+```{r, child = "bokeh_cheatsheet.Rmd"}
+```
+
+
+```{r, child = "categorical_data_cheatsheet.Rmd"}
+
+```
+
+
 ```{r, child = "Notes_html_js_d3.Rmd"}
 
 ```

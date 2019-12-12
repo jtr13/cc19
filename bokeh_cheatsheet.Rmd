@@ -1,4 +1,4 @@
-# Bokeh Cheatsheet
+## Bokeh Cheatsheet
 
 Zihe Wang(zw2624) and Yaotian Dai(yd2512)
 
