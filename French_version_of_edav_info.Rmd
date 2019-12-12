@@ -1,4 +1,4 @@
-# (PART) French translation
+# (PART) French translation {-}
 
 # edav.info
 

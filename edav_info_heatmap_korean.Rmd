@@ -1,4 +1,4 @@
-# (PART) Korean translations
+# (PART) Korean translations {-}
 
 # Heatmaps
 
