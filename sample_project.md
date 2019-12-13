@@ -1,0 +1,8 @@
+
+# Sample project
+
+Nancy Pelosi and Donald Trump
+
+This chapter gives a sample layout of your `Rmd` file. 
+
+![Test Photo](resources/sample_project/cu.jpeg)

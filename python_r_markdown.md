@@ -1,0 +1,9 @@
+
+# Python in Rmarkdown
+
+Karan Rao
+
+This is a quick tutorial for running Python code in an R Markdown file. This is especially useful for final projects where students may want to use Python for data cleaning, string manipulation, and even machine learning. This guide isn't exhaustive - it's intended to help you get started immediately and fix some common issues you might find.
+
+Link to GitHub document: https://github.com/raokaran/python-rmd/blob/master/PythonR.md
+

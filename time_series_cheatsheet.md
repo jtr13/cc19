@@ -1,0 +1,22 @@
+
+# (PART) Modeling {-}
+
+# Time Series Cheatsheet 
+
+Yunjun Xia and Shuyu Huang
+
+
+  
+    
+$\color{blue}{\textbf{STAT 5702 Community Contribution }}$   
+    
+      
+In this project, we have made an R studio cheatsheet about Time Series.  
+There are two related files for this Time Series Cheatsheet. One is a pdf file, and the other one is a keynote file. The two files are uploaded in Yunjun Xia's personal repository on Github with links as follows:
+https://github.com/xiayunj/time_series_cheatsheet/blob/master/TimeSeriesCheatsheet.pdf
+https://github.com/xiayunj/time_series_cheatsheet/blob/master/TimeSeriesCheatsheet.key
+
+$\color{blue}{\textbf{Cheatsheet Description}}$   
+     
+In this cheatsheet, we include some commonly used functions of R when dealing with Time Series problems. The first chunck shows three ways to plot a sample time series data. The second chunck describes the definition of Autogression and Moving Average. Then it gives the function to simulate an ARMA process. Then we move on to R functions to deal with filters for time series. In this chunck, we include two kinds of filters which are linear filter and differencing filter. The forth chunk is about auto-correlation and partial auto-correlation of time series. The fifth chunck is about estimating parameters of an ARMA model. Then, the last chunck is about time series forecasting/prediction. Here we also include how to plot the predicted values and the confidence interval.  
+Also, except functions and codes, we include some plots and example outputs for our functions to make this cheatsheet more interpretable.  

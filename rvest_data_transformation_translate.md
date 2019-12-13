@@ -1,0 +1,421 @@
+
+# rvest package 2
+
+Tianyi Wang and Xue Xia
+
+### Description:
+
+Our group do a translation for some useful resource. We translated the package description of 'rvest' and the cheatsheet for data transformation. The 'rvest' package is especially useful in obtaining the information we need from websites quickly. Also, data transformation is an efficient way to do multiple things in single line of code. So we decided to translate these two into Chinese so that more people can benefit from it. 
+
+### Source
+https://rstudio.com/resources/cheatsheets/               
+https://cran.r-project.org/web/packages/rvest/rvest.pdf
+
+### Cheatsheet
+
+<img src="./cheatsheet1.jpg" width="100%" style="display: block; margin: auto;" /><img src="./cheatsheet2.jpg" width="100%" style="display: block; margin: auto;" />
+
+
+#### ‘rvest’爬虫包
+
+
+##### 简介
+通过'xml2' and 'httr' 包对网页进行爬虫，读取网页和节点内容
+
+##### 主页
+http://rvest.tidyverse.org/, https://github.com/tidyverse/rvest 
+
+##### 英文版
+https://cran.r-project.org/web/packages/rvest/rvest.pdf
+
+
+### Encoding（乱码处理）
+
+##### __介绍：__
+可以用此类函数帮助应对网页中的乱码：可以用guess_encoding得到正确的代码，然后用repair_encoding 修复字符型向量。
+
+##### __函数定义：__ 
+guess_encoding(x)            
+repair_encoding(x, from = NULL)
+
+##### __参数列表：__ 
+x     字符形向量       
+from 	字符字符的实际编码格式；如果=NULL，即转用guess_encoding
+
+##### __应用：__
+
+```r
+# # 读入包内乱码的一个文件       
+# path <- system.file("html-ex", "bad-encoding.html", package = "rvest")         
+# x <- read_html(path)         
+# x %>% html_nodes("p") %>% html_text()           
+# guess_encoding(x)          
+# 两条可用的编码格式，其中只有一个是正确的             
+# read_html(path, encoding = "ISO-8859-1") %>% html_nodes("p") %>% html_text()            
+# read_html(path, encoding = "ISO-8859-2") %>% html_nodes("p") %>% html_text()
+```
+
+
+
+### google_form 
+
+##### __介绍：__
+从已知识别码制作通往谷歌表格的链接
+
+##### __函数定义：__ 
+google_form(x)
+
+##### __参数列表：__ 
+x 	表格的唯一识别码
+
+##### __应用：__
+
+```r
+# google_form("1M9B8DsYNFyDjpwSK6ur_bZf8Rv_04ma3rmaaBiveoUI")
+```
+
+
+
+
+### HTML
+
+##### __介绍：__
+用read_html() 读取网页
+
+##### __函数定义：__ 
+html(x, ..., encoding = "")
+
+##### __参数列表：__ 
+x		      可以是url，本地路径，包含html的字符串，或者来自httr的请求          
+… 		    如果x是URL参数就传递给httr::GET()              
+encoding	文档的编码形式，完整列表请查看iconvlist()。如果不能准确确定编码方式，可以尝试stringi::stri_enc_detect()。
+
+##### __应用：__
+
+```r
+# # 从url读取：
+# google <- read_html("http://google.com", encoding = "ISO-8859-1")
+# google %>% xml_structure()
+# google %>% html_nodes("div")
+# # 从字符串读取：
+# # http://www.brucelawson.co.uk/2010/a-minimal-html5-document/
+# minimal <- read_html("<!doctype html>
+# <meta charset=utf-8>
+# <title>blah</title>
+# <p>I'm the content")
+# minimal
+# minimal %>% xml_structure()
+# # 从httr请求读取：
+# google2 <- read_html(httr::GET("http://google.com"))
+```
+
+
+
+
+### html_form （提取表单）
+
+##### __介绍：__
+解析网页中的数据表格
+
+##### __函数定义：__ 
+html_form(x)
+
+##### __参数列表：__ 
+x	 一个节点，节点集合，或者文档
+
+可参考：
+http://www.w3.org/TR/html401/interact/forms.html 
+
+##### __应用：__
+
+```r
+# html_form(read_html("https://hadley.wufoo.com/forms/libraryrequire-quiz/"))
+# html_form(read_html("https://hadley.wufoo.com/forms/r-journal-submission/"))
+# box_office <- read_html("http://www.boxofficemojo.com/movies/?id=ateam.htm")
+# box_office %>% html_node("form") %>% html_form()
+```
+
+
+
+
+### html_nodes （提取网页中指定部分）
+
+##### __介绍：__
+可以用XPath和CSS更简单地集取HTML片段。CSS选择器在与http://selectorgadget.com/关联时尤为有用：他可以使找到正在用的选择器变得尤其简单。如果你以前没有用过CSS，可以在http://flukeout.github.io/找到攻略。 
+
+##### __函数定义：__ 
+html_nodes(x, css, xpath)             
+html_node(x, css, xpath)
+
+##### __参数列表：__ 
+x		        可以是完整的文档，节点列表，或者单一的节点                
+css, xpath 	要收集的节点
+
+##### __html_node 与html_nodes对比：__
+html_node和向量中的[[相似，只输出一个元素。当给了一个节点列表时，html_node将返回一个长度相等的列表；而html_nodes可能返回更长或更短的列表。
+
+##### __应用：__
+
+```r
+# # CSS 选择器----------------------------------------------
+# ateam <- read_html("http://www.boxofficemojo.com/movies/?id=ateam.htm")
+# html_nodes(ateam, "center")
+# html_nodes(ateam, "center font")
+# html_nodes(ateam, "center font b")
+# # 但是html_node与 magrittr 中的%>% 一起用是最好的
+# # 你可以连续细分子集
+# ateam %>% html_nodes("center") %>% html_nodes("td")
+# ateam %>% html_nodes("center") %>% html_nodes("font")
+# td <- ateam %>% html_nodes("center") %>% html_nodes("td")
+# td
+# # 当你输入一个节点列表时，html_nodes() 返回所有节点
+# # 把结果合并成为一个新的节点列表
+# td %>% html_nodes("font")
+# # html_node() 返回第一个符合的节点，如果没有符合的节点就返回"missing"节点
+# if (utils::packageVersion("xml2") > "0.1.2") {
+# td %>% html_node("font")
+# }
+# # 可以用magrittr::extract2选出指定位置的项目，和[[作用相似
+# library(magrittr)
+# ateam %>% html_nodes("table") %>% extract2(1) %>% html_nodes("img")
+# ateam %>% html_nodes("table") %>% '[['(1) %>% html_nodes("img")
+# # 找到在前两个表格中包含的所有图片
+# ateam %>% html_nodes("table") %>% '[['1:2) %>% html_nodes("img")
+# ateam %>% html_nodes("table") %>% extract(1:2) %>% html_nodes("img")
+# # XPath 选择器---------------------------------------------
+# # 用XPath连续选择有一些困难，你需要改变使用的前缀。
+# # 不管你现在在文档的哪里，需要一直从最前段的节点选择
+# ateam %>%
+# html_nodes(xpath = "//center//font//b") %>%
+# html_nodes(xpath = "//b")
+```
+
+
+
+
+### html_session 
+
+##### __介绍：__
+模拟HTML游览器中的对话
+
+##### __函数定义：__ 
+html_session(url, ...)               
+is.session(x)
+
+##### __参数列表：__ 
+url	开始对话的位置              
+… 	整个对话中需要的任何其他配置             
+x	  测试是否是一个对话的项目
+
+##### __方法：__
+一个对话结构可以同时响应httr和html方法的操作：可以用httr::cookies()，httr::headers()和httr::status_code()得到访问请求的属性；以及，可以使用html_nodes访问html。
+
+##### __应用：__
+
+```r
+# # http://stackoverflow.com/questions/15853204
+# s <- html_session("http://hadley.nz")
+# s %>% jump_to("hadley-wickham.jpg") %>% jump_to("/") %>% session_history()
+# s %>% jump_to("hadley-wickham.jpg") %>% back() %>% session_history()
+# s %>% follow_link(css = "p a")
+```
+
+
+
+### html_table （提取网页数据表）
+
+##### __介绍：__
+把网页数据表格解析成R的数据框架。
+
+##### __函数定义：__ 
+html_table(x, header = NA, trim = TRUE, fill = FALSE, dec = ".")
+
+##### __参数列表：__ 
+x	      可以是单个节点，节点集合，或者文档       
+header	如果为TRUE则使用第一行为列名；如果为NA，当有<th>标签时使用第一行为列名         
+trim	  如果为TRUE则过滤单元格前后的空格        
+fill	  如果TRUE则自动填充缺失为NA        
+dec 	  字符转换为10进制
+
+##### __前提条件：__
+html_table 目前的前提条件是：没有单元格占了多行，标题在第一行。
+
+##### __应用：__
+
+```r
+# sample1 <- minimal_html("<table>
+# <tr><th>Col A</th><th>Col B</th></tr>
+# <tr><td>1</td><td>x</td></tr>
+# <tr><td>4</td><td>y</td></tr>
+# <tr><td>10</td><td>z</td></tr>
+# </table>")
+# sample1 %>%
+#   html_node("table") %>%
+#   html_table()
+# # 合并单元格里的数据会被复制
+# sample2 <- minimal_html("<table>
+# <tr><th>A</th><th>B</th><th>C</th></tr>
+# <tr><td>1</td><td>2</td><td>3</td></tr>
+# <tr><td colspan='2'>4</td><td>5</td></tr>
+# <tr><td>6</td><td colspan='2'>7</td></tr>
+# </table>")
+# sample2 %>%
+#   html_node("table") %>%
+#   html_table()
+# # 如果数据表格格式很差且每行的列数不同，用fill = TRUE来填补缺失的数据
+# sample3 <- minimal_html("<table>
+# <tr><th>A</th><th>B</th><th>C</th></tr>
+# <tr><td colspan='2'>1</td><td>2</td></tr>
+# <tr><td colspan='2'>3</td></tr>
+# <tr><td>4</td></tr>
+# </table>")
+# sample3 %>%
+#   html_node("table") %>%
+#   html_table(fill = TRUE)
+```
+
+
+
+
+### html_text 
+
+##### __介绍：__
+提取网页中的属性，文档和标签名称。
+
+##### __函数定义：__ 
+html_text(x, trim = FALSE)      
+html_name(x)       
+html_children(x)       
+html_attrs(x)        
+html_attr(x, name, default = NA_character_)
+
+##### __参数列表：__ 
+x	      可以是文档，节点，或者节点合集      
+trim	  如果是TRUE可以过滤前后的空格       
+name  	需要获取的属性名字         
+default	如果属性不在每个节点都存在，用作设定值的字符
+
+##### __返回数据：__
+html_attr, html_tag 和html_text：字符向量；html_attrs：一个列表。
+
+##### __应用：__
+
+```r
+# movie <- read_html("http://www.imdb.com/title/tt1490017/")
+# cast <- html_nodes(movie, "#titleCast span.itemprop")
+# html_text(cast)
+# html_name(cast)
+# html_attrs(cast)
+# html_attr(cast, "class")
+```
+
+
+
+
+### jump_to （提取相对或绝对链接）
+
+##### __介绍：__
+jump_to() 读取一个（相对或绝对）链接； follow_link读取一个代表当前页面上的指向链接（a 标签）的表达 
+
+##### __函数定义：__ 
+jump_to(x, url, ...)        
+follow_link(x, i, css, xpath, ...)
+
+##### __参数列表：__ 
+x	   一个会话      
+url	 要访问的地址       
+…	   其他需要的httr配置
+
+##### __应用：__
+
+```r
+# s <- html_session("http://hadley.nz")
+# s <- s %>% follow_link("github")
+# s <- s %>% back()
+# s %>% follow_link("readr")
+```
+
+
+
+
+### pluck 
+
+##### __介绍：__
+用位置提取列表中的项目
+
+##### __函数定义：__ 
+pluck(x, i, type)
+
+##### __参数列表：__ 
+x	    一个列表        
+i	    一个字符串或整数          
+type	如果知道的输出类型
+
+
+
+### session_history 
+
+##### __介绍：__
+历史记录导航工具
+
+##### __函数定义：__ 
+session_history(x)    
+back(x)
+
+##### __参数列表：__
+x	一个对话
+
+
+
+### set_values （修改表单）
+
+##### __介绍：__
+设定格单里数据值
+
+##### __函数定义：__ 
+set_values(form, ...)
+
+##### __参数列表：__ 
+form 	要修改的表单          
+...	  针对要修改控件的的名-值对
+
+##### __应用：__
+
+```r
+# search <- html_form(read_html("http://www.google.com"))[[1]]
+# set_values(search, q = "My little pony")
+# set_values(search, hl = "fr")
+# ## 不要运行：set_values(search, btnI = "blah")
+```
+
+
+
+
+### submit_form 
+
+##### __介绍：__
+向服务器提交回表格
+
+##### __函数定义：__ 
+submit_form(session, form, submit = NULL, ...)
+
+##### __参数列表：__ 
+session		要提交表单的会话       
+form 	 	  要提交的表格        
+submit 		上传使用的button名。如果没有设置，默认为form第一个上传的button（会有消息弹出）         
+... 	     httr::GET()和httr::POST()需要的附加参数
+
+##### __返回数据：__
+如果成功则返回解析出的网页回复。如果没有成功会弹出错误提示。如果需要回复中的其他项目，可以用submit_request 返回的项目自己设定。
+
+##### __应用：__
+
+```r
+# test <- google_form("1M9B8DsYNFyDjpwSK6ur_bZf8Rv_04ma3rmaaBiveoUI")
+# f0 <- html_form(test)[[1]]
+# f1 <- set_values(f0, entry.564397473 = "abc")
+```
+
+
+
+
