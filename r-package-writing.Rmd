@@ -1,4 +1,4 @@
-## R Package Writing
+## R package writing (workshop)
 
 Siddhant Shandilya and Mohit Chander Gulla
 

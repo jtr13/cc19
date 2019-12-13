@@ -1,4 +1,4 @@
-# cheatsheet for tidyverse 
+## tidyverse cheatsheet
 
 Huimin Jiang and Yiming Huang
 

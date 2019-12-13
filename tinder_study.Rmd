@@ -1,6 +1,4 @@
-# (PART) Data Analyses {-}
-
-# Self-Reflection & Demographical Discoveries Using Tinder Data
+# Tinder self-reflection
 
 Benjamin Livingston
 

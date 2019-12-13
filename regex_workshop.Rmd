@@ -1,4 +1,4 @@
-## RegEx Workshop Summary
+## Regex (workshop)
 
 Author: Cheng Yan, Chao Huang
 

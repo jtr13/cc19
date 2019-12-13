@@ -1,4 +1,4 @@
-# Date and Time Cheatsheet in R
+## Date and Time Cheatsheet in R
 
 Kanika Aggarwal and Swarna Bharathi Mantena
 
@@ -8,8 +8,6 @@ NOTE: We uploaded the cheatsheet as a pdf file in the github repository.
 Github Link:
 
 https://github.com/SwarnaBharathiMantena/EDAV_CommunityContribution
-
-
 
 References:
 

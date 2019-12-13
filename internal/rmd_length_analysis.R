@@ -1,7 +1,6 @@
 # analysis of contributions
 library(dplyr)
-
-library(tidyverse)
+library(ggplot2)
 
 # find short chapters to make children
 
@@ -21,8 +20,10 @@ df <- data.frame(rmds, len)
 
 
 df %>%
-  filter(len < 25) %>%
-  ggplot(aes(reorder(filename, len), len)) + geom_point() + coord_flip()
+  filter(len < 50) %>%
+  ggplot(aes(reorder(rmds, len), len)) + geom_point() + coord_flip()
+
+# clear gap after 20
 
 shortchapters <- df %>% filter(len <= 20) %>%
   select(rmds)

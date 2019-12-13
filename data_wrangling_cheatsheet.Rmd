@@ -1,4 +1,4 @@
-# Data wrangling with R cheatsheet:
+## Data wrangling with R cheatsheet:
 
 Tabitha K. Sugumar
 

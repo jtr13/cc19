@@ -1,4 +1,4 @@
-## RStudio vs JupyterLab for Data Science
+# RStudio vs JupyterLab (talk)
 
 Dhananjay Deshpande
 
