@@ -1,5 +1,3 @@
-# (PART) Static Graphs {-}
-
 # Ridgeline plots
 
 Hojin Lee and Hyuk Joon Kwon

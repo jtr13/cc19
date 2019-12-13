@@ -1,3 +1,5 @@
+# (PART) Modeling {-}
+
 # Time Series Cheatsheet 
 
 Yunjun Xia and Shuyu Huang

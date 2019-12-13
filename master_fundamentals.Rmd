@@ -1,0 +1,40 @@
+# Working with data links
+
+```{r, child = 'categorical_data_cheatsheet.Rmd'}
+
+```
+
+
+```{r, child = 'data_wrangling_cheatsheet.Rmd'}
+
+```
+
+```{r, child = 'Date_and_Time_Cheatsheet.Rmd'}
+
+```
+
+```{r, child = 'Rvest_Cheatsheet.Rmd',}
+
+```
+
+```{r, child = 'tidyverse_contribution.Rmd'}
+
+```
+
+
+```{r, child = "visualization_python_vs_R.Rmd"}
+
+```
+
+
+```{r, child = "r-package-writing.Rmd"}
+
+```
+
+```{r, child = "regex_workshop.Rmd"}
+
+```
+
+```{r, child = "Github_helpsession.Rmd"}
+
+```

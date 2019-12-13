@@ -1,4 +1,4 @@
-# Rvest Cheatsheet
+## rvest cheatsheet
 
 Huayun Xu and Zelin Li
 

@@ -1,0 +1,12 @@
+# Modeling links
+
+
+```{r, child = "Exploring_Financial_Models.Rmd"}
+
+```
+
+```{r, child = "t_SNE_overview.Rmd"}
+
+```
+
+

@@ -11,16 +11,18 @@ rmd_files: [
   'index.Rmd', # do not move
   'sample_project.Rmd',
 
-  # Part II: R Fundamentals
+  # Part II: Working with data
   'basic_r_tutorial.Rmd', # do not move
   'data_structure_and_data_cleaning_tutorial.Rmd',
   'dataframe_cheatsheet.Rmd',
   'Dplyr_Relational_Databases.Rmd',
   'rvest_tutorial.Rmd',
-  'rmarkdown_tutorial.Rmd',
+  'master_fundamentals.Rmd',
 
   # Part III: Static Graphs
-  'ridgeline_plot.Rmd', # do not move
+  'edav_flowchart.Rmd',  # do not move
+  'data_ink.Rmd',
+  'ridgeline_plot.Rmd',
   'gantt_chart.Rmd',
   'plotrix.Rmd',
   'Stacked_Bar_Charts_and_Treemaps.Rmd',
@@ -38,12 +40,17 @@ rmd_files: [
   'ggmosaic_cheatsheet.Rmd',
   'Comparative_Study_of_Mosaic.Rmd',
   'latex_visualization.Rmd',
+  'wordcloud2_cheatsheet.Rmd',
+  'wordcloud_tutorial.Rmd',
+  'sentiment_with_wordcloud.Rmd',
+  'Data_Visualization_Workshop.Rmd',
 
   # Part IV: Interactive Graphs
   'a_tutorial_of_shiny.Rmd', # do not move
+  'Notes_html_js_d3.Rmd',
   'Stocks_analysis_with_plotly.Rmd',
   'GoogleVis_tutorial.Rmd',
-  'opencpu_tutorial.Rmd',
+  'master_interactive.Rmd',
 
   # Part V: Spatial Analysis
   'maps.Rmd', # do not move
@@ -52,25 +59,27 @@ rmd_files: [
   'us_map.Rmd',
   'Stamen_Maps_for_Spatial_Data.Rmd',
   'world_heatmap.Rmd',
+  'master_spatial.Rmd',
 
+  # Part VI: Modeling
+  'time_series_cheatsheet.Rmd',  # PART
+  'Multivariable_Regression_Tutorial.Rmd',
+  #  'keras_tutorial.Rmd',
+  'time_series_arima.Rmd',
+  'master_modeling.Rmd',
 
-  # Part VI: Data analysis
-  'tinder_study.Rmd', # do not move
+  # Part VII Communicating results
+  'rmarkdown_tutorial.Rmd',
+  'python_r_markdown.Rmd',
+  'rstudio_vs_jupyterlab.Rmd',
+  'bookdown.Rmd',
+
+  # Part VI: Case studies
+  'first_step_of_data_analysis.Rmd', # do not move
+  'tinder_study.Rmd',
   'ice_cream_survey.Rmd',
   'askamanager_salary_survey.Rmd',
   'senate.Rmd',
-
-  # Part VII: Cheatsheets
-  'edav_flowchart.Rmd', # do not move
-  'Date_and_Time_Cheatsheet.Rmd',
-  'time_series_cheatsheet.Rmd',
-  'bokeh_cheatsheet.Rmd',
-  'wordcloud2_cheatsheet.Rmd',
-  'data_wrangling_cheatsheet.Rmd',
-  'Rvest_Cheatsheet.Rmd',
-  'categorical_data_cheatsheet.Rmd',
-  'tidyverse_contribution.Rmd',
-  'master_cheat_sheet.Rmd',
 
    # Part XIII: Translation
   'Stringr_introduction_chinese_version.Rmd', # do not move
@@ -90,21 +99,10 @@ rmd_files: [
   'edav_info_heatmap_korean.Rmd',
   'nullabor_translation_Korean.Rmd',
 
-  # Part XI: Other
-  'master_video.Rmd',  # do not move
-  'master_workshop.Rmd',
-  'master_lightning.Rmd',
-  'list_of_contribution.Rmd',
-  'wordcloud_tutorial.Rmd',
-  'sentiment_with_wordcloud.Rmd',
-  'python_r_markdown.Rmd',
-  'first_step_of_data_analysis.Rmd',
-  'data_ink.Rmd',
-  'time_series_arima.Rmd',
-  'hex_sticker.Rmd',
+  # Part: EDAV specific
+  'hex_sticker.Rmd', # do not move
   'midsemester_review.Rmd',
-  'keras_tutorial.Rmd',
-  'Multivariable_Regression_Tutorial.Rmd'
+  'list_of_contribution.Rmd'
 ]
 
 before_chapter_script: "_common.R"

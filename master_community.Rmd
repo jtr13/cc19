@@ -1,0 +1,21 @@
+# Community service
+
+Some groups of students have contributed to the community by running the following workshops by holding workshops for the outside community.
+
+
+```{r, child = "Tweepy.Rmd"}
+
+```
+
+
+```{r, child = "volunteering_through_TEALS.Rmd"}
+
+```
+
+
+
+```{r, child =  "NLP_Basics_with_Python.Rmd"}
+
+```
+
+

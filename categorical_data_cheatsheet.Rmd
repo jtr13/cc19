@@ -1,4 +1,4 @@
-# Categorical data cheatsheet
+## Categorical data cheatsheet
 
 Zhi Qi
 
