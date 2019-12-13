@@ -64,7 +64,7 @@ rmd_files: [
   # Part VI: Modeling
   'time_series_cheatsheet.Rmd',  # PART
   'Multivariable_Regression_Tutorial.Rmd',
-  #  'keras_tutorial.Rmd',
+  'keras_tutorial.Rmd',
   'time_series_arima.Rmd',
   'master_modeling.Rmd',
 
@@ -74,14 +74,14 @@ rmd_files: [
   'rstudio_vs_jupyterlab.Rmd',
   'bookdown.Rmd',
 
-  # Part VI: Case studies
+  # Part VIII: Case studies
   'first_step_of_data_analysis.Rmd', # do not move
   'tinder_study.Rmd',
   'ice_cream_survey.Rmd',
   'askamanager_salary_survey.Rmd',
   'senate.Rmd',
 
-   # Part XIII: Translation
+   # Part IX: Translation
   'Stringr_introduction_chinese_version.Rmd', # do not move
   'likert_package_translate.Rmd',
   'rvest_translation.Rmd',
@@ -92,14 +92,14 @@ rmd_files: [
   'ggmosaic_cheatsheet_translation.Rmd',
   'master_chinese.Rmd',
 
-  # Part: IX French translation
+  # Part: X French translation
   'French_version_of_edav_info.Rmd',  # do not move
 
-  # Part: X Korean translations
+  # Part: XI Korean translations
   'edav_info_heatmap_korean.Rmd',
   'nullabor_translation_Korean.Rmd',
 
-  # Part: EDAV specific
+  # Part XII: EDAV specific
   'hex_sticker.Rmd', # do not move
   'midsemester_review.Rmd',
   'list_of_contribution.Rmd'
